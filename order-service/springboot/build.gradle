@@ -49,3 +49,11 @@ dependencies {
 tasks.named('test') {
 	useJUnitPlatform()
 }
+
+// Single source of truth: copia as migrations canônicas de database/migrations/
+processResources {
+	from("${rootDir}/../../database/migrations") {
+		into 'db/migration'
+		include '**/*.sql'
+	}
+}

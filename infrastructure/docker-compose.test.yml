@@ -1,0 +1,31 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_DB: orderdb
+      POSTGRES_USER: orderuser
+      POSTGRES_PASSWORD: orderpass
+    ports:
+      - "55433:5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U orderuser -d orderdb"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  order-service-quarkus-native:
+    image: order-service-quarkus:native
+    build:
+      context: ../order-service/quarkus
+      dockerfile: Dockerfile.native
+    environment:
+      SERVER_PORT: 8081
+      QUARKUS_DATASOURCE_USERNAME: orderuser
+      QUARKUS_DATASOURCE_PASSWORD: orderpass
+      QUARKUS_DATASOURCE_REACTIVE_URL: postgresql://postgres:5432/orderdb
+      QUARKUS_DATASOURCE_JDBC_URL: jdbc:postgresql://postgres:5432/orderdb
+    ports:
+      - "8081:8081"
+    depends_on:
+      postgres:
+        condition: service_healthy

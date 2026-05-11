@@ -1,0 +1,61 @@
+# =====================================================================
+# Order Service (Spring Boot + WebFlux + R2DBC)
+#
+# - Runtime: reativo via R2DBC (não-bloqueante).
+# - Flyway: usa JDBC (bloqueante) APENAS no startup para aplicar migrations.
+#   O driver JDBC não é usado em runtime pelas requisições.
+# =====================================================================
+
+spring:
+  application:
+    name: order-service-springboot
+
+  # --- R2DBC (runtime reativo) -----------------------------------------
+  r2dbc:
+    url: ${SPRING_R2DBC_URL:r2dbc:postgresql://localhost:55432/orderdb}
+    username: ${SPRING_R2DBC_USERNAME:orderuser}
+    password: ${SPRING_R2DBC_PASSWORD:orderpass}
+    pool:
+      enabled: true
+      initial-size: 5
+      max-size: 20
+      max-idle-time: 30m
+      validation-query: SELECT 1
+
+  # --- Flyway (somente startup, via JDBC) ------------------------------
+  flyway:
+    enabled: true
+    url: ${SPRING_FLYWAY_URL:jdbc:postgresql://localhost:55432/orderdb}
+    user: ${SPRING_FLYWAY_USER:orderuser}
+    password: ${SPRING_FLYWAY_PASSWORD:orderpass}
+    locations: classpath:db/migration
+    baseline-on-migrate: true
+    validate-on-migrate: true
+
+# --- Servidor ----------------------------------------------------------
+server:
+  port: ${SERVER_PORT:8081}
+
+# --- Actuator (health/metrics para Fargate + Prometheus) ---------------
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics,prometheus
+  endpoint:
+    health:
+      show-details: when-authorized
+      probes:
+        enabled: true
+  health:
+    livenessstate:
+      enabled: true
+    readinessstate:
+      enabled: true
+
+# --- Logging -----------------------------------------------------------
+logging:
+  level:
+    root: INFO
+    com.tcc.orderservice: INFO
+    org.flywaydb: INFO

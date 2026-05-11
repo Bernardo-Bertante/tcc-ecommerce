@@ -1,1 +1,26 @@
 /.github/skills/
+.env
+
+# Gradle/Java build artifacts
+**/.gradle/
+**/build/
+**/out/
+**/target/
+
+# Local runtime files
+*.log
+*.tmp
+
+# Python local environment/cache
+.venv/
+**/__pycache__/
+.pytest_cache/
+.mypy_cache/
+
+# Node local dependencies
+**/node_modules/
+
+# IDE/OS noise
+.idea/
+*.iml
+.DS_Store
