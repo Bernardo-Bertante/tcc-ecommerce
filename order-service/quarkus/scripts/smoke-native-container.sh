@@ -5,6 +5,32 @@ base_url="${ORDER_SERVICE_URL:-http://localhost:8081}"
 work_dir="$(mktemp -d)"
 trap 'rm -rf "$work_dir"' EXIT
 
+wait_for_health() {
+  local output_file="$1"
+  local attempts=60
+  local delay_seconds=2
+  local temp_file="$work_dir/health-attempt.json"
+  local last_error=""
+
+  for ((attempt = 1; attempt <= attempts; attempt++)); do
+    if curl --fail --silent --show-error "$base_url/q/health" > "$temp_file"; then
+      if [[ "$(json_get "$temp_file" "status")" == "UP" ]]; then
+        mv "$temp_file" "$output_file"
+        return 0
+      fi
+
+      last_error="Health endpoint responded without status UP on attempt $attempt"
+    else
+      last_error="curl failed while waiting for health on attempt $attempt"
+    fi
+
+    sleep "$delay_seconds"
+  done
+
+  echo "$last_error" >&2
+  return 1
+}
+
 json_get() {
   python3 - "$1" "$2" <<'PY'
 import json
@@ -54,9 +80,7 @@ PY
 }
 
 health_file="$work_dir/health.json"
-curl --fail --silent --show-error \
-  --retry 60 --retry-connrefused --retry-delay 2 \
-  "$base_url/q/health" > "$health_file"
+wait_for_health "$health_file"
 assert_json_equals "$health_file" "status" "UP"
 
 customer_id="$(python3 - <<'PY'
