@@ -31,9 +31,11 @@ import com.tcc.orderservice.exception.InvalidStatusTransitionException;
 import com.tcc.orderservice.exception.OrderNotFoundException;
 import com.tcc.orderservice.exception.OrderValidationException;
 import com.tcc.orderservice.repository.OrderItemRepository;
+import com.tcc.orderservice.repository.OrderReadRepository;
 import com.tcc.orderservice.repository.OrderRepository;
 import com.tcc.orderservice.repository.OrderStatusHistoryRepository;
 import com.tcc.orderservice.repository.OrderSummaryRepository;
+import com.tcc.orderservice.repository.OrderWriteRepository;
 
 import io.quarkus.hibernate.reactive.panache.common.WithSession;
 import io.quarkus.hibernate.reactive.panache.common.WithTransaction;
@@ -47,21 +49,26 @@ public class OrderService {
     private static final int TOP_CUSTOMERS_LIMIT = 10;
 
     private final OrderRepository orderRepository;
+    private final OrderReadRepository orderReadRepository;
+    private final OrderWriteRepository orderWriteRepository;
     private final OrderItemRepository orderItemRepository;
     private final OrderStatusHistoryRepository orderStatusHistoryRepository;
     private final OrderSummaryRepository orderSummaryRepository;
 
     public OrderService(OrderRepository orderRepository,
+            OrderReadRepository orderReadRepository,
+            OrderWriteRepository orderWriteRepository,
             OrderItemRepository orderItemRepository,
             OrderStatusHistoryRepository orderStatusHistoryRepository,
             OrderSummaryRepository orderSummaryRepository) {
         this.orderRepository = orderRepository;
+        this.orderReadRepository = orderReadRepository;
+        this.orderWriteRepository = orderWriteRepository;
         this.orderItemRepository = orderItemRepository;
         this.orderStatusHistoryRepository = orderStatusHistoryRepository;
         this.orderSummaryRepository = orderSummaryRepository;
     }
 
-    @WithTransaction
     public Uni<OrderResponse> createOrder(CreateOrderRequest request) {
         validateCreateOrderRequest(request);
 
@@ -75,15 +82,13 @@ public class OrderService {
                 OrderStatus.PENDING,
                 now);
 
-        return orderRepository.persist(order)
-                .chain(() -> persistOrderItems(orderItems))
-                .chain(() -> orderStatusHistoryRepository.persist(initialHistory))
+        return orderWriteRepository
+                .createOrderWithItemsAndHistory(order, orderItems, initialHistory)
                 .replaceWith(toOrderResponse(order, orderItems));
     }
 
-    @WithSession
     public Uni<OrderResponse> getOrderById(UUID orderId) {
-        return requireOrder(orderId)
+        return requireOrderRead(orderId)
                 .chain(this::loadItemsAndMapOrder);
     }
 
@@ -96,7 +101,6 @@ public class OrderService {
                         .toList());
     }
 
-    @WithSession
     public Uni<PageResponse<OrderResponse>> getOrdersByCustomerId(UUID customerId, int page, int pageSize) {
         if (customerId == null) {
             throw new OrderValidationException("customerId is required");
@@ -105,15 +109,14 @@ public class OrderService {
         validatePageParams(page, pageSize);
         long offset = calculateOffset(page, pageSize);
 
-        Uni<Long> totalElementsUni = orderRepository.countByCustomerId(customerId)
+        Uni<Long> totalElementsUni = orderReadRepository.countByCustomerId(customerId)
                 .onItem().ifNull().continueWith(0L);
-        Uni<List<Order>> ordersUni = orderRepository.findByCustomerIdPaged(customerId, pageSize, offset);
+        Uni<List<Order>> ordersUni = orderReadRepository.findByCustomerIdPaged(customerId, pageSize, offset);
 
         return Uni.combine().all().unis(totalElementsUni, ordersUni).asTuple()
                 .chain(tuple -> toPagedOrderResponse(tuple.getItem2(), tuple.getItem1(), page, pageSize));
     }
 
-    @WithSession
     public Uni<PageResponse<OrderResponse>> getAllOrders(OrderStatus status,
             LocalDate fromDate,
             LocalDate toDate,
@@ -123,22 +126,25 @@ public class OrderService {
         validateOptionalDateRange(fromDate, toDate);
         long offset = calculateOffset(page, pageSize);
 
-        Uni<Long> totalElementsUni = orderRepository.countFilteredOrders(status, fromDate, toDate)
+        Uni<Long> totalElementsUni = orderReadRepository.countFilteredOrders(status, fromDate, toDate)
                 .onItem().ifNull().continueWith(0L);
-        Uni<List<Order>> ordersUni = orderRepository.findFilteredOrders(status, fromDate, toDate, pageSize, offset);
+        Uni<List<Order>> ordersUni = orderReadRepository.findFilteredOrders(status, fromDate, toDate, pageSize, offset);
 
         return Uni.combine().all().unis(totalElementsUni, ordersUni).asTuple()
                 .chain(tuple -> toPagedOrderResponse(tuple.getItem2(), tuple.getItem1(), page, pageSize));
     }
 
-    @WithTransaction
     public Uni<OrderResponse> updateOrderStatus(UUID orderId, UpdateStatusRequest request) {
         if (request == null || request.getStatus() == null) {
             throw new OrderValidationException("status is required");
         }
 
-        return requireOrder(orderId)
-                .chain(order -> transitionOrderStatus(order, request.getStatus()))
+        return requireOrderRead(orderId)
+                .chain(order -> {
+                    OrderStatusHistory history = prepareStatusTransition(order, request.getStatus());
+                    return orderWriteRepository.updateOrderStatusWithHistory(order, history)
+                            .replaceWith(order);
+                })
                 .chain(this::loadItemsAndMapOrder);
     }
 
@@ -197,7 +203,6 @@ public class OrderService {
                 .replaceWithVoid();
     }
 
-    @WithSession
     public Uni<OrderSummaryResponse> getSummary(LocalDate fromDate, LocalDate toDate) {
         validateSummaryDateRange(fromDate, toDate);
 
@@ -254,8 +259,17 @@ public class OrderService {
                 .onItem().ifNull().failWith(() -> new OrderNotFoundException(orderId));
     }
 
+    private Uni<Order> requireOrderRead(UUID orderId) {
+        if (orderId == null) {
+            throw new OrderValidationException("orderId is required");
+        }
+
+        return orderReadRepository.findById(orderId)
+                .onItem().ifNull().failWith(() -> new OrderNotFoundException(orderId));
+    }
+
     private Uni<OrderResponse> loadItemsAndMapOrder(Order order) {
-        return orderItemRepository.findByOrderId(order.getId())
+        return orderReadRepository.findItemsByOrderId(order.getId())
                 .map(orderItems -> toOrderResponse(order, orderItems));
     }
 
@@ -274,7 +288,7 @@ public class OrderService {
                 });
     }
 
-    private Uni<Order> transitionOrderStatus(Order order, OrderStatus nextStatus) {
+    private OrderStatusHistory prepareStatusTransition(Order order, OrderStatus nextStatus) {
         OrderStatus currentStatus = order.getStatus();
         if (currentStatus == null) {
             throw new OrderValidationException("Current order status is missing");
@@ -292,25 +306,20 @@ public class OrderService {
         order.setStatus(nextStatus);
         order.setUpdatedAt(changedAt);
 
-        OrderStatusHistory history = OrderStatusHistory.transition(
+        return OrderStatusHistory.transition(
                 UUID.randomUUID(),
                 order.getId(),
                 currentStatus,
                 nextStatus,
                 changedAt);
+    }
+
+    private Uni<Order> transitionOrderStatus(Order order, OrderStatus nextStatus) {
+        OrderStatusHistory history = prepareStatusTransition(order, nextStatus);
 
         return orderStatusHistoryRepository.persist(history)
                 .chain(orderStatusHistoryRepository::flush)
                 .replaceWith(order);
-    }
-
-    private Uni<Void> persistOrderItems(List<OrderItem> orderItems) {
-        Uni<Void> current = Uni.createFrom().voidItem();
-        for (OrderItem orderItem : orderItems) {
-            current = current.chain(() -> orderItemRepository.persist(orderItem).replaceWithVoid());
-        }
-
-        return current.chain(orderItemRepository::flush);
     }
 
     private PageResponse<OrderResponse> emptyPage(long totalElements, int page, int pageSize) {
@@ -334,7 +343,7 @@ public class OrderService {
                 .map(Order::getId)
                 .collect(Collectors.toSet());
 
-        return orderItemRepository.findByOrderIdIn(orderIds)
+        return orderReadRepository.findItemsByOrderIdIn(orderIds)
                 .map(items -> {
                     Map<UUID, List<OrderItem>> itemsByOrderId = items.stream()
                             .collect(Collectors.groupingBy(OrderItem::getOrderId));

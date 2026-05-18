@@ -1,0 +1,6 @@
+results/*.json
+results/*.log
+results/*.csv
+results/*.stats
+results/*.tmp
+!results/.gitkeep

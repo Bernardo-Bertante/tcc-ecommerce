@@ -1,0 +1,90 @@
+name: tcc-order-service-benchmark
+
+services:
+  postgres:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_DB: orderdb
+      POSTGRES_USER: orderuser
+      POSTGRES_PASSWORD: orderpass
+    ports:
+      - "55434:5432"
+    volumes:
+      - benchmark_postgres_data:/var/lib/postgresql/data
+    mem_limit: 1g
+    memswap_limit: 1g
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U orderuser -d orderdb"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  order-service-quarkus-native:
+    image: order-service-quarkus:native
+    build:
+      context: ../order-service/quarkus
+      dockerfile: Dockerfile.native
+    environment:
+      SERVER_PORT: 8081
+      QUARKUS_DATASOURCE_USERNAME: orderuser
+      QUARKUS_DATASOURCE_PASSWORD: orderpass
+      QUARKUS_DATASOURCE_REACTIVE_URL: postgresql://postgres:5432/orderdb
+      QUARKUS_DATASOURCE_JDBC_URL: jdbc:postgresql://postgres:5432/orderdb
+    mem_limit: 1g
+    memswap_limit: 1g
+    ports:
+      - "8081:8081"
+    depends_on:
+      postgres:
+        condition: service_healthy
+
+  order-service-quarkus-jvm:
+    image: order-service-quarkus:jvm
+    build:
+      context: ../order-service/quarkus
+      dockerfile: Dockerfile.jvm
+    environment:
+      SERVER_PORT: 8081
+      QUARKUS_DATASOURCE_USERNAME: orderuser
+      QUARKUS_DATASOURCE_PASSWORD: orderpass
+      QUARKUS_DATASOURCE_REACTIVE_URL: postgresql://postgres:5432/orderdb
+      QUARKUS_DATASOURCE_JDBC_URL: jdbc:postgresql://postgres:5432/orderdb
+      # Cap heap so the JVM does not size itself off the full Docker VM.
+      # The Dockerfile already sets -Dquarkus.http.host; we re-declare it here
+      # because JAVA_OPTS_APPEND replaces the image-level value.
+      JAVA_OPTS_APPEND: "-Dquarkus.http.host=0.0.0.0 -Xms512m -Xmx1536m -XX:MaxMetaspaceSize=256m"
+    mem_limit: 2g
+    memswap_limit: 2g
+    ports:
+      - "8082:8081"
+    depends_on:
+      postgres:
+        condition: service_healthy
+
+  order-service-springboot:
+    image: order-service-springboot:jvm
+    build:
+      context: ../order-service/springboot
+      dockerfile: Dockerfile
+    environment:
+      SERVER_PORT: 8081
+      SPRING_R2DBC_URL: r2dbc:postgresql://postgres:5432/orderdb
+      SPRING_R2DBC_USERNAME: orderuser
+      SPRING_R2DBC_PASSWORD: orderpass
+      SPRING_FLYWAY_URL: jdbc:postgresql://postgres:5432/orderdb
+      SPRING_FLYWAY_USER: orderuser
+      SPRING_FLYWAY_PASSWORD: orderpass
+      # Cap heap so Spring Boot does not grow to multi-GB under sustained F2
+      # load and push the Docker Desktop VM into OOM.
+      JAVA_OPTS_APPEND: "-Xms512m -Xmx2g -XX:MaxMetaspaceSize=256m"
+    mem_limit: 2560m
+    memswap_limit: 2560m
+    ports:
+      - "8083:8081"
+    depends_on:
+      postgres:
+        condition: service_healthy
+
+volumes:
+  benchmark_postgres_data:
+    name: tcc-benchmark-postgres-data

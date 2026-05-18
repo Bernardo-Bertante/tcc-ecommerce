@@ -11,6 +11,8 @@ import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.UUID;
+import java.util.concurrent.CompletableFuture;
+import java.util.stream.IntStream;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -250,6 +252,47 @@ abstract class OrderResourceScenarios {
                 .body("ordersByStatus.PENDING", org.hamcrest.Matchers.equalTo(3))
                 .body("topCustomers.size()", org.hamcrest.Matchers.equalTo(2))
                 .body("revenueByDay.size()", org.hamcrest.Matchers.equalTo(1));
+    }
+
+    @Test
+    void shouldHandleConcurrentPagedReads() {
+        UUID customerId = UUID.randomUUID();
+        for (int index = 0; index < 6; index++) {
+            createOrder(createOrderRequest(
+                    customerId,
+                    BigDecimal.ZERO,
+                    new AddItemRequest(UUID.randomUUID(), "Item " + index, 1, new BigDecimal("10.00"))));
+        }
+
+        LocalDate fromDate = LocalDate.now().minusDays(1);
+        LocalDate toDate = LocalDate.now().plusDays(1);
+
+        List<CompletableFuture<Void>> requests = IntStream.range(0, 16)
+                .mapToObj(index -> CompletableFuture.runAsync(() -> {
+                    given()
+                            .queryParam("page", 0)
+                            .queryParam("pageSize", 3)
+                            .get("/orders/customer/{customerId}", customerId)
+                            .then()
+                            .statusCode(200)
+                            .body("content.size()", org.hamcrest.Matchers.equalTo(3))
+                            .body("totalElements", org.hamcrest.Matchers.equalTo(6));
+
+                    given()
+                            .queryParam("status", OrderStatus.PENDING)
+                            .queryParam("fromDate", fromDate.toString())
+                            .queryParam("toDate", toDate.toString())
+                            .queryParam("page", 0)
+                            .queryParam("pageSize", 3)
+                            .get("/orders")
+                            .then()
+                            .statusCode(200)
+                            .body("content.size()", org.hamcrest.Matchers.equalTo(3))
+                            .body("totalElements", org.hamcrest.Matchers.equalTo(6));
+                }))
+                .toList();
+
+        requests.forEach(CompletableFuture::join);
     }
 
     private OrderResponse createOrder(CreateOrderRequest request) {

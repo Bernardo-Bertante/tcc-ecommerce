@@ -16,7 +16,7 @@ import com.tcc.orderservice.domain.OrderStatus;
 import com.tcc.orderservice.dto.response.OrderSummaryResponse;
 
 import io.smallrye.mutiny.Uni;
-import io.vertx.mutiny.pgclient.PgPool;
+import io.vertx.mutiny.sqlclient.Pool;
 import io.vertx.mutiny.sqlclient.Row;
 import io.vertx.mutiny.sqlclient.RowSet;
 import io.vertx.mutiny.sqlclient.Tuple;
@@ -24,9 +24,9 @@ import io.vertx.mutiny.sqlclient.Tuple;
 @ApplicationScoped
 public class OrderSummaryRepository {
 
-    private final PgPool pgPool;
+    private final Pool pgPool;
 
-    public OrderSummaryRepository(PgPool pgPool) {
+    public OrderSummaryRepository(Pool pgPool) {
         this.pgPool = pgPool;
     }
 
