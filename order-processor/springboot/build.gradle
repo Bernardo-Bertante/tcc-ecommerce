@@ -1,0 +1,102 @@
+plugins {
+	id 'java'
+	id 'org.springframework.boot' version '3.5.14'
+	id 'io.spring.dependency-management' version '1.1.7'
+}
+
+group = 'com.tcc'
+version = '0.0.1-SNAPSHOT'
+
+java {
+	toolchain {
+		languageVersion = JavaLanguageVersion.of(21)
+	}
+}
+
+repositories {
+	mavenCentral()
+}
+
+ext {
+	springCloudFunctionVersion = '4.1.3'
+	awsSdkVersion = '2.25.70'
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter'
+	implementation "org.springframework.cloud:spring-cloud-function-context:${springCloudFunctionVersion}"
+	implementation "org.springframework.cloud:spring-cloud-function-adapter-aws:${springCloudFunctionVersion}"
+
+	implementation 'com.amazonaws:aws-lambda-java-core:1.2.3'
+	implementation 'com.amazonaws:aws-lambda-java-events:3.11.4'
+
+	implementation platform("software.amazon.awssdk:bom:${awsSdkVersion}")
+	implementation 'software.amazon.awssdk:dynamodb'
+
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	testImplementation 'org.testcontainers:junit-jupiter:1.21.4'
+	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}
+
+sourceSets {
+	integrationTest {
+		java.srcDir file('src/integrationTest/java')
+		resources.srcDir file('src/integrationTest/resources')
+		compileClasspath += sourceSets.main.output + sourceSets.test.output + configurations.testRuntimeClasspath
+		runtimeClasspath += output + compileClasspath
+	}
+}
+
+configurations {
+	integrationTestImplementation.extendsFrom testImplementation
+	integrationTestRuntimeOnly.extendsFrom testRuntimeOnly
+}
+
+tasks.register('integrationTest', Test) {
+	group = 'verification'
+	description = 'Runs Spring Boot integration tests against DynamoDB Local with Testcontainers.'
+	dependsOn tasks.named('testClasses')
+	testClassesDirs = sourceSets.integrationTest.output.classesDirs
+	classpath = sourceSets.integrationTest.runtimeClasspath
+	useJUnitPlatform()
+	shouldRunAfter tasks.named('test')
+}
+
+tasks.withType(JavaCompile).configureEach {
+	options.encoding = 'UTF-8'
+	options.compilerArgs << '-parameters'
+}
+
+tasks.named('bootJar') {
+	enabled = false
+}
+
+tasks.named('jar') {
+	enabled = true
+	archiveClassifier = ''
+	manifest {
+		attributes(
+			'Main-Class': 'org.springframework.cloud.function.adapter.aws.FunctionInvoker',
+			'Start-Class': 'com.tcc.orderprocessor.OrderProcessorApplication'
+		)
+	}
+}
+
+tasks.register('lambdaZip', Zip) {
+	group = 'build'
+	description = 'Builds the AWS Lambda deployment package with a thin application JAR and runtime dependencies.'
+	dependsOn tasks.named('jar')
+	archiveClassifier = 'lambda'
+	into('lib') {
+		from(tasks.named('jar'))
+		from(configurations.runtimeClasspath)
+	}
+}
+
+tasks.named('build') {
+	dependsOn tasks.named('lambdaZip')
+}

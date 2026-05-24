@@ -1,8 +1,8 @@
-# Order Service k6 Benchmarks
+# k6 Benchmarks
 
-These scripts run the same workload against any Order Service variant by changing `BASE_URL`.
+These scripts run short local smoke checks and longer benchmark scenarios for the Order Service and Order Processor variants.
 
-## Local Targets
+## Order Service Local Targets
 
 The current local Compose stack exposes:
 
@@ -13,6 +13,18 @@ The current local Compose stack exposes:
 | Spring Boot JVM | `http://localhost:8083` |
 
 The scripts use the API query parameters implemented by the services today: `pageSize`, `fromDate`, and `toDate`.
+
+## Order Processor Local Targets
+
+The local Lambda/RIE Compose stack exposes:
+
+| Version | BASE_URL |
+| --- | --- |
+| Spring Boot JVM | `http://localhost:9001` |
+| Quarkus JVM | `http://localhost:9002` |
+| Quarkus Native | `http://localhost:9003` |
+
+The Lambda scenarios post to `/2015-03-31/functions/function/invocations` automatically for localhost targets. AWS Function URLs are invoked directly at their URL root.
 
 ## Prerequisites
 
@@ -25,12 +37,26 @@ docker compose -f infrastructure/docker-compose.benchmark.yml up --build -d
 
 ## Smoke Runs
 
-Smoke mode keeps duration, rates, and seed sizes small:
+Smoke mode keeps duration, rates, and seed sizes small. For Order Service:
 
 ```bash
 SMOKE=true k6 run -e BASE_URL=http://localhost:8081 benchmark/scenarios/f1_low_load.js
 SMOKE=true k6 run -e BASE_URL=http://localhost:8082 benchmark/scenarios/f2s_summary_only.js
-SMOKE=true k6 run -e BASE_URL=http://localhost:8083 benchmark/scenarios/l3_concurrency_burst.js
+SMOKE=true REPETITIONS=1 VERSION_REST_SECONDS=0 FARGATE_SCENARIOS="f1_low_load f2s_summary_only" benchmark/run/run-fargate.sh
+```
+
+For Order Processor, start the local Lambda/DynamoDB stack and run L2/L3 smoke:
+
+```bash
+docker compose -f infrastructure/docker-compose.processor.yml --profile quarkus --profile quarkus-native up --build -d
+
+SMOKE=true REPETITIONS=1 REST_SECONDS=0 LAMBDA_SCENARIOS="l2_warm_burst l3_concurrency_burst" benchmark/run/run-lambda.sh
+```
+
+L1 can be executed locally only as a dry run, because local RIE does not force a real AWS Lambda cold start:
+
+```bash
+SMOKE=true ALLOW_UNRESET_L1=true LAMBDA_SCENARIOS="l1_sparse_coldstart" benchmark/run/run-lambda.sh
 ```
 
 ## Fargate/Local Runner
@@ -68,13 +94,21 @@ Generated files include:
 
 ## Lambda Runner
 
-The Lambda runner executes L1, L2, and L3 against configurable HTTP endpoints:
+The Lambda runner executes L1, L2, and L3 against configurable HTTP endpoints. Without `LAMBDA_VERSIONS`, it uses the local Processor ports `9001`, `9002`, and `9003`:
+
+```bash
+SMOKE=true LAMBDA_SCENARIOS="l2_warm_burst l3_concurrency_burst" benchmark/run/run-lambda.sh
+```
+
+For AWS Function URLs, pass the same invocation method for all versions:
 
 ```bash
 LAMBDA_VERSIONS="springboot|https://example.lambda-url" RESET_URL=https://example.reset-url benchmark/run/run-lambda.sh
 ```
 
 L1 requires `RESET_URL` so each measured invocation can force a cold start. For local dry runs only, set `ALLOW_UNRESET_L1=true`.
+
+Lambda runner outputs are written to `benchmark/results/<RUN_ID>/` with one raw JSON stream, one summary file, and one `run.log` per run.
 
 ## Single Scenario Output
 

@@ -1,0 +1,288 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: Minimal AWS infrastructure for the Order Processor Lambda benchmark.
+
+Parameters:
+  FunctionUrlAuthType:
+    Type: String
+    Default: NONE
+    AllowedValues:
+      - NONE
+      - AWS_IAM
+    Description: Keep the same auth type across all three Function URLs for a fair benchmark.
+  LambdaArchitecture:
+    Type: String
+    Default: x86_64
+    AllowedValues:
+      - x86_64
+      - arm64
+  LambdaMemorySize:
+    Type: Number
+    Default: 1024
+    MinValue: 128
+    MaxValue: 10240
+  LambdaTimeoutSeconds:
+    Type: Number
+    Default: 30
+    MinValue: 1
+    MaxValue: 900
+  LogRetentionInDays:
+    Type: Number
+    Default: 14
+    AllowedValues:
+      - 1
+      - 3
+      - 5
+      - 7
+      - 14
+      - 30
+      - 60
+      - 90
+      - 120
+      - 150
+      - 180
+      - 365
+      - 400
+      - 545
+      - 731
+      - 1096
+      - 1827
+      - 2192
+      - 2557
+      - 2922
+      - 3288
+      - 3653
+  ProcessedOrdersTableName:
+    Type: String
+    Default: processed_orders
+  StockReservationsTableName:
+    Type: String
+    Default: stock_reservations
+  SpringBootFunctionName:
+    Type: String
+    Default: order-processor-springboot
+  QuarkusJvmFunctionName:
+    Type: String
+    Default: order-processor-quarkus-jvm
+  QuarkusNativeFunctionName:
+    Type: String
+    Default: order-processor-quarkus-native
+
+Conditions:
+  UsePublicFunctionUrl:
+    Fn::Equals:
+      - !Ref FunctionUrlAuthType
+      - NONE
+
+Resources:
+  ProcessedOrdersTable:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      TableName: !Ref ProcessedOrdersTableName
+      BillingMode: PAY_PER_REQUEST
+      AttributeDefinitions:
+        - AttributeName: orderId
+          AttributeType: S
+      KeySchema:
+        - AttributeName: orderId
+          KeyType: HASH
+
+  StockReservationsTable:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      TableName: !Ref StockReservationsTableName
+      BillingMode: PAY_PER_REQUEST
+      AttributeDefinitions:
+        - AttributeName: orderId
+          AttributeType: S
+        - AttributeName: productId
+          AttributeType: S
+      KeySchema:
+        - AttributeName: orderId
+          KeyType: HASH
+        - AttributeName: productId
+          KeyType: RANGE
+
+  OrderProcessorLambdaExecutionRole:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+          - Effect: Allow
+            Principal:
+              Service: lambda.amazonaws.com
+            Action: sts:AssumeRole
+      Policies:
+        - PolicyName: order-processor-lambda-access
+          PolicyDocument:
+            Version: '2012-10-17'
+            Statement:
+              - Sid: WriteOrderProcessorResults
+                Effect: Allow
+                Action:
+                  - dynamodb:PutItem
+                Resource:
+                  - !GetAtt ProcessedOrdersTable.Arn
+                  - !GetAtt StockReservationsTable.Arn
+              - Sid: CreateLambdaLogGroups
+                Effect: Allow
+                Action:
+                  - logs:CreateLogGroup
+                Resource: !Sub 'arn:${AWS::Partition}:logs:${AWS::Region}:${AWS::AccountId}:*'
+              - Sid: WriteLambdaLogs
+                Effect: Allow
+                Action:
+                  - logs:CreateLogStream
+                  - logs:PutLogEvents
+                Resource:
+                  - !Sub 'arn:${AWS::Partition}:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/${SpringBootFunctionName}:log-stream:*'
+                  - !Sub 'arn:${AWS::Partition}:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/${QuarkusJvmFunctionName}:log-stream:*'
+                  - !Sub 'arn:${AWS::Partition}:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/${QuarkusNativeFunctionName}:log-stream:*'
+
+  SpringBootLogGroup:
+    Type: AWS::Logs::LogGroup
+    Properties:
+      LogGroupName: !Sub '/aws/lambda/${SpringBootFunctionName}'
+      RetentionInDays: !Ref LogRetentionInDays
+
+  QuarkusJvmLogGroup:
+    Type: AWS::Logs::LogGroup
+    Properties:
+      LogGroupName: !Sub '/aws/lambda/${QuarkusJvmFunctionName}'
+      RetentionInDays: !Ref LogRetentionInDays
+
+  QuarkusNativeLogGroup:
+    Type: AWS::Logs::LogGroup
+    Properties:
+      LogGroupName: !Sub '/aws/lambda/${QuarkusNativeFunctionName}'
+      RetentionInDays: !Ref LogRetentionInDays
+
+  SpringBootFunction:
+    Type: AWS::Lambda::Function
+    DependsOn:
+      - SpringBootLogGroup
+    Properties:
+      FunctionName: !Ref SpringBootFunctionName
+      PackageType: Zip
+      Runtime: java21
+      Handler: org.springframework.cloud.function.adapter.aws.FunctionInvoker::handleRequest
+      Architectures:
+        - !Ref LambdaArchitecture
+      MemorySize: !Ref LambdaMemorySize
+      Timeout: !Ref LambdaTimeoutSeconds
+      Role: !GetAtt OrderProcessorLambdaExecutionRole.Arn
+      Code: build/artifacts/order-processor-springboot-lambda.zip
+      Environment:
+        Variables:
+          AWS_REGION: !Ref 'AWS::Region'
+          PROCESSED_ORDERS_TABLE: !Ref ProcessedOrdersTableName
+          STOCK_RESERVATIONS_TABLE: !Ref StockReservationsTableName
+          SPRING_CLOUD_FUNCTION_DEFINITION: processOrder
+
+  QuarkusJvmFunction:
+    Type: AWS::Lambda::Function
+    DependsOn:
+      - QuarkusJvmLogGroup
+    Properties:
+      FunctionName: !Ref QuarkusJvmFunctionName
+      PackageType: Zip
+      Runtime: java21
+      Handler: io.quarkus.funqy.lambda.FunqyStreamHandler::handleRequest
+      Architectures:
+        - !Ref LambdaArchitecture
+      MemorySize: !Ref LambdaMemorySize
+      Timeout: !Ref LambdaTimeoutSeconds
+      Role: !GetAtt OrderProcessorLambdaExecutionRole.Arn
+      Code: build/artifacts/order-processor-quarkus-jvm-function.zip
+      Environment:
+        Variables:
+          AWS_REGION: !Ref 'AWS::Region'
+          PROCESSED_ORDERS_TABLE: !Ref ProcessedOrdersTableName
+          STOCK_RESERVATIONS_TABLE: !Ref StockReservationsTableName
+
+  QuarkusNativeFunction:
+    Type: AWS::Lambda::Function
+    DependsOn:
+      - QuarkusNativeLogGroup
+    Properties:
+      FunctionName: !Ref QuarkusNativeFunctionName
+      PackageType: Zip
+      Runtime: provided.al2023
+      Handler: not.used.in.provided.runtime
+      Architectures:
+        - !Ref LambdaArchitecture
+      MemorySize: !Ref LambdaMemorySize
+      Timeout: !Ref LambdaTimeoutSeconds
+      Role: !GetAtt OrderProcessorLambdaExecutionRole.Arn
+      Code: build/artifacts/order-processor-quarkus-native-function.zip
+      Environment:
+        Variables:
+          AWS_REGION: !Ref 'AWS::Region'
+          PROCESSED_ORDERS_TABLE: !Ref ProcessedOrdersTableName
+          STOCK_RESERVATIONS_TABLE: !Ref StockReservationsTableName
+          DISABLE_SIGNAL_HANDLERS: 'true'
+
+  SpringBootFunctionUrl:
+    Type: AWS::Lambda::Url
+    Properties:
+      TargetFunctionArn: !GetAtt SpringBootFunction.Arn
+      AuthType: !Ref FunctionUrlAuthType
+
+  QuarkusJvmFunctionUrl:
+    Type: AWS::Lambda::Url
+    Properties:
+      TargetFunctionArn: !GetAtt QuarkusJvmFunction.Arn
+      AuthType: !Ref FunctionUrlAuthType
+
+  QuarkusNativeFunctionUrl:
+    Type: AWS::Lambda::Url
+    Properties:
+      TargetFunctionArn: !GetAtt QuarkusNativeFunction.Arn
+      AuthType: !Ref FunctionUrlAuthType
+
+  SpringBootFunctionUrlPermission:
+    Type: AWS::Lambda::Permission
+    Condition: UsePublicFunctionUrl
+    Properties:
+      Action: lambda:InvokeFunctionUrl
+      FunctionName: !Ref SpringBootFunction
+      FunctionUrlAuthType: NONE
+      Principal: '*'
+
+  QuarkusJvmFunctionUrlPermission:
+    Type: AWS::Lambda::Permission
+    Condition: UsePublicFunctionUrl
+    Properties:
+      Action: lambda:InvokeFunctionUrl
+      FunctionName: !Ref QuarkusJvmFunction
+      FunctionUrlAuthType: NONE
+      Principal: '*'
+
+  QuarkusNativeFunctionUrlPermission:
+    Type: AWS::Lambda::Permission
+    Condition: UsePublicFunctionUrl
+    Properties:
+      Action: lambda:InvokeFunctionUrl
+      FunctionName: !Ref QuarkusNativeFunction
+      FunctionUrlAuthType: NONE
+      Principal: '*'
+
+Outputs:
+  ProcessedOrdersTableName:
+    Value: !Ref ProcessedOrdersTable
+  StockReservationsTableName:
+    Value: !Ref StockReservationsTable
+  LambdaExecutionRoleArn:
+    Value: !GetAtt OrderProcessorLambdaExecutionRole.Arn
+  SpringBootFunctionName:
+    Value: !Ref SpringBootFunction
+  SpringBootFunctionUrl:
+    Value: !GetAtt SpringBootFunctionUrl.FunctionUrl
+  QuarkusJvmFunctionName:
+    Value: !Ref QuarkusJvmFunction
+  QuarkusJvmFunctionUrl:
+    Value: !GetAtt QuarkusJvmFunctionUrl.FunctionUrl
+  QuarkusNativeFunctionName:
+    Value: !Ref QuarkusNativeFunction
+  QuarkusNativeFunctionUrl:
+    Value: !GetAtt QuarkusNativeFunctionUrl.FunctionUrl

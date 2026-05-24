@@ -1,8 +1,9 @@
 import exec from 'k6/execution';
 
 import { createOrder, getOrder, getOrdersByCustomer, getSummary, updateStatus } from './endpoints.js';
-import { expectCreatedOrder, expectOrder, expectPagedOrders, expectStatus, expectSummary, requireCreatedOrder } from './checks.js';
-import { dateRange, envInt, makeOrderPayload, statusForPendingOrder, uuidAt, uuidPool } from './data-generator.js';
+import { invokeProcessor } from './lambda-invoker.js';
+import { expectCreatedOrder, expectOrder, expectPagedOrders, expectProcessingResult, expectStatus, expectSummary, requireCreatedOrder } from './checks.js';
+import { dateRange, envInt, makeOrderPayload, makeProcessingRequestPayload, statusForPendingOrder, uuidAt, uuidPool } from './data-generator.js';
 
 export function benchmarkDataConfig(smoke) {
   return {
@@ -122,4 +123,15 @@ export function runCreateOrderOperation(baseUrl, options = {}) {
   });
 
   expectCreatedOrder(response, 'create order');
+}
+
+export function runProcessOrderOperation(baseUrl, options = {}) {
+  const iteration = exec.scenario.iterationInTest;
+  const phase = options.phase || 'load';
+  const scenarioName = options.scenarioName || exec.scenario.name;
+  const response = invokeProcessor(baseUrl, makeProcessingRequestPayload(iteration + 20000), {
+    tags: operationTags(phase, scenarioName, 'process_order'),
+  });
+
+  expectProcessingResult(response, 'process order');
 }

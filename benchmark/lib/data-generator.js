@@ -127,6 +127,45 @@ export function makeItemPayload(index, pool = uuidPool()) {
   };
 }
 
+export function makeProcessingItemPayload(index, pool = uuidPool()) {
+  const quantity = 1 + (index % 4);
+  const cents = 999 + ((index * 137) % 5000);
+
+  return {
+    productId: uuidAt(pool, 1000 + index),
+    productName: PRODUCT_NAMES[index % PRODUCT_NAMES.length],
+    quantity,
+    unitPrice: Number(moneyFromCents(cents)),
+  };
+}
+
+export function makeProcessingRequestPayload(index, options = {}) {
+  const pool = options.uuidPool || uuidPool();
+  const itemCount = options.itemCount || (1 + (index % 3));
+  const items = [];
+  let totalCents = 0;
+
+  for (let itemIndex = 0; itemIndex < itemCount; itemIndex += 1) {
+    const itemPayload = makeProcessingItemPayload(index * 10 + itemIndex, pool);
+    totalCents += Math.round(Number(itemPayload.unitPrice) * 100) * itemPayload.quantity;
+    items.push(itemPayload);
+  }
+
+  const addressIndex = index % CITIES.length;
+
+  return {
+    orderId: options.orderId || uuidAt(pool, 3000 + index),
+    customerId: options.customerId || uuidAt(pool, index),
+    items,
+    shippingAddress: {
+      zipCode: `3720${index % 10}-000`,
+      state: STATES[addressIndex],
+      city: CITIES[addressIndex],
+    },
+    totalAmount: Number(moneyFromCents(totalCents)),
+  };
+}
+
 export function makeOrderPayload(index, options = {}) {
   const pool = options.uuidPool || uuidPool();
   const itemCount = options.itemCount || (1 + (index % 3));

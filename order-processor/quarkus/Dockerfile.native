@@ -1,0 +1,13 @@
+FROM busybox:latest AS function-package
+
+ARG LAMBDA_ZIP=build/function.zip
+
+COPY ${LAMBDA_ZIP} /tmp/function.zip
+RUN mkdir /function && unzip /tmp/function.zip -d /function
+
+FROM public.ecr.aws/lambda/provided:al2023
+
+COPY --from=function-package --chmod=0755 /function/bootstrap ${LAMBDA_TASK_ROOT}/bootstrap
+COPY --from=function-package --chmod=0755 /function/bootstrap /var/runtime/bootstrap
+
+CMD ["not.used.in.provided.runtime"]

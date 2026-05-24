@@ -1,0 +1,81 @@
+{
+	"functions": {
+		"order-processor-springboot": {
+			"functionName": "order-processor-springboot",
+			"runtime": "java21",
+			"packageType": "Zip",
+			"handler": "org.springframework.cloud.function.adapter.aws.FunctionInvoker::handleRequest",
+			"artifact": "order-processor/springboot/build/distributions/order-processor-springboot-0.0.1-SNAPSHOT-lambda.zip",
+			"preparedArtifact": "infrastructure/aws/build/artifacts/order-processor-springboot-lambda.zip",
+			"applicationJar": "order-processor/springboot/build/libs/order-processor-springboot-0.0.1-SNAPSHOT.jar",
+			"startClass": "com.tcc.orderprocessor.OrderProcessorApplication",
+			"springCloudFunctionDefinition": "processOrder",
+			"functionUrlAuthType": "NONE",
+			"environment": {
+				"AWS_REGION": "us-east-1",
+				"PROCESSED_ORDERS_TABLE": "processed_orders",
+				"STOCK_RESERVATIONS_TABLE": "stock_reservations"
+			},
+			"localEnvironment": {
+				"DYNAMODB_ENDPOINT": "http://dynamodb-local:8000"
+			},
+			"executionRolePolicies": [
+				"infrastructure/aws/order-processor-springboot-dynamodb-policy.json"
+			],
+			"benchmarkOperatorPolicies": [
+				"infrastructure/aws/order-processor-benchmark-operator-policy.json"
+			]
+		},
+		"order-processor-quarkus-jvm": {
+			"functionName": "order-processor-quarkus-jvm",
+			"runtime": "java21",
+			"packageType": "Zip",
+			"handler": "io.quarkus.funqy.lambda.FunqyStreamHandler::handleRequest",
+			"artifact": "order-processor/quarkus/build/function.zip",
+			"preparedArtifact": "infrastructure/aws/build/artifacts/order-processor-quarkus-jvm-function.zip",
+			"applicationJar": "order-processor/quarkus/build/order-processor-quarkus-0.0.1-SNAPSHOT-runner.jar",
+			"funqyExport": "processOrder",
+			"functionUrlAuthType": "NONE",
+			"environment": {
+				"AWS_REGION": "us-east-1",
+				"PROCESSED_ORDERS_TABLE": "processed_orders",
+				"STOCK_RESERVATIONS_TABLE": "stock_reservations"
+			},
+			"localEnvironment": {
+				"DYNAMODB_ENDPOINT": "http://dynamodb-local:8000"
+			},
+			"executionRolePolicies": [
+				"infrastructure/aws/order-processor-quarkus-dynamodb-policy.json"
+			],
+			"benchmarkOperatorPolicies": [
+				"infrastructure/aws/order-processor-benchmark-operator-policy.json"
+			]
+		},
+		"order-processor-quarkus-native": {
+			"functionName": "order-processor-quarkus-native",
+			"runtime": "provided.al2023",
+			"packageType": "Zip",
+			"handler": "not.used.in.provided.runtime",
+			"artifact": "order-processor/quarkus/build/function.zip",
+			"preparedArtifact": "infrastructure/aws/build/artifacts/order-processor-quarkus-native-function.zip",
+			"nativeExecutable": "order-processor/quarkus/build/order-processor-quarkus-0.0.1-SNAPSHOT-runner",
+			"funqyExport": "processOrder",
+			"functionUrlAuthType": "NONE",
+			"environment": {
+				"AWS_REGION": "us-east-1",
+				"PROCESSED_ORDERS_TABLE": "processed_orders",
+				"STOCK_RESERVATIONS_TABLE": "stock_reservations",
+				"DISABLE_SIGNAL_HANDLERS": "true"
+			},
+			"localEnvironment": {
+				"DYNAMODB_ENDPOINT": "http://dynamodb-local:8000"
+			},
+			"executionRolePolicies": [
+				"infrastructure/aws/order-processor-quarkus-dynamodb-policy.json"
+			],
+			"benchmarkOperatorPolicies": [
+				"infrastructure/aws/order-processor-benchmark-operator-policy.json"
+			]
+		}
+	}
+}

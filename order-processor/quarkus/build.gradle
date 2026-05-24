@@ -1,0 +1,46 @@
+plugins {
+	id 'java'
+	id 'io.quarkus'
+}
+
+group = 'com.tcc'
+version = '0.0.1-SNAPSHOT'
+
+java {
+	toolchain {
+		languageVersion = JavaLanguageVersion.of(21)
+	}
+}
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation enforcedPlatform("${quarkusPlatformGroupId}:${quarkusPlatformArtifactId}:${quarkusPlatformVersion}")
+	implementation platform("software.amazon.awssdk:bom:${awsSdkVersion}")
+
+	implementation 'io.quarkus:quarkus-arc'
+	implementation 'io.quarkus:quarkus-funqy-amazon-lambda'
+	implementation 'io.quarkus:quarkus-jackson'
+	implementation('software.amazon.awssdk:dynamodb') {
+		exclude group: 'software.amazon.awssdk', module: 'apache-client'
+		exclude group: 'software.amazon.awssdk', module: 'netty-nio-client'
+	}
+	implementation 'software.amazon.awssdk:url-connection-client'
+	implementation "software.amazon.awssdk.crt:aws-crt:${awsCrtVersion}"
+
+	testImplementation 'io.quarkus:quarkus-junit5'
+	testImplementation 'org.assertj:assertj-core:3.27.7'
+	testImplementation 'org.testcontainers:junit-jupiter:1.21.4'
+	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}
+
+tasks.withType(JavaCompile).configureEach {
+	options.encoding = 'UTF-8'
+	options.compilerArgs << '-parameters'
+}

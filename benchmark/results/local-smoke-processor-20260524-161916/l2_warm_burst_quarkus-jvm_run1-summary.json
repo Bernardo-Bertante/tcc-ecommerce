@@ -1,0 +1,188 @@
+{
+    "metrics": {
+        "http_req_duration{expected_response:true}": {
+            "p(90)": 5.081688,
+            "p(95)": 64.65306799999999,
+            "avg": 15.096175909090908,
+            "min": 3.322759,
+            "med": 4.355884,
+            "max": 124.224448
+        },
+        "http_req_sending": {
+            "p(95)": 0.06677649999999999,
+            "avg": 0.03315909090909091,
+            "min": 0.016404,
+            "med": 0.028916,
+            "max": 0.06738,
+            "p(90)": 0.066173
+        },
+        "vus": {
+            "value": 0,
+            "min": 0,
+            "max": 0
+        },
+        "http_req_connecting": {
+            "avg": 0.03584672727272727,
+            "min": 0,
+            "med": 0,
+            "max": 0.238129,
+            "p(90)": 0.156185,
+            "p(95)": 0.197157
+        },
+        "http_req_tls_handshaking": {
+            "avg": 0,
+            "min": 0,
+            "med": 0,
+            "max": 0,
+            "p(90)": 0,
+            "p(95)": 0
+        },
+        "http_req_duration{phase:load}": {
+            "max": 5.081688,
+            "p(90)": 4.948074,
+            "p(95)": 5.014881,
+            "avg": 4.183348699999999,
+            "min": 3.322759,
+            "med": 4.3206904999999995,
+            "thresholds": {
+                "p(95)<10000": false
+            }
+        },
+        "http_req_blocked": {
+            "med": 0.005062,
+            "max": 0.342596,
+            "p(90)": 0.267271,
+            "p(95)": 0.30493349999999997,
+            "avg": 0.059435454545454555,
+            "min": 0.0038
+        },
+        "http_reqs": {
+            "count": 11,
+            "rate": 1.0994551627951665
+        },
+        "checks": {
+            "passes": 11,
+            "fails": 66,
+            "value": 0.14285714285714285
+        },
+        "http_req_waiting": {
+            "max": 124.051226,
+            "p(90)": 4.975674,
+            "p(95)": 64.51345,
+            "avg": 15.000780272727274,
+            "min": 3.247974,
+            "med": 4.277297
+        },
+        "data_received": {
+            "count": 2673,
+            "rate": 267.1676045592255
+        },
+        "http_req_duration": {
+            "avg": 15.096175909090908,
+            "min": 3.322759,
+            "med": 4.355884,
+            "max": 124.224448,
+            "p(90)": 5.081688,
+            "p(95)": 64.65306799999999
+        },
+        "vus_max": {
+            "max": 2,
+            "value": 2,
+            "min": 2
+        },
+        "http_req_failed{phase:load}": {
+            "passes": 0,
+            "fails": 10,
+            "thresholds": {
+                "rate<0.05": false
+            },
+            "value": 0
+        },
+        "http_req_receiving": {
+            "med": 0.051975,
+            "max": 0.107049,
+            "p(90)": 0.079484,
+            "p(95)": 0.0932665,
+            "avg": 0.06223654545454545,
+            "min": 0.039203
+        },
+        "iterations": {
+            "count": 11,
+            "rate": 1.0994551627951665
+        },
+        "data_sent": {
+            "count": 6646,
+            "rate": 664.2708192669706
+        },
+        "iteration_duration": {
+            "min": 3.585936,
+            "med": 4.749884,
+            "max": 125.219884,
+            "p(90)": 5.730122,
+            "p(95)": 65.475003,
+            "avg": 15.535493181818184
+        },
+        "http_req_failed": {
+            "fails": 11,
+            "passes": 0,
+            "value": 0
+        }
+    },
+    "root_group": {
+        "name": "",
+        "path": "",
+        "id": "d41d8cd98f00b204e9800998ecf8427e",
+        "groups": {},
+        "checks": {
+                "process order: status 200": {
+                    "passes": 11,
+                    "fails": 0,
+                    "name": "process order: status 200",
+                    "path": "::process order: status 200",
+                    "id": "2dfb47057262516dc30c7a8dfebfb21a"
+                },
+                "process order: response has orderId": {
+                    "id": "58baae5fc63b7bc71612740a854612b1",
+                    "passes": 0,
+                    "fails": 11,
+                    "name": "process order: response has orderId",
+                    "path": "::process order: response has orderId"
+                },
+                "process order: response has fiscalNumber": {
+                    "fails": 11,
+                    "name": "process order: response has fiscalNumber",
+                    "path": "::process order: response has fiscalNumber",
+                    "id": "332fa7e64db824a88e54aabd71ae789b",
+                    "passes": 0
+                },
+                "process order: response has shippingCost": {
+                    "passes": 0,
+                    "fails": 11,
+                    "name": "process order: response has shippingCost",
+                    "path": "::process order: response has shippingCost",
+                    "id": "3fe879bd283de182a73934596e2de697"
+                },
+                "process order: response has taxAmount": {
+                    "name": "process order: response has taxAmount",
+                    "path": "::process order: response has taxAmount",
+                    "id": "4a2fad45f94d24f47a602c2da1e09cbb",
+                    "passes": 0,
+                    "fails": 11
+                },
+                "process order: response has finalAmount": {
+                    "name": "process order: response has finalAmount",
+                    "path": "::process order: response has finalAmount",
+                    "id": "944acb3c9dd4e1346a9c3f7fbe8c3209",
+                    "passes": 0,
+                    "fails": 11
+                },
+                "process order: response has estimatedDeliveryDays": {
+                    "passes": 0,
+                    "fails": 11,
+                    "name": "process order: response has estimatedDeliveryDays",
+                    "path": "::process order: response has estimatedDeliveryDays",
+                    "id": "edf08d9b34d1611f1266e4004c1c020f"
+                }
+            }
+    }
+}

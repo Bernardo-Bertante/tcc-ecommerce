@@ -1,0 +1,90 @@
+name: tcc-order-processor-local
+
+x-processor-env: &processor-env
+  AWS_REGION: us-east-1
+  DYNAMODB_ENDPOINT: http://dynamodb-local:8000
+  PROCESSED_ORDERS_TABLE: processed_orders
+  STOCK_RESERVATIONS_TABLE: stock_reservations
+
+services:
+  dynamodb-local:
+    image: public.ecr.aws/aws-dynamodb-local/aws-dynamodb-local:latest
+    container_name: tcc-dynamodb-local
+    user: root
+    command: ["-jar", "DynamoDBLocal.jar", "-sharedDb", "-dbPath", "./data"]
+    working_dir: /home/dynamodblocal
+    ports:
+      - "8000:8000"
+    volumes:
+      - processor_dynamodb_data:/home/dynamodblocal/data
+    restart: unless-stopped
+
+  dynamodb-init:
+    image: public.ecr.aws/aws-cli/aws-cli:2.25.12
+    container_name: tcc-dynamodb-init
+    entrypoint: ["/bin/sh", "/init/init-order-processor-tables.sh"]
+    environment:
+      <<: *processor-env
+      AWS_ACCESS_KEY_ID: local
+      AWS_SECRET_ACCESS_KEY: local
+      AWS_PAGER: ""
+    volumes:
+      - ./dynamodb/init-order-processor-tables.sh:/init/init-order-processor-tables.sh:ro
+    depends_on:
+      dynamodb-local:
+        condition: service_started
+
+  order-processor-springboot:
+    image: order-processor-springboot:lambda
+    container_name: tcc-order-processor-springboot
+    build:
+      context: ../order-processor/springboot
+      dockerfile: Dockerfile
+    environment:
+      <<: *processor-env
+    ports:
+      - "9001:8080"
+    depends_on:
+      dynamodb-init:
+        condition: service_completed_successfully
+
+  order-processor-quarkus:
+    profiles:
+      - quarkus
+    image: order-processor-quarkus:lambda-jvm
+    container_name: tcc-order-processor-quarkus
+    build:
+      context: ../order-processor/quarkus
+      dockerfile: Dockerfile.jvm
+      args:
+        LAMBDA_ZIP: build/function-jvm.zip
+    environment:
+      <<: *processor-env
+    ports:
+      - "9002:8080"
+    depends_on:
+      dynamodb-init:
+        condition: service_completed_successfully
+
+  order-processor-quarkus-native:
+    profiles:
+      - quarkus-native
+    image: order-processor-quarkus:lambda-native
+    container_name: tcc-order-processor-quarkus-native
+    build:
+      context: ../order-processor/quarkus
+      dockerfile: Dockerfile.native
+      args:
+        LAMBDA_ZIP: build/function-native.zip
+    environment:
+      <<: *processor-env
+      DISABLE_SIGNAL_HANDLERS: "true"
+    ports:
+      - "9003:8080"
+    depends_on:
+      dynamodb-init:
+        condition: service_completed_successfully
+
+volumes:
+  processor_dynamodb_data:
+    name: tcc-processor-dynamodb-data

@@ -58,6 +58,19 @@ export function expectSummary(response, name = 'summary') {
   });
 }
 
+export function expectProcessingResult(response, name = 'process order') {
+  const body = parseJson(response);
+
+  return expectStatus(response, 200, name) && check(body, {
+    [`${name}: response has orderId`]: (json) => json !== null && typeof json.orderId === 'string' && json.orderId.length > 0,
+    [`${name}: response has fiscalNumber`]: (json) => json !== null && typeof json.fiscalNumber === 'string' && json.fiscalNumber.length > 0,
+    [`${name}: response has shippingCost`]: (json) => json !== null && json.shippingCost !== undefined,
+    [`${name}: response has taxAmount`]: (json) => json !== null && json.taxAmount !== undefined,
+    [`${name}: response has finalAmount`]: (json) => json !== null && json.finalAmount !== undefined,
+    [`${name}: response has estimatedDeliveryDays`]: (json) => json !== null && typeof json.estimatedDeliveryDays === 'number',
+  });
+}
+
 export function requireCreatedOrder(response, name = 'setup create order') {
   if (!expectCreatedOrder(response, name)) {
     throw new Error(`${name} failed with status ${response.status}: ${response.body}`);
