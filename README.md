@@ -46,6 +46,89 @@ docker compose -f infrastructure/docker-compose.benchmark.yml down -v
 
 Os cenários em `benchmark/` ainda devem ser executados apontando para uma URL por vez. Use `http://localhost:8081`, `http://localhost:8082` ou `http://localhost:8083` conforme a variante que será medida.
 
+## Fluxo local -> AWS do Order Service
+
+O Order Service agora tem uma trilha mínima para AWS Fargate em `infrastructure/aws/order-service-stack.yaml`. A stack cria uma VPC simples, ALB público, três services ECS/Fargate, RDS PostgreSQL privado para as tasks, log groups do CloudWatch, autoscaling por CPU e uma task one-off para reset do banco.
+
+O pipeline usa três imagens ECR, uma para cada variante:
+
+- `order-service-springboot`
+- `order-service-quarkus-jvm`
+- `order-service-quarkus-native`
+
+Prepare as imagens localmente sem enviar para AWS:
+
+```bash
+./infrastructure/aws/scripts/prepare-order-service-images.sh \
+  --image-tag order-service-test
+```
+
+Para buildar, criar/validar repositórios ECR, fazer login e enviar as imagens:
+
+```bash
+./infrastructure/aws/scripts/push-order-service-images.sh \
+  --profile meu-profile \
+  --region us-east-1 \
+  --image-tag order-service-test
+```
+
+O script grava os URIs em `infrastructure/aws/build/order-service/image-uris.env`.
+
+Para fazer push e deploy em uma etapa, informe uma senha para o PostgreSQL RDS:
+
+```bash
+./infrastructure/aws/scripts/deploy-order-service-stack.sh \
+  --profile meu-profile \
+  --region us-east-1 \
+  --stack-name order-service-benchmark \
+  --image-tag order-service-test \
+  --database-password 'troque-esta-senha' \
+  --db-engine-version 16.14 \
+  --benchmark-ingress-cidr 0.0.0.0/0
+```
+
+Em contas de laboratório que não permitem `iam:CreateRole`, reutilize a role fornecida pelo lab:
+
+```bash
+./infrastructure/aws/scripts/deploy-order-service-stack.sh \
+  --profile awslab \
+  --region us-east-1 \
+  --stack-name order-service-benchmark \
+  --image-tag order-service-test \
+  --database-password 'troque-esta-senha' \
+  --db-engine-version 16.14 \
+  --task-execution-role-arn arn:aws:iam::169872703824:role/LabRole \
+  --task-role-arn arn:aws:iam::169872703824:role/LabRole
+```
+
+Para reduzir exposição, troque `--benchmark-ingress-cidr` pelo IP/CIDR da máquina que rodará o k6. O script imprime os outputs da stack ao final, incluindo:
+
+- `QuarkusNativeBaseUrl` na porta `8081`
+- `QuarkusJvmBaseUrl` na porta `8082`
+- `SpringBootBaseUrl` na porta `8083`
+
+Antes do benchmark final, faça smoke curto em AWS:
+
+```bash
+FARGATE_VERSIONS="quarkus-native|http://ALB_DNS:8081 quarkus-jvm|http://ALB_DNS:8082 springboot|http://ALB_DNS:8083" \
+  SMOKE=true \
+  REPETITIONS=1 \
+  VERSION_REST_SECONDS=0 \
+  FARGATE_SCENARIOS="f1_low_load f2s_summary_only" \
+  benchmark/run/run-fargate.sh
+```
+
+Para evitar viés no endpoint `GET /orders/summary`, use reset de banco antes dos blocos comparáveis:
+
+```bash
+infrastructure/aws/scripts/reset-order-service-db.sh \
+  --profile meu-profile \
+  --region us-east-1 \
+  --stack-name order-service-benchmark
+```
+
+No runner, isso pode ser automatizado com `RESET_DB_COMMAND`. F3 deve ser usado apenas na AWS, porque mede autoscaling real de ECS/Fargate.
+
 ## Stack local do Order Processor
 
 O arquivo `infrastructure/docker-compose.processor.yml` sobe o DynamoDB Local, cria as tabelas do processor e expõe as funções Lambda locais para desenvolvimento:

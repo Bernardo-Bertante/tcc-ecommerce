@@ -73,6 +73,55 @@ For the full experiment, omit `SMOKE=true`. Defaults are 5 repetitions and 600 s
 
 Results are written to `benchmark/results/` as k6 JSON streams and a run log. When enabled, startup timing and container resource snapshots are also written there as CSV files.
 
+## Fargate/AWS Runner
+
+The same Fargate runner can target AWS ALB URLs by passing `FARGATE_VERSIONS`. When this variable is set, the runner switches to `ENVIRONMENT=aws`, writes outputs under `benchmark/results/<RUN_ID>/`, and disables Docker-only startup/container-stat collection.
+
+```bash
+FARGATE_VERSIONS="quarkus-native|http://ALB_DNS:8081 quarkus-jvm|http://ALB_DNS:8082 springboot|http://ALB_DNS:8083" \
+  SMOKE=true \
+  REPETITIONS=1 \
+  VERSION_REST_SECONDS=0 \
+  FARGATE_SCENARIOS="f1_low_load f2s_summary_only" \
+  benchmark/run/run-fargate.sh
+```
+
+For repeatable AWS runs, use a config file based on `benchmark/run/fargate-aws.env.example`:
+
+```bash
+RUN_CONFIG=benchmark/run/fargate-aws.env benchmark/run/run-fargate.sh
+```
+
+Use `RESET_DB_COMMAND` to reset PostgreSQL before each version block. This prevents `GET /orders/summary` from being biased by data accumulated by a previous version.
+
+```bash
+RESET_DB_COMMAND="infrastructure/aws/scripts/reset-order-service-db.sh --stack-name order-service-benchmark --profile PROFILE --region REGION"
+```
+
+For the final AWS Fargate experiment, omit `SMOKE=true` and keep the official defaults unless the methodology is revised:
+
+```bash
+RUN_ID="aws-order-service-final-$(date +%Y%m%d-%H%M%S)" \
+  FARGATE_VERSIONS="quarkus-native|http://ALB_DNS:8081 quarkus-jvm|http://ALB_DNS:8082 springboot|http://ALB_DNS:8083" \
+  REPETITIONS=5 \
+  VERSION_REST_SECONDS=600 \
+  FARGATE_SCENARIOS="f1_low_load f2_high_load f2s_summary_only f3_burst_autoscaling" \
+  RESET_DB_COMMAND="infrastructure/aws/scripts/reset-order-service-db.sh --stack-name order-service-benchmark --profile PROFILE --region REGION" \
+  benchmark/run/run-fargate.sh
+```
+
+After an AWS run, collect CloudWatch metrics for the same time window:
+
+```bash
+benchmark/run/collect-fargate-cloudwatch-metrics.sh \
+  --stack-name order-service-benchmark \
+  --run-id "$RUN_ID" \
+  --start-time "2026-05-24T18:00:00Z" \
+  --end-time "2026-05-24T20:00:00Z" \
+  --profile PROFILE \
+  --region REGION
+```
+
 ## Local Preliminary Overnight Run
 
 Use `benchmark/run/local-preliminary.env` for the long local validation run before the AWS Fargate experiment:

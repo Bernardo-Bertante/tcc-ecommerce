@@ -1,0 +1,51 @@
+{
+  "service": "order-service",
+  "containerPort": 8081,
+  "variants": {
+    "springboot": {
+      "repositoryName": "order-service-springboot",
+      "localImage": "order-service-springboot",
+      "dockerfile": "order-service/springboot/Dockerfile",
+      "context": "order-service/springboot",
+      "healthPath": "/actuator/health",
+      "listenerPort": 8083
+    },
+    "quarkus-jvm": {
+      "repositoryName": "order-service-quarkus-jvm",
+      "localImage": "order-service-quarkus-jvm",
+      "dockerfile": "order-service/quarkus/Dockerfile.jvm",
+      "context": "order-service/quarkus",
+      "healthPath": "/q/health",
+      "listenerPort": 8082
+    },
+    "quarkus-native": {
+      "repositoryName": "order-service-quarkus-native",
+      "localImage": "order-service-quarkus-native",
+      "dockerfile": "order-service/quarkus/Dockerfile.native",
+      "context": "order-service/quarkus",
+      "healthPath": "/q/health",
+      "listenerPort": 8081
+    }
+  },
+  "runtime": {
+    "databaseName": "orderdb",
+    "databaseUsername": "orderuser",
+    "containerPort": "8081",
+    "springboot": {
+      "serverPortEnv": "SERVER_PORT",
+      "r2dbcUrlEnv": "SPRING_R2DBC_URL",
+      "r2dbcUsernameEnv": "SPRING_R2DBC_USERNAME",
+      "r2dbcPasswordEnv": "SPRING_R2DBC_PASSWORD",
+      "flywayUrlEnv": "SPRING_FLYWAY_URL",
+      "flywayUserEnv": "SPRING_FLYWAY_USER",
+      "flywayPasswordEnv": "SPRING_FLYWAY_PASSWORD"
+    },
+    "quarkus": {
+      "serverPortEnv": "SERVER_PORT",
+      "usernameEnv": "QUARKUS_DATASOURCE_USERNAME",
+      "passwordEnv": "QUARKUS_DATASOURCE_PASSWORD",
+      "reactiveUrlEnv": "QUARKUS_DATASOURCE_REACTIVE_URL",
+      "jdbcUrlEnv": "QUARKUS_DATASOURCE_JDBC_URL"
+    }
+  }
+}

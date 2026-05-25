@@ -1,0 +1,224 @@
+{
+    "metrics": {
+        "http_req_blocked": {
+            "min": 0.002655,
+            "med": 0.013387,
+            "max": 238.656988,
+            "p(90)": 138.4652404,
+            "p(95)": 194.5853089999997,
+            "avg": 23.597590489361707
+        },
+        "iterations": {
+            "count": 41,
+            "rate": 1.7989261745541134
+        },
+        "http_req_duration{phase:load}": {
+            "p(90)": 245.283024,
+            "p(95)": 249.847633,
+            "avg": 193.4146663902439,
+            "min": 138.119897,
+            "med": 189.966025,
+            "max": 390.385965,
+            "thresholds": {
+                "p(95)<10000": false
+            }
+        },
+        "http_req_failed": {
+            "passes": 0,
+            "fails": 47,
+            "value": 0
+        },
+        "vus": {
+            "value": 2,
+            "min": 0,
+            "max": 4
+        },
+        "http_req_duration": {
+            "p(90)": 245.1519432,
+            "p(95)": 249.3390889,
+            "avg": 194.56103731914897,
+            "min": 138.119897,
+            "med": 201.478235,
+            "max": 390.385965
+        },
+        "http_req_receiving": {
+            "avg": 0.10952255319148932,
+            "min": 0.04741,
+            "med": 0.101759,
+            "max": 0.226197,
+            "p(90)": 0.1597738,
+            "p(95)": 0.1841228
+        },
+        "vus_max": {
+            "value": 5,
+            "min": 5,
+            "max": 5
+        },
+        "http_req_duration{expected_response:true}": {
+            "min": 138.119897,
+            "med": 201.478235,
+            "max": 390.385965,
+            "p(90)": 245.1519432,
+            "p(95)": 249.3390889,
+            "avg": 194.56103731914897
+        },
+        "http_req_tls_handshaking": {
+            "avg": 0,
+            "min": 0,
+            "med": 0,
+            "max": 0,
+            "p(90)": 0,
+            "p(95)": 0
+        },
+        "http_req_failed{phase:load}": {
+            "passes": 0,
+            "fails": 41,
+            "thresholds": {
+                "rate<0.05": false
+            },
+            "value": 0
+        },
+        "iteration_duration": {
+            "avg": 1352.5421006585364,
+            "min": 738.037873,
+            "med": 1249.315192,
+            "max": 2220.176863,
+            "p(90)": 1949.531306,
+            "p(95)": 2028.126135
+        },
+        "data_sent": {
+            "count": 10694,
+            "rate": 469.2125978215046
+        },
+        "checks": {
+            "passes": 188,
+            "fails": 0,
+            "value": 1
+        },
+        "http_req_sending": {
+            "max": 0.291083,
+            "p(90)": 0.13279279999999996,
+            "p(95)": 0.17452349999999994,
+            "avg": 0.05858306382978725,
+            "min": 0.016913,
+            "med": 0.042536
+        },
+        "data_received": {
+            "count": 33104,
+            "rate": 1452.479319083887
+        },
+        "http_reqs": {
+            "count": 47,
+            "rate": 2.062183663513252
+        },
+        "http_req_connecting": {
+            "min": 0,
+            "med": 0,
+            "max": 238.466927,
+            "p(90)": 132.864084,
+            "p(95)": 194.4267696999997,
+            "avg": 23.276266042553193
+        },
+        "http_req_waiting": {
+            "min": 137.931371,
+            "med": 201.336333,
+            "max": 389.985928,
+            "p(90)": 244.9974164,
+            "p(95)": 249.1512277,
+            "avg": 194.39293170212764
+        }
+    },
+    "setup_data": {
+        "range": {
+            "from": "2026-05-24",
+            "to": "2026-05-26"
+        },
+        "readOrders": [
+            "9cec79a8-0211-4b99-a216-9a5b5aa847a6",
+            "ee09f134-31cf-4fc5-865b-981aae20a67c",
+            "02d35753-ac9b-4b5c-81c3-a109441478c0",
+            "c5cbc70d-f02d-4192-a606-668382916ba2",
+            "779a37ca-40f3-4936-a365-40a0a0880085",
+            "7fcac3f7-b7e3-4f00-a9de-a2742755279d"
+        ],
+        "customers": [
+            "3f25a97f-28d2-4209-93d4-ff46ed23f026",
+            "4f03494d-5a48-4907-a2ba-bd5f52d16dfc",
+            "71b8f12b-548e-4295-82f0-76aab98f59a2"
+        ],
+        "pageSize": 20
+    },
+    "root_group": {
+        "name": "",
+        "path": "",
+        "id": "d41d8cd98f00b204e9800998ecf8427e",
+        "groups": {
+            "setup": {
+                "path": "::setup",
+                "id": "5c0f8025f7e0b6654089e5b00e950f1a",
+                "groups": {},
+                "checks": {
+                        "setup seed order: status 201": {
+                            "name": "setup seed order: status 201",
+                            "path": "::setup::setup seed order: status 201",
+                            "id": "b825b9c53e81763ec829a604260636f0",
+                            "passes": 6,
+                            "fails": 0
+                        },
+                        "setup seed order: response has id": {
+                            "path": "::setup::setup seed order: response has id",
+                            "id": "04225d0b195af7671e43d62eb31bedd9",
+                            "passes": 6,
+                            "fails": 0,
+                            "name": "setup seed order: response has id"
+                        },
+                        "setup seed order: response is pending": {
+                            "name": "setup seed order: response is pending",
+                            "path": "::setup::setup seed order: response is pending",
+                            "id": "4abb212b4edc46fef2a73da84d7ac65e",
+                            "passes": 6,
+                            "fails": 0
+                        },
+                        "setup seed order: response has items": {
+                            "id": "4a8cf6fa0ebc4cd89ff464314cd6d047",
+                            "passes": 6,
+                            "fails": 0,
+                            "name": "setup seed order: response has items",
+                            "path": "::setup::setup seed order: response has items"
+                        }
+                    },
+                "name": "setup"
+            }
+        },
+        "checks": {
+            "get summary: status 200": {
+                "id": "c1e593aa410ffc06ae84f4a98440cbf1",
+                "passes": 41,
+                "fails": 0,
+                "name": "get summary: status 200",
+                "path": "::get summary: status 200"
+            },
+            "get summary: response has totalOrders": {
+                "id": "41adbfabc960bd15728de83554139c50",
+                "passes": 41,
+                "fails": 0,
+                "name": "get summary: response has totalOrders",
+                "path": "::get summary: response has totalOrders"
+            },
+            "get summary: response has totalRevenue": {
+                "id": "5c31dc5b67e1dcdc8d3c7669eeb18fe0",
+                "passes": 41,
+                "fails": 0,
+                "name": "get summary: response has totalRevenue",
+                "path": "::get summary: response has totalRevenue"
+            },
+            "get summary: response has ordersByStatus": {
+                "passes": 41,
+                "fails": 0,
+                "name": "get summary: response has ordersByStatus",
+                "path": "::get summary: response has ordersByStatus",
+                "id": "fcfadd876e2ffd8e3a7f28477531e5b3"
+            }
+        }
+    }
+}

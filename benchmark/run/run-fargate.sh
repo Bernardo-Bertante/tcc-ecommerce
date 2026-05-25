@@ -66,6 +66,10 @@ fi
 REPETITIONS="${REPETITIONS:-$default_repetitions}"
 VERSION_REST_SECONDS="${VERSION_REST_SECONDS:-${REST_SECONDS:-$default_version_rest_seconds}}"
 RUN_ID="${RUN_ID:-$(date +%Y%m%d-%H%M%S)}"
+ENVIRONMENT="${ENVIRONMENT:-local}"
+if [[ -n "${FARGATE_VERSIONS:-}" && "${ENVIRONMENT}" == "local" ]]; then
+  ENVIRONMENT="aws"
+fi
 COMPOSE_FILE="${COMPOSE_FILE:-infrastructure/docker-compose.benchmark.yml}"
 COMPOSE_PROJECT="${COMPOSE_PROJECT:-}"
 COLLECT_CONTAINER_STATS="${COLLECT_CONTAINER_STATS:-false}"
@@ -74,7 +78,16 @@ STARTUP_TIMEOUT_SECONDS="${STARTUP_TIMEOUT_SECONDS:-120}"
 STATS_INTERVAL_SECONDS="${STATS_INTERVAL_SECONDS:-10}"
 F2_RAW_FIRST_REP_ONLY="${F2_RAW_FIRST_REP_ONLY:-true}"
 MIN_FREE_DISK_GB="${MIN_FREE_DISK_GB:-0}"
-log_file="$results_dir/fargate-$RUN_ID.log"
+RESET_DB_COMMAND="${RESET_DB_COMMAND:-}"
+if [[ -n "${RUN_DIR:-}" ]]; then
+  run_dir="$(resolve_path "$RUN_DIR")"
+elif [[ "$ENVIRONMENT" == "aws" ]]; then
+  run_dir="$results_dir/$RUN_ID"
+else
+  run_dir="$results_dir"
+fi
+mkdir -p "$run_dir"
+log_file="$run_dir/fargate-$RUN_ID.log"
 stats_pid=""
 compose_file_path="$(resolve_path "$COMPOSE_FILE")"
 
@@ -88,6 +101,10 @@ versions=(
   "quarkus-jvm|http://127.0.0.1:8082"
   "springboot|http://127.0.0.1:8083"
 )
+
+if [[ -n "${FARGATE_VERSIONS:-}" ]]; then
+  read -r -a versions <<< "${FARGATE_VERSIONS//,/ }"
+fi
 
 scenarios=(
   "f1_low_load"
@@ -181,14 +198,37 @@ container_started_ms() {
 health_path_for_version() {
   local version_name="$1"
 
+  if [[ -n "${FARGATE_HEALTH_PATH:-}" ]]; then
+    printf '%s' "$FARGATE_HEALTH_PATH"
+    return 0
+  fi
+
   case "$version_name" in
+    quarkus-native)
+      printf '%s' "${HEALTH_PATH_QUARKUS_NATIVE:-/q/health}"
+      ;;
+    quarkus-jvm)
+      printf '%s' "${HEALTH_PATH_QUARKUS_JVM:-/q/health}"
+      ;;
     springboot)
-      printf '%s' '/actuator/health'
+      printf '%s' "${HEALTH_PATH_SPRINGBOOT:-/actuator/health}"
       ;;
     *)
       printf '%s' '/q/health'
       ;;
   esac
+}
+
+run_db_reset() {
+  local version_name="$1"
+  local repetition="$2"
+
+  if [[ -z "$RESET_DB_COMMAND" ]]; then
+    return 0
+  fi
+
+  echo "[$(date -Is)] DB_RESET version=$version_name repetition=$repetition command=$RESET_DB_COMMAND" | tee -a "$log_file"
+  bash -lc "$RESET_DB_COMMAND"
 }
 
 print_start_hint() {
@@ -280,7 +320,7 @@ measure_startup_for_version() {
 }
 
 measure_startups() {
-  startup_file="$results_dir/startup-$RUN_ID.csv"
+  startup_file="$run_dir/startup-$RUN_ID.csv"
   echo 'run_id,version,compose_service,container_id,container_name,container_started_at,first_healthy_at,startup_ms,readiness_wait_ms,health_url' > "$startup_file"
 
   for version in "${versions[@]}"; do
@@ -344,7 +384,7 @@ start_stats_collector() {
     STATS_INTERVAL_SECONDS=10
   fi
 
-  stats_file="$results_dir/container-stats-$RUN_ID.csv"
+  stats_file="$run_dir/container-stats-$RUN_ID.csv"
   echo 'timestamp,compose_service,container_id,container_name,cpu_pct,mem_usage,mem_pct,net_io,block_io,pids' > "$stats_file"
   collect_container_stats "$stats_file" "$STATS_INTERVAL_SECONDS" &
   stats_pid="$!"
@@ -367,17 +407,28 @@ echo "Fargate benchmark run $RUN_ID started at $(date -Is)" | tee -a "$log_file"
 if [[ -n "${run_config_path:-}" ]]; then
   echo "[$(date -Is)] CONFIG file=$run_config_path" | tee -a "$log_file"
 fi
-echo "[$(date -Is)] SETTINGS smoke=$SMOKE repetitions=$REPETITIONS version_rest_seconds=$VERSION_REST_SECONDS scenarios=${scenarios[*]} f2_raw_first_rep_only=$F2_RAW_FIRST_REP_ONLY min_free_disk_gb=$MIN_FREE_DISK_GB" | tee -a "$log_file"
+echo "[$(date -Is)] SETTINGS environment=$ENVIRONMENT smoke=$SMOKE repetitions=$REPETITIONS version_rest_seconds=$VERSION_REST_SECONDS scenarios=${scenarios[*]} run_dir=$run_dir f2_raw_first_rep_only=$F2_RAW_FIRST_REP_ONLY min_free_disk_gb=$MIN_FREE_DISK_GB" | tee -a "$log_file"
+
+if [[ "$ENVIRONMENT" == "aws" ]]; then
+  if is_true "$COLLECT_CONTAINER_STATS"; then
+    echo "[$(date -Is)] WARN COLLECT_CONTAINER_STATS is Docker-only; disabling for environment=aws" | tee -a "$log_file"
+    COLLECT_CONTAINER_STATS=false
+  fi
+  if is_true "$MEASURE_STARTUP"; then
+    echo "[$(date -Is)] WARN MEASURE_STARTUP is Docker-only; disabling for environment=aws" | tee -a "$log_file"
+    MEASURE_STARTUP=false
+  fi
+fi
 
 # Disk precheck: refuse to start if free space under results_dir is below the
 # configured minimum. Avoids a half-finished overnight run when the disk is
 # already tight before the first F2 raw JSON is written.
 if [[ "${MIN_FREE_DISK_GB:-0}" -gt 0 ]]; then
-  free_kb="$(df -P -k "$results_dir" | awk 'NR==2 {print $4}')"
+  free_kb="$(df -P -k "$run_dir" | awk 'NR==2 {print $4}')"
   free_gb=$(( free_kb / 1024 / 1024 ))
-  echo "[$(date -Is)] DISK_CHECK results_dir=$results_dir free_gb=$free_gb required_gb=$MIN_FREE_DISK_GB" | tee -a "$log_file"
+  echo "[$(date -Is)] DISK_CHECK run_dir=$run_dir free_gb=$free_gb required_gb=$MIN_FREE_DISK_GB" | tee -a "$log_file"
   if [[ "$free_gb" -lt "$MIN_FREE_DISK_GB" ]]; then
-    echo "Free disk under $results_dir is ${free_gb} GB, below required ${MIN_FREE_DISK_GB} GB. Aborting." | tee -a "$log_file" >&2
+    echo "Free disk under $run_dir is ${free_gb} GB, below required ${MIN_FREE_DISK_GB} GB. Aborting." | tee -a "$log_file" >&2
     exit 1
   fi
 fi
@@ -388,18 +439,22 @@ if is_true "$MEASURE_STARTUP"; then
   measure_startups
 fi
 
+overall_status=0
+
 for repetition in $(seq 1 "$REPETITIONS"); do
   for version_index in "${!versions[@]}"; do
     version="${versions[$version_index]}"
     version_name="${version%%|*}"
     base_url="${version#*|}"
 
+    run_db_reset "$version_name" "$repetition"
+
     echo "[$(date -Is)] PRECHECK version=$version_name health=$(health_path_for_version "$version_name") base_url=$base_url" | tee -a "$log_file"
     ensure_service_ready "$version_name" "$base_url"
 
     for scenario in "${scenarios[@]}"; do
-      result_file="$results_dir/${scenario}_${version_name}_run${repetition}.json"
-      summary_file="$results_dir/${scenario}_${version_name}_run${repetition}-summary.json"
+      result_file="$run_dir/${scenario}_${version_name}_run${repetition}.json"
+      summary_file="$run_dir/${scenario}_${version_name}_run${repetition}-summary.json"
 
       # Output policy: F2 raw JSON is large (~3 GB). When F2_RAW_FIRST_REP_ONLY
       # is true, only repetition 1 of each version emits raw JSON for F2; other
@@ -432,9 +487,13 @@ for repetition in $(seq 1 "$REPETITIONS"); do
           ;;
         99)
           k6_verdict="THRESHOLD_FAIL"
+          if [[ "$overall_status" -eq 0 ]]; then
+            overall_status=99
+          fi
           ;;
         *)
           k6_verdict="RUN_ERROR"
+          overall_status=1
           ;;
       esac
 
@@ -462,3 +521,4 @@ for repetition in $(seq 1 "$REPETITIONS"); do
 done
 
 echo "Fargate benchmark run $RUN_ID finished at $(date -Is)" | tee -a "$log_file"
+exit "$overall_status"
