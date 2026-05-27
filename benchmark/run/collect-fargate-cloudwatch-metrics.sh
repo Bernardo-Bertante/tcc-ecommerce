@@ -139,7 +139,7 @@ declare -A target_group_outputs=(
 
 target_group_full_name() {
   local arn="$1"
-  printf '%s' "$arn" | awk -F':targetgroup/' '{print $2}'
+  printf 'targetgroup/%s' "$(printf '%s' "$arn" | awk -F':targetgroup/' '{print $2}')"
 }
 
 metrics_file="$OUTPUT_DIR/metrics_${RUN_ID}_cloudwatch.jsonl"

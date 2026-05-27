@@ -24,3 +24,9 @@
 .idea/
 *.iml
 .DS_Store
+
+# Benchmark result artifacts
+benchmark/results/**/*_run*.json
+!benchmark/results/**/*-summary.json
+!benchmark/results/**/*_cloudwatch.jsonl
+!benchmark/results/**/*.csv

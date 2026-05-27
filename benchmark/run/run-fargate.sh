@@ -77,6 +77,7 @@ MEASURE_STARTUP="${MEASURE_STARTUP:-false}"
 STARTUP_TIMEOUT_SECONDS="${STARTUP_TIMEOUT_SECONDS:-120}"
 STATS_INTERVAL_SECONDS="${STATS_INTERVAL_SECONDS:-10}"
 F2_RAW_FIRST_REP_ONLY="${F2_RAW_FIRST_REP_ONLY:-true}"
+K6_QUIET="${K6_QUIET:-false}"
 MIN_FREE_DISK_GB="${MIN_FREE_DISK_GB:-0}"
 RESET_DB_COMMAND="${RESET_DB_COMMAND:-}"
 if [[ -n "${RUN_DIR:-}" ]]; then
@@ -465,7 +466,11 @@ for repetition in $(seq 1 "$REPETITIONS"); do
         emit_raw_json=false
       fi
 
-      k6_args=(run --summary-export "$summary_file")
+      k6_args=(run)
+      if is_true "$K6_QUIET"; then
+        k6_args+=(--quiet)
+      fi
+      k6_args+=(--summary-export "$summary_file")
       if [[ "$emit_raw_json" == "true" ]]; then
         k6_args+=(--out "json=$result_file")
       fi

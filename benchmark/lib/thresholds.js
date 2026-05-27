@@ -1,5 +1,5 @@
 export const FARGATE_THRESHOLDS = {
-  'http_req_failed{phase:load}': [{ threshold: 'rate<0.005', abortOnFail: true }],
+  'http_req_failed{phase:load}': ['rate<0.005'],
   'http_req_duration{phase:load}': ['p(95)<2000', 'p(99)<5000'],
 };
 
