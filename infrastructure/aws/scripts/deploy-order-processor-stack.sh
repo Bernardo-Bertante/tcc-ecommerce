@@ -124,17 +124,18 @@ if ! command -v aws > /dev/null 2>&1; then
   exit 1
 fi
 
+PROFILE="${PROFILE:-${AWS_PROFILE:-pessoal}}"
+REGION="${REGION:-${AWS_REGION:-us-east-1}}"
+
 if [[ -z "$ARTIFACT_PREFIX" ]]; then
   ARTIFACT_PREFIX="$STACK_NAME"
 fi
 
-AWS_ARGS=()
-if [[ -n "$PROFILE" ]]; then
-  AWS_ARGS+=(--profile "$PROFILE")
-fi
-if [[ -n "$REGION" ]]; then
-  AWS_ARGS+=(--region "$REGION")
-fi
+AWS_ARGS=(--profile "$PROFILE" --region "$REGION")
+
+echo "Template creates Lambda execution IAM role. CAPABILITY_IAM is required."
+account_id="$(aws "${AWS_ARGS[@]}" sts get-caller-identity --query Account --output text)"
+echo "Deploy target: account=$account_id profile=$PROFILE region=$REGION"
 
 if [[ "$SKIP_PACKAGE" == false ]]; then
   PACKAGE_ARGS=(

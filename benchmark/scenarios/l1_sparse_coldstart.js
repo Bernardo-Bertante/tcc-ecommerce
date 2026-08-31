@@ -24,7 +24,7 @@ const sparseScenario = singleInvocation || (smoke && localRie)
 		executor: 'constant-arrival-rate',
 		rate: 1,
 		timeUnit: smoke ? '5s' : '15m',
-		duration: __ENV.DURATION || (smoke ? '20s' : '45m'),
+		duration: __ENV.DURATION || (smoke ? '40s' : '150m'),
 		preAllocatedVUs: 1,
 		maxVUs: 1,
 	};

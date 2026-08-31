@@ -54,6 +54,7 @@ SMOKE="${SMOKE:-false}"
 REPETITIONS="${REPETITIONS:-1}"
 RUN_ID="${RUN_ID:-$(date +%Y%m%d-%H%M%S)}"
 REST_SECONDS="${REST_SECONDS:-0}"
+LAMBDA_OUTPUT_MODE="${LAMBDA_OUTPUT_MODE:-summary-only}"
 run_dir="${RUN_DIR:-$results_dir/$RUN_ID}"
 mkdir -p "$run_dir"
 log_file="$run_dir/run.log"
@@ -107,20 +108,37 @@ for repetition in $(seq 1 "$REPETITIONS"); do
         exit 1
       fi
 
-      result_file="$run_dir/${scenario}_${version_name}_run${repetition}.json"
       summary_file="$run_dir/${scenario}_${version_name}_run${repetition}-summary.json"
+      result_file="$run_dir/${scenario}_${version_name}_run${repetition}.json"
       echo "[$(date -Is)] START scenario=$scenario version=$version_name repetition=$repetition base_url=$base_url lambda_local_rie=$version_lambda_local_rie" | tee -a "$log_file"
 
+      emit_raw_json=false
+      case "$(printf '%s' "$LAMBDA_OUTPUT_MODE" | tr '[:upper:]' '[:lower:]')" in
+        raw)
+          emit_raw_json=true
+          ;;
+        summary-only)
+          emit_raw_json=false
+          ;;
+        *)
+          echo "Invalid LAMBDA_OUTPUT_MODE=$LAMBDA_OUTPUT_MODE. Use summary-only or raw." >&2
+          exit 1
+          ;;
+      esac
+
       set +e
+      k6_args=(run --summary-export "$summary_file")
+      if [[ "$emit_raw_json" == "true" ]]; then
+        k6_args+=(--out "json=$result_file")
+      fi
+      k6_args+=("$benchmark_dir/scenarios/${scenario}.js")
+
       BASE_URL="$base_url" \
         SMOKE="$SMOKE" \
         RESET_URL="${RESET_URL:-}" \
         REQUIRE_COLD_RESET="${REQUIRE_COLD_RESET:-false}" \
         LAMBDA_LOCAL_RIE="$version_lambda_local_rie" \
-        "$K6_BIN" run \
-        --summary-export "$summary_file" \
-        --out "json=$result_file" \
-        "$benchmark_dir/scenarios/${scenario}.js" 2>&1 | tee -a "$log_file"
+        "$K6_BIN" "${k6_args[@]}" 2>&1 | tee -a "$log_file"
       k6_status=${PIPESTATUS[0]}
       set -e
 
@@ -140,7 +158,12 @@ for repetition in $(seq 1 "$REPETITIONS"); do
           ;;
       esac
 
-      echo "[$(date -Is)] END scenario=$scenario version=$version_name repetition=$repetition status=$k6_status verdict=$verdict summary=$summary_file result=$result_file" | tee -a "$log_file"
+      result_value="none"
+      if [[ "$emit_raw_json" == "true" ]]; then
+        result_value="$result_file"
+      fi
+
+      echo "[$(date -Is)] END scenario=$scenario version=$version_name repetition=$repetition status=$k6_status verdict=$verdict summary=$summary_file result=$result_value" | tee -a "$log_file"
 
       if [[ "$REST_SECONDS" -gt 0 ]]; then
         echo "[$(date -Is)] REST ${REST_SECONDS}s" | tee -a "$log_file"
