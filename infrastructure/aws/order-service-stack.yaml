@@ -36,10 +36,10 @@ Parameters:
     Default: 8081
   TaskCpu:
     Type: String
-    Default: '1024'
+    Default: '8192'
   TaskMemory:
     Type: String
-    Default: '3072'
+    Default: '16384'
   DesiredCount:
     Type: Number
     Default: 1
@@ -486,7 +486,7 @@ Resources:
             - Name: SPRING_FLYWAY_PASSWORD
               Value: !Ref DatabasePassword
             - Name: JAVA_OPTS_APPEND
-              Value: '-Xms512m -Xmx2g -XX:MaxMetaspaceSize=256m'
+              Value: '-Xms512m -Xmx6144m -XX:MaxMetaspaceSize=256m'
           LogConfiguration:
             LogDriver: awslogs
             Options:
@@ -532,7 +532,7 @@ Resources:
             - Name: QUARKUS_DATASOURCE_REACTIVE_TRUST_ALL
               Value: 'true'
             - Name: JAVA_OPTS_APPEND
-              Value: '-Dquarkus.http.host=0.0.0.0 -Xms512m -Xmx1536m -XX:MaxMetaspaceSize=256m'
+              Value: '-Dquarkus.http.host=0.0.0.0 -Xms512m -Xmx6144m -XX:MaxMetaspaceSize=256m'
           LogConfiguration:
             LogDriver: awslogs
             Options:

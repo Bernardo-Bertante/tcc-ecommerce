@@ -30,3 +30,11 @@ benchmark/results/**/*_run*.json
 !benchmark/results/**/*-summary.json
 !benchmark/results/**/*_cloudwatch.jsonl
 !benchmark/results/**/*.csv
+benchmark/results/_downloads/
+benchmark/results/aws**
+
+# Local runner envs and keys (do NOT ignore example envs like fargate-aws.env.example)
+aws-runner.env
+benchmark/run/*.env
+*.pem
+

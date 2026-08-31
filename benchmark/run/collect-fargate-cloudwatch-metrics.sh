@@ -12,6 +12,8 @@ Options:
   --region REGION         AWS region.
   --output-dir DIR        Output directory. Default: benchmark/results/<RUN_ID>.
   --period SECONDS        CloudWatch period. Default: 60.
+  --start-buffer-seconds  Seconds subtracted from --start-time. Default: 60.
+  --end-buffer-seconds    Seconds added to --end-time. Default: 60.
   -h, --help              Show this help.
 EOF
 }
@@ -26,6 +28,8 @@ PROFILE=""
 REGION=""
 OUTPUT_DIR=""
 PERIOD="60"
+START_BUFFER_SECONDS="60"
+END_BUFFER_SECONDS="60"
 
 while [[ $# -gt 0 ]]; do
   case "$1" in
@@ -59,6 +63,14 @@ while [[ $# -gt 0 ]]; do
       ;;
     --period)
       PERIOD="$2"
+      shift 2
+      ;;
+    --start-buffer-seconds)
+      START_BUFFER_SECONDS="$2"
+      shift 2
+      ;;
+    --end-buffer-seconds)
+      END_BUFFER_SECONDS="$2"
       shift 2
       ;;
     -h|--help)
@@ -96,6 +108,20 @@ if [[ -z "$OUTPUT_DIR" ]]; then
 fi
 mkdir -p "$OUTPUT_DIR"
 
+is_present() {
+  local value="$1"
+  [[ -n "$value" && "$value" != "None" && "$value" != "null" ]]
+}
+
+buffered_time() {
+  local base_time="$1"
+  local delta_seconds="$2"
+  date -u -d "$base_time $delta_seconds seconds" +%Y-%m-%dT%H:%M:%SZ
+}
+
+BUFFERED_START_TIME="$(buffered_time "$START_TIME" "-$START_BUFFER_SECONDS")"
+BUFFERED_END_TIME="$(buffered_time "$END_TIME" "$END_BUFFER_SECONDS")"
+
 output_value() {
   local key="$1"
   aws "${AWS_ARGS[@]}" cloudformation describe-stacks \
@@ -114,11 +140,35 @@ metric_statistics() {
     --namespace "$namespace" \
     --metric-name "$metric_name" \
     --dimensions $dimensions \
-    --start-time "$START_TIME" \
-    --end-time "$END_TIME" \
+    --start-time "$BUFFERED_START_TIME" \
+    --end-time "$BUFFERED_END_TIME" \
     --period "$PERIOD" \
     --statistics $statistics \
-    --output json
+    --output json \
+    | tr -d '\n'
+}
+
+append_version_metric() {
+  local version="$1"
+  local namespace="$2"
+  local metric_name="$3"
+  local dimensions="$4"
+  local statistics="$5"
+
+  printf '{"run_id":"%s","version":"%s","namespace":"%s","metric":"%s","data":%s}\n' \
+    "$RUN_ID" "$version" "$namespace" "$metric_name" \
+    "$(metric_statistics "$namespace" "$metric_name" "$dimensions" "$statistics")" >> "$metrics_file"
+}
+
+append_metric() {
+  local namespace="$1"
+  local metric_name="$2"
+  local dimensions="$3"
+  local statistics="$4"
+
+  printf '{"run_id":"%s","namespace":"%s","metric":"%s","data":%s}\n' \
+    "$RUN_ID" "$namespace" "$metric_name" \
+    "$(metric_statistics "$namespace" "$metric_name" "$dimensions" "$statistics")" >> "$metrics_file"
 }
 
 cluster_name="$(output_value EcsClusterName)"
@@ -145,41 +195,69 @@ target_group_full_name() {
 metrics_file="$OUTPUT_DIR/metrics_${RUN_ID}_cloudwatch.jsonl"
 : > "$metrics_file"
 
+append_metric AWS/ApplicationELB HTTPCode_ELB_5XX_Count \
+  "Name=LoadBalancer,Value=$load_balancer_full_name" \
+  "Sum"
+
 for version in springboot quarkus-jvm quarkus-native; do
   service_name="${service_outputs[$version]}"
-  target_group_name="$(target_group_full_name "${target_group_outputs[$version]}")"
+  target_group_arn="${target_group_outputs[$version]}"
 
-  printf '{"run_id":"%s","version":"%s","namespace":"AWS/ECS","metric":"CPUUtilization","data":%s}\n' \
-    "$RUN_ID" "$version" \
-    "$(metric_statistics AWS/ECS CPUUtilization "Name=ClusterName,Value=$cluster_name Name=ServiceName,Value=$service_name" "Average Maximum")" >> "$metrics_file"
+  if ! is_present "$service_name"; then
+    continue
+  fi
 
-  printf '{"run_id":"%s","version":"%s","namespace":"AWS/ECS","metric":"MemoryUtilization","data":%s}\n' \
-    "$RUN_ID" "$version" \
-    "$(metric_statistics AWS/ECS MemoryUtilization "Name=ClusterName,Value=$cluster_name Name=ServiceName,Value=$service_name" "Average Maximum")" >> "$metrics_file"
+  target_group_name=""
+  if is_present "$target_group_arn"; then
+    target_group_name="$(target_group_full_name "$target_group_arn")"
+  fi
 
-  printf '{"run_id":"%s","version":"%s","namespace":"AWS/ApplicationELB","metric":"TargetResponseTime","data":%s}\n' \
-    "$RUN_ID" "$version" \
-    "$(metric_statistics AWS/ApplicationELB TargetResponseTime "Name=LoadBalancer,Value=$load_balancer_full_name Name=TargetGroup,Value=$target_group_name" "Average Maximum")" >> "$metrics_file"
+  append_version_metric "$version" AWS/ECS CPUUtilization \
+    "Name=ClusterName,Value=$cluster_name Name=ServiceName,Value=$service_name" \
+    "Average Maximum"
 
-  printf '{"run_id":"%s","version":"%s","namespace":"AWS/ApplicationELB","metric":"HTTPCode_Target_5XX_Count","data":%s}\n' \
-    "$RUN_ID" "$version" \
-    "$(metric_statistics AWS/ApplicationELB HTTPCode_Target_5XX_Count "Name=LoadBalancer,Value=$load_balancer_full_name Name=TargetGroup,Value=$target_group_name" "Sum")" >> "$metrics_file"
+  append_version_metric "$version" AWS/ECS MemoryUtilization \
+    "Name=ClusterName,Value=$cluster_name Name=ServiceName,Value=$service_name" \
+    "Average Maximum"
+
+  if is_present "$target_group_name"; then
+    append_version_metric "$version" AWS/ApplicationELB TargetResponseTime \
+      "Name=LoadBalancer,Value=$load_balancer_full_name Name=TargetGroup,Value=$target_group_name" \
+      "Average Maximum"
+
+    append_version_metric "$version" AWS/ApplicationELB HTTPCode_Target_5XX_Count \
+      "Name=LoadBalancer,Value=$load_balancer_full_name Name=TargetGroup,Value=$target_group_name" \
+      "Sum"
+
+    append_version_metric "$version" AWS/ApplicationELB TargetConnectionErrorCount \
+      "Name=LoadBalancer,Value=$load_balancer_full_name Name=TargetGroup,Value=$target_group_name" \
+      "Sum"
+
+    append_version_metric "$version" AWS/ApplicationELB HealthyHostCount \
+      "Name=LoadBalancer,Value=$load_balancer_full_name Name=TargetGroup,Value=$target_group_name" \
+      "Average Minimum Maximum"
+
+    append_version_metric "$version" AWS/ApplicationELB UnHealthyHostCount \
+      "Name=LoadBalancer,Value=$load_balancer_full_name Name=TargetGroup,Value=$target_group_name" \
+      "Average Minimum Maximum"
+  fi
 done
 
-printf '{"run_id":"%s","namespace":"AWS/RDS","metric":"CPUUtilization","data":%s}\n' \
-  "$RUN_ID" \
-  "$(metric_statistics AWS/RDS CPUUtilization "Name=DBInstanceIdentifier,Value=$database_id" "Average Maximum")" >> "$metrics_file"
+append_metric AWS/RDS CPUUtilization \
+  "Name=DBInstanceIdentifier,Value=$database_id" \
+  "Average Maximum"
 
-printf '{"run_id":"%s","namespace":"AWS/RDS","metric":"DatabaseConnections","data":%s}\n' \
-  "$RUN_ID" \
-  "$(metric_statistics AWS/RDS DatabaseConnections "Name=DBInstanceIdentifier,Value=$database_id" "Average Maximum")" >> "$metrics_file"
+append_metric AWS/RDS DatabaseConnections \
+  "Name=DBInstanceIdentifier,Value=$database_id" \
+  "Average Maximum"
 
-printf '{"run_id":"%s","namespace":"AWS/RDS","metric":"ReadLatency","data":%s}\n' \
-  "$RUN_ID" \
-  "$(metric_statistics AWS/RDS ReadLatency "Name=DBInstanceIdentifier,Value=$database_id" "Average Maximum")" >> "$metrics_file"
+append_metric AWS/RDS ReadLatency \
+  "Name=DBInstanceIdentifier,Value=$database_id" \
+  "Average Maximum"
 
-printf '{"run_id":"%s","namespace":"AWS/RDS","metric":"WriteLatency","data":%s}\n' \
-  "$RUN_ID" \
-  "$(metric_statistics AWS/RDS WriteLatency "Name=DBInstanceIdentifier,Value=$database_id" "Average Maximum")" >> "$metrics_file"
+append_metric AWS/RDS WriteLatency \
+  "Name=DBInstanceIdentifier,Value=$database_id" \
+  "Average Maximum"
 
 echo "CloudWatch metrics written to $metrics_file"
+echo "Metric window with buffer: start=$BUFFERED_START_TIME end=$BUFFERED_END_TIME"

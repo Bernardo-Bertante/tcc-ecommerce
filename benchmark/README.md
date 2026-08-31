@@ -71,7 +71,7 @@ Before running the first scenario, the runner checks the health endpoint for eac
 
 For the full experiment, omit `SMOKE=true`. Defaults are 5 repetitions and 600 seconds of rest after each version block. Override with `REPETITIONS` and `VERSION_REST_SECONDS` when needed. `REST_SECONDS` is still accepted as a backward-compatible alias.
 
-Results are written to `benchmark/results/` as k6 JSON streams and a run log. When enabled, startup timing and container resource snapshots are also written there as CSV files.
+Results are written to `benchmark/results/` as summary JSON files and a run log. Raw k6 JSON is optional and disabled by default (`K6_OUTPUT_MODE=summary-only`). When enabled, startup timing and container resource snapshots are also written there as CSV files.
 
 ## Fargate/AWS Runner
 
@@ -157,11 +157,11 @@ LAMBDA_VERSIONS="springboot|https://example.lambda-url" RESET_URL=https://exampl
 
 L1 requires `RESET_URL` so each measured invocation can force a cold start. For local dry runs only, set `ALLOW_UNRESET_L1=true`.
 
-Lambda runner outputs are written to `benchmark/results/<RUN_ID>/` with one raw JSON stream, one summary file, and one `run.log` per run.
+Lambda runner outputs are written to `benchmark/results/<RUN_ID>/` with one summary file and one `run.log` per run. Raw JSON is optional and disabled by default (`LAMBDA_OUTPUT_MODE=summary-only`).
 
 ## Single Scenario Output
 
-All scenarios support k6 JSON output:
+Official runs should keep summary-only output. Raw k6 JSON should be enabled only when explicitly required:
 
 ```bash
 k6 run \
@@ -172,12 +172,13 @@ k6 run \
 
 ## Scenario Summary
 
-- `f1_low_load.js`: 30 req/s for 10 minutes.
-- `f2_high_load.js`: 10 minutes pre-warm plus 30 minutes at 300 req/s.
-- `f2s_summary_only.js`: 50 req/s summary-only for 5 minutes.
-- `f3_burst_autoscaling.js`: burst from 50 to 500 req/s using the F1/F2 endpoint mix.
+- `f1_low_load.js`: 30 req/s with ramp-up/ramp-down (2m + 20m + 2m).
+- `f2_high_load.js`: 10 minutes pre-warm at 30 req/s, then 60 req/s with ramp-up/ramp-down.
+- `f2s_summary_only.js`: 60 req/s summary-only for 5 minutes.
+- `f3_burst_autoscaling.js`: Black Friday profile with 30 baseline, 225 sustained high load, and 300 stress phase.
+- `f3s_stress_300.js`: isolated Black Friday stress at 300 req/s (`PRE_ALLOCATED_VUS=1500`, `MAX_VUS=3000`).
 - `l1_sparse_coldstart.js`: sparse calls, with cold reset coordinated by `RESET_URL`.
-- `l2_warm_burst.js`: one call every 3 seconds, first 10 iterations tagged as warmup.
-- `l3_concurrency_burst.js`: 200 concurrent shared iterations.
+- `l2_warm_burst.js`: warm predictable peak (2m at 5 inv/s, then 10m at 15 inv/s).
+- `l3_concurrency_burst.js`: Black Friday Lambda profile (warmup 15 inv/s, burst 200 concurrent, sustain 75 inv/s, ramp-down).
 
 F1, F2, and F3 use this measured mix: 50% `GET /orders/{id}`, 20% `POST /orders`, 15% `GET /orders/customer/{customerId}`, 10% `PUT /orders/{id}/status`, and 5% `GET /orders/summary`.

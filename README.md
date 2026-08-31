@@ -74,32 +74,22 @@ Para buildar, criar/validar repositórios ECR, fazer login e enviar as imagens:
 
 O script grava os URIs em `infrastructure/aws/build/order-service/image-uris.env`.
 
-Para fazer push e deploy em uma etapa, informe uma senha para o PostgreSQL RDS:
+Para fazer push e deploy em uma etapa, informe uma senha para o PostgreSQL RDS e forneça um CIDR de ingresso explícito (não use 0.0.0.0/0):
 
 ```bash
 ./infrastructure/aws/scripts/deploy-order-service-stack.sh \
-  --profile meu-profile \
+  --profile pessoal \
   --region us-east-1 \
   --stack-name order-service-benchmark \
   --image-tag order-service-test \
   --database-password 'troque-esta-senha' \
   --db-engine-version 16.14 \
-  --benchmark-ingress-cidr 0.0.0.0/0
+  --benchmark-ingress-cidr "$(curl -s https://checkip.amazonaws.com)/32"
 ```
 
-Em contas de laboratório que não permitem `iam:CreateRole`, reutilize a role fornecida pelo lab:
+Nota: `0.0.0.0/0` deve ser usado apenas temporariamente para *debugging* local e **jamais** como padrão recomendado. Em geral, use o IP público do operador do runner em `/32` ou uma faixa CIDR restrita.
 
-```bash
-./infrastructure/aws/scripts/deploy-order-service-stack.sh \
-  --profile awslab \
-  --region us-east-1 \
-  --stack-name order-service-benchmark \
-  --image-tag order-service-test \
-  --database-password 'troque-esta-senha' \
-  --db-engine-version 16.14 \
-  --task-execution-role-arn arn:aws:iam::169872703824:role/LabRole \
-  --task-role-arn arn:aws:iam::169872703824:role/LabRole
-```
+Observação sobre roles de laboratório: alguns ambientes de laboratório fornecem uma role `LabRole` pré-criada; essa é uma opção de compatibilidade para o fluxo *lab-only*. O fluxo de conta pessoal padrão usa descoberta dinâmica do ID da conta via `aws sts` e não deve depender de `LabRole`.
 
 Para reduzir exposição, troque `--benchmark-ingress-cidr` pelo IP/CIDR da máquina que rodará o k6. O script imprime os outputs da stack ao final, incluindo:
 

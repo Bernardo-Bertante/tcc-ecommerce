@@ -60,7 +60,7 @@ export function runGeneralOrderOperation(baseUrl, data, options = {}) {
   const phase = options.phase || 'load';
   const scenarioName = options.scenarioName || exec.scenario.name;
 
-  if (slot < 50) {
+  if (slot < 51) {
     const orderId = data.readOrders[iteration % data.readOrders.length];
     const response = getOrder(baseUrl, orderId, {
       tags: operationTags(phase, scenarioName, 'get_order'),
@@ -69,7 +69,7 @@ export function runGeneralOrderOperation(baseUrl, data, options = {}) {
     return;
   }
 
-  if (slot < 70) {
+  if (slot < 71) {
     const response = createOrder(baseUrl, makeOrderPayload(iteration + 5000), {
       tags: operationTags(phase, scenarioName, 'create_order'),
     });
@@ -77,7 +77,7 @@ export function runGeneralOrderOperation(baseUrl, data, options = {}) {
     return;
   }
 
-  if (slot < 85) {
+  if (slot < 86) {
     const customerId = data.customers[iteration % data.customers.length];
     const response = getOrdersByCustomer(baseUrl, customerId, 0, data.pageSize, {
       tags: operationTags(phase, scenarioName, 'get_orders_by_customer'),
@@ -86,7 +86,7 @@ export function runGeneralOrderOperation(baseUrl, data, options = {}) {
     return;
   }
 
-  if (slot < 95) {
+  if (slot < 98) {
     const createResponse = createOrder(baseUrl, makeOrderPayload(iteration + 10000), {
       tags: operationTags('auxiliary', scenarioName, 'create_order_for_status_update'),
     });

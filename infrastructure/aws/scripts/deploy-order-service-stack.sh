@@ -24,7 +24,7 @@ Options:
   --task-memory MB                  Default: 3072.
   --desired-count COUNT             Default: 1.
   --max-task-count COUNT            Default: 5.
-  --benchmark-ingress-cidr CIDR     CIDR allowed to reach ALB listeners. Default: 0.0.0.0/0.
+  --benchmark-ingress-cidr CIDR     CIDR allowed to reach ALB listeners. No unsafe default (provide operator IP/32).
   --skip-build                      Reuse local Docker images.
   --skip-push                       Reuse --image-uris-env values.
   --skip-gradle                     Forwarded to image preparation.
@@ -49,11 +49,11 @@ DB_INSTANCE_CLASS="db.t3.micro"
 DB_ENGINE_VERSION="16.14"
 TASK_EXECUTION_ROLE_ARN=""
 TASK_ROLE_ARN=""
-TASK_CPU="1024"
-TASK_MEMORY="3072"
+TASK_CPU="8192"
+TASK_MEMORY="16384"
 DESIRED_COUNT="1"
 MAX_TASK_COUNT="5"
-BENCHMARK_INGRESS_CIDR="0.0.0.0/0"
+BENCHMARK_INGRESS_CIDR=""
 SKIP_BUILD=false
 SKIP_PUSH=false
 SKIP_GRADLE=false
@@ -172,13 +172,26 @@ if ! command -v aws > /dev/null 2>&1; then
   exit 1
 fi
 
-AWS_ARGS=()
-if [[ -n "$PROFILE" ]]; then
-  AWS_ARGS+=(--profile "$PROFILE")
+PROFILE="${PROFILE:-${AWS_PROFILE:-pessoal}}"
+REGION="${REGION:-${AWS_REGION:-us-east-1}}"
+
+AWS_ARGS=(--profile "$PROFILE" --region "$REGION")
+
+if [[ -z "$BENCHMARK_INGRESS_CIDR" ]]; then
+  echo "ERROR: --benchmark-ingress-cidr is required and must not be 0.0.0.0/0. Use the operator IP in /32 form (see runbook)." >&2
+  exit 1
 fi
-if [[ -n "$REGION" ]]; then
-  AWS_ARGS+=(--region "$REGION")
+
+if [[ -n "$TASK_EXECUTION_ROLE_ARN" || -n "$TASK_ROLE_ARN" ]]; then
+  echo "Using existing ECS roles (TaskExecutionRole/TaskRole) provided via ARN(s)."
+  CFN_CAPABILITIES=()
+else
+  echo "Template will create ECS IAM roles. CAPABILITY_NAMED_IAM is required."
+  CFN_CAPABILITIES=(--capabilities CAPABILITY_NAMED_IAM)
 fi
+
+account_id="$(aws "${AWS_ARGS[@]}" sts get-caller-identity --query Account --output text)"
+echo "Deploy target: account=$account_id profile=$PROFILE region=$REGION"
 
 if [[ "$SKIP_PUSH" == false ]]; then
   PUSH_ARGS=(--image-tag "$IMAGE_TAG" --output-env "$IMAGE_URIS_ENV")
@@ -225,7 +238,7 @@ done
 aws "${AWS_ARGS[@]}" cloudformation deploy \
   --stack-name "$STACK_NAME" \
   --template-file "$TEMPLATE_FILE" \
-  --capabilities CAPABILITY_NAMED_IAM \
+  "${CFN_CAPABILITIES[@]}" \
   --no-fail-on-empty-changeset \
   --parameter-overrides \
     ImageTag="$IMAGE_TAG" \

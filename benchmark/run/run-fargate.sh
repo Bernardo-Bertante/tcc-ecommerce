@@ -77,6 +77,7 @@ MEASURE_STARTUP="${MEASURE_STARTUP:-false}"
 STARTUP_TIMEOUT_SECONDS="${STARTUP_TIMEOUT_SECONDS:-120}"
 STATS_INTERVAL_SECONDS="${STATS_INTERVAL_SECONDS:-10}"
 F2_RAW_FIRST_REP_ONLY="${F2_RAW_FIRST_REP_ONLY:-true}"
+K6_OUTPUT_MODE="${K6_OUTPUT_MODE:-summary-only}"
 K6_QUIET="${K6_QUIET:-false}"
 MIN_FREE_DISK_GB="${MIN_FREE_DISK_GB:-0}"
 RESET_DB_COMMAND="${RESET_DB_COMMAND:-}"
@@ -112,6 +113,7 @@ scenarios=(
   "f2_high_load"
   "f2s_summary_only"
   "f3_burst_autoscaling"
+  "f3s_stress_300"
 )
 
 if [[ -n "${FARGATE_SCENARIOS:-}" ]]; then
@@ -408,7 +410,7 @@ echo "Fargate benchmark run $RUN_ID started at $(date -Is)" | tee -a "$log_file"
 if [[ -n "${run_config_path:-}" ]]; then
   echo "[$(date -Is)] CONFIG file=$run_config_path" | tee -a "$log_file"
 fi
-echo "[$(date -Is)] SETTINGS environment=$ENVIRONMENT smoke=$SMOKE repetitions=$REPETITIONS version_rest_seconds=$VERSION_REST_SECONDS scenarios=${scenarios[*]} run_dir=$run_dir f2_raw_first_rep_only=$F2_RAW_FIRST_REP_ONLY min_free_disk_gb=$MIN_FREE_DISK_GB" | tee -a "$log_file"
+echo "[$(date -Is)] SETTINGS environment=$ENVIRONMENT smoke=$SMOKE repetitions=$REPETITIONS version_rest_seconds=$VERSION_REST_SECONDS scenarios=${scenarios[*]} run_dir=$run_dir k6_output_mode=$K6_OUTPUT_MODE f2_raw_first_rep_only=$F2_RAW_FIRST_REP_ONLY min_free_disk_gb=$MIN_FREE_DISK_GB" | tee -a "$log_file"
 
 if [[ "$ENVIRONMENT" == "aws" ]]; then
   if is_true "$COLLECT_CONTAINER_STATS"; then
@@ -454,6 +456,12 @@ for repetition in $(seq 1 "$REPETITIONS"); do
     ensure_service_ready "$version_name" "$base_url"
 
     for scenario in "${scenarios[@]}"; do
+      # Backward compatibility: old docs called 300 req/s as F2-300, but this is
+      # now officially F3-S (isolated Black Friday stress).
+      if [[ "$scenario" == "f2_300" ]]; then
+        scenario="f3s_stress_300"
+      fi
+
       result_file="$run_dir/${scenario}_${version_name}_run${repetition}.json"
       summary_file="$run_dir/${scenario}_${version_name}_run${repetition}-summary.json"
 
@@ -461,10 +469,25 @@ for repetition in $(seq 1 "$REPETITIONS"); do
       # is true, only repetition 1 of each version emits raw JSON for F2; other
       # repetitions still produce the summary file. All other scenarios always
       # emit raw JSON.
-      emit_raw_json=true
-      if [[ "$scenario" == "f2_high_load" ]] && is_true "$F2_RAW_FIRST_REP_ONLY" && [[ "$repetition" -ne 1 ]]; then
-        emit_raw_json=false
-      fi
+      emit_raw_json=false
+      case "$(printf '%s' "$K6_OUTPUT_MODE" | tr '[:upper:]' '[:lower:]')" in
+        raw)
+          emit_raw_json=true
+          ;;
+        mixed)
+          emit_raw_json=true
+          if [[ "$scenario" == "f2_high_load" ]] && is_true "$F2_RAW_FIRST_REP_ONLY" && [[ "$repetition" -ne 1 ]]; then
+            emit_raw_json=false
+          fi
+          ;;
+        summary-only)
+          emit_raw_json=false
+          ;;
+        *)
+          echo "Invalid K6_OUTPUT_MODE=$K6_OUTPUT_MODE. Use summary-only, mixed, or raw." >&2
+          exit 1
+          ;;
+      esac
 
       k6_args=(run)
       if is_true "$K6_QUIET"; then
@@ -482,7 +505,7 @@ for repetition in $(seq 1 "$REPETITIONS"); do
       # crossed) must not abort the loop. We capture the exit code and let the
       # orchestrator decide; thresholds remain visible in the summary file.
       set +e
-      BASE_URL="$base_url" SMOKE="$SMOKE" "$K6_BIN" "${k6_args[@]}" 2>&1 | tee -a "$log_file"
+      BASE_URL="$base_url" SMOKE="$SMOKE" ABORT_ON_FAIL="${ABORT_ON_FAIL:-false}" "$K6_BIN" "${k6_args[@]}" 2>&1 | tee -a "$log_file"
       k6_status=${PIPESTATUS[0]}
       set -e
 

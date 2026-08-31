@@ -7,16 +7,25 @@ import { benchmarkDataConfig, prepareOrderPools, runGeneralOrderOperation } from
 
 const smoke = isSmoke();
 const scenarioName = 'f3_burst_autoscaling';
+const baselineRate = envInt('F3_BASELINE_RATE', smoke ? 3 : 30, 1);
+const averageBlackFridayRate = envInt('F3_AVERAGE_RATE', smoke ? 12 : 225, 1);
+const stressRate = envInt('F3_STRESS_RATE', smoke ? 20 : 300, 1);
 const stages = smoke
 	? [
-		{ duration: '10s', target: envInt('F3_SMOKE_PEAK_RATE', 5, 1) },
-		{ duration: '10s', target: 1 },
+		{ duration: __ENV.F3_BASELINE_DURATION || '8s', target: baselineRate },
+		{ duration: __ENV.F3_RAMP_UP_TO_AVERAGE || '8s', target: averageBlackFridayRate },
+		{ duration: __ENV.F3_AVERAGE_DURATION || '12s', target: averageBlackFridayRate },
+		{ duration: __ENV.F3_RAMP_UP_TO_STRESS || '6s', target: stressRate },
+		{ duration: __ENV.F3_STRESS_DURATION || '12s', target: stressRate },
+		{ duration: __ENV.F3_RAMP_DOWN || '8s', target: baselineRate },
 	]
 	: [
-		{ duration: '5m', target: 50 },
-		{ duration: '2m', target: 500 },
-		{ duration: '8m', target: 500 },
-		{ duration: '5m', target: 50 },
+		{ duration: __ENV.F3_BASELINE_DURATION || '5m', target: baselineRate },
+		{ duration: __ENV.F3_RAMP_UP_TO_AVERAGE || '3m', target: averageBlackFridayRate },
+		{ duration: __ENV.F3_AVERAGE_DURATION || '10m', target: averageBlackFridayRate },
+		{ duration: __ENV.F3_RAMP_UP_TO_STRESS || '2m', target: stressRate },
+		{ duration: __ENV.F3_STRESS_DURATION || '10m', target: stressRate },
+		{ duration: __ENV.F3_RAMP_DOWN || '3m', target: baselineRate },
 	];
 
 export const options = {
@@ -24,7 +33,7 @@ export const options = {
 	scenarios: {
 		f3_burst_autoscaling: {
 			executor: 'ramping-arrival-rate',
-			startRate: envInt('F3_START_RATE', smoke ? 1 : 50, 1),
+			startRate: envInt('F3_START_RATE', smoke ? 1 : baselineRate, 1),
 			timeUnit: '1s',
 			stages,
 			preAllocatedVUs: envInt('PRE_ALLOCATED_VUS', smoke ? 10 : 1200, 1),

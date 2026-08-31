@@ -7,9 +7,12 @@ import { benchmarkDataConfig, prepareOrderPools, runGeneralOrderOperation } from
 
 const smoke = isSmoke();
 const scenarioName = 'f2_high_load';
-const rate = envInt('F2_RATE', smoke ? 2 : 300, 1);
+const warmupRate = envInt('F2_WARMUP_RATE', smoke ? 2 : 30, 1);
+const targetRate = envInt('F2_RATE', smoke ? 4 : 60, 1);
 const prewarmDuration = __ENV.F2_PREWARM_DURATION || (smoke ? '10s' : '10m');
-const loadDuration = __ENV.DURATION || __ENV.F2_DURATION || (smoke ? '20s' : '30m');
+const rampUpDuration = __ENV.F2_RAMP_UP || (smoke ? '5s' : '3m');
+const holdDuration = __ENV.F2_DURATION || (smoke ? '20s' : '30m');
+const rampDownDuration = __ENV.F2_RAMP_DOWN || (smoke ? '5s' : '3m');
 
 export const options = {
 	thresholds: smoke ? SMOKE_THRESHOLDS : FARGATE_THRESHOLDS,
@@ -17,7 +20,7 @@ export const options = {
 		f2_prewarm: {
 			executor: 'constant-arrival-rate',
 			exec: 'prewarm',
-			rate,
+			rate: warmupRate,
 			timeUnit: '1s',
 			duration: prewarmDuration,
 			preAllocatedVUs: envInt('PRE_ALLOCATED_VUS', smoke ? 5 : 800, 1),
@@ -25,11 +28,15 @@ export const options = {
 			tags: { phase: 'warmup' },
 		},
 		f2_high_load: {
-			executor: 'constant-arrival-rate',
+			executor: 'ramping-arrival-rate',
 			exec: 'load',
-			rate,
+			startRate: warmupRate,
 			timeUnit: '1s',
-			duration: loadDuration,
+			stages: [
+				{ duration: rampUpDuration, target: targetRate },
+				{ duration: holdDuration, target: targetRate },
+				{ duration: rampDownDuration, target: 0 },
+			],
 			startTime: prewarmDuration,
 			preAllocatedVUs: envInt('PRE_ALLOCATED_VUS', smoke ? 5 : 800, 1),
 			maxVUs: envInt('MAX_VUS', smoke ? 20 : 1500, 1),
