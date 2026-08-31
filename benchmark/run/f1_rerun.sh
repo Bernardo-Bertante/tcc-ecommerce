@@ -86,7 +86,8 @@ REMOTE_BENCH_DIR="${REMOTE_BENCH_DIR:-\$HOME/ecommerce-tcc/benchmark}"
 REMOTE_K6="${REMOTE_K6:-\$HOME/.local/bin/k6}"
 
 REPO_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)"
-SCENARIO_FILE="benchmark/scenarios/f1_low_load.js"
+SCENARIO_FILE="benchmark/scenarios/f1_low_load.js"   # caminho relativo ao REPO_ROOT (local)
+REMOTE_SCENARIO="scenarios/f1_low_load.js"           # caminho relativo ao REMOTE_BENCH_DIR (runner)
 RUNNER_SCRIPT_REL="benchmark/run/f1_rerun.sh"
 OUT_DIR="$REPO_ROOT/analysis/fargate/fase3-f1-rerun"
 OLD_DIR="$REPO_ROOT/analysis/fargate/fase3"
@@ -196,8 +197,8 @@ preflight() {
 		|| die "SSH falhou para $RUNNER_USER@$RUNNER_IP (SG do runner precisa liberar a porta 22 para o IP atual)"
 	ssh "${SSH_OPTS[@]}" "$RUNNER_USER@$RUNNER_IP" "$REMOTE_K6 version" >/dev/null 2>&1 \
 		|| die "k6 não encontrado no runner em $REMOTE_K6"
-	ssh "${SSH_OPTS[@]}" "$RUNNER_USER@$RUNNER_IP" "test -f $REMOTE_BENCH_DIR/$SCENARIO_FILE" \
-		|| die "runner não tem $REMOTE_BENCH_DIR/$SCENARIO_FILE — sincronize o repo no runner primeiro"
+	ssh "${SSH_OPTS[@]}" "$RUNNER_USER@$RUNNER_IP" "test -f $REMOTE_BENCH_DIR/$REMOTE_SCENARIO && test -f $REMOTE_BENCH_DIR/lib/workload.js" \
+		|| die "runner não tem $REMOTE_BENCH_DIR/$REMOTE_SCENARIO (+ lib/) — sincronize scenarios/ e lib/ primeiro"
 
 	if command -v k6 >/dev/null 2>&1; then
 		log "preflight: script k6 exige F1_RATE (regressão do fix)"
