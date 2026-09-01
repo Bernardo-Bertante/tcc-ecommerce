@@ -38,3 +38,6 @@ aws-runner.env
 benchmark/run/*.env
 *.pem
 
+
+# Saida de build do Eclipse/Gradle (nunca versionar)
+order-processor/*/bin/
