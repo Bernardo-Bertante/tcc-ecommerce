@@ -2,6 +2,7 @@ package com.tcc.orderprocessor.config;
 
 import java.net.URI;
 import java.time.Clock;
+import java.util.Optional;
 
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.enterprise.inject.Produces;
@@ -20,30 +21,44 @@ import software.amazon.awssdk.services.dynamodb.DynamoDbClientBuilder;
 @ApplicationScoped
 public class DynamoDbConfig {
 
-	@Produces
-	@Singleton
-	DynamoDbClient dynamoDbClient(
-			@ConfigProperty(name = "aws.region", defaultValue = "us-east-1") String awsRegion,
-			@ConfigProperty(name = "dynamodb.endpoint", defaultValue = "") String dynamoDbEndpoint
-	) {
-		DynamoDbClientBuilder builder = DynamoDbClient.builder()
-				.httpClientBuilder(UrlConnectionHttpClient.builder())
-				.region(Region.of(awsRegion));
+    @Produces
+    @Singleton
+    DynamoDbClient dynamoDbClient(
+            @ConfigProperty(name = "aws.region", defaultValue = "us-east-1") String awsRegion,
+            @ConfigProperty(name = "dynamodb.endpoint") Optional<String> dynamoDbEndpoint
+    ) {
+        DynamoDbClientBuilder builder = DynamoDbClient.builder()
+                .httpClientBuilder(UrlConnectionHttpClient.builder())
+                .region(Region.of(awsRegion))
+                .credentialsProvider(DefaultCredentialsProvider.create());
 
-		if (dynamoDbEndpoint != null && !dynamoDbEndpoint.isBlank()) {
-			builder.endpointOverride(URI.create(dynamoDbEndpoint))
-					.credentialsProvider(StaticCredentialsProvider.create(AwsBasicCredentials.create("local", "local")));
-		} else {
-			builder.credentialsProvider(DefaultCredentialsProvider.create());
-		}
+        dynamoDbEndpoint
+                .filter(endpoint -> !endpoint.isBlank())
+                .ifPresent(endpoint -> {
+                    builder.endpointOverride(URI.create(endpoint));
 
-		return builder.build();
-	}
+                    if (isLocalEndpoint(endpoint)) {
+                        builder.credentialsProvider(
+                                StaticCredentialsProvider.create(
+                                        AwsBasicCredentials.create("local", "local")
+                                )
+                        );
+                    }
+                });
 
-	@Produces
-	@Singleton
-	Clock clock() {
-		return Clock.systemUTC();
-	}
+        return builder.build();
+    }
 
+    private boolean isLocalEndpoint(String endpoint) {
+        return endpoint.contains("localhost")
+                || endpoint.contains("127.0.0.1")
+                || endpoint.contains("localstack")
+                || endpoint.contains("dynamodb-local");
+    }
+
+    @Produces
+    @Singleton
+    Clock clock() {
+        return Clock.systemUTC();
+    }
 }

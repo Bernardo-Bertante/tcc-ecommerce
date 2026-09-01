@@ -20,27 +20,39 @@ import software.amazon.awssdk.services.dynamodb.DynamoDbClientBuilder;
 @EnableConfigurationProperties(DynamoDbProperties.class)
 public class DynamoDbConfig {
 
-	@Bean
-	DynamoDbClient dynamoDbClient(
-			@Value("${aws.region:us-east-1}") String awsRegion,
-			@Value("${dynamodb.endpoint:}") String dynamoDbEndpoint
-	) {
-		DynamoDbClientBuilder builder = DynamoDbClient.builder()
-				.region(Region.of(awsRegion));
+    @Bean
+    DynamoDbClient dynamoDbClient(
+            @Value("${aws.region:us-east-1}") String awsRegion,
+            @Value("${dynamodb.endpoint:}") String dynamoDbEndpoint
+    ) {
+        DynamoDbClientBuilder builder = DynamoDbClient.builder()
+                .region(Region.of(awsRegion))
+                .credentialsProvider(DefaultCredentialsProvider.create());
 
-		if (StringUtils.hasText(dynamoDbEndpoint)) {
-			builder.endpointOverride(URI.create(dynamoDbEndpoint))
-					.credentialsProvider(StaticCredentialsProvider.create(AwsBasicCredentials.create("local", "local")));
-		} else {
-			builder.credentialsProvider(DefaultCredentialsProvider.create());
-		}
+        if (StringUtils.hasText(dynamoDbEndpoint)) {
+            builder.endpointOverride(URI.create(dynamoDbEndpoint));
 
-		return builder.build();
-	}
+            if (isLocalEndpoint(dynamoDbEndpoint)) {
+                builder.credentialsProvider(
+                        StaticCredentialsProvider.create(
+                                AwsBasicCredentials.create("local", "local")
+                        )
+                );
+            }
+        }
 
-	@Bean
-	Clock clock() {
-		return Clock.systemUTC();
-	}
+        return builder.build();
+    }
 
+    private boolean isLocalEndpoint(String endpoint) {
+        return endpoint.contains("localhost")
+                || endpoint.contains("127.0.0.1")
+                || endpoint.contains("localstack")
+                || endpoint.contains("dynamodb-local");
+    }
+
+    @Bean
+    Clock clock() {
+        return Clock.systemUTC();
+    }
 }
