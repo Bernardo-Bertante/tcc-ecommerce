@@ -1,4 +1,5 @@
 import { load, setup } from './f2_high_load.js';
+import { isSmoke } from '../lib/data-generator.js';
 
 export { setup };
 
@@ -22,9 +23,33 @@ const durationEnv = (name, defaultValue) => {
   return __ENV[name] || defaultValue;
 };
 
-const BASELINE_RATE = numberEnv('F3_BASELINE_RATE', 30);
-const PEAK_RATE = numberEnv('F3_PEAK_RATE', 300);
-const RECOVERY_RATE = numberEnv('F3_RECOVERY_RATE', 60);
+const smoke = isSmoke();
+
+// As tres taxas de F3 sao OBRIGATORIAS em execucao real (nao-smoke) — sem default silencioso.
+// Mesmo motivo do fix em f1_low_load.js (08-known-problems.md): a coleta original de fase3
+// passou as taxas por env vars efemeras nunca versionadas. F3 rodou correto (48/240/48), mas
+// o F1 com o mesmo padrao caiu no default errado. Em smoke mantem-se um valor baixo fixo.
+const requiredRate = (name) => {
+  const raw = __ENV[name];
+
+  if (raw === undefined || raw === '') {
+    throw new Error(`${name} nao definida — obrigatoria em execucao real, sem default. `
+      + `Passe -e ${name}=<iter/s> (taxas oficiais de F3: baseline 48 / pico 240 / recuperacao 48). `
+      + 'Ver benchmark/run/f3_rerun.sh e 08-known-problems.md.');
+  }
+
+  const parsed = Number(raw);
+
+  if (Number.isFinite(parsed) === false || parsed < 0) {
+    throw new Error(`${name} invalida: "${raw}"`);
+  }
+
+  return parsed;
+};
+
+const BASELINE_RATE = smoke ? numberEnv('F3_BASELINE_RATE', 5) : requiredRate('F3_BASELINE_RATE');
+const PEAK_RATE = smoke ? numberEnv('F3_PEAK_RATE', 20) : requiredRate('F3_PEAK_RATE');
+const RECOVERY_RATE = smoke ? numberEnv('F3_RECOVERY_RATE', 8) : requiredRate('F3_RECOVERY_RATE');
 
 export const options = {
   scenarios: {
