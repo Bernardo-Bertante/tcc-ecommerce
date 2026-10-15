@@ -41,3 +41,19 @@ benchmark/run/*.env
 
 # Saida de build do Eclipse/Gradle (nunca versionar)
 order-processor/*/bin/
+
+# Saídas brutas grandes do k6 e de profiling (ver DADOS_GRANDES.md)
+analysis/**/*-raw.json
+analysis/**/*.k6.csv
+analysis/**/*.k6.csv.gz
+analysis/**/k6_raw.json.gz
+analysis/**/*.collapsed
+analysis/**/*.jfr
+analysis/**/codelist*.txt
+analysis/**/gc_raw/
+
+# Backups de edição e metadados efêmeros do runner
+*.bak
+*.bak-*
+benchmark/aws-runner-meta.env
+benchmark/results/runner-meta.env
