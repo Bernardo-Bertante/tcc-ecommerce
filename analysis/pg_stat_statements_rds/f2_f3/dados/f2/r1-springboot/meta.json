@@ -1,0 +1,1 @@
+{"fase":"f2","posicao":1,"runtime":"springboot","carga_inicio_utc":"2026-09-24T00:24:53Z","carga_fim_utc":"2026-09-24T00:37:44Z","epoch_inicio":1790209493,"epoch_fim":1790210264,"task_arn":"arn:aws:ecs:us-east-1:776648109551:task/pgss-f2f3-cluster/fc496fbae5034fcc978a7b038b84a1d2","task_ip":"50.16.75.222","db_host":"pgss-f2f3-postgres.ck1kkwa6og4s.us-east-1.rds.amazonaws.com"}

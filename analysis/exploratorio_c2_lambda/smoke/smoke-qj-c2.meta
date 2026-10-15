@@ -1,0 +1,2 @@
+cold_s=1.037890
+jto=-XX:ActiveProcessorCount=2 -XX:+UseSerialGC -XX:+TieredCompilation -XX:TieredStopAtLevel=4

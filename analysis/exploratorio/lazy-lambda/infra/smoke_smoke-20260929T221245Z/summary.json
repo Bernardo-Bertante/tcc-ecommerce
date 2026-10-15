@@ -1,0 +1,1399 @@
+{
+ "run_id": "smoke-20260929T221245Z",
+ "n_valid_cold": {
+  "V0": 3,
+  "V1": 3,
+  "V2": 3
+ },
+ "n_invalid_cold_attempts": {
+  "V0": 0,
+  "V1": 0,
+  "V2": 0
+ },
+ "stats": {
+  "V0": {
+   "init_ms": {
+    "n": 3,
+    "median": 1364.09,
+    "mean": 1447.02,
+    "q1": 1348.84,
+    "q3": 1503.73,
+    "iqr": 154.89,
+    "min": 1333.6,
+    "max": 1643.37,
+    "sd": 170.73
+   },
+   "duration_ms": {
+    "n": 3,
+    "median": 5366.75,
+    "mean": 5370.9,
+    "q1": 5361.39,
+    "q3": 5378.34,
+    "iqr": 16.95,
+    "min": 5356.02,
+    "max": 5389.92,
+    "sd": 17.33
+   },
+   "billed_ms": {
+    "n": 3,
+    "median": 6724.0,
+    "mean": 6818.67,
+    "q1": 6722.5,
+    "q3": 6867.5,
+    "iqr": 145.0,
+    "min": 6721.0,
+    "max": 7011.0,
+    "sd": 166.57
+   },
+   "init_plus_duration_ms": {
+    "n": 3,
+    "median": 6723.52,
+    "mean": 6817.92,
+    "q1": 6721.82,
+    "q3": 6866.82,
+    "iqr": 145.0,
+    "min": 6720.11,
+    "max": 7010.12,
+    "sd": 166.46
+   },
+   "warm_duration_ms": {
+    "n": 3,
+    "median": 95.91,
+    "mean": 75.97,
+    "q1": 64.53,
+    "q3": 97.38,
+    "iqr": 32.84,
+    "min": 33.15,
+    "max": 98.84,
+    "sd": 37.11
+   },
+   "max_mem_mb": {
+    "n": 3,
+    "median": 185.0,
+    "mean": 185.0,
+    "q1": 185.0,
+    "q3": 185.0,
+    "iqr": 0.0,
+    "min": 185.0,
+    "max": 185.0,
+    "sd": 0.0
+   },
+   "gap_init_end_to_start_ms": {
+    "n": 3,
+    "median": 3.9,
+    "mean": 3.97,
+    "q1": 3.75,
+    "q3": 4.15,
+    "iqr": 0.4,
+    "min": 3.6,
+    "max": 4.4,
+    "sd": 0.4
+   },
+   "client_ms": {
+    "n": 3,
+    "median": 7892.6,
+    "mean": 7926.63,
+    "q1": 7876.95,
+    "q3": 7959.3,
+    "iqr": 82.35,
+    "min": 7861.3,
+    "max": 8026.0,
+    "sd": 87.47
+   }
+  },
+  "V1": {
+   "init_ms": {
+    "n": 3,
+    "median": 1416.57,
+    "mean": 1515.76,
+    "q1": 1384.96,
+    "q3": 1596.96,
+    "iqr": 212.0,
+    "min": 1353.35,
+    "max": 1777.35,
+    "sd": 228.74
+   },
+   "duration_ms": {
+    "n": 3,
+    "median": 5372.77,
+    "mean": 5440.57,
+    "q1": 5272.15,
+    "q3": 5575.09,
+    "iqr": 302.94,
+    "min": 5171.53,
+    "max": 5777.41,
+    "sd": 308.58
+   },
+   "billed_ms": {
+    "n": 3,
+    "median": 6790.0,
+    "mean": 6956.67,
+    "q1": 6657.5,
+    "q3": 7172.5,
+    "iqr": 515.0,
+    "min": 6525.0,
+    "max": 7555.0,
+    "sd": 534.84
+   },
+   "init_plus_duration_ms": {
+    "n": 3,
+    "median": 6789.34,
+    "mean": 6956.33,
+    "q1": 6657.11,
+    "q3": 7172.05,
+    "iqr": 514.94,
+    "min": 6524.88,
+    "max": 7554.76,
+    "sd": 534.86
+   },
+   "warm_duration_ms": {
+    "n": 3,
+    "median": 115.34,
+    "mean": 103.13,
+    "q1": 86.28,
+    "q3": 126.09,
+    "iqr": 39.81,
+    "min": 57.22,
+    "max": 136.84,
+    "sd": 41.19
+   },
+   "max_mem_mb": {
+    "n": 3,
+    "median": 186.0,
+    "mean": 186.0,
+    "q1": 186.0,
+    "q3": 186.0,
+    "iqr": 0.0,
+    "min": 186.0,
+    "max": 186.0,
+    "sd": 0.0
+   },
+   "gap_init_end_to_start_ms": {
+    "n": 3,
+    "median": 3.6,
+    "mean": 3.53,
+    "q1": 3.5,
+    "q3": 3.6,
+    "iqr": 0.1,
+    "min": 3.4,
+    "max": 3.6,
+    "sd": 0.12
+   },
+   "client_ms": {
+    "n": 3,
+    "median": 7831.0,
+    "mean": 8085.07,
+    "q1": 7828.45,
+    "q3": 8214.65,
+    "iqr": 386.2,
+    "min": 7825.9,
+    "max": 8598.3,
+    "sd": 444.48
+   }
+  },
+  "V2": {
+   "init_ms": {
+    "n": 3,
+    "median": 2901.48,
+    "mean": 3133.57,
+    "q1": 2866.9,
+    "q3": 3284.19,
+    "iqr": 417.29,
+    "min": 2832.33,
+    "max": 3666.91,
+    "sd": 463.18
+   },
+   "duration_ms": {
+    "n": 3,
+    "median": 345.69,
+    "mean": 362.1,
+    "q1": 335.06,
+    "q3": 380.94,
+    "iqr": 45.88,
+    "min": 324.43,
+    "max": 416.18,
+    "sd": 48.03
+   },
+   "billed_ms": {
+    "n": 3,
+    "median": 3248.0,
+    "mean": 3496.33,
+    "q1": 3202.5,
+    "q3": 3666.0,
+    "iqr": 463.5,
+    "min": 3157.0,
+    "max": 4084.0,
+    "sd": 510.96
+   },
+   "init_plus_duration_ms": {
+    "n": 3,
+    "median": 3247.17,
+    "mean": 3495.67,
+    "q1": 3201.97,
+    "q3": 3665.13,
+    "iqr": 463.16,
+    "min": 3156.76,
+    "max": 4083.09,
+    "sd": 510.72
+   },
+   "warm_duration_ms": {
+    "n": 3,
+    "median": 100.81,
+    "mean": 94.99,
+    "q1": 82.34,
+    "q3": 110.56,
+    "iqr": 28.22,
+    "min": 63.86,
+    "max": 120.3,
+    "sd": 28.67
+   },
+   "max_mem_mb": {
+    "n": 3,
+    "median": 187.0,
+    "mean": 187.0,
+    "q1": 187.0,
+    "q3": 187.0,
+    "iqr": 0.0,
+    "min": 187.0,
+    "max": 187.0,
+    "sd": 0.0
+   },
+   "gap_init_end_to_start_ms": {
+    "n": 3,
+    "median": 3.7,
+    "mean": 3.77,
+    "q1": 3.6,
+    "q3": 3.9,
+    "iqr": 0.3,
+    "min": 3.5,
+    "max": 4.1,
+    "sd": 0.31
+   },
+   "client_ms": {
+    "n": 3,
+    "median": 4274.9,
+    "mean": 4547.93,
+    "q1": 4238.0,
+    "q3": 4721.35,
+    "iqr": 483.35,
+    "min": 4201.1,
+    "max": 5167.8,
+    "sd": 538.09
+   }
+  }
+ },
+ "runtime_versions": {
+  "V0": [
+   "java:21.v68"
+  ],
+  "V1": [
+   "java:21.v68"
+  ],
+  "V2": [
+   "java:21.v68"
+  ]
+ },
+ "code_sha256": {
+  "V0": [
+   "qqGaGUSyL1rtWwcwOeIMNhFYfsW+HvIh8QiUTPe+WME="
+  ],
+  "V1": [
+   "RTtmKw35s7nPa1IzWSFMtzk8lznzf9Dy72LqBZdfSn4="
+  ],
+  "V2": [
+   "RTtmKw35s7nPa1IzWSFMtzk8lznzf9Dy72LqBZdfSn4="
+  ]
+ },
+ "handlers": {
+  "V0": [
+   "io.quarkus.funqy.lambda.FunqyStreamHandler::handleRequest"
+  ],
+  "V1": [
+   "com.tcc.orderprocessor.exp.LazyProbeHandler::handleRequest"
+  ],
+  "V2": [
+   "com.tcc.orderprocessor.exp.LazyProbeHandler::handleRequest"
+  ]
+ },
+ "l1_official_qj": {
+  "init_ms": {
+   "n": 10,
+   "median": 1382.63,
+   "mean": 1385.99,
+   "q1": 1366.45,
+   "q3": 1406.4,
+   "iqr": 39.95,
+   "min": 1314.86,
+   "max": 1470.09,
+   "sd": 48.94
+  },
+  "duration_ms": {
+   "n": 10,
+   "median": 5620.43,
+   "mean": 5600.44,
+   "q1": 5468.75,
+   "q3": 5729.77,
+   "iqr": 261.02,
+   "min": 5315.05,
+   "max": 5842.54,
+   "sd": 173.71
+  },
+  "init_plus_duration_ms": {
+   "n": 10,
+   "median": 6999.73,
+   "mean": 6986.43,
+   "q1": 6896.73,
+   "q3": 7141.44,
+   "iqr": 244.7,
+   "min": 6637.52,
+   "max": 7254.28,
+   "sd": 203.99
+  }
+ },
+ "cmp": {
+  "V1_vs_V0": {
+   "init_ms": {
+    "median_a": 1416.6,
+    "median_b": 1364.1,
+    "diff": 52.5,
+    "diff_pct": 3.8,
+    "boot95": [
+     -290.0,
+     443.8
+    ]
+   },
+   "duration_ms": {
+    "median_a": 5372.8,
+    "median_b": 5366.8,
+    "diff": 6.0,
+    "diff_pct": 0.1,
+    "boot95": [
+     -218.4,
+     421.4
+    ]
+   },
+   "init_plus_duration_ms": {
+    "median_a": 6789.3,
+    "median_b": 6723.5,
+    "diff": 65.8,
+    "diff_pct": 1.0,
+    "boot95": [
+     -485.2,
+     834.6
+    ]
+   },
+   "warm_duration_ms": {
+    "median_a": 115.3,
+    "median_b": 95.9,
+    "diff": 19.4,
+    "diff_pct": 20.3,
+    "boot95": [
+     -41.6,
+     103.7
+    ]
+   }
+  },
+  "V2_vs_V1": {
+   "init_ms": {
+    "median_a": 2901.5,
+    "median_b": 1416.6,
+    "diff": 1484.9,
+    "diff_pct": 104.8,
+    "boot95": [
+     1055.0,
+     2313.6
+    ]
+   },
+   "duration_ms": {
+    "median_a": 345.7,
+    "median_b": 5372.8,
+    "diff": -5027.1,
+    "diff_pct": -93.6,
+    "boot95": [
+     -5453.0,
+     -4755.3
+    ]
+   },
+   "init_plus_duration_ms": {
+    "median_a": 3247.2,
+    "median_b": 6789.3,
+    "diff": -3542.2,
+    "diff_pct": -52.2,
+    "boot95": [
+     -4398.0,
+     -2441.8
+    ]
+   },
+   "warm_duration_ms": {
+    "median_a": 100.8,
+    "median_b": 115.3,
+    "diff": -14.5,
+    "diff_pct": -12.6,
+    "boot95": [
+     -73.0,
+     63.1
+    ]
+   }
+  }
+ },
+ "control_V0_vs_L1": {
+  "init_ms": {
+   "v0_median": 1364.1,
+   "l1_median": 1382.6,
+   "diff_pct": -1.3,
+   "v0_median_inside_l1_range": true,
+   "boot95_v0_minus_l1": [
+    -67.5,
+    275.3
+   ]
+  },
+  "duration_ms": {
+   "v0_median": 5366.8,
+   "l1_median": 5620.4,
+   "diff_pct": -4.5,
+   "v0_median_inside_l1_range": true,
+   "boot95_v0_minus_l1": [
+    -381.3,
+    -65.6
+   ]
+  },
+  "rule": "controle OK se |diff| das medianas <= 10% em Init e Duration (regra pr\u00e9-definida, descritiva)",
+  "ok": true
+ },
+ "jvm_args": {
+  "V2": [
+   "-XX:MaxHeapSize=445645k -javaagent:/var/runtime/lib/Log4jHotPatch.jar=log4jFixerVerbose=false -XX:+UseSerialGC -Xshare:on -XX:SharedArchiveFile=/var/lang/lib/server/runtime.jsa -XX:+TieredCompilation -XX:TieredStopAtLevel=1 --add-opens=java.base/java.io=ALL-UNNAMED -Dorg.crac.Core.Compat=com.amazonaws.services.lambda.crac -XX:+ErrorFileToStderr -Dcom.amazonaws.services.lambda.runtime.api.client.runtimeapi.NativeClient.JNI=/var/runtime/lib/jni/libaws-lambda-jni.linux-x86_64.so"
+  ],
+  "V1": [
+   "-XX:MaxHeapSize=445645k -javaagent:/var/runtime/lib/Log4jHotPatch.jar=log4jFixerVerbose=false -XX:+UseSerialGC -Xshare:on -XX:SharedArchiveFile=/var/lang/lib/server/runtime.jsa -XX:+TieredCompilation -XX:TieredStopAtLevel=1 --add-opens=java.base/java.io=ALL-UNNAMED -Dorg.crac.Core.Compat=com.amazonaws.services.lambda.crac -XX:+ErrorFileToStderr -Dcom.amazonaws.services.lambda.runtime.api.client.runtimeapi.NativeClient.JNI=/var/runtime/lib/jni/libaws-lambda-jni.linux-x86_64.so"
+  ]
+ },
+ "jto": {
+  "V2": [
+   ""
+  ],
+  "V1": [
+   ""
+  ]
+ },
+ "tmp_listing_inv1": {
+  "V1": [
+   "hsperfdata_sbx_user1051"
+  ],
+  "V2": [
+   "hsperfdata_sbx_user1051"
+  ]
+ },
+ "phases": {
+  "V1/init": {
+   "wall_ms": {
+    "n": 3,
+    "median": 1057.76,
+    "mean": 1058.98,
+    "q1": 1048.9,
+    "q3": 1068.46,
+    "iqr": 19.56,
+    "min": 1040.03,
+    "max": 1079.15,
+    "sd": 19.59
+   },
+   "cls": {
+    "n": 3,
+    "median": 2481,
+    "mean": 2481.0,
+    "q1": 2481.0,
+    "q3": 2481.0,
+    "iqr": 0.0,
+    "min": 2481,
+    "max": 2481,
+    "sd": 0.0
+   },
+   "jit_ms": {
+    "n": 3,
+    "median": 283,
+    "mean": 286.33,
+    "q1": 267.0,
+    "q3": 304.0,
+    "iqr": 37.0,
+    "min": 251,
+    "max": 325,
+    "sd": 37.11
+   },
+   "gc_ms": {
+    "n": 3,
+    "median": 27,
+    "mean": 27.33,
+    "q1": 27.0,
+    "q3": 27.5,
+    "iqr": 0.5,
+    "min": 27,
+    "max": 28,
+    "sd": 0.58
+   },
+   "thread_cpu_ms": {
+    "n": 3,
+    "median": 763.25,
+    "mean": 751.32,
+    "q1": 728.44,
+    "q3": 780.17,
+    "iqr": 51.73,
+    "min": 693.63,
+    "max": 797.08,
+    "sd": 52.75
+   },
+   "process_cpu_ms": {
+    "n": 3,
+    "median": 1020.0,
+    "mean": 1010.0,
+    "q1": 985.0,
+    "q3": 1040.0,
+    "iqr": 55.0,
+    "min": 950.0,
+    "max": 1060.0,
+    "sd": 55.68
+   },
+   "busy_frac_procstat": {
+    "n": 3,
+    "median": 0.48,
+    "mean": 0.47,
+    "q1": 0.46,
+    "q3": 0.48,
+    "iqr": 0.02,
+    "min": 0.44,
+    "max": 0.48,
+    "sd": 0.02
+   },
+   "steal_frac_procstat": {
+    "n": 3,
+    "median": 0.0,
+    "mean": 0.0,
+    "q1": 0.0,
+    "q3": 0.0,
+    "iqr": 0.0,
+    "min": 0.0,
+    "max": 0.01,
+    "sd": 0.01
+   },
+   "jiffies_total": {
+    "n": 3,
+    "median": 208,
+    "mean": 206.33,
+    "q1": 204.0,
+    "q3": 209.5,
+    "iqr": 5.5,
+    "min": 200,
+    "max": 211,
+    "sd": 5.69
+   },
+   "process_cpu_per_wall": {
+    "n": 3,
+    "median": 0.98,
+    "mean": 0.95,
+    "q1": 0.94,
+    "q3": 0.98,
+    "iqr": 0.04,
+    "min": 0.9,
+    "max": 0.98,
+    "sd": 0.05
+   },
+   "thread_cpu_per_wall": {
+    "n": 3,
+    "median": 0.73,
+    "mean": 0.71,
+    "q1": 0.69,
+    "q3": 0.74,
+    "iqr": 0.04,
+    "min": 0.66,
+    "max": 0.74,
+    "sd": 0.05
+   },
+   "from": [
+    "init_wrapper_clinit"
+   ],
+   "to": [
+    "init_end"
+   ]
+  },
+  "V1/inv1": {
+   "wall_ms": {
+    "n": 3,
+    "median": 5330.13,
+    "mean": 5393.61,
+    "q1": 5229.25,
+    "q3": 5526.23,
+    "iqr": 296.98,
+    "min": 5128.36,
+    "max": 5722.33,
+    "sd": 302.03
+   },
+   "cls": {
+    "n": 3,
+    "median": 3331,
+    "mean": 3331.0,
+    "q1": 3331.0,
+    "q3": 3331.0,
+    "iqr": 0.0,
+    "min": 3331,
+    "max": 3331,
+    "sd": 0.0
+   },
+   "jit_ms": {
+    "n": 3,
+    "median": 1406,
+    "mean": 1425.33,
+    "q1": 1347.0,
+    "q3": 1494.0,
+    "iqr": 147.0,
+    "min": 1288,
+    "max": 1582,
+    "sd": 147.95
+   },
+   "gc_ms": {
+    "n": 3,
+    "median": 304,
+    "mean": 302.67,
+    "q1": 296.5,
+    "q3": 309.5,
+    "iqr": 13.0,
+    "min": 289,
+    "max": 315,
+    "sd": 13.05
+   },
+   "thread_cpu_ms": {
+    "n": 3,
+    "median": 1100.8,
+    "mean": 1064.98,
+    "q1": 1032.59,
+    "q3": 1115.29,
+    "iqr": 82.7,
+    "min": 964.37,
+    "max": 1129.77,
+    "sd": 88.33
+   },
+   "process_cpu_ms": {
+    "n": 3,
+    "median": 1490.0,
+    "mean": 1460.0,
+    "q1": 1415.0,
+    "q3": 1520.0,
+    "iqr": 105.0,
+    "min": 1340.0,
+    "max": 1550.0,
+    "sd": 108.17
+   },
+   "busy_frac_procstat": {
+    "n": 3,
+    "median": 0.12,
+    "mean": 0.11,
+    "q1": 0.1,
+    "q3": 0.12,
+    "iqr": 0.01,
+    "min": 0.09,
+    "max": 0.12,
+    "sd": 0.02
+   },
+   "steal_frac_procstat": {
+    "n": 3,
+    "median": 0.0,
+    "mean": 0.0,
+    "q1": 0.0,
+    "q3": 0.0,
+    "iqr": 0.0,
+    "min": 0.0,
+    "max": 0.0,
+    "sd": 0.0
+   },
+   "jiffies_total": {
+    "n": 3,
+    "median": 1033,
+    "mean": 1043.0,
+    "q1": 1011.0,
+    "q3": 1070.0,
+    "iqr": 59.0,
+    "min": 989,
+    "max": 1107,
+    "sd": 59.63
+   },
+   "process_cpu_per_wall": {
+    "n": 3,
+    "median": 0.29,
+    "mean": 0.27,
+    "q1": 0.26,
+    "q3": 0.29,
+    "iqr": 0.03,
+    "min": 0.23,
+    "max": 0.29,
+    "sd": 0.03
+   },
+   "thread_cpu_per_wall": {
+    "n": 3,
+    "median": 0.21,
+    "mean": 0.2,
+    "q1": 0.19,
+    "q3": 0.21,
+    "iqr": 0.02,
+    "min": 0.17,
+    "max": 0.21,
+    "sd": 0.03
+   },
+   "from": [
+    "w_in"
+   ],
+   "to": [
+    "w_out"
+   ],
+   "start_to_w_in_ms": {
+    "n": 3,
+    "median": 3.0,
+    "mean": 7.0,
+    "q1": 3.0,
+    "q3": 9.0,
+    "iqr": 6.0,
+    "min": 3.0,
+    "max": 15.0,
+    "sd": 6.93
+   },
+   "w_out_to_end_ms": {
+    "n": 3,
+    "median": 39.77,
+    "mean": 39.9,
+    "q1": 39.59,
+    "q3": 40.15,
+    "iqr": 0.56,
+    "min": 39.41,
+    "max": 40.53,
+    "sd": 0.57
+   },
+   "w_in_to_w_out_share_of_duration": {
+    "n": 3,
+    "median": 0.99,
+    "mean": 0.99,
+    "q1": 0.99,
+    "q3": 0.99,
+    "iqr": 0.0,
+    "min": 0.99,
+    "max": 0.99,
+    "sd": 0.0
+   }
+  },
+  "V1/inv2": {
+   "wall_ms": {
+    "n": 3,
+    "median": 113.39,
+    "mean": 97.16,
+    "q1": 84.38,
+    "q3": 118.06,
+    "iqr": 33.68,
+    "min": 55.37,
+    "max": 122.72,
+    "sd": 36.49
+   },
+   "cls": {
+    "n": 3,
+    "median": 2,
+    "mean": 2.0,
+    "q1": 2.0,
+    "q3": 2.0,
+    "iqr": 0.0,
+    "min": 2,
+    "max": 2,
+    "sd": 0.0
+   },
+   "jit_ms": {
+    "n": 3,
+    "median": 25,
+    "mean": 32.33,
+    "q1": 15.0,
+    "q3": 46.0,
+    "iqr": 31.0,
+    "min": 5,
+    "max": 67,
+    "sd": 31.64
+   },
+   "gc_ms": {
+    "n": 3,
+    "median": 0,
+    "mean": 0.0,
+    "q1": 0.0,
+    "q3": 0.0,
+    "iqr": 0.0,
+    "min": 0,
+    "max": 0,
+    "sd": 0.0
+   },
+   "thread_cpu_ms": {
+    "n": 3,
+    "median": 20.51,
+    "mean": 18.72,
+    "q1": 16.7,
+    "q3": 21.63,
+    "iqr": 4.94,
+    "min": 12.89,
+    "max": 22.76,
+    "sd": 5.17
+   },
+   "process_cpu_ms": {
+    "n": 3,
+    "median": 40.0,
+    "mean": 33.33,
+    "q1": 30.0,
+    "q3": 40.0,
+    "iqr": 10.0,
+    "min": 20.0,
+    "max": 40.0,
+    "sd": 11.55
+   },
+   "busy_frac_procstat": {
+    "n": 3,
+    "median": 0.1,
+    "mean": 0.08,
+    "q1": 0.07,
+    "q3": 0.1,
+    "iqr": 0.03,
+    "min": 0.05,
+    "max": 0.1,
+    "sd": 0.03
+   },
+   "steal_frac_procstat": {
+    "n": 3,
+    "median": 0.0,
+    "mean": 0.0,
+    "q1": 0.0,
+    "q3": 0.0,
+    "iqr": 0.0,
+    "min": 0.0,
+    "max": 0.0,
+    "sd": 0.0
+   },
+   "jiffies_total": {
+    "n": 3,
+    "median": 21,
+    "mean": 17.67,
+    "q1": 15.5,
+    "q3": 21.5,
+    "iqr": 6.0,
+    "min": 10,
+    "max": 22,
+    "sd": 6.66
+   },
+   "process_cpu_per_wall": {
+    "n": 3,
+    "median": 0.35,
+    "mean": 0.35,
+    "q1": 0.34,
+    "q3": 0.36,
+    "iqr": 0.02,
+    "min": 0.33,
+    "max": 0.36,
+    "sd": 0.02
+   },
+   "thread_cpu_per_wall": {
+    "n": 3,
+    "median": 0.2,
+    "mean": 0.2,
+    "q1": 0.18,
+    "q3": 0.22,
+    "iqr": 0.03,
+    "min": 0.17,
+    "max": 0.23,
+    "sd": 0.03
+   },
+   "from": [
+    "w_in"
+   ],
+   "to": [
+    "w_out"
+   ]
+  },
+  "V1/meta": {
+   "jvm_uptime_at_clinit_ms": {
+    "n": 3,
+    "median": 295.0,
+    "mean": 401.67,
+    "q1": 288.0,
+    "q3": 462.0,
+    "iqr": 174.0,
+    "min": 281.0,
+    "max": 629.0,
+    "sd": 197.0
+   },
+   "cpus": {
+    "n": 3,
+    "median": 2.0,
+    "mean": 2.0,
+    "q1": 2.0,
+    "q3": 2.0,
+    "iqr": 0.0,
+    "min": 2.0,
+    "max": 2.0,
+    "sd": 0.0
+   },
+   "init_start_to_jvm_start_ms": {
+    "n": 3,
+    "median": 136.0,
+    "mean": 195.0,
+    "q1": 127.0,
+    "q3": 233.5,
+    "iqr": 106.5,
+    "min": 118.0,
+    "max": 331.0,
+    "sd": 118.12
+   }
+  },
+  "V2/init": {
+   "wall_ms": {
+    "n": 3,
+    "median": 2560.76,
+    "mean": 2653.2,
+    "q1": 2524.67,
+    "q3": 2735.51,
+    "iqr": 210.84,
+    "min": 2488.58,
+    "max": 2910.26,
+    "sd": 225.52
+   },
+   "cls": {
+    "n": 3,
+    "median": 5811,
+    "mean": 5811.0,
+    "q1": 5811.0,
+    "q3": 5811.0,
+    "iqr": 0.0,
+    "min": 5811,
+    "max": 5811,
+    "sd": 0.0
+   },
+   "jit_ms": {
+    "n": 3,
+    "median": 715,
+    "mean": 726.67,
+    "q1": 710.0,
+    "q3": 737.5,
+    "iqr": 27.5,
+    "min": 705,
+    "max": 760,
+    "sd": 29.3
+   },
+   "gc_ms": {
+    "n": 3,
+    "median": 121,
+    "mean": 125.0,
+    "q1": 121.0,
+    "q3": 127.0,
+    "iqr": 6.0,
+    "min": 121,
+    "max": 133,
+    "sd": 6.93
+   },
+   "thread_cpu_ms": {
+    "n": 3,
+    "median": 1851.39,
+    "mean": 1866.21,
+    "q1": 1822.39,
+    "q3": 1902.63,
+    "iqr": 80.24,
+    "min": 1793.38,
+    "max": 1953.87,
+    "sd": 81.26
+   },
+   "process_cpu_ms": {
+    "n": 3,
+    "median": 2500.0,
+    "mean": 2526.67,
+    "q1": 2470.0,
+    "q3": 2570.0,
+    "iqr": 100.0,
+    "min": 2440.0,
+    "max": 2640.0,
+    "sd": 102.63
+   },
+   "busy_frac_procstat": {
+    "n": 3,
+    "median": 0.47,
+    "mean": 0.46,
+    "q1": 0.46,
+    "q3": 0.47,
+    "iqr": 0.02,
+    "min": 0.44,
+    "max": 0.48,
+    "sd": 0.02
+   },
+   "steal_frac_procstat": {
+    "n": 3,
+    "median": 0.01,
+    "mean": 0.01,
+    "q1": 0.0,
+    "q3": 0.01,
+    "iqr": 0.01,
+    "min": 0.0,
+    "max": 0.01,
+    "sd": 0.01
+   },
+   "jiffies_total": {
+    "n": 3,
+    "median": 494,
+    "mean": 516.0,
+    "q1": 488.0,
+    "q3": 533.0,
+    "iqr": 45.0,
+    "min": 482,
+    "max": 572,
+    "sd": 48.87
+   },
+   "process_cpu_per_wall": {
+    "n": 3,
+    "median": 0.98,
+    "mean": 0.95,
+    "q1": 0.94,
+    "q3": 0.98,
+    "iqr": 0.04,
+    "min": 0.91,
+    "max": 0.98,
+    "sd": 0.04
+   },
+   "thread_cpu_per_wall": {
+    "n": 3,
+    "median": 0.72,
+    "mean": 0.7,
+    "q1": 0.7,
+    "q3": 0.72,
+    "iqr": 0.03,
+    "min": 0.67,
+    "max": 0.72,
+    "sd": 0.03
+   },
+   "from": [
+    "init_wrapper_clinit"
+   ],
+   "to": [
+    "init_end"
+   ]
+  },
+  "V2/inv1": {
+   "wall_ms": {
+    "n": 3,
+    "median": 281.57,
+    "mean": 305.69,
+    "q1": 271.82,
+    "q3": 327.49,
+    "iqr": 55.67,
+    "min": 262.08,
+    "max": 373.42,
+    "sd": 59.46
+   },
+   "cls": {
+    "n": 3,
+    "median": 37,
+    "mean": 35.33,
+    "q1": 34.5,
+    "q3": 37.0,
+    "iqr": 2.5,
+    "min": 32,
+    "max": 37,
+    "sd": 2.89
+   },
+   "jit_ms": {
+    "n": 3,
+    "median": 41,
+    "mean": 40.33,
+    "q1": 27.0,
+    "q3": 54.0,
+    "iqr": 27.0,
+    "min": 13,
+    "max": 67,
+    "sd": 27.01
+   },
+   "gc_ms": {
+    "n": 3,
+    "median": 99,
+    "mean": 103.67,
+    "q1": 99.0,
+    "q3": 106.0,
+    "iqr": 7.0,
+    "min": 99,
+    "max": 113,
+    "sd": 8.08
+   },
+   "thread_cpu_ms": {
+    "n": 3,
+    "median": 40.08,
+    "mean": 41.95,
+    "q1": 38.58,
+    "q3": 44.38,
+    "iqr": 5.81,
+    "min": 37.07,
+    "max": 48.69,
+    "sd": 6.03
+   },
+   "process_cpu_ms": {
+    "n": 3,
+    "median": 90.0,
+    "mean": 93.33,
+    "q1": 85.0,
+    "q3": 100.0,
+    "iqr": 15.0,
+    "min": 80.0,
+    "max": 110.0,
+    "sd": 15.28
+   },
+   "busy_frac_procstat": {
+    "n": 3,
+    "median": 0.11,
+    "mean": 0.11,
+    "q1": 0.1,
+    "q3": 0.12,
+    "iqr": 0.01,
+    "min": 0.1,
+    "max": 0.12,
+    "sd": 0.01
+   },
+   "steal_frac_procstat": {
+    "n": 3,
+    "median": 0.0,
+    "mean": 0.0,
+    "q1": 0.0,
+    "q3": 0.0,
+    "iqr": 0.0,
+    "min": 0.0,
+    "max": 0.0,
+    "sd": 0.0
+   },
+   "jiffies_total": {
+    "n": 3,
+    "median": 52,
+    "mean": 58.0,
+    "q1": 51.0,
+    "q3": 62.0,
+    "iqr": 11.0,
+    "min": 50,
+    "max": 72,
+    "sd": 12.17
+   },
+   "process_cpu_per_wall": {
+    "n": 3,
+    "median": 0.31,
+    "mean": 0.31,
+    "q1": 0.3,
+    "q3": 0.31,
+    "iqr": 0.01,
+    "min": 0.29,
+    "max": 0.32,
+    "sd": 0.01
+   },
+   "thread_cpu_per_wall": {
+    "n": 3,
+    "median": 0.14,
+    "mean": 0.14,
+    "q1": 0.14,
+    "q3": 0.14,
+    "iqr": 0.01,
+    "min": 0.13,
+    "max": 0.14,
+    "sd": 0.01
+   },
+   "from": [
+    "w_in"
+   ],
+   "to": [
+    "w_out"
+   ],
+   "start_to_w_in_ms": {
+    "n": 3,
+    "median": 2.0,
+    "mean": 2.33,
+    "q1": 2.0,
+    "q3": 2.5,
+    "iqr": 0.5,
+    "min": 2.0,
+    "max": 3.0,
+    "sd": 0.58
+   },
+   "w_out_to_end_ms": {
+    "n": 3,
+    "median": 60.43,
+    "mean": 54.43,
+    "q1": 50.8,
+    "q3": 61.06,
+    "iqr": 10.26,
+    "min": 41.18,
+    "max": 61.69,
+    "sd": 11.5
+   },
+   "w_in_to_w_out_share_of_duration": {
+    "n": 3,
+    "median": 0.81,
+    "mean": 0.84,
+    "q1": 0.81,
+    "q3": 0.86,
+    "iqr": 0.04,
+    "min": 0.81,
+    "max": 0.9,
+    "sd": 0.05
+   }
+  },
+  "V2/inv2": {
+   "wall_ms": {
+    "n": 3,
+    "median": 86.53,
+    "mean": 84.58,
+    "q1": 67.6,
+    "q3": 102.53,
+    "iqr": 34.93,
+    "min": 48.68,
+    "max": 118.53,
+    "sd": 34.97
+   },
+   "cls": {
+    "n": 3,
+    "median": 2,
+    "mean": 2.0,
+    "q1": 2.0,
+    "q3": 2.0,
+    "iqr": 0.0,
+    "min": 2,
+    "max": 2,
+    "sd": 0.0
+   },
+   "jit_ms": {
+    "n": 3,
+    "median": 40,
+    "mean": 34.0,
+    "q1": 24.5,
+    "q3": 46.5,
+    "iqr": 22.0,
+    "min": 9,
+    "max": 53,
+    "sd": 22.61
+   },
+   "gc_ms": {
+    "n": 3,
+    "median": 0,
+    "mean": 0.0,
+    "q1": 0.0,
+    "q3": 0.0,
+    "iqr": 0.0,
+    "min": 0,
+    "max": 0,
+    "sd": 0.0
+   },
+   "thread_cpu_ms": {
+    "n": 3,
+    "median": 17.94,
+    "mean": 17.74,
+    "q1": 15.14,
+    "q3": 20.44,
+    "iqr": 5.29,
+    "min": 12.35,
+    "max": 22.93,
+    "sd": 5.3
+   },
+   "process_cpu_ms": {
+    "n": 3,
+    "median": 30.0,
+    "mean": 26.67,
+    "q1": 25.0,
+    "q3": 30.0,
+    "iqr": 5.0,
+    "min": 20.0,
+    "max": 30.0,
+    "sd": 5.77
+   },
+   "busy_frac_procstat": {
+    "n": 3,
+    "median": 0.17,
+    "mean": 0.16,
+    "q1": 0.13,
+    "q3": 0.19,
+    "iqr": 0.07,
+    "min": 0.09,
+    "max": 0.22,
+    "sd": 0.07
+   },
+   "steal_frac_procstat": {
+    "n": 3,
+    "median": 0.0,
+    "mean": 0.0,
+    "q1": 0.0,
+    "q3": 0.0,
+    "iqr": 0.0,
+    "min": 0.0,
+    "max": 0.0,
+    "sd": 0.0
+   },
+   "jiffies_total": {
+    "n": 3,
+    "median": 18,
+    "mean": 16.33,
+    "q1": 13.5,
+    "q3": 20.0,
+    "iqr": 6.5,
+    "min": 9,
+    "max": 22,
+    "sd": 6.66
+   },
+   "process_cpu_per_wall": {
+    "n": 3,
+    "median": 0.35,
+    "mean": 0.34,
+    "q1": 0.3,
+    "q3": 0.38,
+    "iqr": 0.08,
+    "min": 0.25,
+    "max": 0.41,
+    "sd": 0.08
+   },
+   "thread_cpu_per_wall": {
+    "n": 3,
+    "median": 0.21,
+    "mean": 0.22,
+    "q1": 0.2,
+    "q3": 0.23,
+    "iqr": 0.03,
+    "min": 0.19,
+    "max": 0.25,
+    "sd": 0.03
+   },
+   "from": [
+    "w_in"
+   ],
+   "to": [
+    "w_out"
+   ]
+  },
+  "V2/meta": {
+   "jvm_uptime_at_clinit_ms": {
+    "n": 3,
+    "median": 306.0,
+    "mean": 424.33,
+    "q1": 304.5,
+    "q3": 485.0,
+    "iqr": 180.5,
+    "min": 303.0,
+    "max": 664.0,
+    "sd": 207.56
+   },
+   "cpus": {
+    "n": 3,
+    "median": 2.0,
+    "mean": 2.0,
+    "q1": 2.0,
+    "q3": 2.0,
+    "iqr": 0.0,
+    "min": 2.0,
+    "max": 2.0,
+    "sd": 0.0
+   },
+   "init_start_to_jvm_start_ms": {
+    "n": 3,
+    "median": 139.0,
+    "mean": 203.33,
+    "q1": 133.0,
+    "q3": 241.5,
+    "iqr": 108.5,
+    "min": 127.0,
+    "max": 344.0,
+    "sd": 121.97
+   }
+  }
+ }
+}

@@ -1,0 +1,1 @@
+{"posicao":4,"runtime":"springboot-noval","carga_inicio_utc":"2026-09-24T16:41:23Z","carga_fim_utc":"2026-09-24T16:58:32Z","epoch_inicio":1790268083,"epoch_fim":1790269112,"task_arn":"arn:aws:ecs:us-east-1:776648109551:task/pgss-res-cluster/71808b728f534b47834a1335418c2cac","task_ip":"98.93.68.176","db_host":"pgss-res-postgres.ck1kkwa6og4s.us-east-1.rds.amazonaws.com"}

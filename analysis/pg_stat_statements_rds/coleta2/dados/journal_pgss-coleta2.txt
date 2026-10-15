@@ -1,0 +1,66 @@
+Sep 23 11:35:21 ip-172-31-18-31.ec2.internal systemd[1]: Started pgss-coleta2.service - /home/ec2-user/pgss2/orquestrador_pgss_v2.sh 1:springboot 2:quarkus-jvm 3:springboot-noval 4:springboot-noval 5:quarkus-jvm 6:springboot.
+Sep 23 11:35:21 ip-172-31-18-31.ec2.internal orquestrador_pgss_v2.sh[3971]: [2026-09-23T11:35:21Z] plano: 1:springboot 2:quarkus-jvm 3:springboot-noval 4:springboot-noval 5:quarkus-jvm 6:springboot
+Sep 23 11:35:21 ip-172-31-18-31.ec2.internal orquestrador_pgss_v2.sh[3976]: [2026-09-23T11:35:21Z] === rodada 1: springboot ===
+Sep 23 11:35:31 ip-172-31-18-31.ec2.internal orquestrador_pgss_v2.sh[3995]: [2026-09-23T11:35:31Z]   run-task arn:aws:ecs:us-east-1:776648109551:task/repro-f3-cluster/0692502d952447cab59a384c6cdf0c15
+Sep 23 11:36:10 ip-172-31-18-31.ec2.internal orquestrador_pgss_v2.sh[4201]: [2026-09-23T11:36:10Z]   health UP (3) ip=34.228.64.20
+Sep 23 11:36:10 ip-172-31-18-31.ec2.internal orquestrador_pgss_v2.sh[4204]: [2026-09-23T11:36:10Z]   TRUNCATE + reset pg_stat_statements
+Sep 23 11:36:10 ip-172-31-18-31.ec2.internal orquestrador_pgss_v2.sh[4214]: [2026-09-23T11:36:10Z]   k6 F1 começa 2026-09-23T11:36:10Z
+Sep 23 11:52:19 ip-172-31-18-31.ec2.internal orquestrador_pgss_v2.sh[5236]: [2026-09-23T11:52:19Z]   k6 terminou 2026-09-23T11:52:19Z (rc=0)
+Sep 23 11:52:19 ip-172-31-18-31.ec2.internal orquestrador_pgss_v2.sh[5249]: [2026-09-23T11:52:19Z]   linhas no dump: 33
+Sep 23 11:52:20 ip-172-31-18-31.ec2.internal orquestrador_pgss_v2.sh[5276]: [2026-09-23T11:52:20Z] === rodada 2: quarkus-jvm ===
+Sep 23 11:52:29 ip-172-31-18-31.ec2.internal orquestrador_pgss_v2.sh[5293]: [2026-09-23T11:52:29Z]   run-task arn:aws:ecs:us-east-1:776648109551:task/repro-f3-cluster/69d665a1947d47bb84c731cc5657ff50
+Sep 23 11:53:07 ip-172-31-18-31.ec2.internal orquestrador_pgss_v2.sh[5325]: [2026-09-23T11:53:07Z]   health UP (3) ip=50.19.190.201
+Sep 23 11:53:07 ip-172-31-18-31.ec2.internal orquestrador_pgss_v2.sh[5328]: [2026-09-23T11:53:07Z]   TRUNCATE + reset pg_stat_statements
+Sep 23 11:53:07 ip-172-31-18-31.ec2.internal orquestrador_pgss_v2.sh[5338]: [2026-09-23T11:53:07Z]   k6 F1 começa 2026-09-23T11:53:07Z
+Sep 23 12:09:14 ip-172-31-18-31.ec2.internal orquestrador_pgss_v2.sh[5890]: [2026-09-23T12:09:14Z]   k6 terminou 2026-09-23T12:09:14Z (rc=0)
+Sep 23 12:09:15 ip-172-31-18-31.ec2.internal orquestrador_pgss_v2.sh[5903]: [2026-09-23T12:09:15Z]   linhas no dump: 16
+Sep 23 12:09:15 ip-172-31-18-31.ec2.internal orquestrador_pgss_v2.sh[5930]: [2026-09-23T12:09:15Z] === rodada 3: springboot-noval ===
+Sep 23 12:09:25 ip-172-31-18-31.ec2.internal orquestrador_pgss_v2.sh[5948]: [2026-09-23T12:09:25Z]   run-task arn:aws:ecs:us-east-1:776648109551:task/repro-f3-cluster/7ec167d5e87c4c1dba02207d8e16cbbe
+Sep 23 12:10:15 ip-172-31-18-31.ec2.internal orquestrador_pgss_v2.sh[5984]: [2026-09-23T12:10:15Z]   health UP (4) ip=100.30.241.24
+Sep 23 12:10:15 ip-172-31-18-31.ec2.internal orquestrador_pgss_v2.sh[5987]: [2026-09-23T12:10:15Z]   TRUNCATE + reset pg_stat_statements
+Sep 23 12:10:16 ip-172-31-18-31.ec2.internal orquestrador_pgss_v2.sh[5997]: [2026-09-23T12:10:16Z]   k6 F1 começa 2026-09-23T12:10:16Z
+Sep 23 12:26:25 ip-172-31-18-31.ec2.internal orquestrador_pgss_v2.sh[6548]: [2026-09-23T12:26:25Z]   k6 terminou 2026-09-23T12:26:25Z (rc=0)
+Sep 23 12:26:25 ip-172-31-18-31.ec2.internal orquestrador_pgss_v2.sh[6550]: psql: error: connection to server at "repro-f3-postgres.ck1kkwa6og4s.us-east-1.rds.amazonaws.com" (172.31.73.185), port 5432 failed: FATAL:  remaining connection slots are reserved for roles with the SUPERUSER attribute
+Sep 23 12:26:25 ip-172-31-18-31.ec2.internal orquestrador_pgss_v2.sh[6553]: psql: error: connection to server at "repro-f3-postgres.ck1kkwa6og4s.us-east-1.rds.amazonaws.com" (172.31.73.185), port 5432 failed: FATAL:  remaining connection slots are reserved for roles with the SUPERUSER attribute
+Sep 23 12:26:25 ip-172-31-18-31.ec2.internal orquestrador_pgss_v2.sh[6554]: psql: error: connection to server at "repro-f3-postgres.ck1kkwa6og4s.us-east-1.rds.amazonaws.com" (172.31.73.185), port 5432 failed: FATAL:  remaining connection slots are reserved for roles with the SUPERUSER attribute
+Sep 23 12:26:25 ip-172-31-18-31.ec2.internal orquestrador_pgss_v2.sh[6555]: psql: error: connection to server at "repro-f3-postgres.ck1kkwa6og4s.us-east-1.rds.amazonaws.com" (172.31.73.185), port 5432 failed: FATAL:  remaining connection slots are reserved for roles with the SUPERUSER attribute
+Sep 23 12:26:25 ip-172-31-18-31.ec2.internal orquestrador_pgss_v2.sh[6556]: psql: error: connection to server at "repro-f3-postgres.ck1kkwa6og4s.us-east-1.rds.amazonaws.com" (172.31.73.185), port 5432 failed: FATAL:  remaining connection slots are reserved for roles with the SUPERUSER attribute
+Sep 23 12:26:25 ip-172-31-18-31.ec2.internal orquestrador_pgss_v2.sh[6557]: psql: error: connection to server at "repro-f3-postgres.ck1kkwa6og4s.us-east-1.rds.amazonaws.com" (172.31.73.185), port 5432 failed: FATAL:  remaining connection slots are reserved for roles with the SUPERUSER attribute
+Sep 23 12:26:25 ip-172-31-18-31.ec2.internal orquestrador_pgss_v2.sh[6561]: [2026-09-23T12:26:25Z]   linhas no dump: -1
+Sep 23 12:26:26 ip-172-31-18-31.ec2.internal orquestrador_pgss_v2.sh[6588]: [2026-09-23T12:26:26Z] === rodada 4: springboot-noval ===
+Sep 23 12:26:26 ip-172-31-18-31.ec2.internal orquestrador_pgss_v2.sh[6598]: [2026-09-23T12:26:26Z]   stop-task arn:aws:ecs:us-east-1:776648109551:task/repro-f3-cluster/7ec167d5e87c4c1dba02207d8e16cbbe
+Sep 23 12:26:36 ip-172-31-18-31.ec2.internal orquestrador_pgss_v2.sh[6613]: [2026-09-23T12:26:36Z]   run-task arn:aws:ecs:us-east-1:776648109551:task/repro-f3-cluster/6a27ecf52a54410dae14ea49fe1a7be5
+Sep 23 12:27:27 ip-172-31-18-31.ec2.internal orquestrador_pgss_v2.sh[6652]: [2026-09-23T12:27:27Z]   health UP (4) ip=54.91.26.75
+Sep 23 12:27:27 ip-172-31-18-31.ec2.internal orquestrador_pgss_v2.sh[6655]: [2026-09-23T12:27:27Z]   TRUNCATE + reset pg_stat_statements
+Sep 23 12:27:27 ip-172-31-18-31.ec2.internal orquestrador_pgss_v2.sh[6665]: [2026-09-23T12:27:27Z]   k6 F1 começa 2026-09-23T12:27:27Z
+Sep 23 12:43:36 ip-172-31-18-31.ec2.internal orquestrador_pgss_v2.sh[7219]: [2026-09-23T12:43:36Z]   k6 terminou 2026-09-23T12:43:36Z (rc=0)
+Sep 23 12:43:37 ip-172-31-18-31.ec2.internal orquestrador_pgss_v2.sh[7289]: [2026-09-23T12:43:37Z]   linhas no dump: 26
+Sep 23 12:43:38 ip-172-31-18-31.ec2.internal orquestrador_pgss_v2.sh[7316]: [2026-09-23T12:43:38Z] === rodada 5: quarkus-jvm ===
+Sep 23 12:43:38 ip-172-31-18-31.ec2.internal orquestrador_pgss_v2.sh[7326]: [2026-09-23T12:43:38Z]   stop-task arn:aws:ecs:us-east-1:776648109551:task/repro-f3-cluster/69d665a1947d47bb84c731cc5657ff50
+Sep 23 12:43:48 ip-172-31-18-31.ec2.internal orquestrador_pgss_v2.sh[7341]: [2026-09-23T12:43:48Z]   run-task arn:aws:ecs:us-east-1:776648109551:task/repro-f3-cluster/f5cbf26cc24f42ae9360b31d2a7b1f6e
+Sep 23 12:44:22 ip-172-31-18-31.ec2.internal orquestrador_pgss_v2.sh[7369]: [2026-09-23T12:44:22Z]   health UP (2) ip=54.242.56.104
+Sep 23 12:44:22 ip-172-31-18-31.ec2.internal orquestrador_pgss_v2.sh[7372]: [2026-09-23T12:44:22Z]   TRUNCATE + reset pg_stat_statements
+Sep 23 12:44:22 ip-172-31-18-31.ec2.internal orquestrador_pgss_v2.sh[7382]: [2026-09-23T12:44:22Z]   k6 F1 começa 2026-09-23T12:44:22Z
+Sep 23 13:00:30 ip-172-31-18-31.ec2.internal orquestrador_pgss_v2.sh[7936]: [2026-09-23T13:00:30Z]   k6 terminou 2026-09-23T13:00:30Z (rc=0)
+Sep 23 13:00:30 ip-172-31-18-31.ec2.internal orquestrador_pgss_v2.sh[7949]: [2026-09-23T13:00:30Z]   linhas no dump: 16
+Sep 23 13:00:31 ip-172-31-18-31.ec2.internal orquestrador_pgss_v2.sh[7976]: [2026-09-23T13:00:31Z] === rodada 6: springboot ===
+Sep 23 13:00:31 ip-172-31-18-31.ec2.internal orquestrador_pgss_v2.sh[7986]: [2026-09-23T13:00:31Z]   stop-task arn:aws:ecs:us-east-1:776648109551:task/repro-f3-cluster/0692502d952447cab59a384c6cdf0c15
+Sep 23 13:00:41 ip-172-31-18-31.ec2.internal orquestrador_pgss_v2.sh[8001]: [2026-09-23T13:00:41Z]   run-task arn:aws:ecs:us-east-1:776648109551:task/repro-f3-cluster/61675120e21b415b8ad32a8caa6d9056
+Sep 23 13:01:25 ip-172-31-18-31.ec2.internal orquestrador_pgss_v2.sh[8037]: [2026-09-23T13:01:25Z]   health UP (4) ip=54.234.64.132
+Sep 23 13:01:25 ip-172-31-18-31.ec2.internal orquestrador_pgss_v2.sh[8040]: [2026-09-23T13:01:25Z]   TRUNCATE + reset pg_stat_statements
+Sep 23 13:01:25 ip-172-31-18-31.ec2.internal orquestrador_pgss_v2.sh[8050]: [2026-09-23T13:01:25Z]   k6 F1 começa 2026-09-23T13:01:25Z
+Sep 23 13:17:35 ip-172-31-18-31.ec2.internal orquestrador_pgss_v2.sh[8542]: [2026-09-23T13:17:35Z]   k6 terminou 2026-09-23T13:17:35Z (rc=0)
+Sep 23 13:17:35 ip-172-31-18-31.ec2.internal orquestrador_pgss_v2.sh[8544]: psql: error: connection to server at "repro-f3-postgres.ck1kkwa6og4s.us-east-1.rds.amazonaws.com" (172.31.73.185), port 5432 failed: FATAL:  remaining connection slots are reserved for roles with the SUPERUSER attribute
+Sep 23 13:17:35 ip-172-31-18-31.ec2.internal orquestrador_pgss_v2.sh[8588]: psql: error: connection to server at "repro-f3-postgres.ck1kkwa6og4s.us-east-1.rds.amazonaws.com" (172.31.73.185), port 5432 failed: FATAL:  remaining connection slots are reserved for roles with the SUPERUSER attribute
+Sep 23 13:17:35 ip-172-31-18-31.ec2.internal orquestrador_pgss_v2.sh[8604]: psql: error: connection to server at "repro-f3-postgres.ck1kkwa6og4s.us-east-1.rds.amazonaws.com" (172.31.73.185), port 5432 failed: FATAL:  remaining connection slots are reserved for roles with the SUPERUSER attribute
+Sep 23 13:17:35 ip-172-31-18-31.ec2.internal orquestrador_pgss_v2.sh[8607]: psql: error: connection to server at "repro-f3-postgres.ck1kkwa6og4s.us-east-1.rds.amazonaws.com" (172.31.73.185), port 5432 failed: FATAL:  remaining connection slots are reserved for roles with the SUPERUSER attribute
+Sep 23 13:17:35 ip-172-31-18-31.ec2.internal orquestrador_pgss_v2.sh[8608]: psql: error: connection to server at "repro-f3-postgres.ck1kkwa6og4s.us-east-1.rds.amazonaws.com" (172.31.73.185), port 5432 failed: FATAL:  remaining connection slots are reserved for roles with the SUPERUSER attribute
+Sep 23 13:17:35 ip-172-31-18-31.ec2.internal orquestrador_pgss_v2.sh[8609]: psql: error: connection to server at "repro-f3-postgres.ck1kkwa6og4s.us-east-1.rds.amazonaws.com" (172.31.73.185), port 5432 failed: FATAL:  remaining connection slots are reserved for roles with the SUPERUSER attribute
+Sep 23 13:17:35 ip-172-31-18-31.ec2.internal orquestrador_pgss_v2.sh[8614]: [2026-09-23T13:17:35Z]   linhas no dump: -1
+Sep 23 13:17:36 ip-172-31-18-31.ec2.internal orquestrador_pgss_v2.sh[8639]: [2026-09-23T13:17:36Z] plano concluído
+Sep 23 13:17:36 ip-172-31-18-31.ec2.internal orquestrador_pgss_v2.sh[8649]: [2026-09-23T13:17:36Z]   stop-task arn:aws:ecs:us-east-1:776648109551:task/repro-f3-cluster/61675120e21b415b8ad32a8caa6d9056
+Sep 23 13:17:37 ip-172-31-18-31.ec2.internal orquestrador_pgss_v2.sh[8664]: [2026-09-23T13:17:37Z]   stop-task arn:aws:ecs:us-east-1:776648109551:task/repro-f3-cluster/6a27ecf52a54410dae14ea49fe1a7be5
+Sep 23 13:17:38 ip-172-31-18-31.ec2.internal orquestrador_pgss_v2.sh[8679]: [2026-09-23T13:17:38Z]   stop-task arn:aws:ecs:us-east-1:776648109551:task/repro-f3-cluster/f5cbf26cc24f42ae9360b31d2a7b1f6e
+Sep 23 13:17:38 ip-172-31-18-31.ec2.internal orquestrador_pgss_v2.sh[8688]: [2026-09-23T13:17:38Z] orquestrador saiu (tasks paradas)
+Sep 23 13:17:38 ip-172-31-18-31.ec2.internal systemd[1]: pgss-coleta2.service: Deactivated successfully.
+Sep 23 13:17:38 ip-172-31-18-31.ec2.internal systemd[1]: pgss-coleta2.service: Consumed 5min 33.443s CPU time.

@@ -1,0 +1,15 @@
+Tempo total de execucao no banco (pg_stat_statements, rodada inteira):
+  Spring Boot :   90311.4 ms
+  Quarkus JVM :   65869.4 ms
+  razao       : 1.371x   (diferenca absoluta: 24442.0 ms)
+
+operacao                        SB ms      QJ ms   delta ms  % do gap
+get_summary                   74408.3    51401.1    23007.2     94.1%
+infra_pool_validacao            849.4        0.0      849.4      3.5%
+create_order                   7165.2     6726.9      438.3      1.8%
+insert_status_history          3730.1     3550.7      179.4      0.7%
+get_order                      2044.3     1890.1      154.2      0.6%
+infra_sessao                      9.8        8.0        1.8      0.0%
+get_orders_by_customer         1180.8     1179.7        1.1      0.0%
+update_status                   923.5      976.8      -53.3     -0.2%
+infra_rds_monitoramento           0.0      136.1     -136.1     -0.6%

@@ -1,0 +1,56 @@
+rodada,minuto,msg
+f3-springboot-r1,-0.37,2026-09-21 21:45:37 UTC::@:[1351]:LOG:  checkpoint starting: time
+f3-springboot-r1,-0.27,"2026-09-21 21:45:43 UTC::@:[1351]:LOG:  checkpoint complete: wrote 61 buffers (0.3%); 0 WAL file(s) added, 0 removed, 0 recycled; write=5.981 s, sync=0.003 s, total=6.215 s; sync files=38, longest=0.003 s, average=0.001 s; distance=68278 kB, estimate=68278 kB; lsn=0/1C000028, redo lsn=0/182B5FF0"
+f3-springboot-r1,4.63,2026-09-21 21:50:37 UTC::@:[1351]:LOG:  checkpoint starting: time
+f3-springboot-r1,5.53,"2026-09-21 21:51:31 UTC::@:[1351]:LOG:  checkpoint complete: wrote 573 buffers (2.4%); 0 WAL file(s) added, 0 removed, 0 recycled; write=53.630 s, sync=0.004 s, total=53.651 s; sync files=30, longest=0.004 s, average=0.001 s; distance=72504 kB, estimate=72504 kB; lsn=0/2031AC98, redo lsn=0/1C984030"
+f3-springboot-r1,9.63,2026-09-21 21:55:37 UTC::@:[1351]:LOG:  checkpoint starting: time
+f3-springboot-r1,13.4,"2026-09-21 21:59:23 UTC::@:[1351]:LOG:  checkpoint complete: wrote 2300 buffers (9.7%); 0 WAL file(s) added, 0 removed, 0 recycled; write=225.354 s, sync=0.025 s, total=225.417 s; sync files=29, longest=0.005 s, average=0.001 s; distance=94619 kB, estimate=94619 kB; lsn=0/2675A558, redo lsn=0/225EAC"
+f3-springboot-r1,14.63,2026-09-21 22:00:37 UTC::@:[1351]:LOG:  checkpoint starting: time
+f3-springboot-r1,16.7,"2026-09-21 22:02:41 UTC::@:[5387]:LOG:  automatic analyze of table ""orderdb.public.orders""
+	I/O timings: read: 0.000 ms, write: 0.000 ms
+	avg read rate: 0.000 MB/s, avg write rate: 0.002 MB/s
+	buffer usage: 1414 hits, 0 misses, 2 dirtied
+	system usage: CPU: user: 0.50 s, system: 0.03 s, elapsed: 10."
+f3-springboot-r1,17.46,"2026-09-21 22:03:27 UTC::@:[5483]:LOG:  automatic analyze of table ""orderdb.public.orders""
+	I/O timings: read: 0.000 ms, write: 0.000 ms
+	avg read rate: 0.000 MB/s, avg write rate: 0.001 MB/s
+	buffer usage: 1496 hits, 0 misses, 1 dirtied
+	system usage: CPU: user: 0.52 s, system: 0.05 s, elapsed: 10."
+f3-springboot-r1,19.13,"2026-09-21 22:05:07 UTC::@:[1351]:LOG:  checkpoint complete: wrote 3540 buffers (15.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=269.637 s, sync=0.056 s, total=269.966 s; sync files=27, longest=0.013 s, average=0.002 s; distance=78805 kB, estimate=93037 kB; lsn=0/2A920480, redo lsn=0/272E0"
+f3-springboot-r1,19.63,2026-09-21 22:05:37 UTC::@:[1351]:LOG:  checkpoint starting: time
+f3-springboot-r1,24.13,"2026-09-21 22:10:07 UTC::@:[1351]:LOG:  checkpoint complete: wrote 3634 buffers (15.3%); 0 WAL file(s) added, 0 removed, 0 recycled; write=269.662 s, sync=0.006 s, total=269.680 s; sync files=27, longest=0.005 s, average=0.001 s; distance=56485 kB, estimate=89382 kB; lsn=0/2D5F2B40, redo lsn=0/2AA09"
+f3-springboot-r1,24.63,2026-09-21 22:10:37 UTC::@:[1351]:LOG:  checkpoint starting: time
+f3-springboot-r2,-3.64,"2026-09-21 22:10:07 UTC::@:[1351]:LOG:  checkpoint complete: wrote 3634 buffers (15.3%); 0 WAL file(s) added, 0 removed, 0 recycled; write=269.662 s, sync=0.006 s, total=269.680 s; sync files=27, longest=0.005 s, average=0.001 s; distance=56485 kB, estimate=89382 kB; lsn=0/2D5F2B40, redo lsn=0/2AA09"
+f3-springboot-r2,-3.14,2026-09-21 22:10:37 UTC::@:[1351]:LOG:  checkpoint starting: time
+f3-springboot-r2,1.36,"2026-09-21 22:15:07 UTC::@:[1351]:LOG:  checkpoint complete: wrote 1467 buffers (6.2%); 0 WAL file(s) added, 0 removed, 0 recycled; write=269.869 s, sync=0.005 s, total=269.883 s; sync files=37, longest=0.004 s, average=0.001 s; distance=45534 kB, estimate=84997 kB; lsn=0/304825B0, redo lsn=0/2D680F"
+f3-springboot-r2,1.86,2026-09-21 22:15:37 UTC::@:[1351]:LOG:  checkpoint starting: time
+f3-springboot-r2,2.31,"2026-09-21 22:16:04 UTC::@:[1351]:LOG:  checkpoint complete: wrote 283 buffers (1.2%); 0 WAL file(s) added, 0 removed, 0 recycled; write=27.540 s, sync=0.004 s, total=27.552 s; sync files=33, longest=0.004 s, average=0.001 s; distance=48145 kB, estimate=81312 kB; lsn=0/3412DD98, redo lsn=0/305853F8"
+f3-springboot-r2,6.86,2026-09-21 22:20:37 UTC::@:[1351]:LOG:  checkpoint starting: time
+f3-springboot-r2,8.53,"2026-09-21 22:22:17 UTC::@:[1351]:LOG:  checkpoint complete: wrote 1054 buffers (4.5%); 0 WAL file(s) added, 0 removed, 0 recycled; write=99.782 s, sync=0.011 s, total=99.840 s; sync files=28, longest=0.006 s, average=0.001 s; distance=77109 kB, estimate=80892 kB; lsn=0/391984D8, redo lsn=0/350D2928"
+f3-springboot-r2,11.86,2026-09-21 22:25:37 UTC::@:[1351]:LOG:  checkpoint starting: time
+f3-springboot-r2,16.36,"2026-09-21 22:30:07 UTC::@:[1351]:LOG:  checkpoint complete: wrote 2947 buffers (12.4%); 0 WAL file(s) added, 0 removed, 0 recycled; write=269.341 s, sync=0.028 s, total=269.544 s; sync files=29, longest=0.007 s, average=0.001 s; distance=98274 kB, estimate=98274 kB; lsn=0/3EED5ED8, redo lsn=0/3B0CB"
+f3-springboot-r2,16.86,2026-09-21 22:30:37 UTC::@:[1351]:LOG:  checkpoint starting: time
+f3-springboot-r2,17.46,"2026-09-21 22:31:13 UTC::@:[9254]:LOG:  automatic analyze of table ""orderdb.public.orders""
+	I/O timings: read: 0.000 ms, write: 0.000 ms
+	avg read rate: 0.000 MB/s, avg write rate: 0.010 MB/s
+	buffer usage: 1476 hits, 0 misses, 14 dirtied
+	system usage: CPU: user: 0.50 s, system: 0.05 s, elapsed: 11"
+f3-springboot-r2,21.36,"2026-09-21 22:35:07 UTC::@:[1351]:LOG:  checkpoint complete: wrote 3720 buffers (15.7%); 0 WAL file(s) added, 0 removed, 0 recycled; write=269.614 s, sync=0.039 s, total=269.746 s; sync files=28, longest=0.008 s, average=0.002 s; distance=68105 kB, estimate=95258 kB; lsn=0/4199EF60, redo lsn=0/3F34D"
+f3-springboot-r2,21.86,2026-09-21 22:35:37 UTC::@:[1351]:LOG:  checkpoint starting: time
+f3-springboot-r3,-0.8,"2026-09-21 22:40:07 UTC::@:[1351]:LOG:  checkpoint complete: wrote 3294 buffers (13.9%); 0 WAL file(s) added, 0 removed, 0 recycled; write=269.813 s, sync=0.004 s, total=269.830 s; sync files=36, longest=0.003 s, average=0.001 s; distance=41351 kB, estimate=89867 kB; lsn=0/44FC3FF0, redo lsn=0/41BAF"
+f3-springboot-r3,-0.3,2026-09-21 22:40:37 UTC::@:[1351]:LOG:  checkpoint starting: time
+f3-springboot-r3,-0.23,"2026-09-21 22:40:41 UTC::@:[1351]:LOG:  checkpoint complete: wrote 46 buffers (0.2%); 0 WAL file(s) added, 0 removed, 0 recycled; write=4.591 s, sync=0.003 s, total=4.711 s; sync files=21, longest=0.003 s, average=0.001 s; distance=53329 kB, estimate=86213 kB; lsn=0/48000028, redo lsn=0/44FC40A8"
+f3-springboot-r3,4.7,2026-09-21 22:45:37 UTC::@:[1351]:LOG:  checkpoint starting: time
+f3-springboot-r3,5.62,"2026-09-21 22:46:32 UTC::@:[1351]:LOG:  checkpoint complete: wrote 581 buffers (2.5%); 0 WAL file(s) added, 0 removed, 0 recycled; write=54.245 s, sync=0.005 s, total=54.258 s; sync files=30, longest=0.004 s, average=0.001 s; distance=59272 kB, estimate=83519 kB; lsn=0/4C341FF8, redo lsn=0/489A6428"
+f3-springboot-r3,9.7,2026-09-21 22:50:37 UTC::@:[1351]:LOG:  checkpoint starting: time
+f3-springboot-r3,13.42,"2026-09-21 22:54:20 UTC::@:[1351]:LOG:  checkpoint complete: wrote 2280 buffers (9.6%); 0 WAL file(s) added, 0 removed, 0 recycled; write=223.145 s, sync=0.027 s, total=223.203 s; sync files=28, longest=0.009 s, average=0.001 s; distance=94889 kB, estimate=94889 kB; lsn=0/526325E8, redo lsn=0/4E650A"
+f3-springboot-r3,14.7,2026-09-21 22:55:37 UTC::@:[1351]:LOG:  checkpoint starting: time
+f3-springboot-r3,17.12,"2026-09-21 22:58:02 UTC::@:[13471]:LOG:  automatic analyze of table ""orderdb.public.orders""
+	I/O timings: read: 0.000 ms, write: 0.000 ms
+	avg read rate: 0.000 MB/s, avg write rate: 0.001 MB/s
+	buffer usage: 1466 hits, 0 misses, 1 dirtied
+	system usage: CPU: user: 0.54 s, system: 0.02 s, elapsed: 10"
+f3-springboot-r3,19.2,"2026-09-21 23:00:07 UTC::@:[1351]:LOG:  checkpoint complete: wrote 3529 buffers (14.9%); 0 WAL file(s) added, 0 removed, 0 recycled; write=269.278 s, sync=0.011 s, total=269.359 s; sync files=26, longest=0.004 s, average=0.001 s; distance=77665 kB, estimate=93167 kB; lsn=0/569C1340, redo lsn=0/53229"
+f3-springboot-r3,19.7,2026-09-21 23:00:37 UTC::@:[1351]:LOG:  checkpoint starting: time
+f3-springboot-r3,24.2,"2026-09-21 23:05:07 UTC::@:[1351]:LOG:  checkpoint complete: wrote 3587 buffers (15.2%); 0 WAL file(s) added, 0 removed, 0 recycled; write=269.917 s, sync=0.007 s, total=269.936 s; sync files=27, longest=0.006 s, average=0.001 s; distance=57861 kB, estimate=89636 kB; lsn=0/59210B68, redo lsn=0/56AAA"
+f3-springboot-r3,24.7,2026-09-21 23:05:37 UTC::@:[1351]:LOG:  checkpoint starting: time

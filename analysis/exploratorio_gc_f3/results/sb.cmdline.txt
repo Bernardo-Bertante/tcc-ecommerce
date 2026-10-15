@@ -1,0 +1,13 @@
+java
+-XX:MaxRAMPercentage=80.0
+-XX:+UseParallelGC
+-XX:MinHeapFreeRatio=10
+-XX:MaxHeapFreeRatio=20
+-XX:GCTimeRatio=4
+-XX:AdaptiveSizePolicyWeight=90
+-XX:+ExitOnOutOfMemoryError
+-Xlog:gc*,safepoint:file=/tmp/gc.log:time,uptime,level,tags:filecount=0
+-cp
+.
+-jar
+/deployments/app.jar

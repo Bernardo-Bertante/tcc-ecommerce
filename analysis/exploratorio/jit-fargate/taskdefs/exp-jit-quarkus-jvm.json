@@ -1,0 +1,85 @@
+{
+  "family": "exp-jit-quarkus-jvm",
+  "networkMode": "awsvpc",
+  "requiresCompatibilities": [
+    "FARGATE"
+  ],
+  "cpu": "1024",
+  "memory": "2048",
+  "executionRoleArn": "arn:aws:iam::776648109551:role/exp-jit-task-exec-role",
+  "taskRoleArn": "arn:aws:iam::776648109551:role/exp-jit-task-role",
+  "tags": [
+    {
+      "key": "Projeto",
+      "value": "tcc-exp-jit"
+    }
+  ],
+  "containerDefinitions": [
+    {
+      "name": "order-service-quarkus-jvm",
+      "image": "776648109551.dkr.ecr.us-east-1.amazonaws.com/order-service-quarkus-jvm@sha256:abec3583cd78ae5ed079dac8c8cd507ccafbbd19863f9f2df541599c7eae889b",
+      "cpu": 0,
+      "portMappings": [
+        {
+          "containerPort": 8081,
+          "hostPort": 8081,
+          "protocol": "tcp"
+        }
+      ],
+      "essential": true,
+      "environment": [
+        {
+          "name": "JAVA_OPTS_APPEND",
+          "value": "-Dquarkus.http.host=0.0.0.0 -XX:+PrintCompilation"
+        },
+        {
+          "name": "QUARKUS_DATASOURCE_JDBC_URL",
+          "value": "jdbc:postgresql://exp-jit-postgres.ck1kkwa6og4s.us-east-1.rds.amazonaws.com:5432/orderdb?sslMode=require"
+        },
+        {
+          "name": "QUARKUS_DATASOURCE_REACTIVE_MAX_SIZE",
+          "value": "40"
+        },
+        {
+          "name": "QUARKUS_DATASOURCE_REACTIVE_POSTGRESQL_SSL_MODE",
+          "value": "require"
+        },
+        {
+          "name": "QUARKUS_DATASOURCE_REACTIVE_TRUST_ALL",
+          "value": "true"
+        },
+        {
+          "name": "QUARKUS_DATASOURCE_REACTIVE_URL",
+          "value": "postgresql://exp-jit-postgres.ck1kkwa6og4s.us-east-1.rds.amazonaws.com:5432/orderdb"
+        },
+        {
+          "name": "QUARKUS_DATASOURCE_USERNAME",
+          "value": "orderuser"
+        },
+        {
+          "name": "SERVER_PORT",
+          "value": "8081"
+        }
+      ],
+      "mountPoints": [],
+      "volumesFrom": [],
+      "logConfiguration": {
+        "logDriver": "awslogs",
+        "options": {
+          "awslogs-group": "exp-jit-quarkus-jvm",
+          "awslogs-region": "us-east-1",
+          "awslogs-stream-prefix": "ecs",
+          "mode": "non-blocking",
+          "max-buffer-size": "25m"
+        }
+      },
+      "systemControls": [],
+      "secrets": [
+        {
+          "name": "QUARKUS_DATASOURCE_PASSWORD",
+          "valueFrom": "arn:aws:secretsmanager:us-east-1:776648109551:secret:exp-jit-db-5krZUL"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+# repro-f3-quarkus-jvm: diferenças vs order-service-quarkus-jvm:10 (oficial)
+cpu/memory: 1024/2048 (oficial 1024/2048)
+image: 776648109551.dkr.ecr.us-east-1.amazonaws.com/order-service-quarkus-jvm@sha256:abec3583cd78ae5ed079dac8c8cd507ccafbbd19863f9f2df541599c7eae889b  (oficial 776648109551.dkr.ecr.us-east-1.amazonaws.com/order-service-quarkus-jvm:20260616-160138)
+log group: /ecs/repro-f3-quarkus-jvm (oficial /ecs/order-service-quarkus-jvm)
+env JAVA_OPTS_APPEND: None -> '-Dquarkus.http.host=0.0.0.0 -Xlog:async -Xlog:gc*,safepoint:stdout:time,uptime,level,tags'
+env QUARKUS_DATASOURCE_JDBC_URL: 'jdbc:postgresql://order-service-postgres.ck1kkwa6og4s.us-east-1.rds.amazonaws.com:5432/orderdb?sslMode=require' -> 'jdbc:postgresql://repro-f3-postgres.ck1kkwa6og4s.us-east-1.rds.amazonaws.com:5432/orderdb?sslMode=require'
+env QUARKUS_DATASOURCE_REACTIVE_URL: 'postgresql://order-service-postgres.ck1kkwa6og4s.us-east-1.rds.amazonaws.com:5432/orderdb' -> 'postgresql://repro-f3-postgres.ck1kkwa6og4s.us-east-1.rds.amazonaws.com:5432/orderdb'
+env inalteradas: QUARKUS_DATASOURCE_PASSWORD, QUARKUS_DATASOURCE_REACTIVE_MAX_SIZE, QUARKUS_DATASOURCE_REACTIVE_POSTGRESQL_SSL_MODE, QUARKUS_DATASOURCE_REACTIVE_TRUST_ALL, QUARKUS_DATASOURCE_USERNAME, SERVER_PORT

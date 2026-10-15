@@ -1,0 +1,66 @@
+{
+    "F": "order-processor-quarkus-jvm",
+    "Sha": "qqGaGUSyL1rtWwcwOeIMNhFYfsW+HvIh8QiUTPe+WME=",
+    "Rev": "5b5bbf3d-86e3-43e2-97d0-7c26d3515292",
+    "Mod": "2026-06-21T14:14:23.771+0000",
+    "Env": null
+}
+{
+    "F": "order-processor-springboot",
+    "Sha": "ODLvR0a13wdABKP6LvMTo/xvKxTpEUz3H79fgDg0bbg=",
+    "Rev": "0ad8acff-acd8-4e2a-97cc-ca805dc59a18",
+    "Mod": "2026-06-21T14:14:06.878+0000",
+    "Env": null
+}
+{
+    "F": "order-processor-quarkus-native",
+    "Sha": "6HEm8yMGQP5wa73Xi1Cldqa/SsKl0V/LhI3YsuUXBOg=",
+    "Rev": "3a683c27-8de9-4387-951f-658d1f6ff709",
+    "Mod": "2026-06-21T14:26:06.000+0000",
+    "Env": null
+}
+{
+    "T": "processed_orders",
+    "S": "ACTIVE",
+    "N": 4101,
+    "B": 904706,
+    "K": [
+        {
+            "AttributeName": "orderId",
+            "KeyType": "HASH"
+        }
+    ]
+}
+{
+    "T": "stock_reservations",
+    "S": "ACTIVE",
+    "N": 12293,
+    "B": 1682829,
+    "K": [
+        {
+            "AttributeName": "orderId",
+            "KeyType": "HASH"
+        },
+        {
+            "AttributeName": "productId",
+            "KeyType": "RANGE"
+        }
+    ]
+}
+{
+    "T": "processing-results",
+    "S": "ACTIVE",
+    "N": 0,
+    "B": 0,
+    "K": [
+        {
+            "AttributeName": "orderId",
+            "KeyType": "HASH"
+        }
+    ]
+}
+{
+    "N": "order-processor-lambda-execution-role",
+    "Arn": "arn:aws:iam::776648109551:role/order-processor-lambda-execution-role"
+}
+2026-09-30T19:29:13-03:00

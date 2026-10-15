@@ -1,0 +1,6 @@
+{"ver":"qj","round":1,"cid":"a525851fdd5cf263726c645d867b0e5a0af6132feb4863b0a872e15c1cf43e4b","k6_start_epoch":1789960725,"k6_end_epoch":1789962248,
+ "k6_exit":0,"gc_byte_offset":[26535,1187459],
+ "orders_rows_before":0,"orders_rows_after":66936,
+ "rates":{"baseline":48,"peak":240,"recovery":48},
+ "pre_allocated_vus":1500,"max_vus":3000,
+ "cpu_limit":"--cpus=1 (cpu.max 100000 100000)","mem_limit":"2g"}

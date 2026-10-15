@@ -1,0 +1,10 @@
+flyway_schema_history	flyway_schema_history_pk	0	0	0	16384
+order_items	order_items_pkey	0	0	0	1212416
+order_status_history	order_status_history_pkey	0	0	0	720896
+orders	orders_pkey	876507	933862	876507	614400
+flyway_schema_history	flyway_schema_history_s_idx	0	0	0	16384
+order_items	idx_order_items_order_id	728266	1454376	257	835584
+order_status_history	idx_order_status_history_order_id	0	0	0	630784
+orders	idx_orders_created_at	54218	313226202	266416586	335872
+orders	idx_orders_customer_id	143616	860747	92566	319488
+orders	idx_orders_status	0	0	0	155648

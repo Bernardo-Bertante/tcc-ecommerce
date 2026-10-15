@@ -1,0 +1,74 @@
+
+============================== F2 (6 rodadas) ==============================
+
+POR RODADA               CPU RDS backends  active  exec+plan    calls steal task med task max lat med     p95      p99
+r1 springboot             24.04     8.50   552.0     238347   370022  3.47      265      560   14.73    35.5    117.6
+r2 springboot-noval       21.55     6.78   524.8     225846   185067  2.83      242      465   10.61    26.6     87.1
+r3 quarkus-jvm            19.38     5.91   408.9     187533   184981  3.26       94      301    8.79    16.3     77.7
+r4 quarkus-jvm            18.92     5.82   354.1     163385   184981  2.89       61      245    6.89    14.3     61.0
+r5 springboot-noval       20.59     6.72   483.8     218332   185057  2.79      212      419   10.63    21.3     85.3
+r6 springboot             21.74     8.40   508.9     222499   370033  2.81      214      452   13.83    30.5     85.5
+
+BANCO (média das 2 réplicas)              SB  SB s/val        QJ   SB/QJ s/val/QJ  fração   faixa 8 combinações
+CPU total do RDS (%)                   22.89     21.07     19.15   1.195    1.100     49%   7%–74%   réplicas SB ['24.04', '21.74'] s/val ['21.55', '20.59'] QJ ['19.38', '18.92']
+CPU dos backends (%)                    8.45      6.75      5.87   1.440    1.150     66%   63%–69%   réplicas SB ['8.50', '8.40'] s/val ['6.78', '6.72'] QJ ['5.91', '5.82']
+active_time (ms/s)                    530.47    504.29    381.52   1.390    1.322     18%   -16%–48%   réplicas SB ['552.02', '508.92'] s/val ['524.81', '483.77'] QJ ['408.90', '354.15']
+exec+plan pgss (ms)                230423.00 222088.72 175458.91   1.313    1.266     15%   -10%–39%   réplicas SB ['238347.26', '222498.74'] s/val ['225845.56', '218331.88'] QJ ['187533.11', '163384.70']
+
+LATÊNCIA phase=load, réplicas agrupadas (ms)       SB  SB s/val       QJ   SB/QJ s/val/QJ  fração   faixa 8 combinações
+media                                            14.28     10.62     7.84   1.821    1.354     57%   46%–69%   SB ['14.7', '13.8'] s/val ['10.6', '10.6'] QJ ['8.8', '6.9']
+mediana                                           7.28      5.00     3.40   2.141    1.469     59%   51%–66%   SB ['7.4', '7.2'] s/val ['5.1', '4.9'] QJ ['3.5', '3.2']
+p90                                              20.16     14.31     9.01   2.238    1.589     52%   45%–60%   SB ['20.6', '19.8'] s/val ['14.8', '13.9'] QJ ['9.4', '8.6']
+p95                                              33.05     24.08    15.42   2.143    1.562     51%   25%–74%   SB ['35.5', '30.5'] s/val ['26.6', '21.3'] QJ ['16.3', '14.3']
+p99                                              98.29     86.01    67.43   1.458    1.276     40%   -20%–81%   SB ['117.6', '85.5'] s/val ['87.1', '85.3'] QJ ['77.7', '61.0']
+
+POR ENDPOINT (réplicas agrupadas)                        SB p50/p95/p99      SB sem validação p50/p95/p99                    QJ p50/p95/p99
+create_order                                 16.2       31.9      143.3        11.6       24.4      141.7         7.8       14.8      113.5
+get_order                                     6.5       16.9       61.2         4.4       10.6       47.6         3.0        7.8       30.5
+get_orders_by_customer                        7.0       13.2       44.6         4.9        9.4       47.8         3.3        5.9       25.9
+get_summary                                  56.6      137.4      331.8        50.1      125.7      334.5        41.4      112.2      280.3
+update_status                                13.9       47.6      126.6         9.3       33.4       90.3         7.7       26.2       55.8
+
+SB/QJ: reprodução × oficial (fase5_estatistica_descritiva_novo.csv, cenário f2)
+  media    reprodução (todas) SB    15.61 QJ     8.83 razão   1.77 [phase=load  1.82]   |  oficial SB    19.15 QJ    10.16 razão   1.88
+  mediana  reprodução (todas) SB     8.75 QJ     3.86 razão   2.26 [phase=load  2.14]   |  oficial SB    11.56 QJ     6.15 razão   1.88
+  p90      reprodução (todas) SB    21.55 QJ     9.28 razão   2.32 [phase=load  2.24]   |  oficial SB    20.10 QJ     8.75 razão   2.30
+  p95      reprodução (todas) SB    37.54 QJ    15.33 razão   2.45 [phase=load  2.14]   |  oficial SB    34.91 QJ    12.27 razão   2.84
+  p99      reprodução (todas) SB   111.63 QJ    72.92 razão   1.53 [phase=load  1.46]   |  oficial SB   259.62 QJ   168.26 razão   1.54
+
+============================== F3 (6 rodadas) ==============================
+
+POR RODADA               CPU RDS backends  active  exec+plan    calls steal task med task max lat med     p95      p99
+r1 springboot             47.84    32.95  5469.4    7017961  1384688  3.39      378      721  537.51  3661.3   7072.4
+r2 springboot-noval       45.15    29.77  4242.3    5496908   695859  3.31      317      611  157.99  1018.2   3228.8
+r3 quarkus-jvm            40.10    24.74  2690.7    3496579   695783  3.34      125      342   67.73   102.9   2210.7
+r4 quarkus-jvm            39.96    24.63  2551.5    3292714   695783  3.53       97      181   39.83    62.5   1087.1
+r5 springboot-noval       45.62    29.94  4298.3    5558145   695861  3.39      341      611  162.97  1041.3   3369.1
+r6 springboot             48.88    33.37  5706.3    7367674  1389304  3.95      311      607  458.05  3179.0   5796.1
+
+BANCO (média das 2 réplicas)              SB  SB s/val        QJ   SB/QJ s/val/QJ  fração   faixa 8 combinações
+CPU total do RDS (%)                   48.36     45.38     40.03   1.208    1.134     36%   28%–43%   réplicas SB ['47.84', '48.88'] s/val ['45.15', '45.62'] QJ ['40.10', '39.96']
+CPU dos backends (%)                   33.16     29.86     24.68   1.343    1.210     39%   36%–42%   réplicas SB ['32.95', '33.37'] s/val ['29.77', '29.94'] QJ ['24.74', '24.63']
+active_time (ms/s)                   5587.84   4270.33   2621.07   2.132    1.629     44%   40%–49%   réplicas SB ['5469.40', '5706.27'] s/val ['4242.33', '4298.33'] QJ ['2690.68', '2551.46']
+exec+plan pgss (ms)               7192817.225527526.413394646.47   2.119    1.628     44%   39%–48%   réplicas SB ['7017960.71', '7367673.72'] s/val ['5496907.56', '5558145.26'] QJ ['3496579.32', '3292713.63']
+
+LATÊNCIA phase=load, réplicas agrupadas (ms)       SB  SB s/val       QJ   SB/QJ s/val/QJ  fração   faixa 8 combinações
+media                                           497.71    160.48    53.78   9.255    2.984     76%   71%–81%   SB ['537.5', '458.1'] s/val ['158.0', '163.0'] QJ ['67.7', '39.8']
+mediana                                          15.82      9.01     7.06   2.240    1.276     78%   71%–84%   SB ['16.1', '15.6'] s/val ['8.7', '9.4'] QJ ['7.3', '6.9']
+p90                                            1945.29    150.51    20.88  93.187    7.210     93%   92%–94%   SB ['2019.5', '1897.6'] s/val ['161.3', '141.1'] QJ ['22.8', '19.0']
+p95                                            3380.67   1027.16    80.49  42.003   12.762     71%   69%–74%   SB ['3661.3', '3179.0'] s/val ['1018.2', '1041.3'] QJ ['102.9', '62.5']
+p99                                            6546.68   3332.84  1641.39   3.989    2.031     66%   52%–79%   SB ['7072.4', '5796.1'] s/val ['3228.8', '3369.1'] QJ ['2210.7', '1087.1']
+
+POR ENDPOINT (réplicas agrupadas)                        SB p50/p95/p99      SB sem validação p50/p95/p99                    QJ p50/p95/p99
+create_order                                 20.1     5355.9     8968.6        14.0     1608.9     5172.9         8.4       45.2      975.4
+get_order                                    14.0     2810.1     4304.6         6.8      897.0     2927.5         5.2       20.7     1790.8
+get_orders_by_customer                        8.0     2823.9     4291.4         5.4      884.9     2906.0         3.6       19.0     1754.2
+get_summary                                 229.1     3211.5     4302.6       208.7     2340.0     3569.4       171.8      622.8     3023.3
+update_status                                32.5     4500.9     7908.1        13.6     1035.4     3683.4         8.8       55.8     2235.1
+
+SB/QJ: reprodução × oficial (fase5_estatistica_descritiva_novo.csv, cenário f3)
+  media    reprodução (todas) SB   525.29 QJ    52.38 razão  10.03 [phase=load  9.26]   |  oficial SB    90.93 QJ    15.74 razão   5.78
+  mediana  reprodução (todas) SB    16.56 QJ     7.55 razão   2.19 [phase=load  2.24]   |  oficial SB    14.89 QJ     6.95 razão   2.14
+  p90      reprodução (todas) SB  2018.05 QJ    22.52 razão  89.62 [phase=load 93.19]   |  oficial SB    63.80 QJ    11.83 razão   5.39
+  p95      reprodução (todas) SB  3559.85 QJ    80.63 razão  44.15 [phase=load 42.00]   |  oficial SB   357.42 QJ    29.16 razão  12.26
+  p99      reprodução (todas) SB  6940.03 QJ  1530.12 razão   4.54 [phase=load  3.99]   |  oficial SB  1934.26 QJ   254.01 razão   7.61

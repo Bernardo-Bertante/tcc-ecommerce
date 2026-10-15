@@ -1,0 +1,473 @@
+{
+    "metrics": {
+        "dropped_iterations": {
+            "count": 333,
+            "rate": 0.22133580898723199
+        },
+        "vus": {
+            "value": 0,
+            "min": 0,
+            "max": 1583
+        },
+        "http_req_blocked": {
+            "p(95)": 0.006591349999999977,
+            "avg": 0.009141471411937569,
+            "min": 0.000595,
+            "med": 0.004366,
+            "max": 38.561181,
+            "p(90)": 0.005972
+        },
+        "http_req_waiting": {
+            "avg": 483.1804626391721,
+            "min": 4.40902,
+            "med": 16.2421505,
+            "max": 10729.347561,
+            "p(90)": 1956.869110900001,
+            "p(95)": 3316.341247699999
+        },
+        "vus_max": {
+            "value": 1594,
+            "min": 21,
+            "max": 1594
+        },
+        "http_req_receiving": {
+            "p(90)": 0.075338,
+            "p(95)": 0.08725934999999999,
+            "avg": 0.05634836390061405,
+            "min": 0.009085,
+            "med": 0.04069,
+            "max": 95.739913
+        },
+        "iterations": {
+            "count": 208466,
+            "rate": 138.56153380279972
+        },
+        "checks": {
+            "passes": 721757,
+            "fails": 0,
+            "thresholds": {
+                "rate>0.99": false
+            },
+            "value": 1
+        },
+        "http_reqs": {
+            "count": 233594,
+            "rate": 155.2634143079984
+        },
+        "iteration_duration": {
+            "p(90)": 3236.2016308,
+            "p(95)": 4668.412664699999,
+            "avg": 1791.674148065809,
+            "min": 506.273852,
+            "med": 1428.02053,
+            "max": 18908.461204
+        },
+        "data_received": {
+            "count": 486516095,
+            "rate": 323373.67409049254
+        },
+        "http_req_duration": {
+            "p(95)": 3316.394907349999,
+            "avg": 483.2622502001783,
+            "min": 4.465256,
+            "med": 16.310544999999998,
+            "max": 10729.431579,
+            "p(90)": 1956.9279607
+        },
+        "http_req_tls_handshaking": {
+            "avg": 0,
+            "min": 0,
+            "med": 0,
+            "max": 0,
+            "p(90)": 0,
+            "p(95)": 0
+        },
+        "data_sent": {
+            "count": 63976626,
+            "rate": 42523.47829424498
+        },
+        "http_req_duration{phase:load}": {
+            "avg": 458.0544181587513,
+            "min": 4.465256,
+            "med": 15.581306,
+            "max": 10729.431579,
+            "p(90)": 1897.6195005,
+            "p(95)": 3179.029922,
+            "thresholds": {
+                "p(95)<2000": true,
+                "p(99)<5000": true
+            }
+        },
+        "http_req_connecting": {
+            "p(95)": 0,
+            "avg": 0.00430895410412939,
+            "min": 0,
+            "med": 0,
+            "max": 38.503626,
+            "p(90)": 0
+        },
+        "http_req_failed": {
+            "passes": 0,
+            "fails": 233594,
+            "thresholds": {
+                "rate<0.01": false
+            },
+            "value": 0
+        },
+        "http_req_duration{expected_response:true}": {
+            "p(90)": 1956.9279607,
+            "p(95)": 3316.394907349999,
+            "avg": 483.2622502001783,
+            "min": 4.465256,
+            "med": 16.310544999999998,
+            "max": 10729.431579
+        },
+        "http_req_sending": {
+            "med": 0.016735,
+            "max": 94.364883,
+            "p(90)": 0.025837700000000012,
+            "p(95)": 0.029285349999999974,
+            "avg": 0.02543919710266551,
+            "min": 0.005101
+        }
+    },
+    "setup_data": {
+        "customers": [
+            "3f25a97f-28d2-4209-93d4-ff46ed23f026",
+            "4f03494d-5a48-4907-a2ba-bd5f52d16dfc",
+            "71b8f12b-548e-4295-82f0-76aab98f59a2",
+            "68fc0c99-8d24-4633-85f6-e66b84ddc098",
+            "f3624b17-ed8a-4f61-914c-84469c3b645e",
+            "73fa8025-3340-4d9f-be72-43fa4b291a74",
+            "3a868343-4fc6-446d-bae8-974621272c5a",
+            "1a0e0ff1-c89c-4b4b-a82e-1f3bd1b5b790",
+            "87c2a5af-1742-4db9-bbc4-aa7114530d96",
+            "566c67fd-0938-4b37-9f2a-7bca848113ec",
+            "5ad7fe5b-1ffe-4745-8fe0-71d781bfa412",
+            "6bfd7449-f114-4963-bf66-10f70f8deb88",
+            "55d81947-85fa-4d11-b33c-babdb56bcbce",
+            "082760d5-bc30-41cf-a4e2-13545ed93a64",
+            "9a90c273-a536-4b1d-a1d8-c9c83b57a0ca",
+            "3dda99a1-e68c-407b-ab9e-3a839e653c80",
+            "ee3805df-19b2-4d69-97b4-c367df837f06",
+            "44ddcaad-2c28-4167-af9a-af403a316ddc",
+            "2f582f8b-bf6e-4ff5-90d0-6a85adef0282",
+            "2959dff9-8904-4093-8cd6-cdabde3d8a78",
+            "e9fbcb77-b26a-4ec1-892c-c16ef29b073e",
+            "d7a60585-3920-49ff-9f52-e7da76898e54",
+            "1619a5a3-4ea6-45cd-bcc8-59013987a93a",
+            "3053a751-b87c-49ab-830e-749e2f15b570",
+            "4c40ca0f-3022-4119-a7a4-5a164eb34476",
+            "107a715d-c318-4b97-940a-569373e17bcc",
+            "fc8484bb-32de-4ca5-85c0-95303e1f74f2",
+            "7a444fa9-54f4-4bc3-ae46-276cf0ed9d68",
+            "73a861a7-72da-4471-931c-246553cb16ae",
+            "49b96e35-aa10-462f-adc2-b37f92391644"
+        ],
+        "pageSize": 20,
+        "range": {
+            "from": "2026-09-23",
+            "to": "2026-09-25"
+        },
+        "readOrders": [
+            "25173484-21ac-432f-90bb-5e593516ca70",
+            "ef9edc67-f841-4e12-8354-b56b4257a751",
+            "84195945-8e81-422c-aa52-a850271da842",
+            "89ab0581-fcfc-4bcd-a979-3350e3425960",
+            "baf05796-a332-41fe-b300-ebc791bf533e",
+            "9dcb372b-8561-48ce-ac61-6ddb5af96765",
+            "cd4b14fc-e6ac-4c49-9b5c-cccf143dc51b",
+            "ecb147bb-726c-4529-9227-2d5072c4a353",
+            "129cc053-bc33-4393-a916-5e21c424db21",
+            "7c4ce608-7ba5-4393-bcef-0208e90b4784",
+            "3d321096-c913-436d-ae5b-c61b2625642b",
+            "3c834eb2-bfd6-4a27-adc7-a3c4bbb3416a",
+            "81b03a28-96c0-494c-a20c-fd0f94817779",
+            "f7f14a1c-ac73-40d9-b998-0a8045ea6083",
+            "9a958f81-499d-4e75-bff3-5bb3c4db63e0",
+            "31e34000-6a6b-4f32-9346-d65de014100e",
+            "23e34815-2997-4186-9360-c6845523ad01",
+            "a44f9ab3-d9e8-4ac7-9355-1d8b84aa73a8",
+            "0afa563d-d93e-49af-8b70-5933a0db788c",
+            "262969ba-33b7-4c98-85f1-7a40def4e0e8",
+            "094ca49e-efc7-461d-a988-51ebb8f57714",
+            "a0318362-a3c3-4c81-b473-ec93f94b71e9",
+            "719945b9-5164-46c4-a919-6c7b8c78e052",
+            "25c388ac-7c8a-4cf9-a342-f5974fe4dd4a",
+            "c161ca53-abe3-4fab-8f6f-f0486232aac8",
+            "cb27b71c-5b5e-4915-93f4-f5c28fa1aaff",
+            "d2d56ab0-d023-4ca3-99db-ec65e59d04cc",
+            "b4fdedb2-d2e7-486f-b68f-12eb76f92e3e",
+            "a65bc56f-5092-4ed2-ae00-d609953bc4fc",
+            "d317e512-e9ff-44da-8890-ff47c6963f23",
+            "6435d2cd-421d-4a82-bdfc-570d18b9bf83",
+            "ede3a513-9c01-400f-91ed-5a0907d2be69",
+            "2b1e0cb9-c415-4d19-b9c1-0e3627971e09",
+            "910c08cb-634c-4579-843c-5408d6ca4c3b",
+            "accc9bfb-e795-440e-a05b-46a72f5aae8d",
+            "8c8a17e9-dd79-4a54-94e1-6a784100df23",
+            "14954457-3dc9-422e-b01a-ce010cc81127",
+            "d627591c-355c-4a94-b589-f4e124fec79a",
+            "72ff0e5b-e935-4376-93e4-f7801baa4f71",
+            "12d0e5c6-4ee0-435e-8470-7a28d1f03a69",
+            "948543df-129e-4f5d-a760-c523c6af7948",
+            "6fe3c221-c5a8-41f7-b78e-b962c7224747",
+            "7b65bf5e-a9a9-40c2-8eea-68b092bf9160",
+            "581ba588-a1ec-4b0a-9863-7221eee8f691",
+            "e5f6fc43-b952-4d41-93a5-9780a026c280",
+            "090216ca-e01c-43bd-a32c-030cefd7e81d",
+            "afbb12b5-690d-4bdf-a5e1-b4524d0809dc",
+            "ed75fb42-7628-4c9f-9f33-f3b5c746e704",
+            "d85915ea-d1c8-44e4-8db5-e91756bc1264",
+            "e62e0e08-6571-48de-9d38-49c2939f7c74",
+            "0df783b9-62ac-40cb-9a34-f683125abd3d",
+            "65baf39e-07ad-4c82-bbf0-8d921bfa8bd1",
+            "0854f081-cfa1-42ae-8858-0efb39bd7569",
+            "467daa9f-e4b8-4b20-b032-0f377b241a57",
+            "ab6d0023-ea22-486d-a47f-5e0da8ffb3a2",
+            "1347a829-4d41-4d65-9bd5-07008baef3c0",
+            "a9c88896-6b49-49f7-adf0-a18ea81dd163",
+            "220a37ab-4fab-4e4d-93fb-eeeca927a38e",
+            "74a69080-8afd-4596-96e3-7d017300f1f9",
+            "40f732dc-d0d0-47e5-9a00-21ffda302df2",
+            "50ec3b6e-76c2-44a8-97b7-6e0bd1411bac",
+            "e50203bc-2c15-46f1-aa80-5410c9317352",
+            "b8e20262-cba3-408d-9803-efe82d04036e",
+            "60bd1ccb-97e7-4797-9ece-b3895cd5fd9d",
+            "542f3f60-de83-4ace-87f1-fa865e44aa20",
+            "69ffefa7-32b3-41de-b6da-d45e41a07004",
+            "bcc10ece-a3ce-442f-80d1-95c5820810b5",
+            "fc5f610c-972d-40f0-84af-1fc4933d6823",
+            "eedc3f24-cf87-41e3-9428-726f45f05cd3",
+            "ac4660fc-d652-4c82-94a6-2207f99d75d6",
+            "04670bfb-2b10-4967-8241-007ce2252f41",
+            "802f755e-3657-4f8b-b166-06ebe188afd3",
+            "79640bf8-3651-460b-82c5-580f1e4a6744",
+            "a1845849-dba3-4586-9f9d-41d41a804d1e",
+            "bce9c18e-ca55-42f6-8298-0731b0019063",
+            "78b301a0-7d87-42aa-bf48-0ebba9b755b6",
+            "a1d25df4-3674-41a1-b802-98c84c3812c0",
+            "1f248553-77a2-4df1-9dba-af80ae9c90be",
+            "185deb8d-8e09-4b43-a242-b5ee64257d51",
+            "db28c361-c3b6-47ec-8a96-0e6e95ab783c",
+            "c27d696e-011f-43df-a50b-5d2e148af081",
+            "cf46c50b-0370-4670-8088-998662cb2dae",
+            "e3b3d309-4181-44c6-8b1e-f7f3b8279658",
+            "3bf5c29a-550d-431e-84a0-15c5150ac4a7",
+            "6ef549b0-9381-4b65-bc8d-4ec8aee1e95f",
+            "1a784815-33ea-4c42-a710-6fac01474abb",
+            "9d0238f1-4931-4459-b5bd-0a5d85777a47",
+            "7b19381c-5245-4c3f-9422-e114e6e6acae",
+            "21aac009-2d4e-468c-8e94-6a362ea14a93",
+            "95906f5b-8b01-4453-af7d-1a663354d1ad",
+            "ba5c60b3-ef06-46f3-9a96-53cb387c75e0",
+            "ae4e49eb-a344-493f-947a-6c1f23ca88dd",
+            "986c974b-5044-422f-8b36-91a1633bef0f",
+            "eb2ffa3f-737e-4b63-8733-086ccc05651c",
+            "9d28055e-e969-4ad4-8bd0-b57feba0acc5",
+            "d76dfd11-51d2-4dd0-a075-0a98e857bcc7",
+            "d3077270-4ca2-4dcf-8b53-a48d913dcac9",
+            "8bb0a68c-1183-444a-9d41-d02ffbc0d760",
+            "aa8f9fa9-54ca-4463-ba56-c8d06b8155e4",
+            "04ca282b-f3dc-4944-be2c-437a744560a0",
+            "55183e0a-e6fd-4e01-9546-83cf056e3afc",
+            "707ca51e-5f49-4f3c-8e33-e513503ecf65",
+            "1d330462-e5dd-48d9-8031-4d6af50362bc",
+            "defa3a5a-83ed-4e7c-a048-d1d44a71c2aa",
+            "2de72739-0b10-4528-bcf3-84437e4b07e7",
+            "51024f12-09ba-4f4c-8c3e-81e356f10adf",
+            "7bae6914-6bb2-48f1-a181-4f7031de3172",
+            "6bb4f6f3-678b-44c1-991e-41938c6622ce",
+            "20a11540-b85e-4867-bd35-ea5889a47b01",
+            "074eb6f2-071e-4d9f-926c-e709c0812258",
+            "690ade6e-8768-4891-b84c-d1378d97dbc7",
+            "3d059835-c9bf-4db9-b176-55db6b9bcfe1",
+            "0ecbd771-c201-47f7-a7ec-1216c80c1d2c",
+            "739c7e92-8780-4b29-82c7-aed43dceae74",
+            "8d885b6c-df37-461f-86de-e5c6fd988f38",
+            "34236d23-bf68-4d0a-92c9-2beec0dc30ad",
+            "74f9a557-c747-40e1-980c-673af872bfba",
+            "df1b7a5e-31d0-4802-be2c-db7fd3221533",
+            "b9ff3314-53e2-47d2-9435-b2ef93109bd7",
+            "0d59ac13-f7e1-4b42-b8fd-a7d2c68a697d"
+        ]
+    },
+    "root_group": {
+        "groups": {
+            "setup": {
+                "id": "5c0f8025f7e0b6654089e5b00e950f1a",
+                "groups": {},
+                "checks": {
+                        "setup seed order: status 201": {
+                            "name": "setup seed order: status 201",
+                            "path": "::setup::setup seed order: status 201",
+                            "id": "b825b9c53e81763ec829a604260636f0",
+                            "passes": 120,
+                            "fails": 0
+                        },
+                        "setup seed order: response has id": {
+                            "id": "04225d0b195af7671e43d62eb31bedd9",
+                            "passes": 120,
+                            "fails": 0,
+                            "name": "setup seed order: response has id",
+                            "path": "::setup::setup seed order: response has id"
+                        },
+                        "setup seed order: response is pending": {
+                            "fails": 0,
+                            "name": "setup seed order: response is pending",
+                            "path": "::setup::setup seed order: response is pending",
+                            "id": "4abb212b4edc46fef2a73da84d7ac65e",
+                            "passes": 120
+                        },
+                        "setup seed order: response has items": {
+                            "id": "4a8cf6fa0ebc4cd89ff464314cd6d047",
+                            "passes": 120,
+                            "fails": 0,
+                            "name": "setup seed order: response has items",
+                            "path": "::setup::setup seed order: response has items"
+                        }
+                    },
+                "name": "setup",
+                "path": "::setup"
+            }
+        },
+        "checks": {
+            "get order: status 200": {
+                "passes": 106335,
+                "fails": 0,
+                "name": "get order: status 200",
+                "path": "::get order: status 200",
+                "id": "75d681daeef4ea1b5748fa2f2f35a64c"
+            },
+            "get order: response has id": {
+                "id": "8814f5ae12e26a7f6daa73debfc67217",
+                "passes": 106335,
+                "fails": 0,
+                "name": "get order: response has id",
+                "path": "::get order: response has id"
+            },
+            "get order: response has status": {
+                "path": "::get order: response has status",
+                "id": "6bc3c48ffbd1cea13f44431edf336a8e",
+                "passes": 106335,
+                "fails": 0,
+                "name": "get order: response has status"
+            },
+            "create order: status 201": {
+                "passes": 41695,
+                "fails": 0,
+                "name": "create order: status 201",
+                "path": "::create order: status 201",
+                "id": "1bcfa49d77d46f40d66acd4c4ffcf2a7"
+            },
+            "create order: response has id": {
+                "name": "create order: response has id",
+                "path": "::create order: response has id",
+                "id": "d0e5382d09429315761b87aae07fac73",
+                "passes": 41695,
+                "fails": 0
+            },
+            "create order: response is pending": {
+                "passes": 41695,
+                "fails": 0,
+                "name": "create order: response is pending",
+                "path": "::create order: response is pending",
+                "id": "4b5e1a5f42d5f4f838bf8f9bc43a4505"
+            },
+            "create order: response has items": {
+                "name": "create order: response has items",
+                "path": "::create order: response has items",
+                "id": "a1d9d42618b144ce5e8eac4b9b7fd225",
+                "passes": 41695,
+                "fails": 0
+            },
+            "get orders by customer: status 200": {
+                "path": "::get orders by customer: status 200",
+                "id": "ba7c4c0925c19e9ba4e69cebfd32e0b3",
+                "passes": 31260,
+                "fails": 0,
+                "name": "get orders by customer: status 200"
+            },
+            "get orders by customer: response has content": {
+                "name": "get orders by customer: response has content",
+                "path": "::get orders by customer: response has content",
+                "id": "a4e1b5cc6d8f28afbf707c11c1de6dca",
+                "passes": 31260,
+                "fails": 0
+            },
+            "get orders by customer: response has page size": {
+                "id": "744a16d1dd89191a6b7b3c7bfdc7b6f0",
+                "passes": 31260,
+                "fails": 0,
+                "name": "get orders by customer: response has page size",
+                "path": "::get orders by customer: response has page size"
+            },
+            "create order for status update: status 201": {
+                "fails": 0,
+                "name": "create order for status update: status 201",
+                "path": "::create order for status update: status 201",
+                "id": "340ff80aa78719796df0c0afba0514fb",
+                "passes": 25008
+            },
+            "create order for status update: response has id": {
+                "passes": 25008,
+                "fails": 0,
+                "name": "create order for status update: response has id",
+                "path": "::create order for status update: response has id",
+                "id": "aacdebfdc56c601c167fe168558f5144"
+            },
+            "create order for status update: response is pending": {
+                "fails": 0,
+                "name": "create order for status update: response is pending",
+                "path": "::create order for status update: response is pending",
+                "id": "74094e251a13e2e5c836a4d14b548579",
+                "passes": 25008
+            },
+            "create order for status update: response has items": {
+                "path": "::create order for status update: response has items",
+                "id": "4c4ff432dc7e38231c0ff5d61ca1adda",
+                "passes": 25008,
+                "fails": 0,
+                "name": "create order for status update: response has items"
+            },
+            "update status: status 200": {
+                "path": "::update status: status 200",
+                "id": "838c65c74548ab9f534c1154ddfbc184",
+                "passes": 25008,
+                "fails": 0,
+                "name": "update status: status 200"
+            },
+            "get summary: status 200": {
+                "name": "get summary: status 200",
+                "path": "::get summary: status 200",
+                "id": "c1e593aa410ffc06ae84f4a98440cbf1",
+                "passes": 4168,
+                "fails": 0
+            },
+            "get summary: response has totalOrders": {
+                "path": "::get summary: response has totalOrders",
+                "id": "41adbfabc960bd15728de83554139c50",
+                "passes": 4168,
+                "fails": 0,
+                "name": "get summary: response has totalOrders"
+            },
+            "get summary: response has totalRevenue": {
+                "passes": 4168,
+                "fails": 0,
+                "name": "get summary: response has totalRevenue",
+                "path": "::get summary: response has totalRevenue",
+                "id": "5c31dc5b67e1dcdc8d3c7669eeb18fe0"
+            },
+            "get summary: response has ordersByStatus": {
+                "name": "get summary: response has ordersByStatus",
+                "path": "::get summary: response has ordersByStatus",
+                "id": "fcfadd876e2ffd8e3a7f28477531e5b3",
+                "passes": 4168,
+                "fails": 0
+            }
+        },
+        "name": "",
+        "path": "",
+        "id": "d41d8cd98f00b204e9800998ecf8427e"
+    }
+}

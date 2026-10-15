@@ -1,0 +1,14 @@
+# Recursos criados para f2_f3 (24/09/2026). Tag projeto=tcc-pgss-f2f3. Apagar TODOS no teardown.
+# NÃO apagar: order-service-postgres, order-service-cluster, order-service-* taskdefs,
+# SGs k6-runner-sg / order-service-fargate-sg / default, param group order-service-pg16-custom.
+iam role          pgss-f2f3-rds-monitoring (AmazonRDSEnhancedMonitoringRole)
+iam role+profile  pgss-f2f3-runner (inline orchestrator)
+rds param group   pgss-f2f3-pg16 (cópia de order-service-pg16-custom + auto_explain + track_planning)
+rds pgss-f2f3-postgres (db.t3.micro PG16.4 20GB gp3, PI 7d, EM 1s, export postgresql)
+ec2               i-03872601bfa459888 pgss-f2f3-runner (m7i-flex.large, us-east-1c, 30GB gp3 DeleteOnTermination)
+sg rules          k6-runner-sg: sgr-0841d66cd5a7816d0 (22<-meu IP) | default(RDS): sgr-05f82b094ac46f33a	sgr-0793bee79ab3a5bb3 (5432<-meu IP, 5432<-runner SG)
+ecs cluster       pgss-f2f3-cluster (containerInsights=enabled)
+ecs taskdef       pgss-f2f3-springboot:1, pgss-f2f3-springboot-noval:1, pgss-f2f3-quarkus-jvm:1 (deregister + delete)
+cw log groups     /ecs/pgss-f2f3-springboot, /ecs/pgss-f2f3-quarkus-jvm, /aws/ecs/containerinsights/pgss-f2f3-cluster/performance,
+                  /aws/rds/instance/pgss-f2f3-postgres/postgresql (criado pelo RDS), stream RDSOSMetrics/<resource id do RDS>
+runner IP da coleta: 34.224.82.9

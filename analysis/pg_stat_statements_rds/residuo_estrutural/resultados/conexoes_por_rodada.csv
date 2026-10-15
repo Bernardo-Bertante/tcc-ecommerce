@@ -1,0 +1,5 @@
+rodada,cond,amostras,backends_medio,backends_max,backends_min,ativos_medio,idle_in_tx_medio
+r1-springboot-noval,SB-noval,205,34.02439024390244,40,3,0.17073170731707318,0
+r2-quarkus-jvm,QJ,205,38.18536585365854,42,4,0.1073170731707317,0
+r3-quarkus-jvm,QJ,205,20.039024390243902,25,3,0.09268292682926829,0
+r4-springboot-noval,SB-noval,205,15.604878048780488,16,3,0.08780487804878048,0

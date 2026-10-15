@@ -1,0 +1,4 @@
+    GCLoad: 0%][55.524s] GC(0) Pause Full GC (Collect on allocation) 48.00M->5.50M 14.929ms
+    GCLoad: 0%][75.758s] GC(1) Pause Incremental GC (Collect on allocation) 53.50M->6.00M 1.712ms
+    GCLoad: 0%][95.157s] GC(2) Pause Full GC (Collect on allocation) 54.00M->6.00M 12.411ms
+    GCLoad: 0%][113.377s] GC(3) Pause Incremental GC (Collect on allocation) 54.00M->6.50M 2.990ms

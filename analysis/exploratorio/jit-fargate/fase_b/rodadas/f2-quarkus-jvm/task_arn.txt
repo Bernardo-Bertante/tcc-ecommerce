@@ -1,0 +1,1 @@
+arn:aws:ecs:us-east-1:776648109551:task/exp-jit-cluster/2fe6e041c12e45dfb8f28ac198441e6e

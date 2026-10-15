@@ -1,0 +1,105 @@
+{
+    "tasks": [
+        {
+            "attachments": [
+                {
+                    "id": "11b6abf9-1e7f-45da-8421-a7e16cbb8734",
+                    "type": "ElasticNetworkInterface",
+                    "status": "ATTACHED",
+                    "details": [
+                        {
+                            "name": "subnetId",
+                            "value": "subnet-09021fc5dd37000fc"
+                        },
+                        {
+                            "name": "networkInterfaceId",
+                            "value": "eni-0f4f05bf5dd6ffbf9"
+                        },
+                        {
+                            "name": "macAddress",
+                            "value": "0a:ff:ce:6a:d4:27"
+                        },
+                        {
+                            "name": "privateDnsName",
+                            "value": "ip-172-31-30-87.ec2.internal"
+                        },
+                        {
+                            "name": "privateIPv4Address",
+                            "value": "172.31.30.87"
+                        }
+                    ]
+                }
+            ],
+            "attributes": [
+                {
+                    "name": "ecs.cpu-architecture",
+                    "value": "x86_64"
+                }
+            ],
+            "availabilityZone": "us-east-1c",
+            "clusterArn": "arn:aws:ecs:us-east-1:776648109551:cluster/exp-jit-cluster",
+            "connectivity": "CONNECTED",
+            "connectivityAt": "2026-09-29T23:46:14.346000+00:00",
+            "containers": [
+                {
+                    "containerArn": "arn:aws:ecs:us-east-1:776648109551:container/exp-jit-cluster/c598bd825a024bd48b98a927895dab78/de5d56a8-96a0-46a4-87e8-fe568f9e4ad1",
+                    "taskArn": "arn:aws:ecs:us-east-1:776648109551:task/exp-jit-cluster/c598bd825a024bd48b98a927895dab78",
+                    "name": "order-service-springboot",
+                    "image": "776648109551.dkr.ecr.us-east-1.amazonaws.com/order-service-springboot@sha256:276548dd7956b91122dbb641d50030c0d81d59a3e1bef54357ba965b77f77c68",
+                    "imageDigest": "sha256:276548dd7956b91122dbb641d50030c0d81d59a3e1bef54357ba965b77f77c68",
+                    "runtimeId": "c598bd825a024bd48b98a927895dab78-2553337845",
+                    "lastStatus": "RUNNING",
+                    "networkBindings": [],
+                    "networkInterfaces": [
+                        {
+                            "attachmentId": "11b6abf9-1e7f-45da-8421-a7e16cbb8734",
+                            "privateIpv4Address": "172.31.30.87"
+                        }
+                    ],
+                    "healthStatus": "UNKNOWN",
+                    "managedAgents": [
+                        {
+                            "name": "ExecuteCommandAgent",
+                            "lastStatus": "PENDING"
+                        }
+                    ],
+                    "cpu": "0"
+                }
+            ],
+            "cpu": "1024",
+            "createdAt": "2026-09-29T23:46:11.501000+00:00",
+            "desiredStatus": "RUNNING",
+            "enableExecuteCommand": true,
+            "group": "family:exp-jit-springboot",
+            "healthStatus": "UNKNOWN",
+            "lastStatus": "RUNNING",
+            "launchType": "FARGATE",
+            "memory": "2048",
+            "overrides": {
+                "containerOverrides": [
+                    {
+                        "name": "order-service-springboot"
+                    }
+                ],
+                "inferenceAcceleratorOverrides": []
+            },
+            "platformVersion": "1.4.0",
+            "platformFamily": "Linux",
+            "pullStartedAt": "2026-09-29T23:46:23.516000+00:00",
+            "pullStoppedAt": "2026-09-29T23:46:29.929000+00:00",
+            "startedAt": "2026-09-29T23:46:31.629000+00:00",
+            "startedBy": "exp-jit",
+            "tags": [],
+            "taskArn": "arn:aws:ecs:us-east-1:776648109551:task/exp-jit-cluster/c598bd825a024bd48b98a927895dab78",
+            "taskDefinitionArn": "arn:aws:ecs:us-east-1:776648109551:task-definition/exp-jit-springboot:1",
+            "version": 3,
+            "ephemeralStorage": {
+                "sizeInGiB": 20
+            },
+            "fargateEphemeralStorage": {
+                "sizeInGiB": 20
+            }
+        }
+    ],
+    "failures": []
+}

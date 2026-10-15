@@ -1,0 +1,15 @@
+# Recursos criados para residuo_estrutural (24/09/2026). Tag projeto=tcc-pgss-residuo. Apagar TODOS no teardown.
+# NAO apagar: order-service-postgres, order-service-cluster, order-service-* taskdefs, SGs k6-runner-sg /
+# order-service-fargate-sg / default, param group order-service-pg16-custom.
+rds param group   pgss-res-pg16 (copia do oficial + auto_explain + track_planning)
+rds               pgss-res-postgres (db.t3.micro PG16.4 20GB gp3, us-east-1d, sem PI/EM/export de log)
+sg rules          default(RDS) 5432 <- 138.118.46.203/32 : sgr-0c1fb5746fbcac80a
+                  default(RDS) 5432 <- k6-runner-sg      : sgr-0d7decca6304060e0
+                  k6-runner-sg 22   <- 138.118.46.203/32 : sgr-0fb2ec514cfc620b7
+ecs cluster       pgss-res-cluster
+cw log groups     /ecs/pgss-res-springboot, /ecs/pgss-res-quarkus-jvm
+iam role+profile  pgss-res-runner (inline orchestrator)
+ec2               i-04ed1220339138fd6 pgss-res-runner (m7i-flex.large, us-east-1c, 30GB gp3 DeleteOnTermination)
+rds endpoint      pgss-res-postgres.ck1kkwa6og4s.us-east-1.rds.amazonaws.com  (esquema = esquema_oficial_schema_only.sql + baseline Flyway v1)
+rds endpoint      pgss-res-postgres.ck1kkwa6og4s.us-east-1.rds.amazonaws.com  (esquema = esquema_oficial_schema_only.sql sem transaction_timeout + baseline Flyway v1)
+ecs taskdef       pgss-res-springboot-noval:1, pgss-res-quarkus-jvm:1 (deregister + delete)

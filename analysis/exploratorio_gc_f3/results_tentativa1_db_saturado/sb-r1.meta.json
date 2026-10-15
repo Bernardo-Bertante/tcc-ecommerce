@@ -1,0 +1,6 @@
+{"ver":"sb","round":1,"cid":"a58f41d31c8f859731731337646bdc38ccec80e92d728c8d2c4f2564f15443f3","k6_start_epoch":1789946367,"k6_end_epoch":1789947902,
+ "k6_exit":0,"gc_byte_offset":[57813,10259015],
+ "orders_rows_before":0,"orders_rows_after":66936,
+ "rates":{"baseline":48,"peak":240,"recovery":48},
+ "pre_allocated_vus":1500,"max_vus":3000,
+ "cpu_limit":"--cpus=1 (cpu.max 100000 100000)","mem_limit":"2g"}

@@ -1,0 +1,2 @@
+ver=qn rate=240 ramp=60s hold=540s k6_start_epoch=1789319221 cid=a11a297ef06430507246def6d0c65fff3a03758060088d6fabfcb15c07a422d5
+k6_end_epoch=1789319839

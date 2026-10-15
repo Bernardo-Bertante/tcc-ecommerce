@@ -1,0 +1,99 @@
+{
+    "tasks": [
+        {
+            "attachments": [
+                {
+                    "id": "8ff4d936-e5c3-41ef-8951-d991eef66f9c",
+                    "type": "ElasticNetworkInterface",
+                    "status": "ATTACHED",
+                    "details": [
+                        {
+                            "name": "subnetId",
+                            "value": "subnet-09021fc5dd37000fc"
+                        },
+                        {
+                            "name": "networkInterfaceId",
+                            "value": "eni-0c7b5e2d5d8bf5673"
+                        },
+                        {
+                            "name": "macAddress",
+                            "value": "0a:ff:cf:7d:f7:21"
+                        },
+                        {
+                            "name": "privateDnsName",
+                            "value": "ip-172-31-22-168.ec2.internal"
+                        },
+                        {
+                            "name": "privateIPv4Address",
+                            "value": "172.31.22.168"
+                        }
+                    ]
+                }
+            ],
+            "attributes": [
+                {
+                    "name": "ecs.cpu-architecture",
+                    "value": "x86_64"
+                }
+            ],
+            "availabilityZone": "us-east-1c",
+            "clusterArn": "arn:aws:ecs:us-east-1:776648109551:cluster/repro-f3-cluster",
+            "connectivity": "CONNECTED",
+            "connectivityAt": "2026-09-22T12:18:16.066000+00:00",
+            "containers": [
+                {
+                    "containerArn": "arn:aws:ecs:us-east-1:776648109551:container/repro-f3-cluster/784e5afaf6bd4f97ab5ba9d9f21ee4be/d011b5cc-9332-44d3-b392-b685cda9f2aa",
+                    "taskArn": "arn:aws:ecs:us-east-1:776648109551:task/repro-f3-cluster/784e5afaf6bd4f97ab5ba9d9f21ee4be",
+                    "name": "order-service-quarkus-jvm",
+                    "image": "776648109551.dkr.ecr.us-east-1.amazonaws.com/order-service-quarkus-jvm@sha256:abec3583cd78ae5ed079dac8c8cd507ccafbbd19863f9f2df541599c7eae889b",
+                    "imageDigest": "sha256:abec3583cd78ae5ed079dac8c8cd507ccafbbd19863f9f2df541599c7eae889b",
+                    "runtimeId": "784e5afaf6bd4f97ab5ba9d9f21ee4be-3737440224",
+                    "lastStatus": "RUNNING",
+                    "networkBindings": [],
+                    "networkInterfaces": [
+                        {
+                            "attachmentId": "8ff4d936-e5c3-41ef-8951-d991eef66f9c",
+                            "privateIpv4Address": "172.31.22.168"
+                        }
+                    ],
+                    "healthStatus": "UNKNOWN",
+                    "cpu": "0"
+                }
+            ],
+            "cpu": "1024",
+            "createdAt": "2026-09-22T12:18:11.778000+00:00",
+            "desiredStatus": "RUNNING",
+            "enableExecuteCommand": false,
+            "group": "family:repro-f3-quarkus-jvm",
+            "healthStatus": "UNKNOWN",
+            "lastStatus": "RUNNING",
+            "launchType": "FARGATE",
+            "memory": "2048",
+            "overrides": {
+                "containerOverrides": [
+                    {
+                        "name": "order-service-quarkus-jvm"
+                    }
+                ],
+                "inferenceAcceleratorOverrides": []
+            },
+            "platformVersion": "1.4.0",
+            "platformFamily": "Linux",
+            "pullStartedAt": "2026-09-22T12:18:25.231000+00:00",
+            "pullStoppedAt": "2026-09-22T12:18:31.146000+00:00",
+            "startedAt": "2026-09-22T12:18:33.122000+00:00",
+            "startedBy": "repro-f3",
+            "tags": [],
+            "taskArn": "arn:aws:ecs:us-east-1:776648109551:task/repro-f3-cluster/784e5afaf6bd4f97ab5ba9d9f21ee4be",
+            "taskDefinitionArn": "arn:aws:ecs:us-east-1:776648109551:task-definition/repro-f3-quarkus-jvm:1",
+            "version": 3,
+            "ephemeralStorage": {
+                "sizeInGiB": 20
+            },
+            "fargateEphemeralStorage": {
+                "sizeInGiB": 20
+            }
+        }
+    ],
+    "failures": []
+}

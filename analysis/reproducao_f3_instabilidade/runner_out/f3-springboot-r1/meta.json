@@ -1,0 +1,1 @@
+{"k6_invoke_utc":"2026-09-21T21:44:42Z","k6_return_utc":"2026-09-21T22:10:59Z","task_arn":"arn:aws:ecs:us-east-1:776648109551:task/repro-f3-cluster/0c5774cc257848ef9b69d434684a7a0b","task_ip":"98.88.32.85","db_host":"repro-f3-postgres.ck1kkwa6og4s.us-east-1.rds.amazonaws.com"}

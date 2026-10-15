@@ -1,0 +1,266 @@
+[
+ {
+  "orderId": "453d548f-38a2-4f99-8424-389a413394f6",
+  "customerId": "65d5c63f-1e92-4cc9-8f94-29b875e361e6",
+  "items": [
+   {
+    "productId": "a7c8446f-a702-4a79-a184-a89f3f13b956",
+    "productName": "Mechanical Keyboard",
+    "quantity": 1,
+    "unitPrice": 9.99
+   },
+   {
+    "productId": "5443a0bd-6af8-41f7-a6ea-09a6e941b1ac",
+    "productName": "Wireless Mouse",
+    "quantity": 2,
+    "unitPrice": 11.36
+   },
+   {
+    "productId": "7f8b811b-43be-4805-a9a0-c33fd07f23d2",
+    "productName": "USB-C Hub",
+    "quantity": 3,
+    "unitPrice": 12.73
+   }
+  ],
+  "shippingAddress": {
+   "zipCode": "37200-000",
+   "state": "MG",
+   "city": "Lavras"
+  },
+  "totalAmount": 70.9
+ },
+ {
+  "orderId": "ecbb87dd-e798-4617-ac8a-f53eb261a84c",
+  "customerId": "4b1b900d-7208-4dc7-907a-9fb6a59121bc",
+  "items": [
+   {
+    "productId": "4152c24b-b32e-40b5-ba90-d09e0caf5242",
+    "productName": "Mechanical Keyboard",
+    "quantity": 3,
+    "unitPrice": 23.69
+   }
+  ],
+  "shippingAddress": {
+   "zipCode": "37201-000",
+   "state": "MG",
+   "city": "Belo Horizonte"
+  },
+  "totalAmount": 71.07
+ },
+ {
+  "orderId": "7206c73b-935e-4325-ba40-9c79689f9d72",
+  "customerId": "991b91eb-fe4e-4155-92b0-7f55064fbf62",
+  "items": [
+   {
+    "productId": "cd8aa867-8a9a-4931-80dc-6c26a68bca6e",
+    "productName": "Mechanical Keyboard",
+    "quantity": 1,
+    "unitPrice": 37.39
+   },
+   {
+    "productId": "7c160ef5-53d0-44ef-bd82-89c3def97c04",
+    "productName": "Wireless Mouse",
+    "quantity": 2,
+    "unitPrice": 38.76
+   }
+  ],
+  "shippingAddress": {
+   "zipCode": "37202-000",
+   "state": "SP",
+   "city": "Sao Paulo"
+  },
+  "totalAmount": 114.91
+ },
+ {
+  "orderId": "60d75e29-1174-4e43-9ec6-cd4da76de1e8",
+  "customerId": "5efdb759-b8e4-4ef3-a7b6-33307b9dc858",
+  "items": [
+   {
+    "productId": "530412c3-9946-4fed-8068-1660e8a74dda",
+    "productName": "Mechanical Keyboard",
+    "quantity": 3,
+    "unitPrice": 51.09
+   },
+   {
+    "productId": "c66dc371-e61c-4acb-a1ae-73e8fd35ed10",
+    "productName": "Wireless Mouse",
+    "quantity": 4,
+    "unitPrice": 52.46
+   },
+   {
+    "productId": "adb65d2f-68c2-4139-8944-4f9083d3b716",
+    "productName": "USB-C Hub",
+    "quantity": 1,
+    "unitPrice": 53.83
+   }
+  ],
+  "shippingAddress": {
+   "zipCode": "37203-000",
+   "state": "SP",
+   "city": "Campinas"
+  },
+  "totalAmount": 416.94
+ },
+ {
+  "orderId": "2296dc27-ab5a-42f1-9f9c-d082364b972e",
+  "customerId": "a4162fd7-0b4a-4221-b50c-cc546cfb7e1e",
+  "items": [
+   {
+    "productId": "31f75d5f-8b32-40e9-8534-a63cef034886",
+    "productName": "Mechanical Keyboard",
+    "quantity": 1,
+    "unitPrice": 14.79
+   }
+  ],
+  "shippingAddress": {
+   "zipCode": "37204-000",
+   "state": "PR",
+   "city": "Curitiba"
+  },
+  "totalAmount": 14.79
+ },
+ {
+  "orderId": "5630f4b5-7e90-40af-b642-b01040b9f2c4",
+  "customerId": "e61e4ee5-3300-4a5f-9432-b291a5e93634",
+  "items": [
+   {
+    "productId": "2a9d243b-4c5e-4825-9b40-cc8f159f6672",
+    "productName": "Mechanical Keyboard",
+    "quantity": 3,
+    "unitPrice": 28.49
+   },
+   {
+    "productId": "c1529329-c274-4b43-b7c6-ace9ac6d22e8",
+    "productName": "Wireless Mouse",
+    "quantity": 4,
+    "unitPrice": 29.86
+   }
+  ],
+  "shippingAddress": {
+   "zipCode": "37205-000",
+   "state": "MG",
+   "city": "Lavras"
+  },
+  "totalAmount": 204.91
+ },
+ {
+  "orderId": "20c55f53-dc96-4afd-b038-4d0336379e2a",
+  "customerId": "bb0e6c03-a186-4b2d-b2a8-ca0635e7ba1a",
+  "items": [
+   {
+    "productId": "83ca4357-08ca-41a1-8e8c-b66bf87b939e",
+    "productName": "Mechanical Keyboard",
+    "quantity": 1,
+    "unitPrice": 42.19
+   },
+   {
+    "productId": "e9cb6665-6480-4ddf-81b2-93507569bfb4",
+    "productName": "Wireless Mouse",
+    "quantity": 2,
+    "unitPrice": 43.56
+   },
+   {
+    "productId": "8f976783-6706-42ad-9428-260d2967179a",
+    "productName": "USB-C Hub",
+    "quantity": 3,
+    "unitPrice": 44.93
+   }
+  ],
+  "shippingAddress": {
+   "zipCode": "37206-000",
+   "state": "MG",
+   "city": "Belo Horizonte"
+  },
+  "totalAmount": 264.1
+ },
+ {
+  "orderId": "12f2b781-aaec-495b-8efe-af01aa4516e0",
+  "customerId": "6c50c2b1-5c5c-4c0b-b1ee-230e5075a750",
+  "items": [
+   {
+    "productId": "edcbd6b3-2c76-495d-ab18-0fc47397fc0a",
+    "productName": "Mechanical Keyboard",
+    "quantity": 3,
+    "unitPrice": 55.89
+   }
+  ],
+  "shippingAddress": {
+   "zipCode": "37207-000",
+   "state": "SP",
+   "city": "Sao Paulo"
+  },
+  "totalAmount": 167.67
+ },
+ {
+  "orderId": "dab25cbf-c312-4749-a814-08f734630e66",
+  "customerId": "ad45526f-5d02-4879-8784-3a162d13cf56",
+  "items": [
+   {
+    "productId": "fd833a4f-6362-4b59-bce4-0241a2f30bb6",
+    "productName": "Mechanical Keyboard",
+    "quantity": 1,
+    "unitPrice": 19.59
+   },
+   {
+    "productId": "d55c0f9d-4c58-43d7-af4a-7c69d621f90c",
+    "productName": "Wireless Mouse",
+    "quantity": 2,
+    "unitPrice": 20.96
+   }
+  ],
+  "shippingAddress": {
+   "zipCode": "37208-000",
+   "state": "SP",
+   "city": "Campinas"
+  },
+  "totalAmount": 61.51
+ },
+ {
+  "orderId": "63fd528d-5288-4447-84fa-dc975011ca3c",
+  "customerId": "294ebebd-f0f8-4ff7-9cea-eb04e74197ac",
+  "items": [
+   {
+    "productId": "5bc20a2b-998e-4395-8ff0-0c60e28f6ea2",
+    "productName": "Mechanical Keyboard",
+    "quantity": 3,
+    "unitPrice": 33.29
+   },
+   {
+    "productId": "acf91d99-6a24-4f33-aaf6-cc1925dded98",
+    "productName": "Wireless Mouse",
+    "quantity": 4,
+    "unitPrice": 34.66
+   },
+   {
+    "productId": "30dd9417-a28a-4061-8e4c-16f9f53be95e",
+    "productName": "USB-C Hub",
+    "quantity": 1,
+    "unitPrice": 36.03
+   }
+  ],
+  "shippingAddress": {
+   "zipCode": "37209-000",
+   "state": "PR",
+   "city": "Curitiba"
+  },
+  "totalAmount": 274.54
+ },
+ {
+  "orderId": "52b2206b-3ace-43d5-8330-52b13ccf83e2",
+  "customerId": "9de02f1b-19be-4605-afa0-98385e7f59d2",
+  "items": [
+   {
+    "productId": "04e62247-fafa-4e11-b03c-cccfce6b10ce",
+    "productName": "Mechanical Keyboard",
+    "quantity": 1,
+    "unitPrice": 46.99
+   }
+  ],
+  "shippingAddress": {
+   "zipCode": "37200-000",
+   "state": "MG",
+   "city": "Lavras"
+  },
+  "totalAmount": 46.99
+ }
+]

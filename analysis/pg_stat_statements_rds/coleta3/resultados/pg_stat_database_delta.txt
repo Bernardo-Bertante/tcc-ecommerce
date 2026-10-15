@@ -1,0 +1,7 @@
+rodada                   seg xact_commit active_time ms active/s sessions tup_returned   blks_hit
+r1-springboot            971      289018         233671    240.7       38     31189599    8770641
+r2-quarkus-jvm           968      131104         142978    147.7       22     31405902   13148443
+r3-springboot-noval      971      144866         170193    175.3       24     31252552    3845907
+r4-springboot-noval      969      144873         175618    181.3       26     31249050    3391458
+r5-quarkus-jvm           971      131130         151669    156.1       27     31120387   13240738
+r6-springboot            972      289278         244470    251.6       38     31221359    7969358

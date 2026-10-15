@@ -1,0 +1,2 @@
+validation=on  SELECT 1 = 2585   (total de statements logados: 5180)
+validation=off  SELECT 1 = 0   (total de statements logados: 2595)

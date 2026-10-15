@@ -1,0 +1,1 @@
+{"posicao":0,"runtime":"springboot-noval","carga_inicio_utc":"2026-09-23T11:31:45Z","carga_fim_utc":"2026-09-23T11:34:54Z","epoch_inicio":1790163105,"epoch_fim":1790163294,"task_arn":"arn:aws:ecs:us-east-1:776648109551:task/repro-f3-cluster/58733a82cd5d4554a93e6037e460ac93","task_ip":"54.91.26.17","db_host":"repro-f3-postgres.ck1kkwa6og4s.us-east-1.rds.amazonaws.com"}

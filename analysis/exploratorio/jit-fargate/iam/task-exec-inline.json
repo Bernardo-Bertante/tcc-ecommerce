@@ -1,0 +1,2 @@
+{"Version":"2012-10-17","Statement":[
+ {"Effect":"Allow","Action":"secretsmanager:GetSecretValue","Resource":"arn:aws:secretsmanager:us-east-1:776648109551:secret:exp-jit-db-5krZUL"}]}

@@ -1,0 +1,41 @@
+5a6,9
+>         "name": "JAVA_OPTS_APPEND",
+>         "value": "-Dquarkus.http.host=0.0.0.0 -XX:+PrintCompilation"
+>       },
+>       {
+7c11
+<         "value": "jdbc:postgresql://order-service-postgres.ck1kkwa6og4s.us-east-1.rds.amazonaws.com:5432/orderdb?sslMode=require"
+---
+>         "value": "jdbc:postgresql://exp-jit-postgres.ck1kkwa6og4s.us-east-1.rds.amazonaws.com:5432/orderdb?sslMode=require"
+23c27
+<         "value": "postgresql://order-service-postgres.ck1kkwa6og4s.us-east-1.rds.amazonaws.com:5432/orderdb"
+---
+>         "value": "postgresql://exp-jit-postgres.ck1kkwa6og4s.us-east-1.rds.amazonaws.com:5432/orderdb"
+35c39
+<     "image": "776648109551.dkr.ecr.us-east-1.amazonaws.com/order-service-quarkus-jvm:20260616-160138",
+---
+>     "image": "776648109551.dkr.ecr.us-east-1.amazonaws.com/order-service-quarkus-jvm@sha256:abec3583cd78ae5ed079dac8c8cd507ccafbbd19863f9f2df541599c7eae889b",
+39c43
+<         "awslogs-group": "/ecs/order-service-quarkus-jvm",
+---
+>         "awslogs-group": "exp-jit-quarkus-jvm",
+41c45,47
+<         "awslogs-stream-prefix": "ecs"
+---
+>         "awslogs-stream-prefix": "ecs",
+>         "max-buffer-size": "25m",
+>         "mode": "non-blocking"
+51c57,59
+<     "secrets": []
+---
+>     "secrets": [
+>       "QUARKUS_DATASOURCE_PASSWORD"
+>     ]
+54c62
+<   "executionRoleArn": "arn:aws:iam::776648109551:role/ecsTaskExecutionRole",
+---
+>   "executionRoleArn": "arn:aws:iam::776648109551:role/exp-jit-task-exec-role",
+57c65
+<   "taskRoleArn": null
+---
+>   "taskRoleArn": "arn:aws:iam::776648109551:role/exp-jit-task-role"

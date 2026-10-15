@@ -1,0 +1,170 @@
+
+==============================================================================
+PERFIL CPU
+==============================================================================
+
+--- Spring Boot (3 repeticoes) ---
+categoria             rep1        rep2        rep3         media   desvio_max
+jdk_outro              16.81%    16.06%    19.20%    17.36%   +/-1.84pp
+syscall_rede           16.45%    16.18%    12.21%    14.95%   +/-2.73pp
+reativo                12.73%    13.24%    13.31%    13.09%   +/-0.37pp
+compilador_jit         11.54%    11.43%     8.36%    10.44%   +/-2.08pp
+http_netty              9.07%     9.34%     9.83%     9.42%   +/-0.42pp
+despacho_virtual        8.61%     8.14%     8.30%     8.35%   +/-0.26pp
+nativo_vm               5.15%     6.51%     7.17%     6.28%   +/-1.13pp
+db_driver               4.41%     4.50%     4.16%     4.36%   +/-0.20pp
+orm_mapper              3.96%     3.63%     4.54%     4.04%   +/-0.49pp
+framework_outro         2.77%     2.68%     3.52%     2.99%   +/-0.53pp
+reflexao                2.21%     1.86%     2.52%     2.20%   +/-0.33pp
+nativo_libc             1.99%     1.92%     1.69%     1.87%   +/-0.18pp
+outro                   1.22%     1.38%     1.67%     1.42%   +/-0.25pp
+json                    0.80%     1.06%     0.91%     0.92%   +/-0.14pp
+vm_outras               0.59%     0.59%     0.57%     0.58%   +/-0.01pp
+gc                      0.45%     0.45%     0.55%     0.48%   +/-0.07pp
+app_negocio             0.46%     0.40%     0.57%     0.48%   +/-0.09pp
+proxy                   0.35%     0.31%     0.60%     0.42%   +/-0.18pp
+sincronizacao           0.36%     0.23%     0.22%     0.27%   +/-0.09pp
+aop_tx                  0.07%     0.08%     0.09%     0.08%   +/-0.01pp
+(amostras)            7143      7085      5798    
+  inclusivo (sobreposto, qualquer frame do stack): proxy=5.05%  aop_tx=0.10%  reflexao=7.68%  
+  por thread: event_loop_db=63.8%  event_loop_http=23.5%  compilador_jit=10.4%  outras_threads=1.2%  vm_outras=0.6%  gc=0.5%
+
+--- Quarkus JVM (3 repeticoes) ---
+categoria             rep1        rep2        rep3         media   desvio_max
+syscall_rede           24.96%    21.03%    23.10%    23.03%   +/-2.00pp
+compilador_jit         23.29%    24.21%    17.14%    21.55%   +/-4.41pp
+http_netty             14.49%    14.88%    15.81%    15.06%   +/-0.75pp
+jdk_outro              11.79%    13.26%    14.62%    13.22%   +/-1.44pp
+framework_outro         4.37%     4.05%     4.46%     4.29%   +/-0.24pp
+despacho_virtual        3.19%     3.60%     4.06%     3.62%   +/-0.45pp
+db_driver               3.26%     3.02%     3.58%     3.28%   +/-0.29pp
+json                    2.32%     3.22%     3.22%     2.92%   +/-0.60pp
+reflexao                2.32%     2.27%     3.00%     2.53%   +/-0.47pp
+nativo_vm               1.98%     2.31%     1.68%     1.99%   +/-0.32pp
+outro                   1.39%     1.49%     1.86%     1.58%   +/-0.28pp
+app_negocio             1.35%     1.74%     1.37%     1.49%   +/-0.25pp
+reativo                 1.46%     1.16%     1.68%     1.43%   +/-0.27pp
+nativo_libc             1.32%     1.16%     1.59%     1.35%   +/-0.24pp
+vm_outras               1.28%     1.24%     1.33%     1.28%   +/-0.04pp
+sincronizacao           0.49%     0.37%     0.35%     0.40%   +/-0.08pp
+gc                      0.31%     0.45%     0.35%     0.37%   +/-0.08pp
+proxy                   0.21%     0.37%     0.44%     0.34%   +/-0.13pp
+orm_mapper              0.24%     0.17%     0.35%     0.25%   +/-0.10pp
+(amostras)            2885      2420      2264    
+  inclusivo (sobreposto, qualquer frame do stack): proxy=24.21%  aop_tx=0.21%  reflexao=3.97%  
+  por thread: event_loop_http=76.0%  compilador_jit=21.5%  vm_outras=1.3%  outras_threads=0.8%  gc=0.4%
+
+==============================================================================
+PERFIL WALL
+==============================================================================
+
+--- Spring Boot (3 repeticoes) ---
+categoria             rep1        rep2        rep3         media   desvio_max
+syscall_rede           35.32%    35.13%    35.27%    35.24%   +/-0.12pp
+sincronizacao          22.23%    22.28%    22.23%    22.25%   +/-0.03pp
+vm_outras              20.01%    19.99%    20.01%    20.00%   +/-0.01pp
+gc                     17.77%    17.77%    17.77%    17.77%   +/-0.00pp
+compilador_jit          4.44%     4.44%     4.44%     4.44%   +/-0.00pp
+jdk_outro               0.06%     0.09%     0.07%     0.07%   +/-0.02pp
+reativo                 0.04%     0.07%     0.05%     0.05%   +/-0.02pp
+(amostras)            324126    324204    324097  
+  inclusivo (sobreposto, qualquer frame do stack): proxy=0.02%  aop_tx=0.00%  reflexao=0.02%  
+  por thread: vm_outras=20.0%  outras_threads=17.8%  event_loop_http=17.8%  gc=17.8%  event_loop_db=17.8%  worker_app=4.4%  compilador_jit=4.4%
+
+--- Quarkus JVM (3 repeticoes) ---
+categoria             rep1        rep2        rep3         media   desvio_max
+sincronizacao          24.33%    24.33%    24.33%    24.33%   +/-0.00pp
+vm_outras              24.33%    24.33%    24.33%    24.33%   +/-0.00pp
+syscall_rede           24.16%    24.27%    24.26%    24.23%   +/-0.07pp
+gc                     21.63%    21.63%    21.63%    21.63%   +/-0.00pp
+compilador_jit          5.40%     5.40%     5.40%     5.40%   +/-0.00pp
+(amostras)            266600    266555    266553  
+  inclusivo (sobreposto, qualquer frame do stack): proxy=0.04%  aop_tx=0.00%  reflexao=2.71%  
+  por thread: vm_outras=24.3%  gc=21.6%  outras_threads=21.6%  event_loop_http=21.6%  compilador_jit=5.4%  worker_app=2.7%  event_loop_db=2.7%
+
+==============================================================================
+DECOMPOSICAO ABSOLUTA DO GAP DE CPU (perfil cpu/ctimer)
+==============================================================================
+CPU total amostrada: Spring Boot 0.1854 vCPU | Quarkus JVM 0.0701 vCPU | razao 2.65x | gap 0.1153 vCPU
+
+categoria              SB (vCPU)   QJ (vCPU)       delta   % do gap
+reativo                  0.02425     0.00100     0.02325      20.2%
+jdk_outro                0.03196     0.00919     0.02278      19.7%
+despacho_virtual         0.01549     0.00251     0.01298      11.3%
+syscall_rede             0.02805     0.01622     0.01182      10.3%
+nativo_vm                0.01153     0.00140     0.01013       8.8%
+orm_mapper               0.00744     0.00018     0.00726       6.3%
+http_netty               0.01741     0.01052     0.00689       6.0%
+db_driver                0.00810     0.00230     0.00581       5.0%
+compilador_jit           0.01962     0.01524     0.00438       3.8%
+nativo_libc              0.00348     0.00094     0.00254       2.2%
+framework_outro          0.00548     0.00301     0.00247       2.1%
+reflexao                 0.00404     0.00176     0.00228       2.0%
+outro                    0.00261     0.00109     0.00152       1.3%
+gc                       0.00089     0.00026     0.00063       0.5%
+proxy                    0.00076     0.00023     0.00053       0.5%
+sincronizacao            0.00051     0.00029     0.00022       0.2%
+vm_outras                0.00108     0.00090     0.00019       0.2%
+aop_tx                   0.00015     0.00000     0.00015       0.1%
+app_negocio              0.00087     0.00104    -0.00017      -0.1%
+json                     0.00171     0.00202    -0.00031      -0.3%
+
+>> HIPOTESE (proxy+reflexao+aop_tx)     0.00494     0.00199     0.00295       2.6%
+
+==============================================================================
+TOP FRAMES POR SELF TIME (CPU, agregado das repeticoes)
+==============================================================================
+
+--- Spring Boot ---
+   7.72%  [despacho_virtual] itable stub
+   7.71%  [syscall_rede    ] send
+   3.13%  [syscall_rede    ] epoll_wait
+   1.82%  [syscall_rede    ] __GI___recv
+   1.60%  [syscall_rede    ] __GI___writev
+   1.40%  [nativo_vm       ] java_lang_Throwable::fill_in_stack_trace
+   1.02%  [nativo_vm       ] BacktraceBuilder::push
+   0.86%  [jdk_outro       ] java.util.Vector.isEmpty
+   0.83%  [http_netty      ] io.netty.channel.epoll.EpollEventLoop.run
+   0.69%  [reflexao        ] java.lang.invoke.LambdaForm$MH.invoke
+   0.61%  [nativo_libc     ] jbyte_disjoint_arraycopy
+   0.59%  [jdk_outro       ] java.util.concurrent.atomic.AtomicIntegerFieldUpdater$AtomicIntegerFieldUpdaterImpl.getAndAdd
+   0.58%  [syscall_rede    ] __GI___libc_write
+   0.56%  [jdk_outro       ] java.util.HashMap.getNode
+   0.51%  [despacho_virtual] vtable stub
+   0.48%  [jdk_outro       ] java.util.concurrent.atomic.AtomicIntegerFieldUpdater$AtomicIntegerFieldUpdaterImpl.compareAndSet
+   0.40%  [jdk_outro       ] java.lang.String.hashCode
+   0.37%  [jdk_outro       ] java.lang.String.equals
+   0.37%  [jdk_outro       ] java.util.Stack.peek
+   0.34%  [jdk_outro       ] java.util.concurrent.ConcurrentHashMap.get
+   0.30%  [jdk_outro       ] java.util.HashMap.resize
+   0.29%  [jdk_outro       ] java.lang.String.length
+   0.29%  [http_netty      ] io.netty.util.collection.CharObjectHashMap.indexOf
+   0.28%  [jdk_outro       ] java.util.HashMap.hash
+   0.28%  [db_driver       ] io.r2dbc.postgresql.PostgresqlRowMetadata.<init>
+
+--- Quarkus JVM ---
+  10.73%  [syscall_rede    ] __GI___libc_write
+   4.69%  [syscall_rede    ] __GI___writev
+   4.44%  [syscall_rede    ] epoll_wait
+   3.29%  [syscall_rede    ] __libc_read
+   2.55%  [despacho_virtual] itable stub
+   1.69%  [http_netty      ] io.netty.channel.nio.NioEventLoop.run
+   0.71%  [jdk_outro       ] java.lang.String.equals
+   0.70%  [reflexao        ] java.lang.invoke.LambdaForm$MH.invoke
+   0.55%  [despacho_virtual] vtable stub
+   0.49%  [jdk_outro       ] java.lang.String.hashCode
+   0.48%  [despacho_virtual] I2C/C2I adapters
+   0.46%  [db_driver       ] io.vertx.pgclient.impl.codec.QueryCommandBaseCodec.handleCommandComplete
+   0.41%  [http_netty      ] io.vertx.core.impl.ContextImpl.emit
+   0.33%  [nativo_libc     ] clock_gettime
+   0.32%  [json            ] com.fasterxml.jackson.databind.ser.BeanPropertyWriter.serializeAsField
+   0.30%  [jdk_outro       ] sun.nio.ch.EPoll.wait
+   0.30%  [framework_outro ] io.quarkus.arc.impl.AbstractSharedContext.get
+   0.30%  [db_driver       ] io.vertx.pgclient.impl.codec.DataType$$Lambda.get
+   0.28%  [reflexao        ] java.lang.invoke.VarHandleLongs$FieldInstanceReadWrite.weakCompareAndSetRelease
+   0.26%  [nativo_libc     ] jbyte_disjoint_arraycopy
+   0.25%  [http_netty      ] io.netty.buffer.PoolThreadCache$MemoryRegionCache.allocate
+   0.25%  [db_driver       ] io.vertx.pgclient.impl.codec.PgEncoder.writeBind
+   0.24%  [framework_outro ] io.vertx.mutiny.sqlclient.PreparedQuery$$Lambda.accept
+   0.24%  [framework_outro ] io.smallrye.context.impl.SlowActiveContextState.<init>
+   0.24%  [jdk_outro       ] java.lang.Class.cast

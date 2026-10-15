@@ -1,0 +1,22 @@
+{
+ "runtime": "springboot",
+ "cenario": "f3",
+ "carga_inicio_ms": 1790733927574,
+ "carga_fim_ms": 1790735425829,
+ "k6_lancado_ms": 1790733852137,
+ "k6_fim_ms": 1790735427576,
+ "requisicoes_k6": 233975,
+ "requisicoes_carga": 233855,
+ "task_arn": "arn:aws:ecs:us-east-1:776648109551:task/exp-jit-cluster/cd804844e40c4a0d82136655ece1090a",
+ "task_definition": "arn:aws:ecs:us-east-1:776648109551:task-definition/exp-jit-springboot:1",
+ "image": "776648109551.dkr.ecr.us-east-1.amazonaws.com/order-service-springboot@sha256:276548dd7956b91122dbb641d50030c0d81d59a3e1bef54357ba965b77f77c68",
+ "image_digest": "sha256:276548dd7956b91122dbb641d50030c0d81d59a3e1bef54357ba965b77f77c68",
+ "task_created_at": "2026-09-30T02:03:26.910000+00:00",
+ "task_started_at": "2026-09-30T02:03:48.302000+00:00",
+ "platform_version": "1.4.0",
+ "az": "us-east-1c",
+ "cpu": "1024",
+ "memory": "2048",
+ "task_ip": "54.86.65.165",
+ "db_host": "exp-jit-postgres"
+}

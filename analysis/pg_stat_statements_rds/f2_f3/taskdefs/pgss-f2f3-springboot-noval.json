@@ -1,0 +1,84 @@
+{
+ "containerDefinitions": [
+  {
+   "name": "order-service-springboot",
+   "image": "776648109551.dkr.ecr.us-east-1.amazonaws.com/order-service-springboot@sha256:276548dd7956b91122dbb641d50030c0d81d59a3e1bef54357ba965b77f77c68",
+   "cpu": 0,
+   "portMappings": [
+    {
+     "containerPort": 8081,
+     "hostPort": 8081,
+     "protocol": "tcp"
+    }
+   ],
+   "essential": true,
+   "environment": [
+    {
+     "name": "JAVA_OPTS_APPEND",
+     "value": "-Xlog:async -Xlog:gc*,safepoint:stdout:time,uptime,level,tags"
+    },
+    {
+     "name": "SERVER_PORT",
+     "value": "8081"
+    },
+    {
+     "name": "SPRING_FLYWAY_PASSWORD",
+     "value": "<SENHA_RDS>"
+    },
+    {
+     "name": "SPRING_FLYWAY_URL",
+     "value": "jdbc:postgresql://pgss-f2f3-postgres.ck1kkwa6og4s.us-east-1.rds.amazonaws.com:5432/orderdb"
+    },
+    {
+     "name": "SPRING_FLYWAY_USER",
+     "value": "orderuser"
+    },
+    {
+     "name": "SPRING_R2DBC_PASSWORD",
+     "value": "<SENHA_RDS>"
+    },
+    {
+     "name": "SPRING_R2DBC_POOL_INITIAL_SIZE",
+     "value": "15"
+    },
+    {
+     "name": "SPRING_R2DBC_POOL_MAX_SIZE",
+     "value": "40"
+    },
+    {
+     "name": "SPRING_R2DBC_POOL_VALIDATION_QUERY",
+     "value": ""
+    },
+    {
+     "name": "SPRING_R2DBC_URL",
+     "value": "r2dbc:postgresql://pgss-f2f3-postgres.ck1kkwa6og4s.us-east-1.rds.amazonaws.com:5432/orderdb?sslMode=REQUIRE"
+    },
+    {
+     "name": "SPRING_R2DBC_USERNAME",
+     "value": "orderuser"
+    }
+   ],
+   "mountPoints": [],
+   "volumesFrom": [],
+   "logConfiguration": {
+    "logDriver": "awslogs",
+    "options": {
+     "awslogs-group": "/ecs/pgss-f2f3-springboot",
+     "awslogs-region": "us-east-1",
+     "awslogs-stream-prefix": "ecs"
+    }
+   },
+   "systemControls": []
+  }
+ ],
+ "family": "pgss-f2f3-springboot-noval",
+ "executionRoleArn": "arn:aws:iam::776648109551:role/ecsTaskExecutionRole",
+ "networkMode": "awsvpc",
+ "volumes": [],
+ "placementConstraints": [],
+ "requiresCompatibilities": [
+  "FARGATE"
+ ],
+ "cpu": "1024",
+ "memory": "2048"
+}

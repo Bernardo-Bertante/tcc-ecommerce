@@ -1,0 +1,7 @@
+rodada                   n   Seq  Index  IdxOnly  Bitmap  blocos/1k lin  blocos/chamada
+r1-springboot           77    18     48       11       0          301.6            1273
+r2-quarkus-jvm          75    10     48       17       0          468.2            1441
+r3-springboot-noval     71    10     51       10       0          103.4             542
+r4-springboot-noval     94     9     64       21       0           88.2             437
+r5-quarkus-jvm          94     6     74       14       0          493.1            2558
+r6-springboot           94    15     63       16       0          277.1            1099

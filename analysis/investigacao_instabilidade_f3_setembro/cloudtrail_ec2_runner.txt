@@ -1,0 +1,9 @@
+# CloudTrail (lookup-events, 29/08-08/09/2026), eventos de ciclo de vida EC2 na conta. Horário -03.
+2026-08-31T06:47:15-03:00 RunInstances       i-03d4feffaa1a0b4f4  m7i-flex.large  us-east-1c
+2026-08-31T15:44:21-03:00 StopInstances      i-03d4feffaa1a0b4f4
+2026-09-01T20:19:51-03:00 StartInstances     i-03d4feffaa1a0b4f4   -> IP 100.25.216.168 (todas as rodadas de 02/09)
+2026-09-05T18:19:46-03:00 StopInstances      i-03d4feffaa1a0b4f4
+2026-09-05T18:29:12-03:00 StartInstances     i-03d4feffaa1a0b4f4   -> IP 52.201.235.225 (sonda + todas as rodadas de 05/09)
+2026-09-05T22:00:02-03:00 StopInstances      i-03d4feffaa1a0b4f4
+2026-09-06T09:10:31-03:00 TerminateInstances i-03d4feffaa1a0b4f4
+# Nenhum ModifyInstanceAttribute / ModifyInstanceCreditSpecification no período.

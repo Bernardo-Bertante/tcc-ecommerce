@@ -1,0 +1,2 @@
+ver,n_seg,seg_com_pausa,limiar_pausa_longa_ms,max_ms_seg_pausa_longa,max_ms_seg_sem_pausa,p95_seg_pausa_longa,p95_seg_sem_pausa,pearson_gcms_vs_maxlat,pearson_gcms_vs_p95,pausa_max_ms,lat_max_ms
+sb,2997,2976,84.921,431.32,51.82,292.53,42.21,0.3515,0.2606,281.8,6268.97

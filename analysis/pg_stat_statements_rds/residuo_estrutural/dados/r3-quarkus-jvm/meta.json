@@ -1,0 +1,1 @@
+{"posicao":3,"runtime":"quarkus-jvm","carga_inicio_utc":"2026-09-24T16:22:56Z","carga_fim_utc":"2026-09-24T16:40:05Z","epoch_inicio":1790266976,"epoch_fim":1790268005,"task_arn":"arn:aws:ecs:us-east-1:776648109551:task/pgss-res-cluster/53a324362504490483e57185308a7790","task_ip":"34.203.35.228","db_host":"pgss-res-postgres.ck1kkwa6og4s.us-east-1.rds.amazonaws.com"}

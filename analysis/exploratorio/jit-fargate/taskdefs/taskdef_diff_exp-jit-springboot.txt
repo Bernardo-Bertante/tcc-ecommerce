@@ -1,0 +1,42 @@
+5a6,9
+>         "name": "JAVA_OPTS_APPEND",
+>         "value": "-XX:+PrintCompilation"
+>       },
+>       {
+11c15
+<         "value": "jdbc:postgresql://order-service-postgres.ck1kkwa6og4s.us-east-1.rds.amazonaws.com:5432/orderdb"
+---
+>         "value": "jdbc:postgresql://exp-jit-postgres.ck1kkwa6og4s.us-east-1.rds.amazonaws.com:5432/orderdb"
+27c31
+<         "value": "r2dbc:postgresql://order-service-postgres.ck1kkwa6og4s.us-east-1.rds.amazonaws.com:5432/orderdb?sslMode=REQUIRE"
+---
+>         "value": "r2dbc:postgresql://exp-jit-postgres.ck1kkwa6og4s.us-east-1.rds.amazonaws.com:5432/orderdb?sslMode=REQUIRE"
+35c39
+<     "image": "776648109551.dkr.ecr.us-east-1.amazonaws.com/order-service-springboot:latest",
+---
+>     "image": "776648109551.dkr.ecr.us-east-1.amazonaws.com/order-service-springboot@sha256:276548dd7956b91122dbb641d50030c0d81d59a3e1bef54357ba965b77f77c68",
+39c43
+<         "awslogs-group": "/ecs/order-service-springboot",
+---
+>         "awslogs-group": "exp-jit-springboot",
+41c45,47
+<         "awslogs-stream-prefix": "ecs"
+---
+>         "awslogs-stream-prefix": "ecs",
+>         "max-buffer-size": "25m",
+>         "mode": "non-blocking"
+51c57,60
+<     "secrets": []
+---
+>     "secrets": [
+>       "SPRING_R2DBC_PASSWORD",
+>       "SPRING_FLYWAY_PASSWORD"
+>     ]
+54c63
+<   "executionRoleArn": "arn:aws:iam::776648109551:role/ecsTaskExecutionRole",
+---
+>   "executionRoleArn": "arn:aws:iam::776648109551:role/exp-jit-task-exec-role",
+57c66
+<   "taskRoleArn": null
+---
+>   "taskRoleArn": "arn:aws:iam::776648109551:role/exp-jit-task-role"

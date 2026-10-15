@@ -1,0 +1,5 @@
+rodada                      n  trans/lin por created_at  trans/lin por xmin  pags abertas (med)  inversoes created_at x xmin
+r1-springboot-noval      9340                     0.096               0.097                14.0                        0.001
+r2-quarkus-jvm           9340                     0.471               0.471                10.0                        0.001
+r3-quarkus-jvm           9340                     0.475               0.475                11.0                        0.001
+r4-springboot-noval      9340                     0.073               0.072                10.0                        0.001

@@ -1,0 +1,22 @@
+{
+ "runtime": "quarkus-jvm",
+ "cenario": "f2",
+ "carga_inicio_ms": 1790728724562,
+ "carga_fim_ms": 1790731392596,
+ "k6_lancado_ms": 1790728654356,
+ "k6_fim_ms": 1790731394915,
+ "requisicoes_k6": 242844,
+ "requisicoes_carga": 242724,
+ "task_arn": "arn:aws:ecs:us-east-1:776648109551:task/exp-jit-cluster/2fe6e041c12e45dfb8f28ac198441e6e",
+ "task_definition": "arn:aws:ecs:us-east-1:776648109551:task-definition/exp-jit-quarkus-jvm:1",
+ "image": "776648109551.dkr.ecr.us-east-1.amazonaws.com/order-service-quarkus-jvm@sha256:abec3583cd78ae5ed079dac8c8cd507ccafbbd19863f9f2df541599c7eae889b",
+ "image_digest": "sha256:abec3583cd78ae5ed079dac8c8cd507ccafbbd19863f9f2df541599c7eae889b",
+ "task_created_at": "2026-09-30T00:36:31.188000+00:00",
+ "task_started_at": "2026-09-30T00:37:17.772000+00:00",
+ "platform_version": "1.4.0",
+ "az": "us-east-1c",
+ "cpu": "1024",
+ "memory": "2048",
+ "task_ip": "54.89.50.196",
+ "db_host": "exp-jit-postgres"
+}

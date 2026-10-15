@@ -1,0 +1,150 @@
+====================================================================================================
+OPERACAO: get_order
+====================================================================================================
+  [springboot] 2 texto(s) de consulta distinto(s), 1085 planos amostrados
+     n=548  dur_p50=  0.029ms  rows_p50=      1  blk_p50=      3
+           plano: {'Seq Scan': 6, 'Index Scan/orders_pkey': 542}
+           SQL:   SELECT orders.* FROM orders WHERE orders.id = $1 LIMIT 2
+     n=537  dur_p50=  0.023ms  rows_p50=      2  blk_p50=      3
+           plano: {'Seq Scan': 1, 'Bitmap Heap Scan': 536}
+           SQL:   SELECT order_items.id, order_items.order_id, order_items.product_id, order_items.product_name, order_items.quantity, order_items.unit_price, order_ite
+  [quarkus-jvm] 2 texto(s) de consulta distinto(s), 1102 planos amostrados
+     n=559  dur_p50=  0.021ms  rows_p50=      2  blk_p50=      3
+           plano: {'Seq Scan': 4, 'Bitmap Heap Scan': 555}
+           SQL:   SELECT * FROM order_items WHERE order_id = $1
+     n=543  dur_p50=  0.029ms  rows_p50=      1  blk_p50=      3
+           plano: {'Seq Scan': 7, 'Index Scan/orders_pkey': 536}
+           SQL:   SELECT * FROM orders WHERE id = $1
+
+====================================================================================================
+OPERACAO: create_order
+====================================================================================================
+  [springboot] 3 texto(s) de consulta distinto(s), 791 planos amostrados
+     n=529  dur_p50=  0.200ms  rows_p50=      0  blk_p50=      0
+           plano: {'': 529}
+           SQL:   INSERT INTO order_items (id, order_id, product_id, product_name, quantity, unit_price, subtotal) VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING id
+     n=172  dur_p50=  0.112ms  rows_p50=      0  blk_p50=      0
+           plano: {'': 172}
+           SQL:   INSERT INTO orders (id, customer_id, status, total_amount, discount_amount, final_amount, shipping_zip_code, shipping_street, shipping_number, shippin
+     n=90   dur_p50=  0.107ms  rows_p50=      0  blk_p50=      0
+           plano: {'': 90}
+           SQL:   INSERT INTO orders (id, customer_id, status, total_amount, discount_amount, final_amount, shipping_zip_code, shipping_street, shipping_number, shippin
+  [quarkus-jvm] 2 texto(s) de consulta distinto(s), 828 planos amostrados
+     n=570  dur_p50=  0.192ms  rows_p50=      0  blk_p50=      0
+           plano: {'': 570}
+           SQL:   INSERT INTO order_items ( id, order_id, product_id, product_name, quantity, unit_price, subtotal ) VALUES ( $1, $2, $3, $4, $5, $6, $7 )
+     n=258  dur_p50=  0.111ms  rows_p50=      0  blk_p50=      0
+           plano: {'': 258}
+           SQL:   INSERT INTO orders ( id, customer_id, status, total_amount, discount_amount, final_amount, shipping_zip_code, shipping_street, shipping_number, shippi
+
+====================================================================================================
+OPERACAO: get_orders_by_customer
+====================================================================================================
+  [springboot] 9 texto(s) de consulta distinto(s), 389 planos amostrados
+     n=133  dur_p50=  0.061ms  rows_p50=      6  blk_p50=      7
+           plano: {'Bitmap Heap Scan': 114, 'Index Scan/idx_orders_customer_id': 19}
+           SQL:   SELECT * FROM orders WHERE customer_id = $1 ORDER BY created_at DESC LIMIT $2 OFFSET $3
+     n=121  dur_p50=  0.029ms  rows_p50=      6  blk_p50=      3
+           plano: {'Bitmap Heap Scan': 2, 'Index Only Scan/idx_orders_customer_id': 119}
+           SQL:   SELECT COUNT(*) FROM orders WHERE customer_id = $1
+     n=49   dur_p50=  0.070ms  rows_p50=     14  blk_p50=     20
+           plano: {'Bitmap Heap Scan': 49}
+           SQL:   SELECT order_items.id, order_items.order_id, order_items.product_id, order_items.product_name, order_items.quantity, order_items.unit_price, order_ite
+     n=32   dur_p50=  0.049ms  rows_p50=      8  blk_p50=     12
+           plano: {'Seq Scan': 4, 'Bitmap Heap Scan': 28}
+           SQL:   SELECT order_items.id, order_items.order_id, order_items.product_id, order_items.product_name, order_items.quantity, order_items.unit_price, order_ite
+     n=18   dur_p50=  0.049ms  rows_p50=      6  blk_p50=     14
+           plano: {'Bitmap Heap Scan': 18}
+           SQL:   SELECT order_items.id, order_items.order_id, order_items.product_id, order_items.product_name, order_items.quantity, order_items.unit_price, order_ite
+     n=18   dur_p50=  0.059ms  rows_p50=     12  blk_p50=     17
+           plano: {'Bitmap Heap Scan': 18}
+           SQL:   SELECT order_items.id, order_items.order_id, order_items.product_id, order_items.product_name, order_items.quantity, order_items.unit_price, order_ite
+     n=14   dur_p50=  0.069ms  rows_p50=     16  blk_p50=     23
+           plano: {'Bitmap Heap Scan': 14}
+           SQL:   SELECT order_items.id, order_items.order_id, order_items.product_id, order_items.product_name, order_items.quantity, order_items.unit_price, order_ite
+     n=3    dur_p50=  0.065ms  rows_p50=     22  blk_p50=     26
+           plano: {'Bitmap Heap Scan': 3}
+           SQL:   SELECT order_items.id, order_items.order_id, order_items.product_id, order_items.product_name, order_items.quantity, order_items.unit_price, order_ite
+     n=1    dur_p50=  0.082ms  rows_p50=     24  blk_p50=     29
+           plano: {'Bitmap Heap Scan': 1}
+           SQL:   SELECT order_items.id, order_items.order_id, order_items.product_id, order_items.product_name, order_items.quantity, order_items.unit_price, order_ite
+  [quarkus-jvm] 3 texto(s) de consulta distinto(s), 412 planos amostrados
+     n=149  dur_p50=  0.049ms  rows_p50=     12  blk_p50=     18
+           plano: {'Seq Scan': 2, 'Bitmap Heap Scan': 147}
+           SQL:   SELECT * FROM order_items WHERE order_id = ANY($1)
+     n=135  dur_p50=  0.030ms  rows_p50=      6  blk_p50=      3
+           plano: {'Seq Scan': 2, 'Index Only Scan/idx_orders_customer_id': 133}
+           SQL:   SELECT COUNT(*) AS total_orders FROM orders WHERE customer_id = $1
+     n=128  dur_p50=  0.056ms  rows_p50=      6  blk_p50=      6
+           plano: {'Seq Scan': 2, 'Index Scan/idx_orders_customer_id': 21, 'Bitmap Heap Scan': 105}
+           SQL:   SELECT * FROM orders WHERE customer_id = $1 ORDER BY created_at DESC LIMIT $2 OFFSET $3
+
+====================================================================================================
+OPERACAO: update_status
+====================================================================================================
+  [springboot] 1 texto(s) de consulta distinto(s), 107 planos amostrados
+     n=107  dur_p50=  0.122ms  rows_p50=      1  blk_p50=      3
+           plano: {'Index Scan/orders_pkey': 107}
+           SQL:   UPDATE orders SET customer_id = $1, status = $2, total_amount = $3, discount_amount = $4, final_amount = $5, shipping_zip_code = $6, shipping_street =
+  [quarkus-jvm] 1 texto(s) de consulta distinto(s), 107 planos amostrados
+     n=107  dur_p50=  0.125ms  rows_p50=      1  blk_p50=      3
+           plano: {'Seq Scan': 1, 'Index Scan/orders_pkey': 106}
+           SQL:   UPDATE orders SET status = $1, updated_at = $2 WHERE id = $3
+
+====================================================================================================
+OPERACAO: insert_status_history
+====================================================================================================
+  [springboot] 2 texto(s) de consulta distinto(s), 391 planos amostrados
+     n=296  dur_p50=  0.215ms  rows_p50=      0  blk_p50=      0
+           plano: {'': 296}
+           SQL:   INSERT INTO order_status_history (id, order_id, new_status, changed_at) VALUES ($1, $2, $3, $4) RETURNING id
+     n=95   dur_p50=  0.222ms  rows_p50=      0  blk_p50=      0
+           plano: {'': 95}
+           SQL:   INSERT INTO order_status_history (id, order_id, previous_status, new_status, changed_at) VALUES ($1, $2, $3, $4, $5) RETURNING id
+  [quarkus-jvm] 1 texto(s) de consulta distinto(s), 381 planos amostrados
+     n=381  dur_p50=  0.211ms  rows_p50=      0  blk_p50=      0
+           plano: {'': 381}
+           SQL:   INSERT INTO order_status_history ( id, order_id, previous_status, new_status, changed_at ) VALUES ( $1, $2, $3, $4, $5 )
+
+====================================================================================================
+OPERACAO: get_summary
+====================================================================================================
+  [springboot] 5 texto(s) de consulta distinto(s), 94 planos amostrados
+     n=23   dur_p50= 15.895ms  rows_p50=   8856  blk_p50=   1573
+           plano: {'Seq Scan': 3, 'Index Scan/idx_orders_created_at': 20}
+           SQL:   SELECT COALESCE(SUM(final_amount), 0) AS total_revenue FROM orders WHERE created_at >= $1 AND created_at < $2
+     n=22   dur_p50=  3.321ms  rows_p50=   5192  blk_p50=    206
+           plano: {'Seq Scan': 6, 'Index Only Scan/idx_orders_created_at': 16}
+           SQL:   SELECT COUNT(*) AS total_orders FROM orders WHERE created_at >= $1 AND created_at < $2
+     n=20   dur_p50= 16.009ms  rows_p50=   8328  blk_p50=   1473
+           plano: {'Index Scan/idx_orders_created_at': 19, 'Seq Scan': 1}
+           SQL:   SELECT customer_id, COALESCE(SUM(final_amount), 0) AS total_spent, COUNT(*) AS order_count FROM orders WHERE created_at >= $1 AND created_at < $2 GROU
+     n=18   dur_p50= 12.341ms  rows_p50=   5896  blk_p50=    791
+           plano: {'Index Scan/idx_orders_created_at': 15, 'Seq Scan': 3}
+           SQL:   SELECT CAST(created_at AT TIME ZONE 'UTC' AS DATE) AS revenue_day, COALESCE(SUM(final_amount), 0) AS revenue, COUNT(*) AS order_count FROM orders WHER
+     n=11   dur_p50= 17.020ms  rows_p50=  10456  blk_p50=   1773
+           plano: {'Index Scan/idx_orders_created_at': 11}
+           SQL:   SELECT status, COUNT(*) AS total_orders FROM orders WHERE created_at >= $1 AND created_at < $2 GROUP BY status
+  [quarkus-jvm] 5 texto(s) de consulta distinto(s), 92 planos amostrados
+     n=24   dur_p50=  3.480ms  rows_p50=   6440  blk_p50=    678
+           plano: {'Seq Scan': 1, 'Index Only Scan/idx_orders_created_at': 23}
+           SQL:   SELECT COUNT(*) AS total_orders FROM orders WHERE created_at >= $1 AND created_at < $2
+     n=18   dur_p50= 11.668ms  rows_p50=   5624  blk_p50=   2476
+           plano: {'Seq Scan': 1, 'Index Scan/idx_orders_created_at': 17}
+           SQL:   SELECT customer_id, COALESCE(SUM(final_amount), 0) AS total_spent, COUNT(*) AS order_count FROM orders WHERE created_at >= $1 AND created_at < $2 GROU
+     n=17   dur_p50= 10.559ms  rows_p50=   5528  blk_p50=   2006
+           plano: {'Seq Scan': 3, 'Index Scan/idx_orders_created_at': 14}
+           SQL:   SELECT COALESCE(SUM(final_amount), 0) AS total_revenue FROM orders WHERE created_at >= $1 AND created_at < $2
+     n=17   dur_p50=  9.790ms  rows_p50=   4568  blk_p50=   1991
+           plano: {'Index Scan/idx_orders_created_at': 17}
+           SQL:   SELECT CAST(created_at AT TIME ZONE 'UTC' AS DATE) AS revenue_day, COALESCE(SUM(final_amount), 0) AS revenue, COUNT(*) AS order_count FROM orders WHER
+     n=16   dur_p50= 11.018ms  rows_p50=   6392  blk_p50=   2797
+           plano: {'Index Scan/idx_orders_created_at': 14, 'Seq Scan': 2}
+           SQL:   SELECT status, COUNT(*) AS total_orders FROM orders WHERE created_at >= $1 AND created_at < $2 GROUP BY status
+
+====================================================================================================
+OPERACAO: infra_pool_validacao
+====================================================================================================
+  [springboot] sem amostras de plano
+  [quarkus-jvm] sem amostras de plano
+

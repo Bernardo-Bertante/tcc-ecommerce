@@ -1,0 +1,10 @@
+{"Version":"2012-10-17","Statement":[
+ {"Sid":"LambdaExpLazySb","Effect":"Allow","Action":["lambda:InvokeFunction","lambda:UpdateFunctionConfiguration","lambda:GetFunctionConfiguration","lambda:GetFunction","lambda:DeleteFunction"],"Resource":"arn:aws:lambda:us-east-1:776648109551:function:exp-lazy-sb-*"},
+ {"Sid":"LambdaList","Effect":"Allow","Action":["lambda:ListFunctions"],"Resource":"*"},
+ {"Sid":"LogsExpLazySb","Effect":"Allow","Action":["logs:FilterLogEvents","logs:GetLogEvents","logs:DescribeLogStreams","logs:DeleteLogGroup"],"Resource":["arn:aws:logs:us-east-1:776648109551:log-group:/aws/lambda/exp-lazy-sb-*","arn:aws:logs:us-east-1:776648109551:log-group:/aws/lambda/exp-lazy-sb-*:*"]},
+ {"Sid":"LogsList","Effect":"Allow","Action":["logs:DescribeLogGroups"],"Resource":"*"},
+ {"Sid":"DynamoExpLazySb","Effect":"Allow","Action":["dynamodb:DeleteTable","dynamodb:DescribeTable"],"Resource":"arn:aws:dynamodb:us-east-1:776648109551:table/exp-lazy-sb-*"},
+ {"Sid":"DynamoList","Effect":"Allow","Action":["dynamodb:ListTables"],"Resource":"*"},
+ {"Sid":"IamExpLazySbRole","Effect":"Allow","Action":["iam:GetRole","iam:ListRolePolicies","iam:DeleteRolePolicy","iam:DeleteRole","iam:ListAttachedRolePolicies"],"Resource":"arn:aws:iam::776648109551:role/exp-lazy-sb-role"},
+ {"Sid":"S3Results","Effect":"Allow","Action":["s3:PutObject","s3:GetObject","s3:ListBucket"],"Resource":["arn:aws:s3:::exp-lazy-sb-results-776648109551","arn:aws:s3:::exp-lazy-sb-results-776648109551/*"]}
+]}

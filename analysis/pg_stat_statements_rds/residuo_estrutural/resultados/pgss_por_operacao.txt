@@ -1,0 +1,21 @@
+operacao                   cond          calls rows/call  blk/call blk/linha exec ms/call plan ms/call
+create_order               SB-noval      89201      1.00       9.8      9.82       0.1538       0.0025
+create_order               QJ            89197      1.00       9.8      9.83       0.1248       0.0013
+
+get_order                  SB-noval     116170      1.50       3.3      2.23       0.0310       0.0055
+get_order                  QJ           116170      1.50       3.3      2.20       0.0300       0.0068
+
+get_orders_by_customer     SB-noval      41490      6.46      10.1      1.56       0.0632       0.0218
+get_orders_by_customer     QJ            41490      6.46       9.9      1.53       0.0496       0.0384
+
+get_summary                SB-noval       9210      3.20     959.3    299.78      16.1567       0.1141
+get_summary                QJ             9210      3.20    2820.1    881.28      12.4179       0.1530
+
+insert_status_history      SB-noval      40788      1.00      10.6     10.62       0.1599       0.0012
+insert_status_history      QJ            40786      1.00      10.5     10.52       0.1550       0.0007
+
+nao_classificado           SB-noval        414      1.11     188.3    169.49       0.4429       0.8022
+nao_classificado           QJ              414      1.07     192.6    179.57       0.4887       0.8217
+
+update_status              SB-noval      11054      1.00      15.1     15.10       0.1545       0.0086
+update_status              QJ            11053      1.00      15.1     15.15       0.1427       0.0031

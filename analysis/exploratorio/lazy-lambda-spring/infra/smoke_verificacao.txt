@@ -1,0 +1,62 @@
+== 1. Itens gravados nas tabelas exp-lazy-sb (scan; 00000000-… = marcador da V2)
+-- exp-lazy-sb-processed-orders: 4 itens
+      1 00000000-0000-0000-0000-000000000000
+      1 453d548f-38a2-4f99-8424-389a413394f6
+      1 7206c73b-935e-4325-ba40-9c79689f9d72
+      1 ecbb87dd-e798-4617-ac8a-f53eb261a84c
+-- exp-lazy-sb-stock-reservations: 9 itens
+      3 00000000-0000-0000-0000-000000000000
+      3 453d548f-38a2-4f99-8424-389a413394f6
+      2 7206c73b-935e-4325-ba40-9c79689f9d72
+      1 ecbb87dd-e798-4617-ac8a-f53eb261a84c
+== 2. Pontos sdk_* por tabela (EXP_LAZY, V1/V2), falhas e resumo da extração
+('sdk_after_exec', 'exp-lazy-sb-processed-orders') 18
+('sdk_after_exec', 'exp-lazy-sb-stock-reservations') 33
+('sdk_after_tx', 'exp-lazy-sb-processed-orders') 18
+('sdk_after_tx', 'exp-lazy-sb-stock-reservations') 33
+('sdk_before_exec', 'exp-lazy-sb-processed-orders') 18
+('sdk_before_exec', 'exp-lazy-sb-stock-reservations') 33
+('sdk_before_tx', 'exp-lazy-sb-processed-orders') 18
+('sdk_before_tx', 'exp-lazy-sb-stock-reservations') 33
+{'reports_needed': 18, 'missing': [], 'invocations': 18, 'points': 447, 'access_denied_lines': 0, 'sdk_fail_points': 0, 'prep_fail_points': 0}
+== 3. 'AccessDenied' / 'Exception' / 'ERROR' / sdk_fail / prep_fail nos log groups exp-lazy-sb (janela) e no run.log
+exp-lazy-sb-v0 AccessDenied: 0
+exp-lazy-sb-v0 Exception: 0
+exp-lazy-sb-v0 ERROR: 0
+exp-lazy-sb-v0 sdk_fail: 0
+exp-lazy-sb-v0 prep_fail: 0
+exp-lazy-sb-v1 AccessDenied: 0
+exp-lazy-sb-v1 Exception: 0
+exp-lazy-sb-v1 ERROR: 0
+exp-lazy-sb-v1 sdk_fail: 0
+exp-lazy-sb-v1 prep_fail: 0
+exp-lazy-sb-v2 AccessDenied: 0
+exp-lazy-sb-v2 Exception: 0
+exp-lazy-sb-v2 ERROR: 0
+exp-lazy-sb-v2 sdk_fail: 0
+exp-lazy-sb-v2 prep_fail: 0
+run.log AccessDenied: 0
+run.log Exception: 0
+run.log ERROR: 0
+== 4. Escritas nas tabelas OFICIAIS na janela (ConsumedWriteCapacityUnits, Sum/60s)
+processed_orders: 0.0	0.0	0.0	0.0	0.0	0.0	0.0	0.0 (vazio ou 0.0 = nenhuma escrita)
+stock_reservations: 0.0	0.0	0.0	0.0	0.0	0.0	0.0	0.0 (vazio ou 0.0 = nenhuma escrita)
+processing-results: 0.0	0.0	0.0	0.0	0.0	0.0	0.0	0.0 (vazio ou 0.0 = nenhuma escrita)
+   controle positivo (tabelas exp-lazy-sb, mesma consulta):
+exp-lazy-sb-processed-orders: 0.0	0.0	0.0	0.0	0.0	7.0	0.0	7.0
+exp-lazy-sb-stock-reservations: 0.0	0.0	0.0	0.0	0.0	9.0	0.0	21.0
+== 5. Funções oficiais (comparar com infra/oficiais_antes.json)
+order-processor-quarkus-jvm	qqGaGUSyL1rtWwcwOeIMNhFYfsW+HvIh8QiUTPe+WME=	5b5bbf3d-86e3-43e2-97d0-7c26d3515292	2026-06-21T14:14:23.771+0000
+order-processor-springboot	ODLvR0a13wdABKP6LvMTo/xvKxTpEUz3H79fgDg0bbg=	0ad8acff-acd8-4e2a-97cc-ca805dc59a18	2026-06-21T14:14:06.878+0000
+order-processor-quarkus-native	6HEm8yMGQP5wa73Xi1Cldqa/SsKl0V/LhI3YsuUXBOg=	3a683c27-8de9-4387-951f-658d1f6ff709	2026-06-21T14:26:06.000+0000
+== 6. Por amostra fria: runtime, CodeSha256, Init, e (V2) preparação antes do START
+V0 b=0 pos=0 valid=True runtime=java:21.v68 sha=ODLvR0a13wdA… init=3400.67 dur=2627.26
+V1 b=0 pos=1 valid=True runtime=java:21.v68 sha=L404Qp+XeWSA… init=4430.13 dur=2822.04
+V2 b=0 pos=2 valid=True runtime=java:21.v68 sha=L404Qp+XeWSA… init=4427.45 dur=321.68 | prep_out dentro do init (<= INIT_START+Init Duration = fim do init): True; antes do START: True (prep_out=1790807741442, init_end_pt=1790807741454, fim_init=1790807741456, START=1790807741460) prep_fail=False init<=8000: True
+V0 b=1 pos=0 valid=True runtime=java:21.v68 sha=ODLvR0a13wdA… init=3673.85 dur=2692.59
+V1 b=1 pos=1 valid=True runtime=java:21.v68 sha=L404Qp+XeWSA… init=4422.91 dur=2730.22
+V2 b=1 pos=2 valid=True runtime=java:21.v68 sha=L404Qp+XeWSA… init=3864.96 dur=269.03 | prep_out dentro do init (<= INIT_START+Init Duration = fim do init): True; antes do START: True (prep_out=1790807800723, init_end_pt=1790807800732, fim_init=1790807800734, START=1790807800738) prep_fail=False init<=8000: True
+V0 b=2 pos=0 valid=True runtime=java:21.v68 sha=ODLvR0a13wdA… init=4363.68 dur=2732.39
+V2 b=2 pos=1 valid=True runtime=java:21.v68 sha=L404Qp+XeWSA… init=4405.9 dur=285.39 | prep_out dentro do init (<= INIT_START+Init Duration = fim do init): True; antes do START: True (prep_out=1790807840083, init_end_pt=1790807840093, fim_init=1790807840096, START=1790807840101) prep_fail=False init<=8000: True
+V1 b=2 pos=2 valid=True runtime=java:21.v68 sha=L404Qp+XeWSA… init=3905.31 dur=2794.53
+TODAS AS CHECAGENS DA SEÇÃO 6: OK

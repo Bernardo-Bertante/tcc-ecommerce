@@ -1,0 +1,41 @@
+# Caminho do GET /orders/{id}: nível máx. (não-OSR) e 1º nível 4 em s desde o início da carga. Fonte: fase_b/rodadas/*/logs.jsonl.gz
+f1-quarkus-jvm
+   resource.OrderResource$invoker                          n4  1º n4 277 s
+   resource.OrderResource::getOrderById                    n3  sem n4
+   service.OrderService::getOrderById                      n3  sem n4
+   service.OrderService::toOrderItemResponse               n3  sem n4
+   service.OrderService::toOrderResponse                   n4  1º n4 130 s
+   service.OrderService_ClientProxy::getOrderById          n3  sem n4
+f1-springboot
+   controller.OrderController::getOrderById                n4  1º n4 277 s
+   service.OrderService::getOrderById                      n3  sem n4
+   service.OrderService::loadItemsAndMapOrder              n3  sem n4
+   service.OrderService::requireOrder                      n4  1º n4 236 s
+   service.OrderService::toOrderItemResponse               n3  sem n4
+   service.OrderService::toOrderResponse                   n4  1º n4 129 s
+f2-quarkus-jvm
+   resource.OrderResource$invoker                          n4  1º n4 219 s
+   service.OrderService::getOrderById                      n4  1º n4 219 s
+   service.OrderService::loadItemsAndMapOrder              n3  sem n4
+   service.OrderService::toOrderItemResponse               n3  sem n4
+   service.OrderService::toOrderResponse                   n4  1º n4 73 s
+   service.OrderService_ClientProxy::getOrderById          n3  sem n4
+f2-springboot
+   controller.OrderController::getOrderById                n4  1º n4 292 s
+   service.OrderService::loadItemsAndMapOrder              n2  sem n4
+   service.OrderService::requireOrder                      n4  1º n4 237 s
+   service.OrderService::toOrderItemResponse               n4  1º n4 47 s
+   service.OrderService::toOrderResponse                   n4  1º n4 106 s
+f3-quarkus-jvm
+   resource.OrderResource$invoker                          n4  1º n4 219 s
+   resource.OrderResource::getOrderById                    n3  sem n4
+   service.OrderService::getOrderById                      n3  sem n4
+   service.OrderService::toOrderItemResponse               n3  sem n4
+   service.OrderService::toOrderResponse                   n4  1º n4 70 s
+   service.OrderService_ClientProxy::getOrderById          n3  sem n4
+f3-springboot
+   controller.OrderController::getOrderById                n3  sem n4
+   service.OrderService::loadItemsAndMapOrder              n2  sem n4
+   service.OrderService::requireOrder                      n4  1º n4 289 s
+   service.OrderService::toOrderItemResponse               n3  sem n4
+   service.OrderService::toOrderResponse                   n4  1º n4 106 s

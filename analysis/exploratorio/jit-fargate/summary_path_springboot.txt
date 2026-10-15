@@ -1,0 +1,34 @@
+# Caminho do GET /orders/summary — Spring Boot (WebFlux + R2DBC)
+# Fonte: order-service/springboot/src/main/java (lido em 29/09/2026); imagem oficial
+# order-service-springboot@sha256:276548dd… (a mesma de order-service-springboot:12, tag :latest).
+#
+# Formato (TSV): padrao_metodo <TAB> camada <TAB> certeza <TAB> exclusivo_do_summary <TAB> nota
+#   padrao_metodo : Classe::metodo, como aparece no PrintCompilation; '*' = curinga (fnmatch).
+#   certeza       : certo = lido no código e executado em toda chamada; incerto = provável, não confirmado.
+#   exclusivo     : sim = só o summary chama; nao = compartilhado com outros endpoints (recebe mais invocações).
+com.tcc.orderservice.controller.OrderController::getSummary	controller	certo	sim	@GetMapping("/summary")
+com.tcc.orderservice.service.OrderService::getSummary	servico	certo	sim	monta 5 Monos + Mono.zip
+com.tcc.orderservice.service.OrderService::validateSummaryDateRange	servico	certo	sim
+com.tcc.orderservice.service.OrderService::fillMissingStatuses	servico	certo	sim	chamado 2-3x por requisição
+com.tcc.orderservice.service.OrderService::calculateAverageOrderValue	servico	certo	sim
+com.tcc.orderservice.service.OrderService::lambda$getSummary$*	servico	certo	sim	lambda do Mono.zip(...).map
+com.tcc.orderservice.service.OrderService::normalizeMoney	servico	certo	nao	também usado no mapeamento de pedidos (toOrderResponse)
+com.tcc.orderservice.repository.OrderSummaryRepositoryImpl::countOrdersByDateRange	repositorio	certo	sim	SQL 1/5
+com.tcc.orderservice.repository.OrderSummaryRepositoryImpl::sumRevenueByDateRange	repositorio	certo	sim	SQL 2/5
+com.tcc.orderservice.repository.OrderSummaryRepositoryImpl::countOrdersByStatusInDateRange	repositorio	certo	sim	SQL 3/5
+com.tcc.orderservice.repository.OrderSummaryRepositoryImpl::findTopCustomersByRevenue	repositorio	certo	sim	SQL 4/5
+com.tcc.orderservice.repository.OrderSummaryRepositoryImpl::findRevenueByDay	repositorio	certo	sim	SQL 5/5
+com.tcc.orderservice.repository.OrderSummaryRepositoryImpl::validateAndBuildDateRange	repositorio	certo	sim	5x por requisição
+com.tcc.orderservice.repository.OrderSummaryRepositoryImpl::initializeStatusCounts	repositorio	certo	sim
+com.tcc.orderservice.repository.OrderSummaryRepositoryImpl::toLong	mapeamento	certo	sim	por linha do resultado
+com.tcc.orderservice.repository.OrderSummaryRepositoryImpl::toBigDecimal	mapeamento	certo	sim	por linha do resultado
+com.tcc.orderservice.repository.OrderSummaryRepositoryImpl::lambda$*	mapeamento	certo	sim	row mappers (.map((row, metadata) -> ...)) e reduceWith
+com.tcc.orderservice.repository.OrderSummaryRepositoryImpl$DateRange::*	repositorio	certo	sim	record
+com.tcc.orderservice.repository.OrderSummaryRepositoryImpl$$SpringCGLIB$$*::*	repositorio	incerto	sim	só existe se o @Repository receber proxy de tradução de exceção
+com.tcc.orderservice.dto.response.OrderSummaryResponse::*	dto	certo	sim	construtor + getters (serialização Jackson)
+com.tcc.orderservice.dto.response.OrderSummaryResponse$TopCustomerSummary::*	dto	certo	sim	até 10 por resposta
+com.tcc.orderservice.dto.response.OrderSummaryResponse$RevenueByDaySummary::*	dto	certo	sim	1 por dia no intervalo
+org.springframework.format.datetime.standard.TemporalAccessorParser::parse	framework	incerto	sim	conversão dos @RequestParam LocalDate (@DateTimeFormat ISO.DATE)
+io.r2dbc.postgresql.codec.LocalDateCodec::*	driver	incerto	sim	decodifica revenue_day (DATE); só o summary lê DATE
+io.r2dbc.postgresql.codec.NumericDecodeUtils::*	driver	incerto	nao	decodifica NUMERIC (SUM); pedidos também leem NUMERIC
+io.r2dbc.postgresql.codec.BigDecimalCodec::*	driver	incerto	nao	idem

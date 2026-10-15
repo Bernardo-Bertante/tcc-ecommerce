@@ -1,0 +1,9 @@
+runtime,cenario,made_not_entrant_total,durante_carga,de_nivel4,de_nivel3,de_nivel2,de_nivel1,caminho_summary_total,caminho_summary_durante_carga
+springboot,f1,5808,3426,417,3792,1599,0,9,8
+quarkus-jvm,f1,2663,1867,214,2171,278,0,6,6
+springboot,f2,7420,5018,351,3818,3251,0,19,18
+quarkus-jvm,f2,3099,2256,252,2351,496,0,10,10
+springboot,f2s,4052,1889,274,2670,1108,0,15,14
+quarkus-jvm,f2s,1819,962,106,1479,234,0,8,8
+springboot,f3,6845,4622,365,3882,2598,0,16,15
+quarkus-jvm,f3,2942,2161,250,2409,283,0,9,9

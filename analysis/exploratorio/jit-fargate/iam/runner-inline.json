@@ -1,0 +1,141 @@
+{
+ "Version": "2012-10-17",
+ "Statement": [
+  {
+   "Sid": "RunTaskSoExpJit",
+   "Effect": "Allow",
+   "Action": "ecs:RunTask",
+   "Resource": "arn:aws:ecs:us-east-1:776648109551:task-definition/exp-jit-*",
+   "Condition": {
+    "ArnEquals": {
+     "ecs:cluster": "arn:aws:ecs:us-east-1:776648109551:cluster/exp-jit-cluster"
+    }
+   }
+  },
+  {
+   "Sid": "TasksDoClusterExpJit",
+   "Effect": "Allow",
+   "Action": [
+    "ecs:StopTask",
+    "ecs:DescribeTasks"
+   ],
+   "Resource": "arn:aws:ecs:us-east-1:776648109551:task/exp-jit-cluster/*"
+  },
+  {
+   "Sid": "EcsExecExpJit",
+   "Effect": "Allow",
+   "Action": "ecs:ExecuteCommand",
+   "Resource": [
+    "arn:aws:ecs:us-east-1:776648109551:cluster/exp-jit-cluster",
+    "arn:aws:ecs:us-east-1:776648109551:task/exp-jit-cluster/*"
+   ]
+  },
+  {
+   "Sid": "ListTasksExpJit",
+   "Effect": "Allow",
+   "Action": "ecs:ListTasks",
+   "Resource": "*",
+   "Condition": {
+    "ArnEquals": {
+     "ecs:cluster": "arn:aws:ecs:us-east-1:776648109551:cluster/exp-jit-cluster"
+    }
+   }
+  },
+  {
+   "Sid": "ClusterExpJit",
+   "Effect": "Allow",
+   "Action": [
+    "ecs:DescribeClusters",
+    "ecs:DeleteCluster"
+   ],
+   "Resource": "arn:aws:ecs:us-east-1:776648109551:cluster/exp-jit-cluster"
+  },
+  {
+   "Sid": "LeituraEcs",
+   "Effect": "Allow",
+   "Action": [
+    "ecs:DescribeTaskDefinition",
+    "ecs:ListTaskDefinitions"
+   ],
+   "Resource": "*"
+  },
+  {
+   "Sid": "PassRoleTasks",
+   "Effect": "Allow",
+   "Action": "iam:PassRole",
+   "Resource": [
+    "arn:aws:iam::776648109551:role/exp-jit-task-exec-role",
+    "arn:aws:iam::776648109551:role/exp-jit-task-role"
+   ]
+  },
+  {
+   "Sid": "LeituraRede",
+   "Effect": "Allow",
+   "Action": [
+    "ec2:DescribeNetworkInterfaces",
+    "ec2:DescribeSecurityGroups"
+   ],
+   "Resource": "*"
+  },
+  {
+   "Sid": "LogsExpJit",
+   "Effect": "Allow",
+   "Action": [
+    "logs:GetLogEvents",
+    "logs:FilterLogEvents",
+    "logs:DescribeLogStreams"
+   ],
+   "Resource": [
+    "arn:aws:logs:us-east-1:776648109551:log-group:exp-jit-*",
+    "arn:aws:logs:us-east-1:776648109551:log-group:exp-jit-*:*"
+   ]
+  },
+  {
+   "Sid": "LeituraLogGroups",
+   "Effect": "Allow",
+   "Action": "logs:DescribeLogGroups",
+   "Resource": "*"
+  },
+  {
+   "Sid": "RdsSoExpJit",
+   "Effect": "Allow",
+   "Action": [
+    "rds:DeleteDBInstance",
+    "rds:DescribeDBInstances"
+   ],
+   "Resource": "arn:aws:rds:us-east-1:776648109551:db:exp-jit-postgres"
+  },
+  {
+   "Sid": "S3Resultados",
+   "Effect": "Allow",
+   "Action": [
+    "s3:ListBucket"
+   ],
+   "Resource": "arn:aws:s3:::exp-jit-results-776648109551"
+  },
+  {
+   "Sid": "S3ResultadosObj",
+   "Effect": "Allow",
+   "Action": [
+    "s3:GetObject",
+    "s3:PutObject"
+   ],
+   "Resource": "arn:aws:s3:::exp-jit-results-776648109551/*"
+  },
+  {
+   "Sid": "SegredoDb",
+   "Effect": "Allow",
+   "Action": "secretsmanager:GetSecretValue",
+   "Resource": "arn:aws:secretsmanager:us-east-1:776648109551:secret:exp-jit-db-5krZUL"
+  },
+  {
+   "Sid": "FailsafeSchedules",
+   "Effect": "Allow",
+   "Action": [
+    "scheduler:DeleteSchedule",
+    "scheduler:GetSchedule"
+   ],
+   "Resource": "arn:aws:scheduler:us-east-1:776648109551:schedule/exp-jit/*"
+  }
+ ]
+}

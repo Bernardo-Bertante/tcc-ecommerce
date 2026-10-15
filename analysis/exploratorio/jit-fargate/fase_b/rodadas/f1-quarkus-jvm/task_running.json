@@ -1,0 +1,105 @@
+{
+    "tasks": [
+        {
+            "attachments": [
+                {
+                    "id": "63da25f3-0b71-4ff4-b16f-b3842afd096e",
+                    "type": "ElasticNetworkInterface",
+                    "status": "ATTACHED",
+                    "details": [
+                        {
+                            "name": "subnetId",
+                            "value": "subnet-09021fc5dd37000fc"
+                        },
+                        {
+                            "name": "networkInterfaceId",
+                            "value": "eni-050acd32d33a59635"
+                        },
+                        {
+                            "name": "macAddress",
+                            "value": "0a:ff:f2:b1:14:1d"
+                        },
+                        {
+                            "name": "privateDnsName",
+                            "value": "ip-172-31-23-108.ec2.internal"
+                        },
+                        {
+                            "name": "privateIPv4Address",
+                            "value": "172.31.23.108"
+                        }
+                    ]
+                }
+            ],
+            "attributes": [
+                {
+                    "name": "ecs.cpu-architecture",
+                    "value": "x86_64"
+                }
+            ],
+            "availabilityZone": "us-east-1c",
+            "clusterArn": "arn:aws:ecs:us-east-1:776648109551:cluster/exp-jit-cluster",
+            "connectivity": "CONNECTED",
+            "connectivityAt": "2026-09-29T23:18:02.668000+00:00",
+            "containers": [
+                {
+                    "containerArn": "arn:aws:ecs:us-east-1:776648109551:container/exp-jit-cluster/70d0e801c831413380b129172b0d3493/a392810a-40d2-4374-b3d0-e7e420ebfe57",
+                    "taskArn": "arn:aws:ecs:us-east-1:776648109551:task/exp-jit-cluster/70d0e801c831413380b129172b0d3493",
+                    "name": "order-service-quarkus-jvm",
+                    "image": "776648109551.dkr.ecr.us-east-1.amazonaws.com/order-service-quarkus-jvm@sha256:abec3583cd78ae5ed079dac8c8cd507ccafbbd19863f9f2df541599c7eae889b",
+                    "imageDigest": "sha256:abec3583cd78ae5ed079dac8c8cd507ccafbbd19863f9f2df541599c7eae889b",
+                    "runtimeId": "70d0e801c831413380b129172b0d3493-3737440224",
+                    "lastStatus": "RUNNING",
+                    "networkBindings": [],
+                    "networkInterfaces": [
+                        {
+                            "attachmentId": "63da25f3-0b71-4ff4-b16f-b3842afd096e",
+                            "privateIpv4Address": "172.31.23.108"
+                        }
+                    ],
+                    "healthStatus": "UNKNOWN",
+                    "managedAgents": [
+                        {
+                            "name": "ExecuteCommandAgent",
+                            "lastStatus": "PENDING"
+                        }
+                    ],
+                    "cpu": "0"
+                }
+            ],
+            "cpu": "1024",
+            "createdAt": "2026-09-29T23:17:58.928000+00:00",
+            "desiredStatus": "RUNNING",
+            "enableExecuteCommand": true,
+            "group": "family:exp-jit-quarkus-jvm",
+            "healthStatus": "UNKNOWN",
+            "lastStatus": "RUNNING",
+            "launchType": "FARGATE",
+            "memory": "2048",
+            "overrides": {
+                "containerOverrides": [
+                    {
+                        "name": "order-service-quarkus-jvm"
+                    }
+                ],
+                "inferenceAcceleratorOverrides": []
+            },
+            "platformVersion": "1.4.0",
+            "platformFamily": "Linux",
+            "pullStartedAt": "2026-09-29T23:18:08.261000+00:00",
+            "pullStoppedAt": "2026-09-29T23:18:15.205000+00:00",
+            "startedAt": "2026-09-29T23:18:17.188000+00:00",
+            "startedBy": "exp-jit",
+            "tags": [],
+            "taskArn": "arn:aws:ecs:us-east-1:776648109551:task/exp-jit-cluster/70d0e801c831413380b129172b0d3493",
+            "taskDefinitionArn": "arn:aws:ecs:us-east-1:776648109551:task-definition/exp-jit-quarkus-jvm:1",
+            "version": 3,
+            "ephemeralStorage": {
+                "sizeInGiB": 20
+            },
+            "fargateEphemeralStorage": {
+                "sizeInGiB": 20
+            }
+        }
+    ],
+    "failures": []
+}

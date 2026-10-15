@@ -1,0 +1,14 @@
+{
+  "springboot": {
+    "calls": 288828.0,
+    "total_ms": 90311.425,
+    "blks": 5272963.0,
+    "n_queries": 27
+  },
+  "quarkus-jvm": {
+    "calls": 144408.0,
+    "total_ms": 65869.52,
+    "blks": 12183621.0,
+    "n_queries": 22
+  }
+}

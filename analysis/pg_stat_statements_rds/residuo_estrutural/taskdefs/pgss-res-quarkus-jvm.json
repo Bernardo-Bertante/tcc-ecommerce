@@ -1,0 +1,76 @@
+{
+ "containerDefinitions": [
+  {
+   "name": "order-service-quarkus-jvm",
+   "image": "776648109551.dkr.ecr.us-east-1.amazonaws.com/order-service-quarkus-jvm@sha256:abec3583cd78ae5ed079dac8c8cd507ccafbbd19863f9f2df541599c7eae889b",
+   "cpu": 0,
+   "portMappings": [
+    {
+     "containerPort": 8081,
+     "hostPort": 8081,
+     "protocol": "tcp"
+    }
+   ],
+   "essential": true,
+   "environment": [
+    {
+     "name": "JAVA_OPTS_APPEND",
+     "value": "-Dquarkus.http.host=0.0.0.0 -Xlog:async -Xlog:gc*,safepoint:stdout:time,uptime,level,tags"
+    },
+    {
+     "name": "QUARKUS_DATASOURCE_JDBC_URL",
+     "value": "jdbc:postgresql://pgss-res-postgres.ck1kkwa6og4s.us-east-1.rds.amazonaws.com:5432/orderdb?sslMode=require"
+    },
+    {
+     "name": "QUARKUS_DATASOURCE_PASSWORD",
+     "value": "<SENHA_RDS>"
+    },
+    {
+     "name": "QUARKUS_DATASOURCE_REACTIVE_MAX_SIZE",
+     "value": "40"
+    },
+    {
+     "name": "QUARKUS_DATASOURCE_REACTIVE_POSTGRESQL_SSL_MODE",
+     "value": "require"
+    },
+    {
+     "name": "QUARKUS_DATASOURCE_REACTIVE_TRUST_ALL",
+     "value": "true"
+    },
+    {
+     "name": "QUARKUS_DATASOURCE_REACTIVE_URL",
+     "value": "postgresql://pgss-res-postgres.ck1kkwa6og4s.us-east-1.rds.amazonaws.com:5432/orderdb"
+    },
+    {
+     "name": "QUARKUS_DATASOURCE_USERNAME",
+     "value": "orderuser"
+    },
+    {
+     "name": "SERVER_PORT",
+     "value": "8081"
+    }
+   ],
+   "mountPoints": [],
+   "volumesFrom": [],
+   "logConfiguration": {
+    "logDriver": "awslogs",
+    "options": {
+     "awslogs-group": "/ecs/pgss-res-quarkus-jvm",
+     "awslogs-region": "us-east-1",
+     "awslogs-stream-prefix": "ecs"
+    }
+   },
+   "systemControls": []
+  }
+ ],
+ "family": "pgss-res-quarkus-jvm",
+ "executionRoleArn": "arn:aws:iam::776648109551:role/ecsTaskExecutionRole",
+ "networkMode": "awsvpc",
+ "volumes": [],
+ "placementConstraints": [],
+ "requiresCompatibilities": [
+  "FARGATE"
+ ],
+ "cpu": "1024",
+ "memory": "2048"
+}

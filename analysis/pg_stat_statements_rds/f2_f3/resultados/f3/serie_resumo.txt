@@ -1,0 +1,37 @@
+F3 por minuto (min 0 = início da carga; 48 it/s até min 5, rampa 5–7, pico 240 it/s min 7–17, rampa 17–19, 48 até 24)
+
+CPU total RDS %
+rodada                      0      2      4      6      8     10     12     14     16     18     20     22     24
+r1 springboot               6     16     15     22     48     61     71     83     93    100     34     33     35
+r2 springboot-noval         6     16     17     19     46     58     69     83     90     94     33     32     33
+r3 quarkus-jvm              6     14     17     17     40     53     62     70     78     81     28     28     27
+r4 quarkus-jvm              7     12     15     17     42     53     61     70     78     82     28     26     27
+r5 springboot-noval         6     17     16     20     47     62     70     80     87     94     32     35     31
+r6 springboot               7     15     17     25     55     63     73     82     94     98     35     33     33
+
+CPU da task (unid, 1024=1 vCPU)
+rodada                      0      2      4      6      8     10     12     14     16     18     20     22     24
+r1 springboot             438    371    198    167    532    618    558    590    685    654    226    163    160
+r2 springboot-noval       463    585    154    116    383    469    438    451    486    610    279    143    142
+r3 quarkus-jvm              0    322    100     63    120    216    152    150    153    198    132     53     52
+r4 quarkus-jvm            175    113     59     77    139    134    130    130    127    168     49     45     45
+r5 springboot-noval       295    388    161    159    430    510    542    486    566    611    204    135    145
+r6 springboot             398    594    124     98    308    464    441    484    561    607    248    110    111
+
+p95 ms (todas as ops)
+rodada                      0      2      4      6      8     10     12     14     16     18     20     22     24
+r1 springboot             nan     22     20     43     58     70    590    937   2919   8634     32     36     41
+r2 springboot-noval       nan     16     16     16     45     37    235   3788   3175   2963     20     20     21
+r3 quarkus-jvm            nan     11     14     12     26     29     56     32     32   2329     15     22     14
+r4 quarkus-jvm            nan     10     11     14     31     30     29    178     34   1896     14     12     16
+r5 springboot-noval       nan     19     16     19     40    268    630    961    128   5357     19     33     18
+r6 springboot             nan     21     19     26    182    128     66    437   1978   7494     31     25     26
+
+get_summary p95 ms
+rodada                      0      2      4      6      8     10     12     14     16     18     20     22     24
+r1 springboot             nan     18     34     71    134    339   1004   1928   3102   5051    514    545    886
+r2 springboot-noval       nan     18     23     45    197    242    869   3767   3520   2988    524    603    457
+r3 quarkus-jvm            nan     11     26     39    110    202    332    336    444   3386    403    406    418
+r4 quarkus-jvm            nan     18     23     59    189    216    298    660    593   2988    508    369    592
+r5 springboot-noval       nan     74     34     70    151    793   1681   2124   1395   4166    514    991    544
+r6 springboot             nan     15     23     63    540    417    396   1499   2439   4269    584    477    544

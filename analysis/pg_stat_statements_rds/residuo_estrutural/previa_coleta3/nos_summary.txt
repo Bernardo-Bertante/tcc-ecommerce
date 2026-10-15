@@ -1,0 +1,19 @@
+rodada                 no                  n linhas_med  hit_med hit/1k_lin ms/1k_lin heapF/lin
+r1-springboot          Index Only Scan    11       7640      875      105.3     0.596     0.324
+r1-springboot          Index Scan         42       8952     2853      313.9     1.194       nan
+r1-springboot          Seq Scan            9       3416       75       21.3     0.542       nan
+r2-quarkus-jvm         Index Only Scan    17       7096     1010      124.2     0.369     0.308
+r2-quarkus-jvm         Index Scan         40       8184     4038      493.3     0.739       nan
+r2-quarkus-jvm         Seq Scan            8      10520      210       20.0     1.500       nan
+r3-springboot-noval    Index Only Scan     9       7192      290       30.9     1.012     0.279
+r3-springboot-noval    Index Scan         43       8664      885      104.9     0.883       nan
+r3-springboot-noval    Seq Scan            5       3224       70       21.7     0.784       nan
+r4-springboot-noval    Index Only Scan    19       9560      234       28.2     0.459     0.302
+r4-springboot-noval    Index Scan         57       7896      702       89.2     1.058       nan
+r4-springboot-noval    Seq Scan            4       5176      104       20.3     1.464       nan
+r5-quarkus-jvm         Index Only Scan    12       8664      764      110.8     0.573     0.286
+r5-quarkus-jvm         Index Scan         65       8376     4121      495.1     0.814       nan
+r5-quarkus-jvm         Seq Scan            4      12424      249       20.0     1.195       nan
+r6-springboot          Index Only Scan    13       7224      443       83.4     0.471     0.273
+r6-springboot          Index Scan         54       7736     2264      291.0     1.120       nan
+r6-springboot          Seq Scan            7       6872      138       20.2     0.666       nan

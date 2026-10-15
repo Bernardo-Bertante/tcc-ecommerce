@@ -1,0 +1,14 @@
+JAVA_TOOL_OPTIONS=-XX:ActiveProcessorCount=2 -XX:+UseSerialGC -XX:TieredStopAtLevel=4
+Picked up JAVA_TOOL_OPTIONS: -XX:ActiveProcessorCount=2 -XX:+UseSerialGC -XX:TieredStopAtLevel=4
+14:
+VM Arguments:
+jvm_args: -XX:ActiveProcessorCount=2 -XX:+UseSerialGC -XX:TieredStopAtLevel=4 -XX:MaxHeapSize=445645k -javaagent:/var/runtime/lib/Log4jHotPatch.jar=log4jFixerVerbose=false -Xshare:on -XX:SharedArchiveFile=/var/lang/lib/server/runtime.jsa -XX:+TieredCompilation -XX:TieredStopAtLevel=1 --add-opens=java.base/java.io=ALL-UNNAMED -Dorg.crac.Core.Compat=com.amazonaws.services.lambda.crac -XX:+ErrorFileToStderr -Dcom.amazonaws.services.lambda.runtime.api.client.runtimeapi.NativeClient.JNI=/var/runtime/lib/jni/libaws-lambda-jni.linux-x86_64.so 
+java_command: com.amazonaws.services.lambda.runtime.api.client.AWSLambda org.springframework.cloud.function.adapter.aws.FunctionInvoker::handleRequest
+java_class_path (initial): /var/runtime/lib/aws-lambda-java-core-1.4.0.jar:/var/runtime/lib/aws-lambda-java-runtime-interface-client-2.12.1-linux-x86_64.jar:/var/runtime/lib/aws-lambda-java-serialization-1.1.5.jar:/var/runtime/lib/utils-lite-2.34.0.jar
+Launcher Type: SUN_STANDARD
+Picked up JAVA_TOOL_OPTIONS: -XX:ActiveProcessorCount=2 -XX:+UseSerialGC -XX:TieredStopAtLevel=4
+   size_t MaxHeapSize                              = 457179136                                 {product} {command line, ergonomic}
+   size_t SoftMaxHeapSize                          = 457179136                              {manageable} {ergonomic}
+     bool TieredCompilation                        = true                                   {pd product} {command line}
+     intx TieredStopAtLevel                        = 1                                         {product} {command line}
+     bool UseSerialGC                              = true                                      {product} {environment}

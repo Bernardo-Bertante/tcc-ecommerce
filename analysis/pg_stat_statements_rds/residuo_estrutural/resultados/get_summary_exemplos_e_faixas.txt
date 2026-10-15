@@ -1,0 +1,22 @@
+===== r2-quarkus-jvm t=1013s dur=24.255ms  params: $1 = '2026-09-23 00:00:00+00', $2 = '2026-09-26 00:00:00+00'
+Aggregate  rows_plan=1 rows_real=1 time=24.249 hit=7083
+   Output: ["COALESCE(sum(final_amount), '0'::numeric)"]
+  Index Scan idx_orders_created_at rows_plan=74 rows_real=14840 time=14.235 hit=7083
+     Index Cond: ((orders.created_at >= $1) AND (orders.created_at < $2))
+     Output: ['id', 'customer_id', 'status', 'total_amount', 'discount_amount', 'final_amount', 'shipping_zip_code', 'shipping_street', 'shipping_number', 'shipping_complement', 'shipping_city', 'shipping_state', 'created_at', 'updated_at']
+===== r1-springboot-noval t=1003s dur=19.704ms  params: $1 = '2026-09-23 00:00:00', $2 = '2026-09-26 00:00:00'
+Aggregate  rows_plan=1 rows_real=1 time=19.696 hit=3417
+   Output: ["COALESCE(sum(final_amount), '0'::numeric)"]
+  Index Scan idx_orders_created_at rows_plan=73 rows_real=14776 time=7.788 hit=3417
+     Index Cond: ((orders.created_at >= $1) AND (orders.created_at < $2))
+     Output: ['id', 'customer_id', 'status', 'total_amount', 'discount_amount', 'final_amount', 'shipping_zip_code', 'shipping_street', 'shipping_number', 'shipping_complement', 'shipping_city', 'shipping_state', 'created_at', 'updated_at']
+
+== SUM(final_amount): duracao e blocos por 1k linhas por faixa de tempo (Index Scan)
+('quarkus-jvm', 0) 9 ms/1k=0.677 blk/1k=413 linhas=1240
+('quarkus-jvm', 300) 8 ms/1k=0.891 blk/1k=459 linhas=6536
+('quarkus-jvm', 600) 11 ms/1k=1.482 blk/1k=476 linhas=10328
+('quarkus-jvm', 900) 5 ms/1k=1.494 blk/1k=477 linhas=14264
+('springboot-noval', 0) 6 ms/1k=0.787 blk/1k=102 linhas=2104
+('springboot-noval', 300) 13 ms/1k=1.486 blk/1k=90 linhas=7352
+('springboot-noval', 600) 16 ms/1k=1.738 blk/1k=94 linhas=11976
+('springboot-noval', 900) 3 ms/1k=2.242 blk/1k=94 linhas=14264

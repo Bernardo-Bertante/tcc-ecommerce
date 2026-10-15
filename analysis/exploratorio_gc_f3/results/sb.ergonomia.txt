@@ -1,0 +1,1 @@
+[2026-09-21T01:01:08.214+0000][0.008s][info][gc,init] CPUs: 16 total, 1 available

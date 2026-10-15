@@ -1,0 +1,10 @@
+ver=sb rate=48 ramp=60s hold=960s
+sb_validation=off validation_env=SPRING_R2DBC_POOL_VALIDATION_QUERY= cpu_max=100000 100000
+app_cpuset=0-7 cpu_quota=1 k6_cpus=12-15 heap=-Xms512m -Xmx2g -XX:MaxMetaspaceSize=256m
+active_processor_count=1
+image=pilhaexp-sb:prof
+java_pid=1 cid=be45e76a831f2593b0338118762aaa80ffb2efcb93ee7c635512bf98d86f18a2
+smoke_stacks=265 smoke_samples=298
+cpu_window=t+120s/360s wall_window=t+520s/360s
+k6_start_epoch=1790259536
+k6_end_epoch=1790260583

@@ -1,0 +1,103 @@
+rodada,minuto,msg
+f3-quarkus-jvm-r1,-3.1,"2026-09-22 11:49:48 UTC::@:[1350]:LOG:  checkpoint complete: wrote 3598 buffers (15.2%); 0 WAL file(s) added, 0 removed, 1 recycled; write=269.848 s, sync=0.005 s, total=269.867 s; sync files=27, longest=0.004 s, average=0.001 s; distance=56673 kB, estimate=89126 kB; lsn=1/39359B10, redo lsn=1/36ACF"
+f3-quarkus-jvm-r1,-2.6,2026-09-22 11:50:18 UTC::@:[1350]:LOG:  checkpoint starting: time
+f3-quarkus-jvm-r1,1.9,"2026-09-22 11:54:48 UTC::@:[1350]:LOG:  checkpoint complete: wrote 1042 buffers (4.4%); 0 WAL file(s) added, 0 removed, 1 recycled; write=269.933 s, sync=0.007 s, total=269.952 s; sync files=39, longest=0.004 s, average=0.001 s; distance=43571 kB, estimate=84571 kB; lsn=1/3C6B72A8, redo lsn=1/3955C5"
+f3-quarkus-jvm-r1,2.4,2026-09-22 11:55:18 UTC::@:[1350]:LOG:  checkpoint starting: time
+f3-quarkus-jvm-r1,2.95,"2026-09-22 11:55:51 UTC::@:[1350]:LOG:  checkpoint complete: wrote 340 buffers (1.4%); 0 WAL file(s) added, 0 removed, 1 recycled; write=32.892 s, sync=0.004 s, total=32.908 s; sync files=32, longest=0.003 s, average=0.001 s; distance=51546 kB, estimate=81268 kB; lsn=1/40171B48, redo lsn=1/3C7B2DE8"
+f3-quarkus-jvm-r1,7.4,2026-09-22 12:00:18 UTC::@:[1350]:LOG:  checkpoint starting: time
+f3-quarkus-jvm-r1,9.47,"2026-09-22 12:02:22 UTC::@:[1350]:LOG:  checkpoint complete: wrote 1297 buffers (5.5%); 0 WAL file(s) added, 0 removed, 1 recycled; write=124.464 s, sync=0.008 s, total=124.496 s; sync files=29, longest=0.005 s, average=0.001 s; distance=77959 kB, estimate=80937 kB; lsn=1/453DF600, redo lsn=1/413D4C"
+f3-quarkus-jvm-r1,12.4,2026-09-22 12:05:18 UTC::@:[1350]:LOG:  checkpoint starting: time
+f3-quarkus-jvm-r1,16.9,"2026-09-22 12:09:48 UTC::@:[1350]:LOG:  checkpoint complete: wrote 2960 buffers (12.5%); 0 WAL file(s) added, 0 removed, 1 recycled; write=269.199 s, sync=0.013 s, total=269.270 s; sync files=29, longest=0.005 s, average=0.001 s; distance=92262 kB, estimate=92262 kB; lsn=1/4AE14B98, redo lsn=1/46DEE"
+f3-quarkus-jvm-r1,17.4,2026-09-22 12:10:18 UTC::@:[1350]:LOG:  checkpoint starting: time
+f3-quarkus-jvm-r1,21.9,"2026-09-22 12:14:48 UTC::@:[1350]:LOG:  checkpoint complete: wrote 3833 buffers (16.2%); 0 WAL file(s) added, 0 removed, 1 recycled; write=269.807 s, sync=0.006 s, total=269.841 s; sync files=27, longest=0.004 s, average=0.001 s; distance=69909 kB, estimate=90027 kB; lsn=1/4D549040, redo lsn=1/4B233"
+f3-quarkus-jvm-r1,22.4,2026-09-22 12:15:18 UTC::@:[1350]:LOG:  checkpoint starting: time
+f3-quarkus-jvm-r2,-4.56,2026-09-22 12:15:18 UTC::@:[1350]:LOG:  checkpoint starting: time
+f3-quarkus-jvm-r2,-0.06,"2026-09-22 12:19:48 UTC::@:[1350]:LOG:  checkpoint complete: wrote 2396 buffers (10.1%); 0 WAL file(s) added, 0 removed, 1 recycled; write=269.891 s, sync=0.004 s, total=269.916 s; sync files=31, longest=0.003 s, average=0.001 s; distance=36828 kB, estimate=84707 kB; lsn=1/50F765F0, redo lsn=1/4D62A"
+f3-quarkus-jvm-r2,0.44,2026-09-22 12:20:18 UTC::@:[1350]:LOG:  checkpoint starting: time
+f3-quarkus-jvm-r2,0.65,"2026-09-22 12:20:31 UTC::@:[1350]:LOG:  checkpoint complete: wrote 130 buffers (0.5%); 0 WAL file(s) added, 0 removed, 1 recycled; write=12.863 s, sync=0.003 s, total=12.874 s; sync files=31, longest=0.003 s, average=0.001 s; distance=59725 kB, estimate=82209 kB; lsn=1/54084130, redo lsn=1/5107E468"
+f3-quarkus-jvm-r2,5.44,2026-09-22 12:25:18 UTC::@:[1350]:LOG:  checkpoint starting: time
+f3-quarkus-jvm-r2,6.42,"2026-09-22 12:26:17 UTC::@:[1350]:LOG:  checkpoint complete: wrote 625 buffers (2.6%); 0 WAL file(s) added, 0 removed, 1 recycled; write=59.476 s, sync=0.006 s, total=59.494 s; sync files=29, longest=0.006 s, average=0.001 s; distance=58917 kB, estimate=79879 kB; lsn=1/585D12F0, redo lsn=1/54A079A0"
+f3-quarkus-jvm-r2,10.44,2026-09-22 12:30:18 UTC::@:[1350]:LOG:  checkpoint starting: time
+f3-quarkus-jvm-r2,14.57,"2026-09-22 12:34:26 UTC::@:[1350]:LOG:  checkpoint complete: wrote 2537 buffers (10.7%); 0 WAL file(s) added, 0 removed, 1 recycled; write=247.812 s, sync=0.007 s, total=247.836 s; sync files=29, longest=0.005 s, average=0.001 s; distance=97511 kB, estimate=97511 kB; lsn=1/5E8F2080, redo lsn=1/5A941"
+f3-quarkus-jvm-r2,15.44,2026-09-22 12:35:18 UTC::@:[1350]:LOG:  checkpoint starting: time
+f3-quarkus-jvm-r2,19.94,"2026-09-22 12:39:48 UTC::@:[1350]:LOG:  checkpoint complete: wrote 3532 buffers (14.9%); 0 WAL file(s) added, 0 removed, 1 recycled; write=269.343 s, sync=0.006 s, total=269.378 s; sync files=28, longest=0.005 s, average=0.001 s; distance=73059 kB, estimate=95066 kB; lsn=1/6230AD08, redo lsn=1/5F09A"
+f3-quarkus-jvm-r2,20.44,2026-09-22 12:40:18 UTC::@:[1350]:LOG:  checkpoint starting: time
+f3-quarkus-jvm-r2,24.94,"2026-09-22 12:44:48 UTC::@:[1350]:LOG:  checkpoint complete: wrote 3376 buffers (14.3%); 0 WAL file(s) added, 0 removed, 1 recycled; write=269.955 s, sync=0.004 s, total=269.986 s; sync files=27, longest=0.004 s, average=0.001 s; distance=52605 kB, estimate=90820 kB; lsn=1/65438F08, redo lsn=1/623F9"
+f3-quarkus-jvm-r2,25.44,2026-09-22 12:45:18 UTC::@:[1350]:LOG:  checkpoint starting: time
+f3-quarkus-jvm-r3,-2.04,"2026-09-22 12:44:48 UTC::@:[1350]:LOG:  checkpoint complete: wrote 3376 buffers (14.3%); 0 WAL file(s) added, 0 removed, 1 recycled; write=269.955 s, sync=0.004 s, total=269.986 s; sync files=27, longest=0.004 s, average=0.001 s; distance=52605 kB, estimate=90820 kB; lsn=1/65438F08, redo lsn=1/623F9"
+f3-quarkus-jvm-r3,-1.54,2026-09-22 12:45:18 UTC::@:[1350]:LOG:  checkpoint starting: time
+f3-quarkus-jvm-r3,2.96,"2026-09-22 12:49:48 UTC::@:[1350]:LOG:  checkpoint complete: wrote 373 buffers (1.6%); 0 WAL file(s) added, 0 removed, 1 recycled; write=269.847 s, sync=0.002 s, total=269.859 s; sync files=30, longest=0.002 s, average=0.001 s; distance=49414 kB, estimate=86679 kB; lsn=1/685E8898, redo lsn=1/6543B48"
+f3-quarkus-jvm-r3,3.46,2026-09-22 12:50:18 UTC::@:[1350]:LOG:  checkpoint starting: time
+f3-quarkus-jvm-r3,4.18,"2026-09-22 12:51:01 UTC::@:[1350]:LOG:  checkpoint complete: wrote 446 buffers (1.9%); 0 WAL file(s) added, 0 removed, 1 recycled; write=42.967 s, sync=0.004 s, total=42.979 s; sync files=33, longest=0.004 s, average=0.001 s; distance=51852 kB, estimate=83196 kB; lsn=1/6C1B3198, redo lsn=1/686DE6D8"
+f3-quarkus-jvm-r3,8.46,2026-09-22 12:55:18 UTC::@:[1350]:LOG:  checkpoint starting: time
+f3-quarkus-jvm-r3,11.19,"2026-09-22 12:58:02 UTC::@:[1350]:LOG:  checkpoint complete: wrote 1711 buffers (7.2%); 0 WAL file(s) added, 0 removed, 1 recycled; write=164.490 s, sync=0.008 s, total=164.511 s; sync files=29, longest=0.005 s, average=0.001 s; distance=86446 kB, estimate=86446 kB; lsn=1/71A65A10, redo lsn=1/6DB4A2"
+f3-quarkus-jvm-r3,13.46,2026-09-22 13:00:18 UTC::@:[1350]:LOG:  checkpoint starting: time
+f3-quarkus-jvm-r3,17.96,"2026-09-22 13:04:48 UTC::@:[1350]:LOG:  checkpoint complete: wrote 3201 buffers (13.5%); 0 WAL file(s) added, 0 removed, 1 recycled; write=269.192 s, sync=0.005 s, total=269.236 s; sync files=30, longest=0.004 s, average=0.001 s; distance=85223 kB, estimate=86324 kB; lsn=1/76E3E8D0, redo lsn=1/72E84"
+f3-quarkus-jvm-r3,18.46,2026-09-22 13:05:18 UTC::@:[1350]:LOG:  checkpoint starting: time
+f3-quarkus-jvm-r3,22.96,"2026-09-22 13:09:48 UTC::@:[1350]:LOG:  checkpoint complete: wrote 3836 buffers (16.2%); 0 WAL file(s) added, 0 removed, 1 recycled; write=269.899 s, sync=0.004 s, total=269.917 s; sync files=29, longest=0.004 s, average=0.001 s; distance=67675 kB, estimate=84459 kB; lsn=1/79167020, redo lsn=1/7709A"
+f3-quarkus-jvm-r3,23.46,2026-09-22 13:10:18 UTC::@:[1350]:LOG:  checkpoint starting: time
+f3-springboot-r1,-1.68,2026-09-22 09:35:15 UTC::@:[1350]:LOG:  checkpoint starting: time
+f3-springboot-r1,-1.68,"2026-09-22 09:35:15 UTC::@:[1350]:LOG:  checkpoint complete: wrote 3 buffers (0.0%); 0 WAL file(s) added, 0 removed, 1 recycled; write=0.328 s, sync=0.002 s, total=0.343 s; sync files=3, longest=0.002 s, average=0.001 s; distance=60630 kB, estimate=68889 kB; lsn=0/D0000028, redo lsn=0/CC0008B8"
+f3-springboot-r1,3.34,2026-09-22 09:40:16 UTC::@:[1350]:LOG:  checkpoint starting: time
+f3-springboot-r1,4.02,"2026-09-22 09:40:57 UTC::@:[1350]:LOG:  checkpoint complete: wrote 449 buffers (1.9%); 0 WAL file(s) added, 0 removed, 1 recycled; write=41.647 s, sync=0.004 s, total=41.660 s; sync files=34, longest=0.002 s, average=0.001 s; distance=72675 kB, estimate=72675 kB; lsn=0/D4222AC8, redo lsn=0/D06F9708"
+f3-springboot-r1,8.34,2026-09-22 09:45:16 UTC::@:[1350]:LOG:  checkpoint starting: time
+f3-springboot-r1,11.09,"2026-09-22 09:48:01 UTC::@:[1350]:LOG:  checkpoint complete: wrote 1722 buffers (7.3%); 0 WAL file(s) added, 0 removed, 1 recycled; write=164.388 s, sync=0.008 s, total=164.432 s; sync files=29, longest=0.004 s, average=0.001 s; distance=87438 kB, estimate=87438 kB; lsn=0/D9CBC358, redo lsn=0/D5C5D2"
+f3-springboot-r1,13.34,2026-09-22 09:50:16 UTC::@:[1350]:LOG:  checkpoint starting: time
+f3-springboot-r1,17.84,"2026-09-22 09:54:46 UTC::@:[1350]:LOG:  checkpoint complete: wrote 3198 buffers (13.5%); 0 WAL file(s) added, 0 removed, 1 recycled; write=269.695 s, sync=0.025 s, total=269.991 s; sync files=30, longest=0.013 s, average=0.001 s; distance=87468 kB, estimate=87468 kB; lsn=0/DF075E58, redo lsn=0/DB1C8"
+f3-springboot-r1,18.34,2026-09-22 09:55:16 UTC::@:[1350]:LOG:  checkpoint starting: time
+f3-springboot-r1,22.84,"2026-09-22 09:59:46 UTC::@:[1350]:LOG:  checkpoint complete: wrote 3994 buffers (16.9%); 0 WAL file(s) added, 0 removed, 1 recycled; write=269.523 s, sync=0.004 s, total=269.557 s; sync files=29, longest=0.003 s, average=0.001 s; distance=67050 kB, estimate=85427 kB; lsn=0/E132E030, redo lsn=0/DF342"
+f3-springboot-r1,23.34,2026-09-22 10:00:16 UTC::@:[1350]:LOG:  checkpoint starting: time
+f3-springboot-r2,-4.34,"2026-09-22 09:59:46 UTC::@:[1350]:LOG:  checkpoint complete: wrote 3994 buffers (16.9%); 0 WAL file(s) added, 0 removed, 1 recycled; write=269.523 s, sync=0.004 s, total=269.557 s; sync files=29, longest=0.003 s, average=0.001 s; distance=67050 kB, estimate=85427 kB; lsn=0/E132E030, redo lsn=0/DF342"
+f3-springboot-r2,-3.84,2026-09-22 10:00:16 UTC::@:[1350]:LOG:  checkpoint starting: time
+f3-springboot-r2,0.53,"2026-09-22 10:04:38 UTC::@:[1350]:LOG:  checkpoint complete: wrote 1684 buffers (7.1%); 0 WAL file(s) added, 0 removed, 1 recycled; write=262.815 s, sync=0.005 s, total=262.830 s; sync files=39, longest=0.004 s, average=0.001 s; distance=33655 kB, estimate=80249 kB; lsn=0/E4E39568, redo lsn=0/E1420D"
+f3-springboot-r2,1.18,2026-09-22 10:05:17 UTC::@:[1350]:LOG:  checkpoint starting: time
+f3-springboot-r2,1.53,"2026-09-22 10:05:38 UTC::@:[1350]:LOG:  checkpoint complete: wrote 222 buffers (0.9%); 0 WAL file(s) added, 0 removed, 1 recycled; write=21.140 s, sync=0.003 s, total=21.150 s; sync files=32, longest=0.002 s, average=0.001 s; distance=60807 kB, estimate=78305 kB; lsn=0/E8100048, redo lsn=0/E4F829F0"
+f3-springboot-r2,6.18,2026-09-22 10:10:17 UTC::@:[1350]:LOG:  checkpoint starting: time
+f3-springboot-r2,7.46,"2026-09-22 10:11:34 UTC::@:[1350]:LOG:  checkpoint complete: wrote 823 buffers (3.5%); 0 WAL file(s) added, 0 removed, 1 recycled; write=77.090 s, sync=0.007 s, total=77.127 s; sync files=29, longest=0.005 s, average=0.001 s; distance=62977 kB, estimate=76772 kB; lsn=0/ECC7C740, redo lsn=0/E8D02E98"
+f3-springboot-r2,11.18,2026-09-22 10:15:17 UTC::@:[1350]:LOG:  checkpoint starting: time
+f3-springboot-r2,15.68,"2026-09-22 10:19:47 UTC::@:[1350]:LOG:  checkpoint complete: wrote 2803 buffers (11.8%); 0 WAL file(s) added, 0 removed, 1 recycled; write=269.571 s, sync=0.035 s, total=269.810 s; sync files=29, longest=0.016 s, average=0.002 s; distance=100720 kB, estimate=100720 kB; lsn=0/F2FAD128, redo lsn=0/EEF"
+f3-springboot-r2,16.18,2026-09-22 10:20:17 UTC::@:[1350]:LOG:  checkpoint starting: time
+f3-springboot-r2,20.68,"2026-09-22 10:24:47 UTC::@:[1350]:LOG:  checkpoint complete: wrote 3664 buffers (15.5%); 0 WAL file(s) added, 0 removed, 1 recycled; write=269.412 s, sync=0.005 s, total=269.524 s; sync files=28, longest=0.003 s, average=0.001 s; distance=70701 kB, estimate=97718 kB; lsn=0/F5EC6F50, redo lsn=0/F346A"
+f3-springboot-r2,21.18,2026-09-22 10:25:17 UTC::@:[1350]:LOG:  checkpoint starting: time
+f3-springboot-r2,25.68,"2026-09-22 10:29:47 UTC::@:[1350]:LOG:  checkpoint complete: wrote 3450 buffers (14.6%); 0 WAL file(s) added, 0 removed, 1 recycled; write=269.890 s, sync=0.003 s, total=269.904 s; sync files=26, longest=0.002 s, average=0.001 s; distance=45056 kB, estimate=92452 kB; lsn=0/F91308A8, redo lsn=0/F606A"
+f3-springboot-r3,-1.55,"2026-09-22 10:29:47 UTC::@:[1350]:LOG:  checkpoint complete: wrote 3450 buffers (14.6%); 0 WAL file(s) added, 0 removed, 1 recycled; write=269.890 s, sync=0.003 s, total=269.904 s; sync files=26, longest=0.002 s, average=0.001 s; distance=45056 kB, estimate=92452 kB; lsn=0/F91308A8, redo lsn=0/F606A"
+f3-springboot-r3,-1.05,2026-09-22 10:30:17 UTC::@:[1350]:LOG:  checkpoint starting: time
+f3-springboot-r3,-0.99,"2026-09-22 10:30:21 UTC::@:[1350]:LOG:  checkpoint complete: wrote 44 buffers (0.2%); 0 WAL file(s) added, 0 removed, 1 recycled; write=4.255 s, sync=0.002 s, total=4.270 s; sync files=24, longest=0.002 s, average=0.001 s; distance=49961 kB, estimate=88203 kB; lsn=0/FC000028, redo lsn=0/F9134CA0"
+f3-springboot-r3,3.95,2026-09-22 10:35:17 UTC::@:[1350]:LOG:  checkpoint starting: time
+f3-springboot-r3,4.73,"2026-09-22 10:36:04 UTC::@:[1350]:LOG:  checkpoint complete: wrote 501 buffers (2.1%); 0 WAL file(s) added, 0 removed, 1 recycled; write=47.270 s, sync=0.004 s, total=47.283 s; sync files=30, longest=0.004 s, average=0.001 s; distance=56283 kB, estimate=85011 kB; lsn=1/27A580, redo lsn=0/FC82BB00"
+f3-springboot-r3,8.95,2026-09-22 10:40:17 UTC::@:[1350]:LOG:  checkpoint starting: time
+f3-springboot-r3,12.15,"2026-09-22 10:43:29 UTC::@:[1350]:LOG:  checkpoint complete: wrote 1995 buffers (8.4%); 0 WAL file(s) added, 0 removed, 1 recycled; write=191.810 s, sync=0.006 s, total=191.874 s; sync files=29, longest=0.004 s, average=0.001 s; distance=90966 kB, estimate=90966 kB; lsn=1/62359C8, redo lsn=1/21013A8"
+f3-springboot-r3,13.96,2026-09-22 10:45:18 UTC::@:[1350]:LOG:  checkpoint starting: time
+f3-springboot-r3,18.46,"2026-09-22 10:49:48 UTC::@:[1350]:LOG:  checkpoint complete: wrote 3324 buffers (14.0%); 0 WAL file(s) added, 0 removed, 1 recycled; write=269.989 s, sync=0.016 s, total=270.126 s; sync files=29, longest=0.008 s, average=0.001 s; distance=83968 kB, estimate=90266 kB; lsn=1/ADA9770, redo lsn=1/73016F"
+f3-springboot-r3,18.96,2026-09-22 10:50:18 UTC::@:[1350]:LOG:  checkpoint starting: time
+f3-springboot-r3,23.46,"2026-09-22 10:54:48 UTC::@:[1350]:LOG:  checkpoint complete: wrote 3841 buffers (16.2%); 0 WAL file(s) added, 0 removed, 1 recycled; write=269.828 s, sync=0.003 s, total=269.844 s; sync files=26, longest=0.003 s, average=0.001 s; distance=61559 kB, estimate=87395 kB; lsn=1/D3EB3A8, redo lsn=1/AF1F6D"
+f3-springboot-r3,23.96,2026-09-22 10:55:18 UTC::@:[1350]:LOG:  checkpoint starting: time
+f3-springboot-r4,-3.76,"2026-09-22 10:54:48 UTC::@:[1350]:LOG:  checkpoint complete: wrote 3841 buffers (16.2%); 0 WAL file(s) added, 0 removed, 1 recycled; write=269.828 s, sync=0.003 s, total=269.844 s; sync files=26, longest=0.003 s, average=0.001 s; distance=61559 kB, estimate=87395 kB; lsn=1/D3EB3A8, redo lsn=1/AF1F6D"
+f3-springboot-r4,-3.26,2026-09-22 10:55:18 UTC::@:[1350]:LOG:  checkpoint starting: time
+f3-springboot-r4,1.24,"2026-09-22 10:59:48 UTC::@:[1350]:LOG:  checkpoint complete: wrote 1420 buffers (6.0%); 0 WAL file(s) added, 0 removed, 1 recycled; write=269.920 s, sync=0.001 s, total=269.933 s; sync files=40, longest=0.001 s, average=0.001 s; distance=39374 kB, estimate=82593 kB; lsn=1/10B7E9F0, redo lsn=1/D59319"
+f3-springboot-r4,1.74,2026-09-22 11:00:18 UTC::@:[1350]:LOG:  checkpoint starting: time
+f3-springboot-r4,2.21,"2026-09-22 11:00:46 UTC::@:[1350]:LOG:  checkpoint complete: wrote 301 buffers (1.3%); 0 WAL file(s) added, 0 removed, 1 recycled; write=28.547 s, sync=0.002 s, total=28.558 s; sync files=35, longest=0.001 s, average=0.001 s; distance=56269 kB, estimate=79961 kB; lsn=1/14169D08, redo lsn=1/10C866C8"
+f3-springboot-r4,6.74,2026-09-22 11:05:18 UTC::@:[1350]:LOG:  checkpoint starting: time
+f3-springboot-r4,8.32,"2026-09-22 11:06:53 UTC::@:[1350]:LOG:  checkpoint complete: wrote 1000 buffers (4.2%); 0 WAL file(s) added, 0 removed, 1 recycled; write=94.186 s, sync=0.010 s, total=94.212 s; sync files=29, longest=0.004 s, average=0.001 s; distance=69320 kB, estimate=78897 kB; lsn=1/19097BF8, redo lsn=1/150387D0"
+f3-springboot-r4,11.74,2026-09-22 11:10:18 UTC::@:[1350]:LOG:  checkpoint starting: time
+f3-springboot-r4,16.24,"2026-09-22 11:14:48 UTC::@:[1350]:LOG:  checkpoint complete: wrote 2940 buffers (12.4%); 0 WAL file(s) added, 0 removed, 1 recycled; write=269.799 s, sync=0.006 s, total=269.843 s; sync files=29, longest=0.004 s, average=0.001 s; distance=98798 kB, estimate=98798 kB; lsn=1/1F0981A0, redo lsn=1/1B0B4"
+f3-springboot-r4,16.74,2026-09-22 11:15:18 UTC::@:[1350]:LOG:  checkpoint starting: time
+f3-springboot-r4,21.24,"2026-09-22 11:19:48 UTC::@:[1350]:LOG:  checkpoint complete: wrote 3645 buffers (15.4%); 0 WAL file(s) added, 0 removed, 1 recycled; write=269.922 s, sync=0.006 s, total=269.953 s; sync files=28, longest=0.005 s, average=0.001 s; distance=70204 kB, estimate=95939 kB; lsn=1/21B33D88, redo lsn=1/1F543"
+f3-springboot-r4,21.74,2026-09-22 11:20:18 UTC::@:[1350]:LOG:  checkpoint starting: time
+f3-springboot-r5,-1.0,"2026-09-22 11:24:48 UTC::@:[1350]:LOG:  checkpoint complete: wrote 2918 buffers (12.3%); 0 WAL file(s) added, 0 removed, 1 recycled; write=269.844 s, sync=0.004 s, total=269.861 s; sync files=35, longest=0.003 s, average=0.001 s; distance=39797 kB, estimate=90324 kB; lsn=1/251CECA8, redo lsn=1/21C20"
+f3-springboot-r5,-0.5,2026-09-22 11:25:18 UTC::@:[1350]:LOG:  checkpoint starting: time
+f3-springboot-r5,-0.44,"2026-09-22 11:25:22 UTC::@:[1350]:LOG:  checkpoint complete: wrote 39 buffers (0.2%); 0 WAL file(s) added, 0 removed, 1 recycled; write=3.898 s, sync=0.004 s, total=3.976 s; sync files=21, longest=0.004 s, average=0.001 s; distance=54970 kB, estimate=86789 kB; lsn=1/28000028, redo lsn=1/251CF588"
+f3-springboot-r5,4.5,2026-09-22 11:30:18 UTC::@:[1350]:LOG:  checkpoint starting: time
+f3-springboot-r5,5.36,"2026-09-22 11:31:10 UTC::@:[1350]:LOG:  checkpoint complete: wrote 566 buffers (2.4%); 0 WAL file(s) added, 0 removed, 1 recycled; write=52.679 s, sync=0.004 s, total=52.691 s; sync files=29, longest=0.004 s, average=0.001 s; distance=56710 kB, estimate=83781 kB; lsn=1/2C2FD1C0, redo lsn=1/28930EB8"
+f3-springboot-r5,9.5,2026-09-22 11:35:18 UTC::@:[1350]:LOG:  checkpoint starting: time
+f3-springboot-r5,13.1,"2026-09-22 11:38:54 UTC::@:[1350]:LOG:  checkpoint complete: wrote 2219 buffers (9.4%); 0 WAL file(s) added, 0 removed, 1 recycled; write=215.467 s, sync=0.017 s, total=215.533 s; sync files=29, longest=0.010 s, average=0.001 s; distance=94120 kB, estimate=94120 kB; lsn=1/32675320, redo lsn=1/2E51B2"
+f3-springboot-r5,14.5,2026-09-22 11:40:18 UTC::@:[1350]:LOG:  checkpoint starting: time
+f3-springboot-r5,16.98,"2026-09-22 11:42:47 UTC::@:[22960]:LOG:  automatic analyze of table ""orderdb.public.orders""
+	I/O timings: read: 0.000 ms, write: 0.000 ms
+	avg read rate: 0.000 MB/s, avg write rate: 0.001 MB/s
+	buffer usage: 1680 hits, 0 misses, 1 dirtied
+	system usage: CPU: user: 0.48 s, system: 0.06 s, elapsed: 10"
+f3-springboot-r5,19.0,"2026-09-22 11:44:48 UTC::@:[1350]:LOG:  checkpoint complete: wrote 3390 buffers (14.3%); 0 WAL file(s) added, 0 removed, 1 recycled; write=269.413 s, sync=0.008 s, total=269.471 s; sync files=29, longest=0.004 s, average=0.001 s; distance=80239 kB, estimate=92732 kB; lsn=1/369DF888, redo lsn=1/33377"
+f3-springboot-r5,19.5,2026-09-22 11:45:18 UTC::@:[1350]:LOG:  checkpoint starting: time
+f3-springboot-r5,24.0,"2026-09-22 11:49:48 UTC::@:[1350]:LOG:  checkpoint complete: wrote 3598 buffers (15.2%); 0 WAL file(s) added, 0 removed, 1 recycled; write=269.848 s, sync=0.005 s, total=269.867 s; sync files=27, longest=0.004 s, average=0.001 s; distance=56673 kB, estimate=89126 kB; lsn=1/39359B10, redo lsn=1/36ACF"
+f3-springboot-r5,24.5,2026-09-22 11:50:18 UTC::@:[1350]:LOG:  checkpoint starting: time

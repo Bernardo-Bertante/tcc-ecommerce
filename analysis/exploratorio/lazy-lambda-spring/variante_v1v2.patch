@@ -1,0 +1,168 @@
+diff --git a/order-processor/springboot/src/main/java/com/tcc/orderprocessor/config/DynamoDbConfig.java b/order-processor/springboot/src/main/java/com/tcc/orderprocessor/config/DynamoDbConfig.java
+index 37d9a8c..8c6e246 100644
+--- a/order-processor/springboot/src/main/java/com/tcc/orderprocessor/config/DynamoDbConfig.java
++++ b/order-processor/springboot/src/main/java/com/tcc/orderprocessor/config/DynamoDbConfig.java
+@@ -9,6 +9,9 @@ import org.springframework.context.annotation.Bean;
+ import org.springframework.context.annotation.Configuration;
+ import org.springframework.util.StringUtils;
+ 
++import com.tcc.orderprocessor.exp.LazyProbe;
++import com.tcc.orderprocessor.exp.ProbeInterceptor;
++
+ import software.amazon.awssdk.auth.credentials.AwsBasicCredentials;
+ import software.amazon.awssdk.auth.credentials.DefaultCredentialsProvider;
+ import software.amazon.awssdk.auth.credentials.StaticCredentialsProvider;
+@@ -25,7 +28,9 @@ public class DynamoDbConfig {
+             @Value("${aws.region:us-east-1}") String awsRegion,
+             @Value("${dynamodb.endpoint:}") String dynamoDbEndpoint
+     ) {
++        LazyProbe.mark("client_build_in");
+         DynamoDbClientBuilder builder = DynamoDbClient.builder()
++                .overrideConfiguration(c -> c.addExecutionInterceptor(new ProbeInterceptor()))
+                 .region(Region.of(awsRegion))
+                 .credentialsProvider(DefaultCredentialsProvider.create());
+ 
+@@ -41,7 +46,9 @@ public class DynamoDbConfig {
+             }
+         }
+ 
+-        return builder.build();
++        DynamoDbClient client = builder.build();
++        LazyProbe.mark("client_build_out");
++        return client;
+     }
+ 
+     private boolean isLocalEndpoint(String endpoint) {
+diff --git a/order-processor/springboot/src/main/java/com/tcc/orderprocessor/function/LambdaRequestMapper.java b/order-processor/springboot/src/main/java/com/tcc/orderprocessor/function/LambdaRequestMapper.java
+index 035ee28..0b8481b 100644
+--- a/order-processor/springboot/src/main/java/com/tcc/orderprocessor/function/LambdaRequestMapper.java
++++ b/order-processor/springboot/src/main/java/com/tcc/orderprocessor/function/LambdaRequestMapper.java
+@@ -9,6 +9,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
+ import com.fasterxml.jackson.databind.JsonNode;
+ import com.fasterxml.jackson.databind.ObjectMapper;
+ import com.tcc.orderprocessor.domain.ProcessingRequest;
++import com.tcc.orderprocessor.exp.LazyProbe;
+ 
+ @Component
+ public class LambdaRequestMapper {
+@@ -16,6 +17,7 @@ public class LambdaRequestMapper {
+ 	private final ObjectMapper objectMapper;
+ 
+ 	public LambdaRequestMapper(ObjectMapper objectMapper) {
++		LazyProbe.mark("ctor_mapper");
+ 		this.objectMapper = objectMapper;
+ 	}
+ 
+diff --git a/order-processor/springboot/src/main/java/com/tcc/orderprocessor/function/SpringOrderProcessorFunction.java b/order-processor/springboot/src/main/java/com/tcc/orderprocessor/function/SpringOrderProcessorFunction.java
+index b9c2e8a..fe4e80c 100644
+--- a/order-processor/springboot/src/main/java/com/tcc/orderprocessor/function/SpringOrderProcessorFunction.java
++++ b/order-processor/springboot/src/main/java/com/tcc/orderprocessor/function/SpringOrderProcessorFunction.java
+@@ -6,7 +6,9 @@ import org.springframework.context.annotation.Bean;
+ import org.springframework.context.annotation.Configuration;
+ 
+ import com.fasterxml.jackson.databind.JsonNode;
++import com.tcc.orderprocessor.domain.ProcessingRequest;
+ import com.tcc.orderprocessor.domain.ProcessingResult;
++import com.tcc.orderprocessor.exp.LazyProbe;
+ import com.tcc.orderprocessor.service.OrderProcessingService;
+ 
+ @Configuration(proxyBeanMethods = false)
+@@ -14,7 +16,15 @@ public class SpringOrderProcessorFunction {
+ 
+ 	@Bean
+ 	Function<JsonNode, ProcessingResult> processOrder(OrderProcessingService service, LambdaRequestMapper requestMapper) {
+-		return event -> service.process(requestMapper.toProcessingRequest(event));
++		LazyProbe.mark("ctor_function");
++		return event -> {
++			LazyProbe.mark("h_in");
++			ProcessingRequest request = requestMapper.toProcessingRequest(event);
++			LazyProbe.mark("h_mapped");
++			ProcessingResult result = service.process(request);
++			LazyProbe.mark("h_out");
++			return result;
++		};
+ 	}
+ 
+ }
+\ No newline at end of file
+diff --git a/order-processor/springboot/src/main/java/com/tcc/orderprocessor/repository/DynamoDbProcessedOrderRepository.java b/order-processor/springboot/src/main/java/com/tcc/orderprocessor/repository/DynamoDbProcessedOrderRepository.java
+index 102cecc..a7d5037 100644
+--- a/order-processor/springboot/src/main/java/com/tcc/orderprocessor/repository/DynamoDbProcessedOrderRepository.java
++++ b/order-processor/springboot/src/main/java/com/tcc/orderprocessor/repository/DynamoDbProcessedOrderRepository.java
+@@ -11,6 +11,7 @@ import org.springframework.stereotype.Repository;
+ import com.tcc.orderprocessor.config.DynamoDbProperties;
+ import com.tcc.orderprocessor.domain.ProcessingRequest;
+ import com.tcc.orderprocessor.domain.ProcessingResult;
++import com.tcc.orderprocessor.exp.LazyProbe;
+ 
+ import software.amazon.awssdk.services.dynamodb.DynamoDbClient;
+ import software.amazon.awssdk.services.dynamodb.model.AttributeValue;
+@@ -23,6 +24,7 @@ public class DynamoDbProcessedOrderRepository implements ProcessedOrderRepositor
+ 	private final DynamoDbProperties properties;
+ 
+ 	public DynamoDbProcessedOrderRepository(DynamoDbClient dynamoDbClient, DynamoDbProperties properties) {
++		LazyProbe.mark("ctor_repo_orders");
+ 		this.dynamoDbClient = dynamoDbClient;
+ 		this.properties = properties;
+ 	}
+diff --git a/order-processor/springboot/src/main/java/com/tcc/orderprocessor/repository/DynamoDbStockReservationRepository.java b/order-processor/springboot/src/main/java/com/tcc/orderprocessor/repository/DynamoDbStockReservationRepository.java
+index f126f9a..0204452 100644
+--- a/order-processor/springboot/src/main/java/com/tcc/orderprocessor/repository/DynamoDbStockReservationRepository.java
++++ b/order-processor/springboot/src/main/java/com/tcc/orderprocessor/repository/DynamoDbStockReservationRepository.java
+@@ -10,6 +10,7 @@ import org.springframework.stereotype.Repository;
+ 
+ import com.tcc.orderprocessor.config.DynamoDbProperties;
+ import com.tcc.orderprocessor.domain.StockReservation;
++import com.tcc.orderprocessor.exp.LazyProbe;
+ 
+ import software.amazon.awssdk.services.dynamodb.DynamoDbClient;
+ import software.amazon.awssdk.services.dynamodb.model.AttributeValue;
+@@ -22,6 +23,7 @@ public class DynamoDbStockReservationRepository implements StockReservationRepos
+ 	private final DynamoDbProperties properties;
+ 
+ 	public DynamoDbStockReservationRepository(DynamoDbClient dynamoDbClient, DynamoDbProperties properties) {
++		LazyProbe.mark("ctor_repo_stock");
+ 		this.dynamoDbClient = dynamoDbClient;
+ 		this.properties = properties;
+ 	}
+diff --git a/order-processor/springboot/src/main/java/com/tcc/orderprocessor/service/OrderProcessingService.java b/order-processor/springboot/src/main/java/com/tcc/orderprocessor/service/OrderProcessingService.java
+index 427eb31..3e476b1 100644
+--- a/order-processor/springboot/src/main/java/com/tcc/orderprocessor/service/OrderProcessingService.java
++++ b/order-processor/springboot/src/main/java/com/tcc/orderprocessor/service/OrderProcessingService.java
+@@ -10,6 +10,7 @@ import com.tcc.orderprocessor.domain.ProcessingRequest;
+ import com.tcc.orderprocessor.domain.ProcessingResult;
+ import com.tcc.orderprocessor.domain.StockReservation;
+ import com.tcc.orderprocessor.exception.ProcessingException;
++import com.tcc.orderprocessor.exp.LazyProbe;
+ import com.tcc.orderprocessor.repository.ProcessedOrderRepository;
+ import com.tcc.orderprocessor.repository.StockReservationRepository;
+ 
+@@ -31,6 +32,7 @@ public class OrderProcessingService {
+ 			StockReservationRepository stockReservationRepository,
+ 			Clock clock
+ 	) {
++		LazyProbe.mark("ctor_service");
+ 		this.validator = validator;
+ 		this.calculator = calculator;
+ 		this.processedOrderRepository = processedOrderRepository;
+@@ -39,6 +41,7 @@ public class OrderProcessingService {
+ 	}
+ 
+ 	public ProcessingResult process(ProcessingRequest request) {
++		LazyProbe.mark("svc_in");
+ 		validator.validate(request);
+ 
+ 		LocalDateTime processedAt = LocalDateTime.now(clock);
+@@ -47,9 +50,12 @@ public class OrderProcessingService {
+ 				.map(item -> new StockReservation(request.orderId(), item.productId(), item.quantity(), processedAt))
+ 				.toList();
+ 
++		LazyProbe.mark("svc_calc_done");
+ 		try {
+ 			processedOrderRepository.save(request, result);
++			LazyProbe.mark("svc_order_put_done");
+ 			stockReservationRepository.saveAll(reservations);
++			LazyProbe.mark("svc_stock_puts_done");
+ 			return result;
+ 		} catch (SdkException exception) {
+ 			throw new ProcessingException("Failed to persist processing result", exception);

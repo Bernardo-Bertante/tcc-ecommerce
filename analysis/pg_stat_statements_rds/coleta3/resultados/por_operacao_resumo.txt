@@ -1,0 +1,30 @@
+
+exec ms (tempo de parede)       SB r1      SB r6   noval r3   noval r4      QJ r2      QJ r5
+get_summary                     87231      89664      62061      71603      52150      59350
+create_order                     9108      10353       8275       7399       7203       8076
+insert_status_history            5158       5406       3859       4476       3681       4162
+get_order                        2369       2109       1951       2083       2490       2004
+get_orders_by_customer           1279       1728       1296       1264       1394       1071
+update_status                    1994       1139       1069        832       1019       1050
+infra_pool_validacao             1192        981          0          0          0          0
+_TOTAL                         108347     111427      78524      87686      67940      75717
+
+blocos (shared hit)             SB r1      SB r6   noval r3   noval r4      QJ r2      QJ r5
+get_summary                   7545411    6766566    2671793    2211518   12019988   12070959
+create_order                   413982     413703     410696     411238     411123     412687
+insert_status_history          206141     205373     203061     202761     201606     201899
+get_order                      196428     192526     181869     182788     179480     178778
+get_orders_by_customer         194907     196890     192545     189987     189367     193656
+update_status                   78570      78306      78273      78155      78491      78295
+infra_pool_validacao                0          0          0          0          0          0
+_TOTAL                        8644045    7861962    3743777    3282425   13080339   13136558
+
+chamadas                        SB r1      SB r6   noval r3   noval r4      QJ r2      QJ r5
+get_summary                      4310       4320       4320       4320       4320       4320
+create_order                    41811      41832      41832      41832      41832      41832
+insert_status_history           19114      19128      19128      19128      19128      19128
+get_order                       54418      54480      54490      54490      54490      54490
+get_orders_by_customer          19440      19440      19440      19440      19440      19440
+update_status                    5177       5184       5184       5184       5184       5184
+infra_pool_validacao           144270     144384          0          0          0          0
+_TOTAL                         288620     288848     144446     144450     144398     144398

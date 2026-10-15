@@ -1,0 +1,9 @@
+todas as rodadas ok
+f1:springboot: ok (23:15:40Z)
+f1:quarkus-jvm: ok (23:43:53Z)
+f2:springboot: ok (00:34:13Z)
+f2:quarkus-jvm: ok (01:24:34Z)
+f2s:springboot: ok (01:43:00Z)
+f2s:quarkus-jvm: ok (02:01:08Z)
+f3:springboot: ok (02:31:55Z)
+f3:quarkus-jvm: ok (03:02:24Z)

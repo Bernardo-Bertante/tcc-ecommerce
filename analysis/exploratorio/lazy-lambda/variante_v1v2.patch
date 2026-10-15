@@ -1,0 +1,172 @@
+diff --git a/order-processor/quarkus/src/main/java/com/tcc/orderprocessor/config/DynamoDbConfig.java b/order-processor/quarkus/src/main/java/com/tcc/orderprocessor/config/DynamoDbConfig.java
+index d46bc5a..6fa44d4 100644
+--- a/order-processor/quarkus/src/main/java/com/tcc/orderprocessor/config/DynamoDbConfig.java
++++ b/order-processor/quarkus/src/main/java/com/tcc/orderprocessor/config/DynamoDbConfig.java
+@@ -10,6 +10,9 @@ import jakarta.inject.Singleton;
+ 
+ import org.eclipse.microprofile.config.inject.ConfigProperty;
+ 
++import com.tcc.orderprocessor.exp.LazyProbe;
++import com.tcc.orderprocessor.exp.ProbeInterceptor;
++
+ import software.amazon.awssdk.auth.credentials.AwsBasicCredentials;
+ import software.amazon.awssdk.auth.credentials.DefaultCredentialsProvider;
+ import software.amazon.awssdk.auth.credentials.StaticCredentialsProvider;
+@@ -27,7 +30,9 @@ public class DynamoDbConfig {
+             @ConfigProperty(name = "aws.region", defaultValue = "us-east-1") String awsRegion,
+             @ConfigProperty(name = "dynamodb.endpoint") Optional<String> dynamoDbEndpoint
+     ) {
++        LazyProbe.mark("client_build_in");
+         DynamoDbClientBuilder builder = DynamoDbClient.builder()
++                .overrideConfiguration(c -> c.addExecutionInterceptor(new ProbeInterceptor()))
+                 .httpClientBuilder(UrlConnectionHttpClient.builder())
+                 .region(Region.of(awsRegion))
+                 .credentialsProvider(DefaultCredentialsProvider.create());
+@@ -46,7 +51,9 @@ public class DynamoDbConfig {
+                     }
+                 });
+ 
+-        return builder.build();
++        DynamoDbClient client = builder.build();
++        LazyProbe.mark("client_build_out");
++        return client;
+     }
+ 
+     private boolean isLocalEndpoint(String endpoint) {
+diff --git a/order-processor/quarkus/src/main/java/com/tcc/orderprocessor/function/LambdaRequestMapper.java b/order-processor/quarkus/src/main/java/com/tcc/orderprocessor/function/LambdaRequestMapper.java
+index 64fb4ed..30441ce 100644
+--- a/order-processor/quarkus/src/main/java/com/tcc/orderprocessor/function/LambdaRequestMapper.java
++++ b/order-processor/quarkus/src/main/java/com/tcc/orderprocessor/function/LambdaRequestMapper.java
+@@ -10,6 +10,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
+ import com.fasterxml.jackson.databind.JsonNode;
+ import com.fasterxml.jackson.databind.ObjectMapper;
+ import com.tcc.orderprocessor.domain.ProcessingRequest;
++import com.tcc.orderprocessor.exp.LazyProbe;
+ 
+ @ApplicationScoped
+ public class LambdaRequestMapper {
+@@ -18,6 +19,7 @@ public class LambdaRequestMapper {
+ 
+ 	@Inject
+ 	public LambdaRequestMapper(ObjectMapper objectMapper) {
++		LazyProbe.mark("ctor_mapper");
+ 		this.objectMapper = objectMapper;
+ 	}
+ 
+diff --git a/order-processor/quarkus/src/main/java/com/tcc/orderprocessor/function/QuarkusOrderProcessorFunction.java b/order-processor/quarkus/src/main/java/com/tcc/orderprocessor/function/QuarkusOrderProcessorFunction.java
+index 3f92db4..58cb7b0 100644
+--- a/order-processor/quarkus/src/main/java/com/tcc/orderprocessor/function/QuarkusOrderProcessorFunction.java
++++ b/order-processor/quarkus/src/main/java/com/tcc/orderprocessor/function/QuarkusOrderProcessorFunction.java
+@@ -4,7 +4,9 @@ import jakarta.enterprise.context.ApplicationScoped;
+ import jakarta.inject.Inject;
+ 
+ import com.fasterxml.jackson.databind.JsonNode;
++import com.tcc.orderprocessor.domain.ProcessingRequest;
+ import com.tcc.orderprocessor.domain.ProcessingResult;
++import com.tcc.orderprocessor.exp.LazyProbe;
+ import com.tcc.orderprocessor.service.OrderProcessingService;
+ 
+ import io.quarkus.funqy.Funq;
+@@ -17,13 +19,19 @@ public class QuarkusOrderProcessorFunction {
+ 
+ 	@Inject
+ 	public QuarkusOrderProcessorFunction(OrderProcessingService service, LambdaRequestMapper requestMapper) {
++		LazyProbe.mark("ctor_function");
+ 		this.service = service;
+ 		this.requestMapper = requestMapper;
+ 	}
+ 
+ 	@Funq("processOrder")
+ 	public ProcessingResult processOrder(JsonNode event) {
+-		return service.process(requestMapper.toProcessingRequest(event));
++		LazyProbe.mark("h_in");
++		ProcessingRequest request = requestMapper.toProcessingRequest(event);
++		LazyProbe.mark("h_mapped");
++		ProcessingResult result = service.process(request);
++		LazyProbe.mark("h_out");
++		return result;
+ 	}
+ 
+ }
+\ No newline at end of file
+diff --git a/order-processor/quarkus/src/main/java/com/tcc/orderprocessor/repository/DynamoDbProcessedOrderRepository.java b/order-processor/quarkus/src/main/java/com/tcc/orderprocessor/repository/DynamoDbProcessedOrderRepository.java
+index bec2e48..689f4af 100644
+--- a/order-processor/quarkus/src/main/java/com/tcc/orderprocessor/repository/DynamoDbProcessedOrderRepository.java
++++ b/order-processor/quarkus/src/main/java/com/tcc/orderprocessor/repository/DynamoDbProcessedOrderRepository.java
+@@ -12,6 +12,7 @@ import jakarta.inject.Inject;
+ import com.tcc.orderprocessor.config.DynamoDbProperties;
+ import com.tcc.orderprocessor.domain.ProcessingRequest;
+ import com.tcc.orderprocessor.domain.ProcessingResult;
++import com.tcc.orderprocessor.exp.LazyProbe;
+ 
+ import software.amazon.awssdk.services.dynamodb.DynamoDbClient;
+ import software.amazon.awssdk.services.dynamodb.model.AttributeValue;
+@@ -25,6 +26,7 @@ public class DynamoDbProcessedOrderRepository implements ProcessedOrderRepositor
+ 
+ 	@Inject
+ 	public DynamoDbProcessedOrderRepository(DynamoDbClient dynamoDbClient, DynamoDbProperties properties) {
++		LazyProbe.mark("ctor_repo_orders");
+ 		this.dynamoDbClient = dynamoDbClient;
+ 		this.properties = properties;
+ 	}
+diff --git a/order-processor/quarkus/src/main/java/com/tcc/orderprocessor/repository/DynamoDbStockReservationRepository.java b/order-processor/quarkus/src/main/java/com/tcc/orderprocessor/repository/DynamoDbStockReservationRepository.java
+index f496dfd..040c48c 100644
+--- a/order-processor/quarkus/src/main/java/com/tcc/orderprocessor/repository/DynamoDbStockReservationRepository.java
++++ b/order-processor/quarkus/src/main/java/com/tcc/orderprocessor/repository/DynamoDbStockReservationRepository.java
+@@ -11,6 +11,7 @@ import jakarta.inject.Inject;
+ 
+ import com.tcc.orderprocessor.config.DynamoDbProperties;
+ import com.tcc.orderprocessor.domain.StockReservation;
++import com.tcc.orderprocessor.exp.LazyProbe;
+ 
+ import software.amazon.awssdk.services.dynamodb.DynamoDbClient;
+ import software.amazon.awssdk.services.dynamodb.model.AttributeValue;
+@@ -24,6 +25,7 @@ public class DynamoDbStockReservationRepository implements StockReservationRepos
+ 
+ 	@Inject
+ 	public DynamoDbStockReservationRepository(DynamoDbClient dynamoDbClient, DynamoDbProperties properties) {
++		LazyProbe.mark("ctor_repo_stock");
+ 		this.dynamoDbClient = dynamoDbClient;
+ 		this.properties = properties;
+ 	}
+diff --git a/order-processor/quarkus/src/main/java/com/tcc/orderprocessor/service/OrderProcessingService.java b/order-processor/quarkus/src/main/java/com/tcc/orderprocessor/service/OrderProcessingService.java
+index 1f6bfd4..055e0bf 100644
+--- a/order-processor/quarkus/src/main/java/com/tcc/orderprocessor/service/OrderProcessingService.java
++++ b/order-processor/quarkus/src/main/java/com/tcc/orderprocessor/service/OrderProcessingService.java
+@@ -11,6 +11,7 @@ import com.tcc.orderprocessor.domain.ProcessingRequest;
+ import com.tcc.orderprocessor.domain.ProcessingResult;
+ import com.tcc.orderprocessor.domain.StockReservation;
+ import com.tcc.orderprocessor.exception.ProcessingException;
++import com.tcc.orderprocessor.exp.LazyProbe;
+ import com.tcc.orderprocessor.repository.ProcessedOrderRepository;
+ import com.tcc.orderprocessor.repository.StockReservationRepository;
+ 
+@@ -33,6 +34,7 @@ public class OrderProcessingService {
+ 			StockReservationRepository stockReservationRepository,
+ 			Clock clock
+ 	) {
++		LazyProbe.mark("ctor_service");
+ 		this.validator = validator;
+ 		this.calculator = calculator;
+ 		this.processedOrderRepository = processedOrderRepository;
+@@ -41,6 +43,7 @@ public class OrderProcessingService {
+ 	}
+ 
+ 	public ProcessingResult process(ProcessingRequest request) {
++		LazyProbe.mark("svc_in");
+ 		validator.validate(request);
+ 
+ 		LocalDateTime processedAt = LocalDateTime.now(clock);
+@@ -49,9 +52,12 @@ public class OrderProcessingService {
+ 				.map(item -> new StockReservation(request.orderId(), item.productId(), item.quantity(), processedAt))
+ 				.toList();
+ 
++		LazyProbe.mark("svc_calc_done");
+ 		try {
+ 			processedOrderRepository.save(request, result);
++			LazyProbe.mark("svc_order_put_done");
+ 			stockReservationRepository.saveAll(reservations);
++			LazyProbe.mark("svc_stock_puts_done");
+ 			return result;
+ 		} catch (SdkException exception) {
+ 			throw new ProcessingException("Failed to persist processing result", exception);

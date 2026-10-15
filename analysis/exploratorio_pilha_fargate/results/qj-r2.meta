@@ -1,0 +1,8 @@
+ver=qj rate=48 ramp=60s hold=960s
+app_cpuset=0-7 k6_cpus=12-15 heap=-Xms512m -Xmx2g -XX:MaxMetaspaceSize=256m
+image=pilhaexp-qj:prof
+java_pid=1 cid=7300dfe9b0e622a5b9f8eb9ecaf4d64570e8c89135bdbd9be2718dd4e7ba57d8
+smoke_stacks=157 smoke_samples=165
+cpu_window=t+120s/360s wall_window=t+520s/360s
+k6_start_epoch=1789929243
+k6_end_epoch=1789930293

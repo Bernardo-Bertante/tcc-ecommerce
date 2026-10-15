@@ -1,0 +1,4 @@
+flyway_schema_history	1	1	2	0
+order_status_history	0	5688	0	10162
+orders	0	61896	0	44423
+order_items	0	17087	0	28232

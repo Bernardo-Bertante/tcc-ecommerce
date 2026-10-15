@@ -1,0 +1,6 @@
+stats	order_items	id	0.00021548878	-1	0
+stats	order_items	order_id	-0.006530097	-0.48705593	0
+stats	orders	status	0.45660633	3	0
+stats	orders	id	-0.0017917012	-1	0
+stats	orders	created_at	0.98210514	-0.9994957	0
+stats	orders	customer_id	-0.002783871	-0.22117001	0

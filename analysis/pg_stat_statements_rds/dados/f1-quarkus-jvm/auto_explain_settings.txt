@@ -1,0 +1,14 @@
+auto_explain.log_analyze=on
+auto_explain.log_buffers=on
+auto_explain.log_format=json
+auto_explain.log_level=log
+auto_explain.log_min_duration=0
+auto_explain.log_nested_statements=on
+auto_explain.log_parameter_max_length=-1
+auto_explain.log_settings=off
+auto_explain.log_timing=on
+auto_explain.log_triggers=off
+auto_explain.log_verbose=on
+auto_explain.log_wal=off
+auto_explain.sample_rate=0.02
+shared_preload_libraries=rdsutils,pg_tle,pg_stat_statements,auto_explain

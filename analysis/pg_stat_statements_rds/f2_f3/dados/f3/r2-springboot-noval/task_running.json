@@ -1,0 +1,99 @@
+{
+    "tasks": [
+        {
+            "attachments": [
+                {
+                    "id": "3733c43a-0917-47ed-bd03-23990cbf6efa",
+                    "type": "ElasticNetworkInterface",
+                    "status": "ATTACHED",
+                    "details": [
+                        {
+                            "name": "subnetId",
+                            "value": "subnet-09021fc5dd37000fc"
+                        },
+                        {
+                            "name": "networkInterfaceId",
+                            "value": "eni-06f727484a28690fb"
+                        },
+                        {
+                            "name": "macAddress",
+                            "value": "0a:ff:d8:4f:23:29"
+                        },
+                        {
+                            "name": "privateDnsName",
+                            "value": "ip-172-31-20-183.ec2.internal"
+                        },
+                        {
+                            "name": "privateIPv4Address",
+                            "value": "172.31.20.183"
+                        }
+                    ]
+                }
+            ],
+            "attributes": [
+                {
+                    "name": "ecs.cpu-architecture",
+                    "value": "x86_64"
+                }
+            ],
+            "availabilityZone": "us-east-1c",
+            "clusterArn": "arn:aws:ecs:us-east-1:776648109551:cluster/pgss-f2f3-cluster",
+            "connectivity": "CONNECTED",
+            "connectivityAt": "2026-09-24T02:14:59.326000+00:00",
+            "containers": [
+                {
+                    "containerArn": "arn:aws:ecs:us-east-1:776648109551:container/pgss-f2f3-cluster/b8dcdceadf5b4ac88dba372e37a4791f/96a4715f-b8f5-483a-a4a2-77c4ea12650b",
+                    "taskArn": "arn:aws:ecs:us-east-1:776648109551:task/pgss-f2f3-cluster/b8dcdceadf5b4ac88dba372e37a4791f",
+                    "name": "order-service-springboot",
+                    "image": "776648109551.dkr.ecr.us-east-1.amazonaws.com/order-service-springboot@sha256:276548dd7956b91122dbb641d50030c0d81d59a3e1bef54357ba965b77f77c68",
+                    "imageDigest": "sha256:276548dd7956b91122dbb641d50030c0d81d59a3e1bef54357ba965b77f77c68",
+                    "runtimeId": "b8dcdceadf5b4ac88dba372e37a4791f-2553337845",
+                    "lastStatus": "RUNNING",
+                    "networkBindings": [],
+                    "networkInterfaces": [
+                        {
+                            "attachmentId": "3733c43a-0917-47ed-bd03-23990cbf6efa",
+                            "privateIpv4Address": "172.31.20.183"
+                        }
+                    ],
+                    "healthStatus": "UNKNOWN",
+                    "cpu": "0"
+                }
+            ],
+            "cpu": "1024",
+            "createdAt": "2026-09-24T02:14:55.386000+00:00",
+            "desiredStatus": "RUNNING",
+            "enableExecuteCommand": false,
+            "group": "family:pgss-f2f3-springboot-noval",
+            "healthStatus": "UNKNOWN",
+            "lastStatus": "RUNNING",
+            "launchType": "FARGATE",
+            "memory": "2048",
+            "overrides": {
+                "containerOverrides": [
+                    {
+                        "name": "order-service-springboot"
+                    }
+                ],
+                "inferenceAcceleratorOverrides": []
+            },
+            "platformVersion": "1.4.0",
+            "platformFamily": "Linux",
+            "pullStartedAt": "2026-09-24T02:15:05.452000+00:00",
+            "pullStoppedAt": "2026-09-24T02:15:16.528000+00:00",
+            "startedAt": "2026-09-24T02:15:18.361000+00:00",
+            "startedBy": "pgss-f2f3",
+            "tags": [],
+            "taskArn": "arn:aws:ecs:us-east-1:776648109551:task/pgss-f2f3-cluster/b8dcdceadf5b4ac88dba372e37a4791f",
+            "taskDefinitionArn": "arn:aws:ecs:us-east-1:776648109551:task-definition/pgss-f2f3-springboot-noval:1",
+            "version": 3,
+            "ephemeralStorage": {
+                "sizeInGiB": 20
+            },
+            "fargateEphemeralStorage": {
+                "sizeInGiB": 20
+            }
+        }
+    ],
+    "failures": []
+}

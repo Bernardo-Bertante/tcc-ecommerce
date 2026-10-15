@@ -1,0 +1,1 @@
+{"posicao":6,"runtime":"springboot","carga_inicio_utc":"2026-09-23T13:01:25Z","carga_fim_utc":"2026-09-23T13:17:35Z","epoch_inicio":1790168485,"epoch_fim":1790169455,"task_arn":"arn:aws:ecs:us-east-1:776648109551:task/repro-f3-cluster/61675120e21b415b8ad32a8caa6d9056","task_ip":"54.234.64.132","db_host":"repro-f3-postgres.ck1kkwa6og4s.us-east-1.rds.amazonaws.com"}

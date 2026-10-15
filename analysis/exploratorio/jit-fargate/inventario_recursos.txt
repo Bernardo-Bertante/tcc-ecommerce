@@ -1,0 +1,22 @@
+# Recursos criados para o teste exploratório JIT/Fargate (29/09/2026). Tag Projeto=tcc-exp-jit.
+# NÃO apagar/alterar: order-service-postgres, order-service-pg16-custom, order-service-cluster,
+# order-service-* task defs, ecsTaskExecutionRole, SGs order-service-fargate-sg / k6-runner-sg / default, ECR.
+s3 bucket         exp-jit-results-776648109551 (public access block)
+secret            exp-jit-db  arn:aws:secretsmanager:us-east-1:776648109551:secret:exp-jit-db-5krZUL
+sg                exp-jit-runner-sg sg-029bf408245127073 (sem ingress)
+sg                exp-jit-task-sg   sg-00ae93985944f5560 (8081 <- IP público do runner)
+sg                exp-jit-rds-sg    sg-09d3822ceab0f34a6 (5432 <- runner-sg, task-sg)
+rds param group   exp-jit-pg16 (max_connections=100, work_mem=16384)
+rds               exp-jit-postgres (db.t3.micro, PG 16.4, 20 GB gp3, us-east-1d, privado, sem backup)
+iam role          exp-jit-task-exec-role (AmazonECSTaskExecutionRolePolicy + GetSecretValue exp-jit-db)
+iam role          exp-jit-task-role (ssmmessages:* para ECS Exec)
+iam role+profile  exp-jit-runner-role / exp-jit-runner-profile (AmazonSSMManagedInstanceCore + inline exp-jit-runner)
+cw log groups     exp-jit-springboot, exp-jit-quarkus-jvm (retenção 14 d)
+ecs cluster       exp-jit-cluster (containerInsights disabled)
+ecs taskdef       exp-jit-springboot:1, exp-jit-quarkus-jvm:1
+ec2               i-0715ae353c59099e2 exp-jit-runner (m7i-flex.large, us-east-1c, 30 GB gp3 DeleteOnTermination, shutdown=terminate)
+iam role          exp-jit-scheduler-role (rds:DeleteDBInstance exp-jit-postgres; ec2:TerminateInstances i-0715ae353c59099e2)
+scheduler         grupo exp-jit; schedules exp-jit-failsafe-rds e exp-jit-failsafe-ec2, at(2026-09-30T08:19:00) UTC, auto-DELETE após disparo
+systemd (runner)  exp-jit-driver.service; exp-jit-failsafe.timer (2026-09-30 07:49:03 UTC -> teardown.sh full failsafe)
+sg rule           exp-jit-task-sg: 8081 <- 100.61.149.250/32 (runner)
+# TODOS os recursos acima foram apagados em 30/09/2026 (ver NOTAS_execucao.md, seção final). Backup em s3://tcc-ecommerce-backup-776648109551-us-east-1/exploratorio/jit-fargate/

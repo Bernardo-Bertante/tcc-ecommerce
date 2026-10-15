@@ -1,0 +1,8 @@
+2026-09-30T23:10:46+00:00 RUN_ID=full-20260930T224007Z FINAL reason=DONE raw_logs_in_s3=yes
+residual lambda: 
+residual dynamodb: 
+  table exp-lazy-sb-processed-orders status: 
+  table exp-lazy-sb-stock-reservations status: 
+residual role exp-lazy-sb-role: 
+residual log groups: 
+kept for Phase C: exp-lazy-sb-driver-role + instance profile, bucket exp-lazy-sb-results-776648109551; this EC2 terminates on shutdown

@@ -1,0 +1,5 @@
+{"Version":"2012-10-17","Statement":[
+ {"Sid":"WriteExpLazyTables","Effect":"Allow","Action":["dynamodb:PutItem"],"Resource":["arn:aws:dynamodb:us-east-1:776648109551:table/exp-lazy-processed-orders","arn:aws:dynamodb:us-east-1:776648109551:table/exp-lazy-stock-reservations"]},
+ {"Sid":"PrepGetItem","Effect":"Allow","Action":["dynamodb:GetItem"],"Resource":["arn:aws:dynamodb:us-east-1:776648109551:table/exp-lazy-processed-orders"]},
+ {"Sid":"Logs","Effect":"Allow","Action":["logs:CreateLogStream","logs:PutLogEvents"],"Resource":["arn:aws:logs:us-east-1:776648109551:log-group:/aws/lambda/exp-lazy-*:*"]}
+]}

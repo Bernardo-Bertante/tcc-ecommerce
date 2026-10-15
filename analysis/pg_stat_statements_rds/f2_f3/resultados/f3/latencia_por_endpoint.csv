@@ -1,0 +1,16 @@
+fase,cond,operation,media,mediana,p90,p95,p99,n
+f3,springboot,create_order,750.471,20.117,3050.107,5355.872,8968.645,83255
+f3,springboot-noval,create_order,238.707,14.048,137.889,1608.901,5172.923,83520
+f3,quarkus-jvm,create_order,37.186,8.397,21.815,45.161,975.386,83520
+f3,springboot,get_order,389.128,14.035,1675.374,2810.13,4304.614,212313
+f3,springboot-noval,get_order,126.286,6.796,49.014,896.985,2927.528,212976
+f3,quarkus-jvm,get_order,50.425,5.233,10.512,20.658,1790.778,212976
+f3,springboot,get_orders_by_customer,389.418,8.0,1672.929,2823.861,4291.427,62416
+f3,springboot-noval,get_orders_by_customer,126.938,5.393,59.512,884.851,2905.964,62640
+f3,quarkus-jvm,get_orders_by_customer,49.49,3.621,7.007,18.983,1754.169,62640
+f3,springboot,get_summary,690.282,229.093,2494.36,3211.507,4302.573,8322
+f3,springboot-noval,get_summary,434.464,208.744,1166.696,2339.981,3569.354,8350
+f3,quarkus-jvm,get_summary,256.553,171.849,312.399,622.823,3023.264,8350
+f3,springboot,update_status,641.269,32.463,2438.708,4500.923,7908.109,49932
+f3,springboot-noval,update_status,171.709,13.565,85.814,1035.414,3683.4,50112
+f3,quarkus-jvm,update_status,67.246,8.814,36.366,55.79,2235.103,50112

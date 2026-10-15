@@ -1,0 +1,1 @@
+{"runtime":"quarkus-jvm","carga_inicio_utc":"2026-09-23T00:41:28Z","carga_fim_utc":"2026-09-23T00:57:35Z","epoch_inicio":1790124088,"epoch_fim":1790125055,"task_arn":"arn:aws:ecs:us-east-1:776648109551:task/repro-f3-cluster/69ff682947e64863a0d7cdd1e9e23d6a","task_ip":"34.224.69.181","db_host":"repro-f3-postgres.ck1kkwa6og4s.us-east-1.rds.amazonaws.com"}

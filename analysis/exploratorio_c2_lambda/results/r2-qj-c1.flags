@@ -1,0 +1,7 @@
+Picked up JAVA_TOOL_OPTIONS: -XX:ActiveProcessorCount=2
+      int ActiveProcessorCount                     = 2                                         {product} {environment}
+   size_t MaxHeapSize                              = 457179136                                 {product} {command line, ergonomic}
+     intx Tier4InvocationThreshold                 = 5000                                      {product} {default}
+     bool TieredCompilation                        = true                                   {pd product} {command line}
+     intx TieredStopAtLevel                        = 1                                         {product} {command line}
+     bool UseSerialGC                              = true                                      {product} {command line}

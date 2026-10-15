@@ -1,0 +1,48 @@
+##### forcado_index_scan_apos_CLUSTER
+Aggregate  (cost=795.68..795.69 rows=1 width=32) (actual time=4.462..4.462 rows=1 loops=1)
+  Buffers: shared hit=328
+  ->  Index Scan using idx_orders_created_at on orders  (cost=0.29..758.52 rows=14862 width=7) (actual time=0.012..2.336 rows=14862 loops=1)
+        Index Cond: ((created_at >= '2026-01-01 00:00:00+00'::timestamp with time zone) AND (created_at < '2027-01-01 00:00:00+00'::timestamp with time zone))
+        Buffers: shared hit=328
+Planning:
+  Buffers: shared hit=18
+Planning Time: 0.151 ms
+Execution Time: 4.491 ms
+Aggregate  (cost=795.68..795.69 rows=1 width=32) (actual time=4.389..4.389 rows=1 loops=1)
+  Buffers: shared hit=328
+  ->  Index Scan using idx_orders_created_at on orders  (cost=0.29..758.52 rows=14862 width=7) (actual time=0.011..2.253 rows=14862 loops=1)
+        Index Cond: ((created_at >= '2026-01-01 00:00:00+00'::timestamp with time zone) AND (created_at < '2027-01-01 00:00:00+00'::timestamp with time zone))
+        Buffers: shared hit=328
+Planning:
+  Buffers: shared hit=6
+Planning Time: 0.101 ms
+Execution Time: 4.412 ms
+##### plano_padrao_apos_CLUSTER
+HashAggregate  (cost=583.24..583.27 rows=3 width=16) (actual time=6.636..6.637 rows=3 loops=1)
+  Group Key: status
+  Batches: 1  Memory Usage: 24kB
+  Buffers: shared hit=286
+  ->  Seq Scan on orders  (cost=0.00..508.93 rows=14862 width=8) (actual time=0.007..3.110 rows=14862 loops=1)
+        Filter: ((created_at >= '2026-01-01 00:00:00+00'::timestamp with time zone) AND (created_at < '2027-01-01 00:00:00+00'::timestamp with time zone))
+        Buffers: shared hit=286
+Planning:
+  Buffers: shared hit=9
+Planning Time: 0.128 ms
+Execution Time: 6.671 ms
+Limit  (cost=750.11..750.14 rows=10 width=56) (actual time=8.487..8.490 rows=10 loops=1)
+  Buffers: shared hit=286
+  ->  Sort  (cost=750.11..759.62 rows=3803 width=56) (actual time=8.486..8.487 rows=10 loops=1)
+        Sort Key: (COALESCE(sum(final_amount), '0'::numeric)) DESC, (count(*)) DESC
+        Sort Method: top-N heapsort  Memory: 26kB
+        Buffers: shared hit=286
+        ->  HashAggregate  (cost=620.39..667.93 rows=3803 width=56) (actual time=6.505..7.860 rows=3803 loops=1)
+              Group Key: customer_id
+              Batches: 1  Memory Usage: 2257kB
+              Buffers: shared hit=286
+              ->  Seq Scan on orders  (cost=0.00..508.93 rows=14862 width=23) (actual time=0.007..2.949 rows=14862 loops=1)
+                    Filter: ((created_at >= '2026-01-01 00:00:00+00'::timestamp with time zone) AND (created_at < '2027-01-01 00:00:00+00'::timestamp with time zone))
+                    Buffers: shared hit=286
+Planning:
+  Buffers: shared hit=11
+Planning Time: 0.172 ms
+Execution Time: 8.554 ms

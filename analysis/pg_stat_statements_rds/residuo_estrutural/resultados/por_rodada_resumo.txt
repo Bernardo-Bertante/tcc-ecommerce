@@ -1,0 +1,31 @@
+rodada                 op                         calls exec ms/call  blk/call
+r1-springboot-noval    create_order               44586       0.1621       9.8
+r1-springboot-noval    get_order                  58066       0.0333       3.4
+r1-springboot-noval    get_orders_by_customer     20745       0.0687      10.2
+r1-springboot-noval    get_summary                 4600      17.5698    1339.8
+r1-springboot-noval    insert_status_history      20384       0.1723      10.7
+r1-springboot-noval    update_status               5522       0.1575      15.1
+r2-quarkus-jvm         create_order               44582       0.1254       9.8
+r2-quarkus-jvm         get_order                  58064       0.0308       3.4
+r2-quarkus-jvm         get_orders_by_customer     20745       0.0494       9.8
+r2-quarkus-jvm         get_summary                 4600      13.4885    2788.1
+r2-quarkus-jvm         insert_status_history      20382       0.1632      10.5
+r2-quarkus-jvm         update_status               5521       0.1365      15.2
+r3-quarkus-jvm         create_order               44615       0.1242       9.8
+r3-quarkus-jvm         get_order                  58106       0.0291       3.2
+r3-quarkus-jvm         get_orders_by_customer     20745       0.0496       9.9
+r3-quarkus-jvm         get_summary                 4610      11.3496    2852.0
+r3-quarkus-jvm         insert_status_history      20404       0.1467      10.5
+r3-quarkus-jvm         update_status               5532       0.1488      15.1
+r4-springboot-noval    create_order               44615       0.1454       9.8
+r4-springboot-noval    get_order                  58104       0.0288       3.3
+r4-springboot-noval    get_orders_by_customer     20745       0.0577      10.0
+r4-springboot-noval    get_summary                 4610      14.7466     579.6
+r4-springboot-noval    insert_status_history      20404       0.1476      10.6
+r4-springboot-noval    update_status               5532       0.1516      15.1
+
+== pg_stat_database (delta na janela) e k6
+r1-springboot-noval    active_time ms/s=  188.7 xact/s= 150.2 blks_hit/s=    7327  k6 med=7.18 p95=23.76 ms
+r2-quarkus-jvm         active_time ms/s=  141.8 xact/s= 136.4 blks_hit/s=   13807  k6 med=4.33 p95=12.57 ms
+r3-quarkus-jvm         active_time ms/s=  131.7 xact/s= 136.3 blks_hit/s=   14063  k6 med=4.40 p95=11.93 ms
+r4-springboot-noval    active_time ms/s=  166.0 xact/s= 150.4 blks_hit/s=    3907  k6 med=4.18 p95=13.08 ms

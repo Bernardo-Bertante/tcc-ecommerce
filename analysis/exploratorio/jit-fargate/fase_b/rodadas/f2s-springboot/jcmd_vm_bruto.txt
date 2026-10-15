@@ -1,0 +1,18 @@
+
+The Session Manager plugin was installed successfully. Use the AWS CLI to start a session.
+
+
+Starting session with SessionId: ecs-execute-command-uivq2agldyh5fpuig85ddy9f98
+1:
+VM Arguments:
+jvm_args: -XX:MaxRAMPercentage=80.0 -XX:+UseParallelGC -XX:MinHeapFreeRatio=10 -XX:MaxHeapFreeRatio=20 -XX:GCTimeRatio=4 -XX:AdaptiveSizePolicyWeight=90 -XX:+ExitOnOutOfMemoryError -XX:+PrintCompilation 
+java_command: /deployments/app.jar
+java_class_path (initial): /deployments/app.jar
+Launcher Type: SUN_STANDARD
+1:
+-XX:AdaptiveSizePolicyWeight=90 -XX:CICompilerCount=2 -XX:+ExitOnOutOfMemoryError -XX:GCTimeRatio=4 -XX:InitialHeapSize=33554432 -XX:MaxHeapFreeRatio=20 -XX:MaxHeapSize=1719664640 -XX:MaxNewSize=573046784 -XX:MaxRAM=2147483648 -XX:MaxRAMPercentage=80.000000 -XX:MinHeapDeltaBytes=524288 -XX:MinHeapFreeRatio=10 -XX:MinHeapSize=8388608 -XX:NewSize=11010048 -XX:NonNMethodCodeHeapSize=5826188 -XX:NonProfiledCodeHeapSize=122916026 -XX:OldSize=22544384 -XX:+PrintCompilation -XX:ProfiledCodeHeapSize=122916026 -XX:ReservedCodeCacheSize=251658240 -XX:+SegmentedCodeCache -XX:SoftMaxHeapSize=1719664640 -XX:-THPStackMitigation -XX:+UseCompressedOops -XX:+UseFastUnorderedTimeStamps -XX:+UseParallelGC 
+__FIM_FLAGS__
+
+
+Exiting session with sessionId: ecs-execute-command-uivq2agldyh5fpuig85ddy9f98.
+

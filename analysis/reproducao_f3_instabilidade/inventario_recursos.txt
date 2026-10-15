@@ -1,0 +1,17 @@
+# Recursos criados para a reprodução exploratória do F3 (21/09/2026). Todos com tag projeto=tcc-repro-f3.
+# Apagar TODOS no teardown. NÃO apagar: order-service-postgres (RDS oficial), order-service-cluster,
+# task defs order-service-*, SGs k6-runner-sg/order-service-fargate-sg/default, param group order-service-pg16-custom.
+iam role          repro-f3-rds-monitoring (policy AmazonRDSEnhancedMonitoringRole)
+iam role          repro-f3-flowlogs (inline logs)
+iam role+profile  repro-f3-runner (inline orchestrator)
+rds               repro-f3-postgres (db.t3.micro, PG 16.4, 20GB gp3, PI standard 7d, EM 1s, log export postgresql)
+cw log group      /aws/rds/instance/repro-f3-postgres/postgresql (criado pelo RDS)
+cw log group      RDSOSMetrics  (compartilhado pelo EM; apagar só os streams da instância repro — ou o grupo se não existir outro uso)
+ec2               i-095b252567fbdadfb repro-f3-runner (m7i-flex.large, us-east-1c) + volume 30GB (DeleteOnTermination)
+ecs cluster       repro-f3-cluster (containerInsights=enabled)
+ecs taskdef       repro-f3-springboot, repro-f3-quarkus-jvm (deregister + delete)
+cw log groups     /ecs/repro-f3-springboot, /ecs/repro-f3-quarkus-jvm, /repro-f3/vpc-flow-logs
+vpc flow log      fl-063474c25955b4dd3 (VPC vpc-03a62cf829e1ed006, agregação 60s)
+sg rule           sgr-0c9766427f9d3acb7  k6-runner-sg  22   <- <IP_RESIDENCIAL>/32
+sg rule           sgr-0005fee7f0c178113  default(RDS)  5432 <- <IP_RESIDENCIAL>/32
+sg rule           sgr-0eb09fbe6efc7d16f  default(RDS)  5432 <- sg-0d855dc48f43b64f0 (runner)

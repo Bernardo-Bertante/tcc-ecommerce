@@ -1,0 +1,43 @@
+== 1. Itens gravados nas tabelas exp-lazy (scan)
+-- exp-lazy-processed-orders: 4 itens
+      1 00000000-0000-0000-0000-000000000000
+      1 453d548f-38a2-4f99-8424-389a413394f6
+      1 7206c73b-935e-4325-ba40-9c79689f9d72
+      1 ecbb87dd-e798-4617-ac8a-f53eb261a84c
+-- exp-lazy-stock-reservations: 9 itens
+      3 00000000-0000-0000-0000-000000000000
+      3 453d548f-38a2-4f99-8424-389a413394f6
+      2 7206c73b-935e-4325-ba40-9c79689f9d72
+      1 ecbb87dd-e798-4617-ac8a-f53eb261a84c
+== 2. Pontos sdk_* por tabela (EXP_LAZY, V1/V2) e falhas
+('sdk_after_exec', 'exp-lazy-processed-orders') 18
+('sdk_after_exec', 'exp-lazy-stock-reservations') 33
+('sdk_after_tx', 'exp-lazy-processed-orders') 18
+('sdk_after_tx', 'exp-lazy-stock-reservations') 33
+('sdk_before_exec', 'exp-lazy-processed-orders') 18
+('sdk_before_exec', 'exp-lazy-stock-reservations') 33
+('sdk_before_tx', 'exp-lazy-processed-orders') 18
+('sdk_before_tx', 'exp-lazy-stock-reservations') 33
+{'reports_needed': 18, 'missing': [], 'invocations': 18, 'points': 420, 'access_denied_lines': 0, 'sdk_fail_points': 0, 'prep_fail_points': 0}
+== 3. 'AccessDenied' / exceções nos log groups exp-lazy (janela da fumaça)
+exp-lazy-qj-v0 AccessDenied: 0
+exp-lazy-qj-v0 Exception: 0
+exp-lazy-qj-v0 ERROR: 0
+exp-lazy-qj-v1 AccessDenied: 0
+exp-lazy-qj-v1 Exception: 0
+exp-lazy-qj-v1 ERROR: 0
+exp-lazy-qj-v2 AccessDenied: 0
+exp-lazy-qj-v2 Exception: 0
+exp-lazy-qj-v2 ERROR: 0
+run.log AccessDenied: 0
+== 4. Escritas nas tabelas OFICIAIS na janela (CloudWatch ConsumedWriteCapacityUnits, Sum/60s)
+processed_orders: 0.0	0.0	0.0	0.0	0.0	0.0	0.0	0.0	0.0 (vazio = nenhuma escrita)
+stock_reservations: 0.0	0.0	0.0	0.0	0.0	0.0	0.0	0.0	0.0 (vazio = nenhuma escrita)
+processing-results: 0.0	0.0	0.0	0.0	0.0	0.0	0.0	0.0	0.0 (vazio = nenhuma escrita)
+   controle positivo (tabelas exp-lazy, mesma consulta):
+exp-lazy-processed-orders: 0.0	0.0	9.0	1.0	8.0	0.0	0.0	0.0	0.0
+exp-lazy-stock-reservations: 0.0	0.0	15.0	1.0	22.0	0.0	0.0	0.0	0.0
+== 5. Funções oficiais inalteradas (vs oficiais_antes.json)
+order-processor-quarkus-jvm	qqGaGUSyL1rtWwcwOeIMNhFYfsW+HvIh8QiUTPe+WME=	5b5bbf3d-86e3-43e2-97d0-7c26d3515292	2026-06-21T14:14:23.771+0000
+order-processor-springboot	ODLvR0a13wdABKP6LvMTo/xvKxTpEUz3H79fgDg0bbg=	0ad8acff-acd8-4e2a-97cc-ca805dc59a18	2026-06-21T14:14:06.878+0000
+order-processor-quarkus-native	6HEm8yMGQP5wa73Xi1Cldqa/SsKl0V/LhI3YsuUXBOg=	3a683c27-8de9-4387-951f-658d1f6ff709	2026-06-21T14:26:06.000+0000

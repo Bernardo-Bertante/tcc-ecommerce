@@ -1,0 +1,21 @@
+modo=full teardown(driver) concluído em 2026-09-30T03:06:37Z
+RDS exp-jit-postgres: apagado
+cluster exp-jit-cluster: INACTIVE (tasks RUNNING após parada: 0)
+--- sobram (Fase C apaga com aprovação):
+log group: exp-jit-quarkus-jvm
+log group: exp-jit-springboot
+sg: exp-jit-runner-sg	sg-029bf408245127073
+sg: exp-jit-rds-sg	sg-09d3822ceab0f34a6
+sg: exp-jit-task-sg	sg-00ae93985944f5560
+iam: exp-jit-runner-role (+profile), exp-jit-task-exec-role, exp-jit-task-role, exp-jit-scheduler-role
+secret: exp-jit-db; bucket: exp-jit-results-776648109551; rds param group: exp-jit-pg16; schedule group: exp-jit
+EC2 exp-jit-runner: desligando agora (shutdown -> terminate)
+--- rodadas:
+f1:springboot: ok (23:15:40Z)
+f1:quarkus-jvm: ok (23:43:53Z)
+f2:springboot: ok (00:34:13Z)
+f2:quarkus-jvm: ok (01:24:34Z)
+f2s:springboot: ok (01:43:00Z)
+f2s:quarkus-jvm: ok (02:01:08Z)
+f3:springboot: ok (02:31:55Z)
+f3:quarkus-jvm: ok (03:02:24Z)

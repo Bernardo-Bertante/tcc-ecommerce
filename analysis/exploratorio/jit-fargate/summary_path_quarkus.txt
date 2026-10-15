@@ -1,0 +1,35 @@
+# Caminho do GET /orders/summary — Quarkus JVM (Quarkus REST + Vert.x reactive pg client)
+# Fonte: order-service/quarkus/src/main/java (lido em 29/09/2026) + generated-bytecode.jar da imagem oficial
+# order-service-quarkus-jvm:20260616-160138 (sha256:abec3583…). Quarkus 3.35.2, vertx-pg-client 4.5.26.
+#
+# Formato (TSV): padrao_metodo <TAB> camada <TAB> certeza <TAB> exclusivo_do_summary <TAB> nota
+#   (mesma legenda de summary_path_springboot.txt)
+com.tcc.orderservice.resource.OrderResource$quarkusrestinvoker$getSummary_*::invoke	handler	certo	sim	invoker gerado pelo Quarkus REST (sufixo 55c945ab… na imagem)
+com.tcc.orderservice.resource.OrderResource::getSummary	handler	certo	sim	@GET @Path("/summary")
+com.tcc.orderservice.service.OrderService_ClientProxy::getSummary	servico	certo	sim	proxy Arc
+com.tcc.orderservice.service.OrderService::getSummary	servico	certo	sim	sem @WithSession/@WithTransaction; monta 5 Unis + Uni.combine
+com.tcc.orderservice.service.OrderService::validateSummaryDateRange	servico	certo	sim
+com.tcc.orderservice.service.OrderService::fillMissingStatuses	servico	certo	sim	chamado 2-3x por requisição
+com.tcc.orderservice.service.OrderService::calculateAverageOrderValue	servico	certo	sim
+com.tcc.orderservice.service.OrderService::lambda$getSummary$*	servico	certo	sim	lambda do combine(...).asTuple().map
+com.tcc.orderservice.service.OrderService::normalizeMoney	servico	certo	nao	também usado no mapeamento de pedidos
+com.tcc.orderservice.repository.OrderSummaryRepository_ClientProxy::*	repositorio	certo	sim	proxy Arc dos 5 métodos
+com.tcc.orderservice.repository.OrderSummaryRepository::countOrdersByDateRange	repositorio	certo	sim	SQL 1/5
+com.tcc.orderservice.repository.OrderSummaryRepository::sumRevenueByDateRange	repositorio	certo	sim	SQL 2/5
+com.tcc.orderservice.repository.OrderSummaryRepository::countOrdersByStatusInDateRange	repositorio	certo	sim	SQL 3/5
+com.tcc.orderservice.repository.OrderSummaryRepository::findTopCustomersByRevenue	repositorio	certo	sim	SQL 4/5
+com.tcc.orderservice.repository.OrderSummaryRepository::findRevenueByDay	repositorio	certo	sim	SQL 5/5
+com.tcc.orderservice.repository.OrderSummaryRepository::validateAndBuildDateRange	repositorio	certo	sim	5x por requisição
+com.tcc.orderservice.repository.OrderSummaryRepository::extractTotalOrders	mapeamento	certo	sim
+com.tcc.orderservice.repository.OrderSummaryRepository::extractTotalRevenue	mapeamento	certo	sim
+com.tcc.orderservice.repository.OrderSummaryRepository::mapStatusCounts	mapeamento	certo	sim
+com.tcc.orderservice.repository.OrderSummaryRepository::mapTopCustomers	mapeamento	certo	sim
+com.tcc.orderservice.repository.OrderSummaryRepository::mapRevenueByDay	mapeamento	certo	sim
+com.tcc.orderservice.repository.OrderSummaryRepository$DateRange::*	repositorio	certo	sim	record
+com.tcc.orderservice.dto.response.OrderSummaryResponse::*	dto	certo	sim	construtor + getters (serialização Jackson)
+com.tcc.orderservice.dto.response.OrderSummaryResponse$TopCustomerSummary::*	dto	certo	sim	até 10 por resposta
+com.tcc.orderservice.dto.response.OrderSummaryResponse$RevenueByDaySummary::*	dto	certo	sim	1 por dia no intervalo
+org.jboss.resteasy.reactive.server.core.parameters.converters.LocalDateParamConverter::*	framework	incerto	sim	conversão dos @QueryParam LocalDate
+io.vertx.pgclient.impl.codec.DataTypeCodec::*DATE	driver	incerto	sim	decodifica revenue_day (DATE)
+io.vertx.pgclient.impl.codec.DataTypeCodec::*TIMESTAMPTZ	driver	incerto	incerto	parâmetros OffsetDateTime do summary; o Hibernate Reactive dos outros endpoints pode usar TIMESTAMP sem fuso
+io.vertx.pgclient.impl.codec.DataTypeCodec::*NUMERIC	driver	incerto	nao	decodifica NUMERIC (SUM); pedidos também leem NUMERIC

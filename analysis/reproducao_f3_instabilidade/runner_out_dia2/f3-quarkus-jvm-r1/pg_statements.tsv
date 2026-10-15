@@ -1,0 +1,429 @@
+1790077904.900119	-2993849726497852505	1	0.749	0.7494	0.749	1	0	0	select pg_stat_statements_reset()
+1790077964.970319	-5780513277186191163	12	30.604	2.5503	7.672	49	444	0	select extract($1 from now()), coalesce(wait_event_type,$2), coalesce(wait_event,$3), state, count(*) from pg_stat_activity where datname=$4 and pid<>pg_backend
+1790077964.970319	-691373169188082563	1	6.660	6.6603	6.660	1	4	0	select extract($1 from now()), queryid, calls, round(total_exec_time::numeric,$2), round(mean_exec_time::numeric,$3), round(max_exec_time::numeric,$4), rows, sh
+1790077964.970319	-2993849726497852505	1	0.749	0.7494	0.749	1	0	0	select pg_stat_statements_reset()
+1790078025.048799	7630948949814674387	1776	213.138	0.1200	11.555	1776	18110	0	INSERT INTO order_items ( id, order_id, product_id, product_name, quantity, unit_price, subtotal ) VALUES ( $1, $2, $3, $4, $5, $6, $7 )
+1790078025.048799	-2022223577996632247	888	169.784	0.1912	13.771	888	6723	0	INSERT INTO orders ( id, customer_id, status, total_amount, discount_amount, final_amount, shipping_zip_code, shipping_street, shipping_number, shipping_complem
+1790078025.048799	7979947803336394051	1176	163.041	0.1386	33.059	1176	12014	0	INSERT INTO order_status_history ( id, order_id, previous_status, new_status, changed_at ) VALUES ( $1, $2, $3, $4, $5 )
+1790078025.048799	-5780513277186191163	24	89.529	3.7304	11.541	98	888	0	select extract($1 from now()), coalesce(wait_event_type,$2), coalesce(wait_event,$3), state, count(*) from pg_stat_activity where datname=$4 and pid<>pg_backend
+1790078025.048799	-3284646482341371876	288	68.271	0.2371	7.916	288	3947	0	UPDATE orders SET status = $1, updated_at = $2 WHERE id = $3
+1790078025.048799	-3605915762478912579	1562	55.389	0.0355	2.635	1562	5935	0	SELECT * FROM orders WHERE id = $1
+1790078025.048799	3462493352196723169	48	53.083	1.1059	5.557	480	13185	0	SELECT customer_id, COALESCE(SUM(final_amount), $4) AS total_spent, COUNT(*) AS order_count FROM orders WHERE created_at >= $1 AND created_at < $2 GROUP BY cust
+1790078025.048799	5421744889861029128	48	44.446	0.9260	10.797	48	13313	0	SELECT CAST(created_at AT TIME ZONE $3 AS DATE) AS revenue_day, COALESCE(SUM(final_amount), $4) AS revenue, COUNT(*) AS order_count FROM orders WHERE created_at
+1790078025.048799	-7009363020422212105	1562	42.889	0.0275	1.311	3123	6560	0	SELECT * FROM order_items WHERE order_id = $1
+1790078025.048799	6462161585568798792	48	35.410	0.7377	9.320	48	13451	0	SELECT COALESCE(SUM(final_amount), $3) AS total_revenue FROM orders WHERE created_at >= $1 AND created_at < $2
+1790078025.048799	-6024556532519263774	48	34.222	0.7130	5.831	144	13311	0	SELECT status, COUNT(*) AS total_orders FROM orders WHERE created_at >= $1 AND created_at < $2 GROUP BY status
+1790078025.048799	-4146413891594693972	360	22.096	0.0614	0.771	2898	4129	0	SELECT * FROM order_items WHERE order_id = ANY($1)
+1790078025.048799	-186806509949655109	360	19.606	0.0545	1.339	1449	1756	0	SELECT * FROM orders WHERE customer_id = $1 ORDER BY created_at DESC LIMIT $2 OFFSET $3
+1790078025.048799	-691373169188082563	2	15.702	7.8508	9.041	4	8	0	select extract($1 from now()), queryid, calls, round(total_exec_time::numeric,$2), round(mean_exec_time::numeric,$3), round(max_exec_time::numeric,$4), rows, sh
+1790078025.048799	5885830086575078948	48	15.496	0.3228	6.194	48	4777	0	SELECT COUNT(*) AS total_orders FROM orders WHERE created_at >= $1 AND created_at < $2
+1790078025.048799	1388937252391146140	360	11.950	0.0332	0.095	360	1314	0	SELECT COUNT(*) AS total_orders FROM orders WHERE customer_id = $1
+1790078025.048799	-2993849726497852505	1	0.749	0.7494	0.749	1	0	0	select pg_stat_statements_reset()
+1790078085.149050	7630948949814674387	3631	371.018	0.1022	11.555	3631	36905	0	INSERT INTO order_items ( id, order_id, product_id, product_name, quantity, unit_price, subtotal ) VALUES ( $1, $2, $3, $4, $5, $6, $7 )
+1790078085.149050	-2022223577996632247	1816	332.172	0.1829	48.985	1816	14969	0	INSERT INTO orders ( id, customer_id, status, total_amount, discount_amount, final_amount, shipping_zip_code, shipping_street, shipping_number, shipping_complem
+1790078085.149050	7979947803336394051	2452	300.438	0.1225	33.059	2452	25429	0	INSERT INTO order_status_history ( id, order_id, previous_status, new_status, changed_at ) VALUES ( $1, $2, $3, $4, $5 )
+1790078085.149050	3462493352196723169	106	209.689	1.9782	11.146	1060	54354	0	SELECT customer_id, COALESCE(SUM(final_amount), $4) AS total_spent, COUNT(*) AS order_count FROM orders WHERE created_at >= $1 AND created_at < $2 GROUP BY cust
+1790078085.149050	-5780513277186191163	36	161.904	4.4973	22.366	147	1332	0	select extract($1 from now()), coalesce(wait_event_type,$2), coalesce(wait_event,$3), state, count(*) from pg_stat_activity where datname=$4 and pid<>pg_backend
+1790078085.149050	5421744889861029128	106	145.674	1.3743	10.797	106	54481	0	SELECT CAST(created_at AT TIME ZONE $3 AS DATE) AS revenue_day, COALESCE(SUM(final_amount), $4) AS revenue, COUNT(*) AS order_count FROM orders WHERE created_at
+1790078085.149050	-3284646482341371876	636	112.725	0.1772	7.916	636	9116	0	UPDATE orders SET status = $1, updated_at = $2 WHERE id = $3
+1790078085.149050	-3605915762478912579	3374	102.898	0.0305	2.635	3374	11371	0	SELECT * FROM orders WHERE id = $1
+1790078085.149050	-6024556532519263774	106	97.096	0.9160	5.831	318	54481	0	SELECT status, COUNT(*) AS total_orders FROM orders WHERE created_at >= $1 AND created_at < $2 GROUP BY status
+1790078085.149050	6462161585568798792	106	95.616	0.9020	9.320	106	54624	0	SELECT COALESCE(SUM(final_amount), $3) AS total_revenue FROM orders WHERE created_at >= $1 AND created_at < $2
+1790078085.149050	-7009363020422212105	3374	72.687	0.0215	1.311	6748	12020	0	SELECT * FROM order_items WHERE order_id = $1
+1790078085.149050	5885830086575078948	106	49.362	0.4657	6.194	106	16706	0	SELECT COUNT(*) AS total_orders FROM orders WHERE created_at >= $1 AND created_at < $2
+1790078085.149050	-186806509949655109	795	43.220	0.0544	5.193	3330	3869	0	SELECT * FROM orders WHERE customer_id = $1 ORDER BY created_at DESC LIMIT $2 OFFSET $3
+1790078085.149050	-4146413891594693972	795	40.377	0.0508	2.963	6660	9517	0	SELECT * FROM order_items WHERE order_id = ANY($1)
+1790078085.149050	1388937252391146140	795	23.627	0.0297	0.095	795	2665	0	SELECT COUNT(*) AS total_orders FROM orders WHERE customer_id = $1
+1790078085.149050	-691373169188082563	3	22.044	7.3480	9.041	21	12	0	select extract($1 from now()), queryid, calls, round(total_exec_time::numeric,$2), round(mean_exec_time::numeric,$3), round(max_exec_time::numeric,$4), rows, sh
+1790078085.149050	-2993849726497852505	1	0.749	0.7494	0.749	1	0	0	select pg_stat_statements_reset()
+1790078145.193301	-2022223577996632247	2744	608.138	0.2216	71.645	2744	23565	0	INSERT INTO orders ( id, customer_id, status, total_amount, discount_amount, final_amount, shipping_zip_code, shipping_street, shipping_number, shipping_complem
+1790078145.193301	7630948949814674387	5488	528.282	0.0963	11.555	5488	55675	0	INSERT INTO order_items ( id, order_id, product_id, product_name, quantity, unit_price, subtotal ) VALUES ( $1, $2, $3, $4, $5, $6, $7 )
+1790078145.193301	7979947803336394051	3728	439.649	0.1179	33.059	3728	38827	0	INSERT INTO order_status_history ( id, order_id, previous_status, new_status, changed_at ) VALUES ( $1, $2, $3, $4, $5 )
+1790078145.193301	3462493352196723169	164	424.848	2.5905	11.146	1640	119906	0	SELECT customer_id, COALESCE(SUM(final_amount), $4) AS total_spent, COUNT(*) AS order_count FROM orders WHERE created_at >= $1 AND created_at < $2 GROUP BY cust
+1790078145.193301	5421744889861029128	164	301.053	1.8357	10.797	164	120034	0	SELECT CAST(created_at AT TIME ZONE $3 AS DATE) AS revenue_day, COALESCE(SUM(final_amount), $4) AS revenue, COUNT(*) AS order_count FROM orders WHERE created_at
+1790078145.193301	-5780513277186191163	48	227.135	4.7320	22.366	197	1776	0	select extract($1 from now()), coalesce(wait_event_type,$2), coalesce(wait_event,$3), state, count(*) from pg_stat_activity where datname=$4 and pid<>pg_backend
+1790078145.193301	-6024556532519263774	164	204.554	1.2473	6.017	492	120033	0	SELECT status, COUNT(*) AS total_orders FROM orders WHERE created_at >= $1 AND created_at < $2 GROUP BY status
+1790078145.193301	6462161585568798792	164	202.601	1.2354	9.320	164	120180	0	SELECT COALESCE(SUM(final_amount), $3) AS total_revenue FROM orders WHERE created_at >= $1 AND created_at < $2
+1790078145.193301	-3284646482341371876	984	154.272	0.1568	7.916	984	14404	0	UPDATE orders SET status = $1, updated_at = $2 WHERE id = $3
+1790078145.193301	-3605915762478912579	5183	151.733	0.0293	2.635	5183	16798	0	SELECT * FROM orders WHERE id = $1
+1790078145.193301	-7009363020422212105	5183	103.116	0.0199	1.311	10367	17468	0	SELECT * FROM order_items WHERE order_id = $1
+1790078145.193301	5885830086575078948	164	96.954	0.5912	6.194	164	33422	0	SELECT COUNT(*) AS total_orders FROM orders WHERE created_at >= $1 AND created_at < $2
+1790078145.193301	-186806509949655109	1230	63.073	0.0513	5.193	5328	6095	0	SELECT * FROM orders WHERE customer_id = $1 ORDER BY created_at DESC LIMIT $2 OFFSET $3
+1790078145.193301	-4146413891594693972	1230	56.274	0.0458	2.963	10650	15247	0	SELECT * FROM order_items WHERE order_id = ANY($1)
+1790078145.193301	1388937252391146140	1230	35.907	0.0292	0.160	1230	4084	0	SELECT COUNT(*) AS total_orders FROM orders WHERE customer_id = $1
+1790078145.193301	-691373169188082563	4	30.724	7.6811	9.041	38	16	0	select extract($1 from now()), queryid, calls, round(total_exec_time::numeric,$2), round(mean_exec_time::numeric,$3), round(max_exec_time::numeric,$4), rows, sh
+1790078145.193301	-2993849726497852505	1	0.749	0.7494	0.749	1	0	0	select pg_stat_statements_reset()
+1790078205.226784	3462493352196723169	220	936.192	4.2554	242.979	2200	204274	0	SELECT customer_id, COALESCE(SUM(final_amount), $4) AS total_spent, COUNT(*) AS order_count FROM orders WHERE created_at >= $1 AND created_at < $2 GROUP BY cust
+1790078205.226784	-2022223577996632247	3672	722.350	0.1967	71.645	3672	32063	0	INSERT INTO orders ( id, customer_id, status, total_amount, discount_amount, final_amount, shipping_zip_code, shipping_street, shipping_number, shipping_complem
+1790078205.226784	7630948949814674387	7344	685.800	0.0934	12.224	7344	74472	0	INSERT INTO order_items ( id, order_id, product_id, product_name, quantity, unit_price, subtotal ) VALUES ( $1, $2, $3, $4, $5, $6, $7 )
+1790078205.226784	7979947803336394051	5004	572.755	0.1145	33.059	5004	52193	0	INSERT INTO order_status_history ( id, order_id, previous_status, new_status, changed_at ) VALUES ( $1, $2, $3, $4, $5 )
+1790078205.226784	5421744889861029128	220	529.813	2.4082	12.792	220	204397	0	SELECT CAST(created_at AT TIME ZONE $3 AS DATE) AS revenue_day, COALESCE(SUM(final_amount), $4) AS revenue, COUNT(*) AS order_count FROM orders WHERE created_at
+1790078205.226784	6462161585568798792	220	464.199	2.1100	103.388	220	204543	0	SELECT COALESCE(SUM(final_amount), $3) AS total_revenue FROM orders WHERE created_at >= $1 AND created_at < $2
+1790078205.226784	-6024556532519263774	220	381.494	1.7341	11.046	660	204391	0	SELECT status, COUNT(*) AS total_orders FROM orders WHERE created_at >= $1 AND created_at < $2 GROUP BY status
+1790078205.226784	-5780513277186191163	60	248.382	4.1397	22.366	246	2220	0	select extract($1 from now()), coalesce(wait_event_type,$2), coalesce(wait_event,$3), state, count(*) from pg_stat_activity where datname=$4 and pid<>pg_backend
+1790078205.226784	-3605915762478912579	6993	210.674	0.0301	10.645	6993	22228	0	SELECT * FROM orders WHERE id = $1
+1790078205.226784	-3284646482341371876	1332	197.357	0.1482	7.916	1332	19704	0	UPDATE orders SET status = $1, updated_at = $2 WHERE id = $3
+1790078205.226784	-7009363020422212105	6993	158.775	0.0227	24.278	13986	22919	0	SELECT * FROM order_items WHERE order_id = $1
+1790078205.226784	5885830086575078948	220	157.661	0.7166	7.360	220	51163	0	SELECT COUNT(*) AS total_orders FROM orders WHERE created_at >= $1 AND created_at < $2
+1790078205.226784	-186806509949655109	1665	84.772	0.0509	5.193	7439	8424	0	SELECT * FROM orders WHERE customer_id = $1 ORDER BY created_at DESC LIMIT $2 OFFSET $3
+1790078205.226784	-4146413891594693972	1665	71.851	0.0432	2.963	14864	21316	0	SELECT * FROM order_items WHERE order_id = ANY($1)
+1790078205.226784	1388937252391146140	1665	48.229	0.0290	0.160	1665	5484	0	SELECT COUNT(*) AS total_orders FROM orders WHERE customer_id = $1
+1790078205.226784	-691373169188082563	5	33.952	6.7905	9.041	55	20	0	select extract($1 from now()), queryid, calls, round(total_exec_time::numeric,$2), round(mean_exec_time::numeric,$3), round(max_exec_time::numeric,$4), rows, sh
+1790078205.226784	-2993849726497852505	1	0.749	0.7494	0.749	1	0	0	select pg_stat_statements_reset()
+1790078265.255049	3462493352196723169	278	1311.195	4.7165	242.979	2780	319887	0	SELECT customer_id, COALESCE(SUM(final_amount), $4) AS total_spent, COUNT(*) AS order_count FROM orders WHERE created_at >= $1 AND created_at < $2 GROUP BY cust
+1790078265.255049	7630948949814674387	9175	885.730	0.0965	22.758	9175	93090	0	INSERT INTO order_items ( id, order_id, product_id, product_name, quantity, unit_price, subtotal ) VALUES ( $1, $2, $3, $4, $5, $6, $7 )
+1790078265.255049	-2022223577996632247	4588	840.974	0.1833	71.645	4588	40690	0	INSERT INTO orders ( id, customer_id, status, total_amount, discount_amount, final_amount, shipping_zip_code, shipping_street, shipping_number, shipping_complem
+1790078265.255049	5421744889861029128	278	835.999	3.0072	12.792	278	320010	0	SELECT CAST(created_at AT TIME ZONE $3 AS DATE) AS revenue_day, COALESCE(SUM(final_amount), $4) AS revenue, COUNT(*) AS order_count FROM orders WHERE created_at
+1790078265.255049	7979947803336394051	6256	716.581	0.1145	33.059	6256	65336	0	INSERT INTO order_status_history ( id, order_id, previous_status, new_status, changed_at ) VALUES ( $1, $2, $3, $4, $5 )
+1790078265.255049	6462161585568798792	278	674.437	2.4260	103.388	278	320159	0	SELECT COALESCE(SUM(final_amount), $3) AS total_revenue FROM orders WHERE created_at >= $1 AND created_at < $2
+1790078265.255049	-6024556532519263774	278	614.805	2.2115	11.046	834	320003	0	SELECT status, COUNT(*) AS total_orders FROM orders WHERE created_at >= $1 AND created_at < $2 GROUP BY status
+1790078265.255049	-5780513277186191163	72	287.834	3.9977	22.366	297	2664	0	select extract($1 from now()), coalesce(wait_event_type,$2), coalesce(wait_event,$3), state, count(*) from pg_stat_activity where datname=$4 and pid<>pg_backend
+1790078265.255049	-3605915762478912579	8808	266.069	0.0302	10.645	8808	27673	0	SELECT * FROM orders WHERE id = $1
+1790078265.255049	-3284646482341371876	1668	250.063	0.1499	7.916	1668	24839	0	UPDATE orders SET status = $1, updated_at = $2 WHERE id = $3
+1790078265.255049	5885830086575078948	278	230.052	0.8275	7.360	278	81737	0	SELECT COUNT(*) AS total_orders FROM orders WHERE created_at >= $1 AND created_at < $2
+1790078265.255049	-7009363020422212105	8808	189.243	0.0215	24.278	17616	28386	0	SELECT * FROM order_items WHERE order_id = $1
+1790078265.255049	-186806509949655109	2094	106.708	0.0510	5.193	9624	10837	0	SELECT * FROM orders WHERE customer_id = $1 ORDER BY created_at DESC LIMIT $2 OFFSET $3
+1790078265.255049	-4146413891594693972	2094	88.625	0.0423	2.963	19234	27622	0	SELECT * FROM order_items WHERE order_id = ANY($1)
+1790078265.255049	1388937252391146140	2094	60.851	0.0291	0.204	2094	6920	0	SELECT COUNT(*) AS total_orders FROM orders WHERE customer_id = $1
+1790078265.255049	-691373169188082563	6	36.731	6.1218	9.041	72	24	0	select extract($1 from now()), queryid, calls, round(total_exec_time::numeric,$2), round(mean_exec_time::numeric,$3), round(max_exec_time::numeric,$4), rows, sh
+1790078265.255049	-2993849726497852505	1	0.749	0.7494	0.749	1	0	0	select pg_stat_statements_reset()
+1790078325.295494	3462493352196723169	378	2375.768	6.2851	242.979	3780	532223	0	SELECT customer_id, COALESCE(SUM(final_amount), $4) AS total_spent, COUNT(*) AS order_count FROM orders WHERE created_at >= $1 AND created_at < $2 GROUP BY cust
+1790078325.295494	5421744889861029128	378	1791.987	4.7407	28.822	378	529919	0	SELECT CAST(created_at AT TIME ZONE $3 AS DATE) AS revenue_day, COALESCE(SUM(final_amount), $4) AS revenue, COUNT(*) AS order_count FROM orders WHERE created_at
+1790078325.295494	-6024556532519263774	378	1331.698	3.5230	33.849	1134	539721	0	SELECT status, COUNT(*) AS total_orders FROM orders WHERE created_at >= $1 AND created_at < $2 GROUP BY status
+1790078325.295494	6462161585568798792	378	1268.106	3.3548	103.388	378	547798	0	SELECT COALESCE(SUM(final_amount), $3) AS total_revenue FROM orders WHERE created_at >= $1 AND created_at < $2
+1790078325.295494	7630948949814674387	12370	1161.028	0.0939	22.758	12370	125598	0	INSERT INTO order_items ( id, order_id, product_id, product_name, quantity, unit_price, subtotal ) VALUES ( $1, $2, $3, $4, $5, $6, $7 )
+1790078325.295494	-2022223577996632247	6185	1049.954	0.1698	71.645	6185	55583	0	INSERT INTO orders ( id, customer_id, status, total_amount, discount_amount, final_amount, shipping_zip_code, shipping_street, shipping_number, shipping_complem
+1790078325.295494	7979947803336394051	8453	960.991	0.1137	33.059	8453	88346	0	INSERT INTO order_status_history ( id, order_id, previous_status, new_status, changed_at ) VALUES ( $1, $2, $3, $4, $5 )
+1790078325.295494	5885830086575078948	378	476.442	1.2604	17.379	378	139893	0	SELECT COUNT(*) AS total_orders FROM orders WHERE created_at >= $1 AND created_at < $2
+1790078325.295494	-3605915762478912579	11958	343.872	0.0288	10.645	11958	37123	0	SELECT * FROM orders WHERE id = $1
+1790078325.295494	-3284646482341371876	2268	322.060	0.1420	7.916	2268	34016	0	UPDATE orders SET status = $1, updated_at = $2 WHERE id = $3
+1790078325.295494	-5780513277186191163	84	320.451	3.8149	22.366	346	3108	0	select extract($1 from now()), coalesce(wait_event_type,$2), coalesce(wait_event,$3), state, count(*) from pg_stat_activity where datname=$4 and pid<>pg_backend
+1790078325.295494	-7009363020422212105	11958	245.667	0.0205	24.278	23916	37878	0	SELECT * FROM order_items WHERE order_id = $1
+1790078325.295494	-186806509949655109	2835	150.634	0.0531	5.193	13710	15297	0	SELECT * FROM orders WHERE customer_id = $1 ORDER BY created_at DESC LIMIT $2 OFFSET $3
+1790078325.295494	-4146413891594693972	2835	119.441	0.0421	2.963	27392	39427	0	SELECT * FROM order_items WHERE order_id = ANY($1)
+1790078325.295494	1388937252391146140	2835	80.423	0.0284	0.204	2835	9558	0	SELECT COUNT(*) AS total_orders FROM orders WHERE customer_id = $1
+1790078325.295494	-691373169188082563	7	39.701	5.6716	9.041	89	28	0	select extract($1 from now()), queryid, calls, round(total_exec_time::numeric,$2), round(mean_exec_time::numeric,$3), round(max_exec_time::numeric,$4), rows, sh
+1790078325.295494	-2993849726497852505	1	0.749	0.7494	0.749	1	0	0	select pg_stat_statements_reset()
+1790078385.357039	3462493352196723169	592	7984.606	13.4875	242.979	5920	1248848	0	SELECT customer_id, COALESCE(SUM(final_amount), $4) AS total_spent, COUNT(*) AS order_count FROM orders WHERE created_at >= $1 AND created_at < $2 GROUP BY cust
+1790078385.357039	5421744889861029128	592	6778.629	11.4504	64.881	592	1248002	0	SELECT CAST(created_at AT TIME ZONE $3 AS DATE) AS revenue_day, COALESCE(SUM(final_amount), $4) AS revenue, COUNT(*) AS order_count FROM orders WHERE created_at
+1790078385.357039	-6024556532519263774	592	5209.540	8.7999	57.591	1776	1242681	0	SELECT status, COUNT(*) AS total_orders FROM orders WHERE created_at >= $1 AND created_at < $2 GROUP BY status
+1790078385.357039	6462161585568798792	592	4372.249	7.3856	103.388	592	1268163	0	SELECT COALESCE(SUM(final_amount), $3) AS total_revenue FROM orders WHERE created_at >= $1 AND created_at < $2
+1790078385.357039	7630948949814674387	19218	2308.645	0.1201	45.057	19218	195354	0	INSERT INTO order_items ( id, order_id, product_id, product_name, quantity, unit_price, subtotal ) VALUES ( $1, $2, $3, $4, $5, $6, $7 )
+1790078385.357039	-2022223577996632247	9609	1661.962	0.1730	71.645	9609	87943	0	INSERT INTO orders ( id, customer_id, status, total_amount, discount_amount, final_amount, shipping_zip_code, shipping_street, shipping_number, shipping_complem
+1790078385.357039	7979947803336394051	13161	1522.823	0.1157	33.059	13161	137895	0	INSERT INTO order_status_history ( id, order_id, previous_status, new_status, changed_at ) VALUES ( $1, $2, $3, $4, $5 )
+1790078385.357039	5885830086575078948	592	1466.421	2.4771	26.620	592	339539	0	SELECT COUNT(*) AS total_orders FROM orders WHERE created_at >= $1 AND created_at < $2
+1790078385.357039	-3284646482341371876	3552	574.292	0.1617	9.070	3552	53732	0	UPDATE orders SET status = $1, updated_at = $2 WHERE id = $3
+1790078385.357039	-3605915762478912579	18699	486.469	0.0260	10.645	18699	57346	0	SELECT * FROM orders WHERE id = $1
+1790078385.357039	-5780513277186191163	96	454.621	4.7356	28.384	401	3552	0	select extract($1 from now()), coalesce(wait_event_type,$2), coalesce(wait_event,$3), state, count(*) from pg_stat_activity where datname=$4 and pid<>pg_backend
+1790078385.357039	-7009363020422212105	18699	347.903	0.0186	24.278	37398	58191	0	SELECT * FROM order_items WHERE order_id = $1
+1790078385.357039	-186806509949655109	4440	244.553	0.0551	5.193	23791	26219	0	SELECT * FROM orders WHERE customer_id = $1 ORDER BY created_at DESC LIMIT $2 OFFSET $3
+1790078385.357039	-4146413891594693972	4440	184.993	0.0417	2.963	47521	68713	0	SELECT * FROM order_items WHERE order_id = ANY($1)
+1790078385.357039	1388937252391146140	4440	123.785	0.0279	5.442	4440	15597	0	SELECT COUNT(*) AS total_orders FROM orders WHERE customer_id = $1
+1790078385.357039	-691373169188082563	8	47.471	5.9339	9.041	106	32	0	select extract($1 from now()), queryid, calls, round(total_exec_time::numeric,$2), round(mean_exec_time::numeric,$3), round(max_exec_time::numeric,$4), rows, sh
+1790078385.357039	-2993849726497852505	1	0.749	0.7494	0.749	1	0	0	select pg_stat_statements_reset()
+1790078445.423927	3462493352196723169	880	29758.323	33.8163	983.079	8800	3287474	0	SELECT customer_id, COALESCE(SUM(final_amount), $4) AS total_spent, COUNT(*) AS order_count FROM orders WHERE created_at >= $1 AND created_at < $2 GROUP BY cust
+1790078445.423927	5421744889861029128	880	25895.268	29.4264	546.981	880	3253204	0	SELECT CAST(created_at AT TIME ZONE $3 AS DATE) AS revenue_day, COALESCE(SUM(final_amount), $4) AS revenue, COUNT(*) AS order_count FROM orders WHERE created_at
+1790078445.423927	7630948949814674387	28399	23801.294	0.8381	1117.842	28399	290384	0	INSERT INTO order_items ( id, order_id, product_id, product_name, quantity, unit_price, subtotal ) VALUES ( $1, $2, $3, $4, $5, $6, $7 )
+1790078445.423927	-6024556532519263774	880	17631.741	20.0361	254.888	2640	3253599	0	SELECT status, COUNT(*) AS total_orders FROM orders WHERE created_at >= $1 AND created_at < $2 GROUP BY status
+1790078445.423927	6462161585568798792	880	15571.080	17.6944	320.956	880	3228083	0	SELECT COALESCE(SUM(final_amount), $3) AS total_revenue FROM orders WHERE created_at >= $1 AND created_at < $2
+1790078445.423927	-2022223577996632247	14200	11244.502	0.7919	374.669	14200	132312	0	INSERT INTO orders ( id, customer_id, status, total_amount, discount_amount, final_amount, shipping_zip_code, shipping_street, shipping_number, shipping_complem
+1790078445.423927	7979947803336394051	19480	11081.609	0.5689	687.902	19480	205005	0	INSERT INTO order_status_history ( id, order_id, previous_status, new_status, changed_at ) VALUES ( $1, $2, $3, $4, $5 )
+1790078445.423927	5885830086575078948	880	6270.713	7.1258	123.375	880	994090	0	SELECT COUNT(*) AS total_orders FROM orders WHERE created_at >= $1 AND created_at < $2
+1790078445.423927	-3284646482341371876	5280	4275.208	0.8097	512.266	5280	80076	0	UPDATE orders SET status = $1, updated_at = $2 WHERE id = $3
+1790078445.423927	-5780513277186191163	107	1324.004	12.3739	754.089	456	3959	0	select extract($1 from now()), coalesce(wait_event_type,$2), coalesce(wait_event,$3), state, count(*) from pg_stat_activity where datname=$4 and pid<>pg_backend
+1790078445.423927	-3605915762478912579	27741	1301.629	0.0469	79.525	27741	84472	0	SELECT * FROM orders WHERE id = $1
+1790078445.423927	-4146413891594693972	6600	849.789	0.1288	453.008	79259	115142	0	SELECT * FROM order_items WHERE order_id = ANY($1)
+1790078445.423927	-186806509949655109	6600	827.182	0.1253	94.144	39699	43321	0	SELECT * FROM orders WHERE customer_id = $1 ORDER BY created_at DESC LIMIT $2 OFFSET $3
+1790078445.423927	-7009363020422212105	27741	602.287	0.0217	24.278	55482	85433	0	SELECT * FROM order_items WHERE order_id = $1
+1790078445.423927	1388937252391146140	6600	428.988	0.0650	53.765	6600	23887	0	SELECT COUNT(*) AS total_orders FROM orders WHERE customer_id = $1
+1790078445.423927	-691373169188082563	9	56.054	6.2282	9.041	123	36	0	select extract($1 from now()), queryid, calls, round(total_exec_time::numeric,$2), round(mean_exec_time::numeric,$3), round(max_exec_time::numeric,$4), rows, sh
+1790078445.423927	-2993849726497852505	1	0.749	0.7494	0.749	1	0	0	select pg_stat_statements_reset()
+1790078505.456113	3462493352196723169	1168	52345.712	44.8165	983.079	11680	6615905	0	SELECT customer_id, COALESCE(SUM(final_amount), $4) AS total_spent, COUNT(*) AS order_count FROM orders WHERE created_at >= $1 AND created_at < $2 GROUP BY cust
+1790078505.456113	5421744889861029128	1168	47629.153	40.7784	546.981	1168	6571698	0	SELECT CAST(created_at AT TIME ZONE $3 AS DATE) AS revenue_day, COALESCE(SUM(final_amount), $4) AS revenue, COUNT(*) AS order_count FROM orders WHERE created_at
+1790078505.456113	-6024556532519263774	1168	34613.987	29.6353	274.754	3504	6581967	0	SELECT status, COUNT(*) AS total_orders FROM orders WHERE created_at >= $1 AND created_at < $2 GROUP BY status
+1790078505.456113	6462161585568798792	1168	30578.386	26.1801	320.956	1168	6534191	0	SELECT COALESCE(SUM(final_amount), $3) AS total_revenue FROM orders WHERE created_at >= $1 AND created_at < $2
+1790078505.456113	7630948949814674387	37615	27454.857	0.7299	1117.842	37615	384630	0	INSERT INTO order_items ( id, order_id, product_id, product_name, quantity, unit_price, subtotal ) VALUES ( $1, $2, $3, $4, $5, $6, $7 )
+1790078505.456113	5885830086575078948	1168	14026.331	12.0088	181.370	1168	1971522	0	SELECT COUNT(*) AS total_orders FROM orders WHERE created_at >= $1 AND created_at < $2
+1790078505.456113	-2022223577996632247	18808	13159.573	0.6997	374.669	18808	175690	0	INSERT INTO orders ( id, customer_id, status, total_amount, discount_amount, final_amount, shipping_zip_code, shipping_street, shipping_number, shipping_complem
+1790078505.456113	7979947803336394051	25816	12547.339	0.4860	687.902	25816	272040	0	INSERT INTO order_status_history ( id, order_id, previous_status, new_status, changed_at ) VALUES ( $1, $2, $3, $4, $5 )
+1790078505.456113	-3284646482341371876	7008	4690.140	0.6693	512.266	7008	106280	0	UPDATE orders SET status = $1, updated_at = $2 WHERE id = $3
+1790078505.456113	-3605915762478912579	36821	1571.218	0.0427	79.525	36821	111712	0	SELECT * FROM orders WHERE id = $1
+1790078505.456113	-5780513277186191163	119	1513.255	12.7164	754.089	513	4403	0	select extract($1 from now()), coalesce(wait_event_type,$2), coalesce(wait_event,$3), state, count(*) from pg_stat_activity where datname=$4 and pid<>pg_backend
+1790078505.456113	-186806509949655109	8760	1118.128	0.1276	125.920	60084	64813	0	SELECT * FROM orders WHERE customer_id = $1 ORDER BY created_at DESC LIMIT $2 OFFSET $3
+1790078505.456113	-4146413891594693972	8760	982.920	0.1122	453.008	119967	175001	0	SELECT * FROM order_items WHERE order_id = ANY($1)
+1790078505.456113	-7009363020422212105	36821	815.854	0.0222	24.278	73642	112790	0	SELECT * FROM order_items WHERE order_id = $1
+1790078505.456113	1388937252391146140	8760	488.045	0.0557	53.765	8760	33818	0	SELECT COUNT(*) AS total_orders FROM orders WHERE customer_id = $1
+1790078505.456113	-691373169188082563	10	62.247	6.2247	9.041	140	40	0	select extract($1 from now()), queryid, calls, round(total_exec_time::numeric,$2), round(mean_exec_time::numeric,$3), round(max_exec_time::numeric,$4), rows, sh
+1790078505.456113	-2993849726497852505	1	0.749	0.7494	0.749	1	0	0	select pg_stat_statements_reset()
+1790078565.513488	3462493352196723169	1456	79408.391	54.5387	983.079	14560	11220195	0	SELECT customer_id, COALESCE(SUM(final_amount), $4) AS total_spent, COUNT(*) AS order_count FROM orders WHERE created_at >= $1 AND created_at < $2 GROUP BY cust
+1790078565.513488	5421744889861029128	1456	74309.635	51.0368	577.033	1456	11190674	0	SELECT CAST(created_at AT TIME ZONE $3 AS DATE) AS revenue_day, COALESCE(SUM(final_amount), $4) AS revenue, COUNT(*) AS order_count FROM orders WHERE created_at
+1790078565.513488	-6024556532519263774	1456	56232.384	38.6211	325.531	4368	11202514	0	SELECT status, COUNT(*) AS total_orders FROM orders WHERE created_at >= $1 AND created_at < $2 GROUP BY status
+1790078565.513488	6462161585568798792	1456	50043.628	34.3706	394.033	1456	11154749	0	SELECT COALESCE(SUM(final_amount), $3) AS total_revenue FROM orders WHERE created_at >= $1 AND created_at < $2
+1790078565.513488	7630948949814674387	46831	28404.417	0.6065	1117.842	46831	478049	0	INSERT INTO order_items ( id, order_id, product_id, product_name, quantity, unit_price, subtotal ) VALUES ( $1, $2, $3, $4, $5, $6, $7 )
+1790078565.513488	5885830086575078948	1456	23653.534	16.2456	289.346	1456	3260479	0	SELECT COUNT(*) AS total_orders FROM orders WHERE created_at >= $1 AND created_at < $2
+1790078565.513488	-2022223577996632247	23416	13865.839	0.5922	374.669	23416	218926	0	INSERT INTO orders ( id, customer_id, status, total_amount, discount_amount, final_amount, shipping_zip_code, shipping_street, shipping_number, shipping_complem
+1790078565.513488	7979947803336394051	32152	13467.752	0.4189	687.902	32152	338264	0	INSERT INTO order_status_history ( id, order_id, previous_status, new_status, changed_at ) VALUES ( $1, $2, $3, $4, $5 )
+1790078565.513488	-3284646482341371876	8736	5006.857	0.5731	512.266	8736	132713	0	UPDATE orders SET status = $1, updated_at = $2 WHERE id = $3
+1790078565.513488	-3605915762478912579	45907	1797.668	0.0392	79.525	45907	138970	0	SELECT * FROM orders WHERE id = $1
+1790078565.513488	-5780513277186191163	130	1567.931	12.0610	754.089	563	4810	0	select extract($1 from now()), coalesce(wait_event_type,$2), coalesce(wait_event,$3), state, count(*) from pg_stat_activity where datname=$4 and pid<>pg_backend
+1790078565.513488	-186806509949655109	10920	1276.968	0.1169	125.920	84374	90207	0	SELECT * FROM orders WHERE customer_id = $1 ORDER BY created_at DESC LIMIT $2 OFFSET $3
+1790078565.513488	-4146413891594693972	10920	1141.446	0.1045	453.008	168527	246575	0	SELECT * FROM order_items WHERE order_id = ANY($1)
+1790078565.513488	-7009363020422212105	45907	1026.350	0.0224	24.278	91815	140163	0	SELECT * FROM order_items WHERE order_id = $1
+1790078565.513488	1388937252391146140	10920	545.293	0.0499	53.765	10920	44408	0	SELECT COUNT(*) AS total_orders FROM orders WHERE customer_id = $1
+1790078565.513488	-691373169188082563	11	65.525	5.9568	9.041	157	44	0	select extract($1 from now()), queryid, calls, round(total_exec_time::numeric,$2), round(mean_exec_time::numeric,$3), round(max_exec_time::numeric,$4), rows, sh
+1790078565.513488	-2993849726497852505	1	0.749	0.7494	0.749	1	0	0	select pg_stat_statements_reset()
+1790078625.567538	3462493352196723169	1744	110298.769	63.2447	983.079	17440	17155541	0	SELECT customer_id, COALESCE(SUM(final_amount), $4) AS total_spent, COUNT(*) AS order_count FROM orders WHERE created_at >= $1 AND created_at < $2 GROUP BY cust
+1790078625.567538	5421744889861029128	1744	105775.340	60.6510	577.033	1744	17126023	0	SELECT CAST(created_at AT TIME ZONE $3 AS DATE) AS revenue_day, COALESCE(SUM(final_amount), $4) AS revenue, COUNT(*) AS order_count FROM orders WHERE created_at
+1790078625.567538	-6024556532519263774	1744	82024.261	47.0323	325.531	5232	17100766	0	SELECT status, COUNT(*) AS total_orders FROM orders WHERE created_at >= $1 AND created_at < $2 GROUP BY status
+1790078625.567538	6462161585568798792	1744	73311.255	42.0363	394.033	1744	17090073	0	SELECT COALESCE(SUM(final_amount), $3) AS total_revenue FROM orders WHERE created_at >= $1 AND created_at < $2
+1790078625.567538	5885830086575078948	1744	34077.295	19.5397	289.346	1744	4688622	0	SELECT COUNT(*) AS total_orders FROM orders WHERE created_at >= $1 AND created_at < $2
+1790078625.567538	7630948949814674387	56055	29188.191	0.5207	1117.842	56055	571063	0	INSERT INTO order_items ( id, order_id, product_id, product_name, quantity, unit_price, subtotal ) VALUES ( $1, $2, $3, $4, $5, $6, $7 )
+1790078625.567538	-2022223577996632247	28028	14438.744	0.5152	374.669	28028	261219	0	INSERT INTO orders ( id, customer_id, status, total_amount, discount_amount, final_amount, shipping_zip_code, shipping_street, shipping_number, shipping_complem
+1790078625.567538	7979947803336394051	38492	14315.008	0.3719	687.902	38492	404101	0	INSERT INTO order_status_history ( id, order_id, previous_status, new_status, changed_at ) VALUES ( $1, $2, $3, $4, $5 )
+1790078625.567538	-3284646482341371876	10464	5277.732	0.5044	512.266	10464	158965	0	UPDATE orders SET status = $1, updated_at = $2 WHERE id = $3
+1790078625.567538	-3605915762478912579	54987	1987.194	0.0361	79.525	54987	166210	0	SELECT * FROM orders WHERE id = $1
+1790078625.567538	-5780513277186191163	142	1598.362	11.2561	754.089	620	5254	0	select extract($1 from now()), coalesce(wait_event_type,$2), coalesce(wait_event,$3), state, count(*) from pg_stat_activity where datname=$4 and pid<>pg_backend
+1790078625.567538	-186806509949655109	13080	1419.456	0.1085	125.920	109622	116559	0	SELECT * FROM orders WHERE customer_id = $1 ORDER BY created_at DESC LIMIT $2 OFFSET $3
+1790078625.567538	-4146413891594693972	13080	1290.096	0.0986	453.008	219023	321023	0	SELECT * FROM order_items WHERE order_id = ANY($1)
+1790078625.567538	-7009363020422212105	54987	1201.325	0.0218	24.278	109974	167524	0	SELECT * FROM order_items WHERE order_id = $1
+1790078625.567538	1388937252391146140	13080	596.902	0.0456	53.765	13080	52472	0	SELECT COUNT(*) AS total_orders FROM orders WHERE customer_id = $1
+1790078625.567538	-691373169188082563	12	71.484	5.9570	9.041	174	48	0	select extract($1 from now()), queryid, calls, round(total_exec_time::numeric,$2), round(mean_exec_time::numeric,$3), round(max_exec_time::numeric,$4), rows, sh
+1790078625.567538	-2993849726497852505	1	0.749	0.7494	0.749	1	0	0	select pg_stat_statements_reset()
+1790078685.600883	3462493352196723169	2032	149229.741	73.4398	983.079	20320	24259027	0	SELECT customer_id, COALESCE(SUM(final_amount), $4) AS total_spent, COUNT(*) AS order_count FROM orders WHERE created_at >= $1 AND created_at < $2 GROUP BY cust
+1790078685.600883	5421744889861029128	2032	144778.606	71.2493	577.033	2032	24302596	0	SELECT CAST(created_at AT TIME ZONE $3 AS DATE) AS revenue_day, COALESCE(SUM(final_amount), $4) AS revenue, COUNT(*) AS order_count FROM orders WHERE created_at
+1790078685.600883	-6024556532519263774	2032	112795.532	55.5096	334.750	6096	24206200	0	SELECT status, COUNT(*) AS total_orders FROM orders WHERE created_at >= $1 AND created_at < $2 GROUP BY status
+1790078685.600883	6462161585568798792	2032	102350.628	50.3694	516.220	2032	24221431	0	SELECT COALESCE(SUM(final_amount), $3) AS total_revenue FROM orders WHERE created_at >= $1 AND created_at < $2
+1790078685.600883	5885830086575078948	2032	46784.235	23.0237	289.346	2032	6234002	0	SELECT COUNT(*) AS total_orders FROM orders WHERE created_at >= $1 AND created_at < $2
+1790078685.600883	7630948949814674387	65287	32091.584	0.4915	1117.842	65287	669611	0	INSERT INTO order_items ( id, order_id, product_id, product_name, quantity, unit_price, subtotal ) VALUES ( $1, $2, $3, $4, $5, $6, $7 )
+1790078685.600883	-2022223577996632247	32644	15433.545	0.4728	374.669	32644	304362	0	INSERT INTO orders ( id, customer_id, status, total_amount, discount_amount, final_amount, shipping_zip_code, shipping_street, shipping_number, shipping_complem
+1790078685.600883	7979947803336394051	44836	15208.946	0.3392	687.902	44836	470298	0	INSERT INTO order_status_history ( id, order_id, previous_status, new_status, changed_at ) VALUES ( $1, $2, $3, $4, $5 )
+1790078685.600883	-3284646482341371876	12192	5617.394	0.4607	512.266	12192	185197	0	UPDATE orders SET status = $1, updated_at = $2 WHERE id = $3
+1790078685.600883	-3605915762478912579	64059	2232.857	0.0349	79.525	64059	193426	0	SELECT * FROM orders WHERE id = $1
+1790078685.600883	-5780513277186191163	154	1791.230	11.6314	754.089	686	5698	0	select extract($1 from now()), coalesce(wait_event_type,$2), coalesce(wait_event,$3), state, count(*) from pg_stat_activity where datname=$4 and pid<>pg_backend
+1790078685.600883	-186806509949655109	15240	1720.822	0.1129	125.920	134960	143001	0	SELECT * FROM orders WHERE customer_id = $1 ORDER BY created_at DESC LIMIT $2 OFFSET $3
+1790078685.600883	-4146413891594693972	15240	1639.017	0.1075	453.008	269685	395741	0	SELECT * FROM order_items WHERE order_id = ANY($1)
+1790078685.600883	-7009363020422212105	64059	1424.980	0.0222	26.213	128118	194862	0	SELECT * FROM order_items WHERE order_id = $1
+1790078685.600883	1388937252391146140	15240	758.445	0.0498	85.321	15240	59739	0	SELECT COUNT(*) AS total_orders FROM orders WHERE customer_id = $1
+1790078685.600883	-691373169188082563	13	76.639	5.8953	9.041	191	52	0	select extract($1 from now()), queryid, calls, round(total_exec_time::numeric,$2), round(mean_exec_time::numeric,$3), round(max_exec_time::numeric,$4), rows, sh
+1790078685.600883	-2993849726497852505	1	0.749	0.7494	0.749	1	0	0	select pg_stat_statements_reset()
+1790078745.633543	3462493352196723169	2320	193423.754	83.3723	983.079	23200	32670905	0	SELECT customer_id, COALESCE(SUM(final_amount), $4) AS total_spent, COUNT(*) AS order_count FROM orders WHERE created_at >= $1 AND created_at < $2 GROUP BY cust
+1790078745.633543	5421744889861029128	2320	190444.702	82.0882	577.033	2320	32684222	0	SELECT CAST(created_at AT TIME ZONE $3 AS DATE) AS revenue_day, COALESCE(SUM(final_amount), $4) AS revenue, COUNT(*) AS order_count FROM orders WHERE created_at
+1790078745.633543	-6024556532519263774	2320	149597.258	64.4816	334.750	6960	32617911	0	SELECT status, COUNT(*) AS total_orders FROM orders WHERE created_at >= $1 AND created_at < $2 GROUP BY status
+1790078745.633543	6462161585568798792	2320	135399.022	58.3616	516.220	2320	32663351	0	SELECT COALESCE(SUM(final_amount), $3) AS total_revenue FROM orders WHERE created_at >= $1 AND created_at < $2
+1790078745.633543	5885830086575078948	2320	62525.865	26.9508	289.346	2320	8496193	0	SELECT COUNT(*) AS total_orders FROM orders WHERE created_at >= $1 AND created_at < $2
+1790078745.633543	7630948949814674387	74520	34169.670	0.4585	1117.842	74520	772138	0	INSERT INTO order_items ( id, order_id, product_id, product_name, quantity, unit_price, subtotal ) VALUES ( $1, $2, $3, $4, $5, $6, $7 )
+1790078745.633543	-2022223577996632247	37260	17044.717	0.4575	374.669	37260	347069	0	INSERT INTO orders ( id, customer_id, status, total_amount, discount_amount, final_amount, shipping_zip_code, shipping_street, shipping_number, shipping_complem
+1790078745.633543	7979947803336394051	51179	16550.491	0.3234	687.902	51179	536487	0	INSERT INTO order_status_history ( id, order_id, previous_status, new_status, changed_at ) VALUES ( $1, $2, $3, $4, $5 )
+1790078745.633543	-3284646482341371876	13920	6033.488	0.4334	512.266	13920	211649	0	UPDATE orders SET status = $1, updated_at = $2 WHERE id = $3
+1790078745.633543	-3605915762478912579	73131	2439.846	0.0334	79.525	73131	220642	0	SELECT * FROM orders WHERE id = $1
+1790078745.633543	-186806509949655109	17400	1908.811	0.1097	125.920	162067	171212	0	SELECT * FROM orders WHERE customer_id = $1 ORDER BY created_at DESC LIMIT $2 OFFSET $3
+1790078745.633543	-4146413891594693972	17400	1854.971	0.1066	453.008	323899	475766	0	SELECT * FROM order_items WHERE order_id = ANY($1)
+1790078745.633543	-5780513277186191163	166	1833.441	11.0448	754.089	747	6142	0	select extract($1 from now()), coalesce(wait_event_type,$2), coalesce(wait_event,$3), state, count(*) from pg_stat_activity where datname=$4 and pid<>pg_backend
+1790078745.633543	-7009363020422212105	73131	1641.473	0.0224	26.213	146262	222200	0	SELECT * FROM order_items WHERE order_id = $1
+1790078745.633543	1388937252391146140	17400	831.717	0.0478	85.321	17400	68319	0	SELECT COUNT(*) AS total_orders FROM orders WHERE customer_id = $1
+1790078745.633543	-691373169188082563	14	82.123	5.8659	9.041	208	56	0	select extract($1 from now()), queryid, calls, round(total_exec_time::numeric,$2), round(mean_exec_time::numeric,$3), round(max_exec_time::numeric,$4), rows, sh
+1790078745.633543	-2993849726497852505	1	0.749	0.7494	0.749	1	0	0	select pg_stat_statements_reset()
+1790078805.686382	5421744889861029128	2608	279823.797	107.2944	2274.909	2608	41768580	0	SELECT CAST(created_at AT TIME ZONE $3 AS DATE) AS revenue_day, COALESCE(SUM(final_amount), $4) AS revenue, COUNT(*) AS order_count FROM orders WHERE created_at
+1790078805.686382	3462493352196723169	2608	271663.629	104.1655	1861.210	26080	41719716	0	SELECT customer_id, COALESCE(SUM(final_amount), $4) AS total_spent, COUNT(*) AS order_count FROM orders WHERE created_at >= $1 AND created_at < $2 GROUP BY cust
+1790078805.686382	-6024556532519263774	2608	205099.628	78.6425	1136.681	7824	41771195	0	SELECT status, COUNT(*) AS total_orders FROM orders WHERE created_at >= $1 AND created_at < $2 GROUP BY status
+1790078805.686382	6462161585568798792	2608	181986.944	69.7803	745.942	2608	41606868	0	SELECT COALESCE(SUM(final_amount), $3) AS total_revenue FROM orders WHERE created_at >= $1 AND created_at < $2
+1790078805.686382	5885830086575078948	2608	83455.389	31.9998	414.585	2608	10469119	0	SELECT COUNT(*) AS total_orders FROM orders WHERE created_at >= $1 AND created_at < $2
+1790078805.686382	7630948949814674387	83736	42242.024	0.5045	1117.842	83736	878785	0	INSERT INTO order_items ( id, order_id, product_id, product_name, quantity, unit_price, subtotal ) VALUES ( $1, $2, $3, $4, $5, $6, $7 )
+1790078805.686382	-2022223577996632247	41868	24117.397	0.5760	520.814	41868	389830	0	INSERT INTO orders ( id, customer_id, status, total_amount, discount_amount, final_amount, shipping_zip_code, shipping_street, shipping_number, shipping_complem
+1790078805.686382	7979947803336394051	57516	21696.137	0.3772	770.003	57516	603147	0	INSERT INTO order_status_history ( id, order_id, previous_status, new_status, changed_at ) VALUES ( $1, $2, $3, $4, $5 )
+1790078805.686382	-3284646482341371876	15648	6772.871	0.4328	512.266	15648	238053	0	UPDATE orders SET status = $1, updated_at = $2 WHERE id = $3
+1790078805.686382	-3605915762478912579	82203	2746.243	0.0334	79.525	82203	247858	0	SELECT * FROM orders WHERE id = $1
+1790078805.686382	-7009363020422212105	82203	2634.880	0.0321	170.645	164406	253722	0	SELECT * FROM order_items WHERE order_id = $1
+1790078805.686382	-186806509949655109	19573	2341.437	0.1196	125.920	192370	202590	0	SELECT * FROM orders WHERE customer_id = $1 ORDER BY created_at DESC LIMIT $2 OFFSET $3
+1790078805.686382	-4146413891594693972	19573	2271.507	0.1161	453.008	384479	579505	0	SELECT * FROM order_items WHERE order_id = ANY($1)
+1790078805.686382	-5780513277186191163	177	2010.693	11.3598	754.089	807	6549	0	select extract($1 from now()), coalesce(wait_event_type,$2), coalesce(wait_event,$3), state, count(*) from pg_stat_activity where datname=$4 and pid<>pg_backend
+1790078805.686382	1388937252391146140	19573	940.548	0.0481	85.321	19573	78530	0	SELECT COUNT(*) AS total_orders FROM orders WHERE customer_id = $1
+1790078805.686382	-691373169188082563	15	85.466	5.6977	9.041	225	60	0	select extract($1 from now()), queryid, calls, round(total_exec_time::numeric,$2), round(mean_exec_time::numeric,$3), round(max_exec_time::numeric,$4), rows, sh
+1790078805.686382	-2993849726497852505	1	0.749	0.7494	0.749	1	0	0	select pg_stat_statements_reset()
+1790078865.719174	5421744889861029128	2896	344794.477	119.0589	2274.909	2896	52545696	0	SELECT CAST(created_at AT TIME ZONE $3 AS DATE) AS revenue_day, COALESCE(SUM(final_amount), $4) AS revenue, COUNT(*) AS order_count FROM orders WHERE created_at
+1790078865.719174	3462493352196723169	2896	333940.928	115.3111	1861.210	28960	52349321	0	SELECT customer_id, COALESCE(SUM(final_amount), $4) AS total_spent, COUNT(*) AS order_count FROM orders WHERE created_at >= $1 AND created_at < $2 GROUP BY cust
+1790078865.719174	-6024556532519263774	2896	257559.694	88.9364	1136.681	8688	52510256	0	SELECT status, COUNT(*) AS total_orders FROM orders WHERE created_at >= $1 AND created_at < $2 GROUP BY status
+1790078865.719174	6462161585568798792	2896	229436.902	79.2254	862.733	2896	52382568	0	SELECT COALESCE(SUM(final_amount), $3) AS total_revenue FROM orders WHERE created_at >= $1 AND created_at < $2
+1790078865.719174	5885830086575078948	2896	104217.540	35.9867	553.076	2896	12917235	0	SELECT COUNT(*) AS total_orders FROM orders WHERE created_at >= $1 AND created_at < $2
+1790078865.719174	7630948949814674387	92962	44027.719	0.4736	1117.842	92962	990619	0	INSERT INTO order_items ( id, order_id, product_id, product_name, quantity, unit_price, subtotal ) VALUES ( $1, $2, $3, $4, $5, $6, $7 )
+1790078865.719174	-2022223577996632247	46482	25247.367	0.5432	520.814	46482	432718	0	INSERT INTO orders ( id, customer_id, status, total_amount, discount_amount, final_amount, shipping_zip_code, shipping_street, shipping_number, shipping_complem
+1790078865.719174	7979947803336394051	63861	23068.611	0.3612	770.003	63861	672265	0	INSERT INTO order_status_history ( id, order_id, previous_status, new_status, changed_at ) VALUES ( $1, $2, $3, $4, $5 )
+1790078865.719174	-3284646482341371876	17380	7454.972	0.4289	512.266	17380	264505	0	UPDATE orders SET status = $1, updated_at = $2 WHERE id = $3
+1790078865.719174	-3605915762478912579	91279	2961.634	0.0324	79.525	91279	275086	0	SELECT * FROM orders WHERE id = $1
+1790078865.719174	-7009363020422212105	91278	2866.593	0.0314	170.645	182556	290155	0	SELECT * FROM order_items WHERE order_id = $1
+1790078865.719174	-186806509949655109	21735	2608.144	0.1200	125.920	225318	236596	0	SELECT * FROM orders WHERE customer_id = $1 ORDER BY created_at DESC LIMIT $2 OFFSET $3
+1790078865.719174	-4146413891594693972	21735	2542.569	0.1170	453.008	450418	709961	0	SELECT * FROM order_items WHERE order_id = ANY($1)
+1790078865.719174	-5780513277186191163	189	2051.931	10.8568	754.089	872	6993	0	select extract($1 from now()), coalesce(wait_event_type,$2), coalesce(wait_event,$3), state, count(*) from pg_stat_activity where datname=$4 and pid<>pg_backend
+1790078865.719174	1388937252391146140	21735	1060.829	0.0488	85.321	21735	91010	0	SELECT COUNT(*) AS total_orders FROM orders WHERE customer_id = $1
+1790078865.719174	-691373169188082563	16	90.502	5.6564	9.041	242	64	0	select extract($1 from now()), queryid, calls, round(total_exec_time::numeric,$2), round(mean_exec_time::numeric,$3), round(max_exec_time::numeric,$4), rows, sh
+1790078865.719174	-2993849726497852505	1	0.749	0.7494	0.749	1	0	0	select pg_stat_statements_reset()
+1790078926.193134	5421744889861029128	3185	455488.162	143.0104	2714.039	3185	63878157	0	SELECT CAST(created_at AT TIME ZONE $3 AS DATE) AS revenue_day, COALESCE(SUM(final_amount), $4) AS revenue, COUNT(*) AS order_count FROM orders WHERE created_at
+1790078926.193134	3462493352196723169	3184	430389.664	135.1726	2318.562	31840	63814193	0	SELECT customer_id, COALESCE(SUM(final_amount), $4) AS total_spent, COUNT(*) AS order_count FROM orders WHERE created_at >= $1 AND created_at < $2 GROUP BY cust
+1790078926.193134	-6024556532519263774	3185	330050.756	103.6266	1136.681	9555	64105414	0	SELECT status, COUNT(*) AS total_orders FROM orders WHERE created_at >= $1 AND created_at < $2 GROUP BY status
+1790078926.193134	6462161585568798792	3186	290232.040	91.0961	922.084	3186	63844690	0	SELECT COALESCE(SUM(final_amount), $3) AS total_revenue FROM orders WHERE created_at >= $1 AND created_at < $2
+1790078926.193134	5885830086575078948	3186	133662.535	41.9531	553.076	3186	16198692	0	SELECT COUNT(*) AS total_orders FROM orders WHERE created_at >= $1 AND created_at < $2
+1790078926.193134	7630948949814674387	102256	54773.609	0.5357	1117.842	102256	1103138	0	INSERT INTO order_items ( id, order_id, product_id, product_name, quantity, unit_price, subtotal ) VALUES ( $1, $2, $3, $4, $5, $6, $7 )
+1790078926.193134	-2022223577996632247	51128	37189.055	0.7274	544.249	51128	476274	0	INSERT INTO orders ( id, customer_id, status, total_amount, discount_amount, final_amount, shipping_zip_code, shipping_street, shipping_number, shipping_complem
+1790078926.193134	7979947803336394051	70256	27924.606	0.3975	770.003	70256	751345	0	INSERT INTO order_status_history ( id, order_id, previous_status, new_status, changed_at ) VALUES ( $1, $2, $3, $4, $5 )
+1790078926.193134	-3284646482341371876	19128	9014.396	0.4713	512.266	19128	291098	0	UPDATE orders SET status = $1, updated_at = $2 WHERE id = $3
+1790078926.193134	-3605915762478912579	100438	3961.903	0.0394	202.392	100438	302563	0	SELECT * FROM orders WHERE id = $1
+1790078926.193134	-186806509949655109	23910	3304.133	0.1382	125.920	262668	275008	0	SELECT * FROM orders WHERE customer_id = $1 ORDER BY created_at DESC LIMIT $2 OFFSET $3
+1790078926.193134	-7009363020422212105	100436	3190.259	0.0318	170.645	200873	326911	0	SELECT * FROM order_items WHERE order_id = $1
+1790078926.193134	-4146413891594693972	23910	3000.932	0.1255	453.008	525199	858011	0	SELECT * FROM order_items WHERE order_id = ANY($1)
+1790078926.193134	-5780513277186191163	200	2990.990	14.9550	928.589	933	7400	0	select extract($1 from now()), coalesce(wait_event_type,$2), coalesce(wait_event,$3), state, count(*) from pg_stat_activity where datname=$4 and pid<>pg_backend
+1790078926.193134	1388937252391146140	23910	1273.135	0.0532	85.321	23910	106370	0	SELECT COUNT(*) AS total_orders FROM orders WHERE customer_id = $1
+1790078926.193134	-691373169188082563	17	94.983	5.5872	9.041	259	68	0	select extract($1 from now()), queryid, calls, round(total_exec_time::numeric,$2), round(mean_exec_time::numeric,$3), round(max_exec_time::numeric,$4), rows, sh
+1790078926.193134	-2993849726497852505	1	0.749	0.7494	0.749	1	0	0	select pg_stat_statements_reset()
+1790078986.348996	5421744889861029128	3474	544314.071	156.6822	2714.039	3474	76940701	0	SELECT CAST(created_at AT TIME ZONE $3 AS DATE) AS revenue_day, COALESCE(SUM(final_amount), $4) AS revenue, COUNT(*) AS order_count FROM orders WHERE created_at
+1790078986.348996	3462493352196723169	3474	512529.112	147.5328	2318.562	34740	77069910	0	SELECT customer_id, COALESCE(SUM(final_amount), $4) AS total_spent, COUNT(*) AS order_count FROM orders WHERE created_at >= $1 AND created_at < $2 GROUP BY cust
+1790078986.348996	-6024556532519263774	3476	394325.174	113.4422	1136.681	10428	77501755	0	SELECT status, COUNT(*) AS total_orders FROM orders WHERE created_at >= $1 AND created_at < $2 GROUP BY status
+1790078986.348996	6462161585568798792	3476	347897.228	100.0855	922.084	3476	77149147	0	SELECT COALESCE(SUM(final_amount), $3) AS total_revenue FROM orders WHERE created_at >= $1 AND created_at < $2
+1790078986.348996	5885830086575078948	3476	158592.175	45.6249	553.076	3476	18438039	0	SELECT COUNT(*) AS total_orders FROM orders WHERE created_at >= $1 AND created_at < $2
+1790078986.348996	7630948949814674387	111472	60789.114	0.5453	1117.842	111472	1215369	0	INSERT INTO order_items ( id, order_id, product_id, product_name, quantity, unit_price, subtotal ) VALUES ( $1, $2, $3, $4, $5, $6, $7 )
+1790078986.348996	-2022223577996632247	55737	40846.531	0.7328	544.249	55737	518996	0	INSERT INTO orders ( id, customer_id, status, total_amount, discount_amount, final_amount, shipping_zip_code, shipping_street, shipping_number, shipping_complem
+1790078986.348996	7979947803336394051	76592	29850.880	0.3897	770.003	76592	830222	0	INSERT INTO order_status_history ( id, order_id, previous_status, new_status, changed_at ) VALUES ( $1, $2, $3, $4, $5 )
+1790078986.348996	-3284646482341371876	20856	10137.217	0.4861	512.266	20856	317494	0	UPDATE orders SET status = $1, updated_at = $2 WHERE id = $3
+1790078986.348996	-3605915762478912579	109542	4193.703	0.0383	202.392	109542	330341	0	SELECT * FROM orders WHERE id = $1
+1790078986.348996	-186806509949655109	26070	3748.392	0.1438	125.920	304012	317360	0	SELECT * FROM orders WHERE customer_id = $1 ORDER BY created_at DESC LIMIT $2 OFFSET $3
+1790078986.348996	-7009363020422212105	109545	3417.773	0.0312	170.645	219090	363470	0	SELECT * FROM order_items WHERE order_id = $1
+1790078986.348996	-4146413891594693972	26070	3322.090	0.1274	453.008	607962	1022088	0	SELECT * FROM order_items WHERE order_id = ANY($1)
+1790078986.348996	-5780513277186191163	212	3066.942	14.4667	928.589	1000	7844	0	select extract($1 from now()), coalesce(wait_event_type,$2), coalesce(wait_event,$3), state, count(*) from pg_stat_activity where datname=$4 and pid<>pg_backend
+1790078986.348996	1388937252391146140	26070	1357.258	0.0521	85.321	26070	120797	0	SELECT COUNT(*) AS total_orders FROM orders WHERE customer_id = $1
+1790078986.348996	-691373169188082563	18	131.149	7.2861	36.166	276	72	0	select extract($1 from now()), queryid, calls, round(total_exec_time::numeric,$2), round(mean_exec_time::numeric,$3), round(max_exec_time::numeric,$4), rows, sh
+1790078986.348996	-2993849726497852505	1	0.749	0.7494	0.749	1	0	0	select pg_stat_statements_reset()
+1790079046.441968	5421744889861029128	3720	627162.783	168.5921	2714.039	3720	89323273	0	SELECT CAST(created_at AT TIME ZONE $3 AS DATE) AS revenue_day, COALESCE(SUM(final_amount), $4) AS revenue, COUNT(*) AS order_count FROM orders WHERE created_at
+1790079046.441968	3462493352196723169	3720	586758.650	157.7308	2318.562	37200	89452205	0	SELECT customer_id, COALESCE(SUM(final_amount), $4) AS total_spent, COUNT(*) AS order_count FROM orders WHERE created_at >= $1 AND created_at < $2 GROUP BY cust
+1790079046.441968	-6024556532519263774	3720	454749.053	122.2444	1136.681	11160	89784479	0	SELECT status, COUNT(*) AS total_orders FROM orders WHERE created_at >= $1 AND created_at < $2 GROUP BY status
+1790079046.441968	6462161585568798792	3720	400057.981	107.5425	922.084	3720	89382742	0	SELECT COALESCE(SUM(final_amount), $3) AS total_revenue FROM orders WHERE created_at >= $1 AND created_at < $2
+1790079046.441968	5885830086575078948	3720	185048.602	49.7442	553.076	3720	21290364	0	SELECT COUNT(*) AS total_orders FROM orders WHERE created_at >= $1 AND created_at < $2
+1790079046.441968	7630948949814674387	119308	65202.557	0.5465	1117.842	119308	1317801	0	INSERT INTO order_items ( id, order_id, product_id, product_name, quantity, unit_price, subtotal ) VALUES ( $1, $2, $3, $4, $5, $6, $7 )
+1790079046.441968	-2022223577996632247	59655	44607.156	0.7478	544.249	59655	558628	0	INSERT INTO orders ( id, customer_id, status, total_amount, discount_amount, final_amount, shipping_zip_code, shipping_street, shipping_number, shipping_complem
+1790079046.441968	7979947803336394051	81974	35989.872	0.4390	770.003	81974	902431	0	INSERT INTO order_status_history ( id, order_id, previous_status, new_status, changed_at ) VALUES ( $1, $2, $3, $4, $5 )
+1790079046.441968	-3284646482341371876	22320	11462.497	0.5136	512.266	22320	342658	0	UPDATE orders SET status = $1, updated_at = $2 WHERE id = $3
+1790079046.441968	-3605915762478912579	117231	4465.671	0.0381	202.392	117231	361109	0	SELECT * FROM orders WHERE id = $1
+1790079046.441968	-186806509949655109	27900	4081.749	0.1463	125.920	340023	354221	0	SELECT * FROM orders WHERE customer_id = $1 ORDER BY created_at DESC LIMIT $2 OFFSET $3
+1790079046.441968	-4146413891594693972	27900	3687.800	0.1322	453.008	680025	1165071	0	SELECT * FROM order_items WHERE order_id = ANY($1)
+1790079046.441968	-7009363020422212105	117231	3658.186	0.0312	170.645	234462	394315	0	SELECT * FROM order_items WHERE order_id = $1
+1790079046.441968	-5780513277186191163	223	3160.459	14.1725	928.589	1055	8251	0	select extract($1 from now()), coalesce(wait_event_type,$2), coalesce(wait_event,$3), state, count(*) from pg_stat_activity where datname=$4 and pid<>pg_backend
+1790079046.441968	1388937252391146140	27900	1719.736	0.0616	92.875	27900	134115	0	SELECT COUNT(*) AS total_orders FROM orders WHERE customer_id = $1
+1790079046.441968	-691373169188082563	19	167.648	8.8236	36.499	293	76	0	select extract($1 from now()), queryid, calls, round(total_exec_time::numeric,$2), round(mean_exec_time::numeric,$3), round(max_exec_time::numeric,$4), rows, sh
+1790079046.441968	-2993849726497852505	1	0.749	0.7494	0.749	1	0	0	select pg_stat_statements_reset()
+1790079106.483435	5421744889861029128	3850	662159.657	171.9895	2714.039	3850	96257152	0	SELECT CAST(created_at AT TIME ZONE $3 AS DATE) AS revenue_day, COALESCE(SUM(final_amount), $4) AS revenue, COUNT(*) AS order_count FROM orders WHERE created_at
+1790079106.483435	3462493352196723169	3850	620160.606	161.0807	2318.562	38500	96386072	0	SELECT customer_id, COALESCE(SUM(final_amount), $4) AS total_spent, COUNT(*) AS order_count FROM orders WHERE created_at >= $1 AND created_at < $2 GROUP BY cust
+1790079106.483435	-6024556532519263774	3850	484539.219	125.8543	1136.681	11550	96718325	0	SELECT status, COUNT(*) AS total_orders FROM orders WHERE created_at >= $1 AND created_at < $2 GROUP BY status
+1790079106.483435	6462161585568798792	3850	426531.713	110.7875	922.084	3850	96316583	0	SELECT COALESCE(SUM(final_amount), $3) AS total_revenue FROM orders WHERE created_at >= $1 AND created_at < $2
+1790079106.483435	5885830086575078948	3850	197240.033	51.2312	553.076	3850	23121672	0	SELECT COUNT(*) AS total_orders FROM orders WHERE created_at >= $1 AND created_at < $2
+1790079106.483435	7630948949814674387	123444	65546.478	0.5310	1117.842	123444	1371857	0	INSERT INTO order_items ( id, order_id, product_id, product_name, quantity, unit_price, subtotal ) VALUES ( $1, $2, $3, $4, $5, $6, $7 )
+1790079106.483435	-2022223577996632247	61722	44903.282	0.7275	544.249	61722	579561	0	INSERT INTO orders ( id, customer_id, status, total_amount, discount_amount, final_amount, shipping_zip_code, shipping_street, shipping_number, shipping_complem
+1790079106.483435	7979947803336394051	84822	36334.061	0.4284	770.003	84822	940444	0	INSERT INTO order_status_history ( id, order_id, previous_status, new_status, changed_at ) VALUES ( $1, $2, $3, $4, $5 )
+1790079106.483435	-3284646482341371876	23100	11567.005	0.5007	512.266	23100	356024	0	UPDATE orders SET status = $1, updated_at = $2 WHERE id = $3
+1790079106.483435	-3605915762478912579	121326	4579.398	0.0377	202.392	121326	377489	0	SELECT * FROM orders WHERE id = $1
+1790079106.483435	-186806509949655109	28875	4187.990	0.1450	125.920	359221	373879	0	SELECT * FROM orders WHERE customer_id = $1 ORDER BY created_at DESC LIMIT $2 OFFSET $3
+1790079106.483435	-4146413891594693972	28875	3811.491	0.1320	453.008	718442	1241306	0	SELECT * FROM order_items WHERE order_id = ANY($1)
+1790079106.483435	-7009363020422212105	121326	3758.248	0.0310	170.645	242652	410750	0	SELECT * FROM order_items WHERE order_id = $1
+1790079106.483435	-5780513277186191163	235	3190.268	13.5756	928.589	1108	8695	0	select extract($1 from now()), coalesce(wait_event_type,$2), coalesce(wait_event,$3), state, count(*) from pg_stat_activity where datname=$4 and pid<>pg_backend
+1790079106.483435	1388937252391146140	28875	1753.173	0.0607	92.875	28875	141239	0	SELECT COUNT(*) AS total_orders FROM orders WHERE customer_id = $1
+1790079106.483435	-691373169188082563	20	171.270	8.5635	36.499	310	80	0	select extract($1 from now()), queryid, calls, round(total_exec_time::numeric,$2), round(mean_exec_time::numeric,$3), round(max_exec_time::numeric,$4), rows, sh
+1790079106.483435	-2993849726497852505	1	0.749	0.7494	0.749	1	0	0	select pg_stat_statements_reset()
+1790079166.515450	5421744889861029128	3908	678390.946	173.5903	2714.039	3908	99399374	0	SELECT CAST(created_at AT TIME ZONE $3 AS DATE) AS revenue_day, COALESCE(SUM(final_amount), $4) AS revenue, COUNT(*) AS order_count FROM orders WHERE created_at
+1790079166.515450	3462493352196723169	3908	635131.105	162.5208	2318.562	39080	99528295	0	SELECT customer_id, COALESCE(SUM(final_amount), $4) AS total_spent, COUNT(*) AS order_count FROM orders WHERE created_at >= $1 AND created_at < $2 GROUP BY cust
+1790079166.515450	-6024556532519263774	3908	497533.389	127.3115	1136.681	11724	99860548	0	SELECT status, COUNT(*) AS total_orders FROM orders WHERE created_at >= $1 AND created_at < $2 GROUP BY status
+1790079166.515450	6462161585568798792	3908	438816.778	112.2868	922.084	3908	99458805	0	SELECT COALESCE(SUM(final_amount), $3) AS total_revenue FROM orders WHERE created_at >= $1 AND created_at < $2
+1790079166.515450	5885830086575078948	3908	202330.634	51.7734	553.076	3908	23987368	0	SELECT COUNT(*) AS total_orders FROM orders WHERE created_at >= $1 AND created_at < $2
+1790079166.515450	7630948949814674387	125335	65704.176	0.5242	1117.842	125335	1396530	0	INSERT INTO order_items ( id, order_id, product_id, product_name, quantity, unit_price, subtotal ) VALUES ( $1, $2, $3, $4, $5, $6, $7 )
+1790079166.515450	-2022223577996632247	62668	45025.983	0.7185	544.249	62668	589141	0	INSERT INTO orders ( id, customer_id, status, total_amount, discount_amount, final_amount, shipping_zip_code, shipping_street, shipping_number, shipping_complem
+1790079166.515450	7979947803336394051	86116	36492.678	0.4238	770.003	86116	957780	0	INSERT INTO order_status_history ( id, order_id, previous_status, new_status, changed_at ) VALUES ( $1, $2, $3, $4, $5 )
+1790079166.515450	-3284646482341371876	23448	11611.246	0.4952	512.266	23448	361998	0	UPDATE orders SET status = $1, updated_at = $2 WHERE id = $3
+1790079166.515450	-3605915762478912579	123153	4646.963	0.0377	202.392	123153	384797	0	SELECT * FROM orders WHERE id = $1
+1790079166.515450	-186806509949655109	29319	4234.386	0.1444	125.920	367969	382837	0	SELECT * FROM orders WHERE customer_id = $1 ORDER BY created_at DESC LIMIT $2 OFFSET $3
+1790079166.515450	-4146413891594693972	29319	3871.720	0.1321	453.008	735949	1276044	0	SELECT * FROM order_items WHERE order_id = ANY($1)
+1790079166.515450	-7009363020422212105	123153	3812.276	0.0310	170.645	246306	418081	0	SELECT * FROM order_items WHERE order_id = $1
+1790079166.515450	-5780513277186191163	247	3212.134	13.0046	928.589	1158	9139	0	select extract($1 from now()), coalesce(wait_event_type,$2), coalesce(wait_event,$3), state, count(*) from pg_stat_activity where datname=$4 and pid<>pg_backend
+1790079166.515450	1388937252391146140	29319	1770.125	0.0604	92.875	29319	144483	0	SELECT COUNT(*) AS total_orders FROM orders WHERE customer_id = $1
+1790079166.515450	-691373169188082563	21	175.008	8.3337	36.499	327	84	0	select extract($1 from now()), queryid, calls, round(total_exec_time::numeric,$2), round(mean_exec_time::numeric,$3), round(max_exec_time::numeric,$4), rows, sh
+1790079166.515450	-2993849726497852505	1	0.749	0.7494	0.749	1	0	0	select pg_stat_statements_reset()
+1790079226.546269	5421744889861029128	3966	693381.973	174.8316	2714.039	3966	102567832	0	SELECT CAST(created_at AT TIME ZONE $3 AS DATE) AS revenue_day, COALESCE(SUM(final_amount), $4) AS revenue, COUNT(*) AS order_count FROM orders WHERE created_at
+1790079226.546269	3462493352196723169	3966	649541.234	163.7774	2318.562	39660	102696753	0	SELECT customer_id, COALESCE(SUM(final_amount), $4) AS total_spent, COUNT(*) AS order_count FROM orders WHERE created_at >= $1 AND created_at < $2 GROUP BY cust
+1790079226.546269	-6024556532519263774	3966	509861.673	128.5582	1136.681	11898	103029006	0	SELECT status, COUNT(*) AS total_orders FROM orders WHERE created_at >= $1 AND created_at < $2 GROUP BY status
+1790079226.546269	6462161585568798792	3966	450301.206	113.5404	922.084	3966	102627263	0	SELECT COALESCE(SUM(final_amount), $3) AS total_revenue FROM orders WHERE created_at >= $1 AND created_at < $2
+1790079226.546269	5885830086575078948	3966	207406.437	52.2961	553.076	3966	24879252	0	SELECT COUNT(*) AS total_orders FROM orders WHERE created_at >= $1 AND created_at < $2
+1790079226.546269	7630948949814674387	127174	65889.744	0.5181	1117.842	127174	1420520	0	INSERT INTO order_items ( id, order_id, product_id, product_name, quantity, unit_price, subtotal ) VALUES ( $1, $2, $3, $4, $5, $6, $7 )
+1790079226.546269	-2022223577996632247	63587	45160.339	0.7102	544.249	63587	598462	0	INSERT INTO orders ( id, customer_id, status, total_amount, discount_amount, final_amount, shipping_zip_code, shipping_street, shipping_number, shipping_complem
+1790079226.546269	7979947803336394051	87382	36652.849	0.4195	770.003	87382	974699	0	INSERT INTO order_status_history ( id, order_id, previous_status, new_status, changed_at ) VALUES ( $1, $2, $3, $4, $5 )
+1790079226.546269	-3284646482341371876	23796	11656.601	0.4899	512.266	23796	368020	0	UPDATE orders SET status = $1, updated_at = $2 WHERE id = $3
+1790079226.546269	-3605915762478912579	124980	4708.271	0.0377	202.392	124980	392105	0	SELECT * FROM orders WHERE id = $1
+1790079226.546269	-186806509949655109	29745	4290.609	0.1442	125.920	376349	391408	0	SELECT * FROM orders WHERE customer_id = $1 ORDER BY created_at DESC LIMIT $2 OFFSET $3
+1790079226.546269	-4146413891594693972	29745	3929.134	0.1321	453.008	752718	1309309	0	SELECT * FROM order_items WHERE order_id = ANY($1)
+1790079226.546269	-7009363020422212105	124980	3848.983	0.0308	170.645	249960	425413	0	SELECT * FROM order_items WHERE order_id = $1
+1790079226.546269	-5780513277186191163	259	3247.372	12.5381	928.589	1209	9583	0	select extract($1 from now()), coalesce(wait_event_type,$2), coalesce(wait_event,$3), state, count(*) from pg_stat_activity where datname=$4 and pid<>pg_backend
+1790079226.546269	1388937252391146140	29745	1785.897	0.0600	92.875	29745	147563	0	SELECT COUNT(*) AS total_orders FROM orders WHERE customer_id = $1
+1790079226.546269	-691373169188082563	22	180.218	8.1917	36.499	344	88	0	select extract($1 from now()), queryid, calls, round(total_exec_time::numeric,$2), round(mean_exec_time::numeric,$3), round(max_exec_time::numeric,$4), rows, sh
+1790079226.546269	-2993849726497852505	1	0.749	0.7494	0.749	1	0	0	select pg_stat_statements_reset()
+1790079286.595431	5421744889861029128	4024	708346.518	176.0304	2714.039	4024	105762154	0	SELECT CAST(created_at AT TIME ZONE $3 AS DATE) AS revenue_day, COALESCE(SUM(final_amount), $4) AS revenue, COUNT(*) AS order_count FROM orders WHERE created_at
+1790079286.595431	3462493352196723169	4024	663811.414	164.9631	2318.562	40240	105891075	0	SELECT customer_id, COALESCE(SUM(final_amount), $4) AS total_spent, COUNT(*) AS order_count FROM orders WHERE created_at >= $1 AND created_at < $2 GROUP BY cust
+1790079286.595431	-6024556532519263774	4024	522339.439	129.8060	1136.681	12072	106223328	0	SELECT status, COUNT(*) AS total_orders FROM orders WHERE created_at >= $1 AND created_at < $2 GROUP BY status
+1790079286.595431	6462161585568798792	4024	461099.564	114.5874	922.084	4024	105821585	0	SELECT COALESCE(SUM(final_amount), $3) AS total_revenue FROM orders WHERE created_at >= $1 AND created_at < $2
+1790079286.595431	5885830086575078948	4024	211277.691	52.5044	553.076	4024	25297239	0	SELECT COUNT(*) AS total_orders FROM orders WHERE created_at >= $1 AND created_at < $2
+1790079286.595431	7630948949814674387	129007	66064.556	0.5121	1117.842	129007	1444466	0	INSERT INTO order_items ( id, order_id, product_id, product_name, quantity, unit_price, subtotal ) VALUES ( $1, $2, $3, $4, $5, $6, $7 )
+1790079286.595431	-2022223577996632247	64504	45275.219	0.7019	544.249	64504	607972	0	INSERT INTO orders ( id, customer_id, status, total_amount, discount_amount, final_amount, shipping_zip_code, shipping_street, shipping_number, shipping_complem
+1790079286.595431	7979947803336394051	88648	36802.718	0.4152	770.003	88648	991597	0	INSERT INTO order_status_history ( id, order_id, previous_status, new_status, changed_at ) VALUES ( $1, $2, $3, $4, $5 )
+1790079286.595431	-3284646482341371876	24144	11697.441	0.4845	512.266	24144	374076	0	UPDATE orders SET status = $1, updated_at = $2 WHERE id = $3
+1790079286.595431	-3605915762478912579	126800	4761.669	0.0376	202.392	126800	399385	0	SELECT * FROM orders WHERE id = $1
+1790079286.595431	-186806509949655109	30180	4335.747	0.1437	125.920	384938	400205	0	SELECT * FROM orders WHERE customer_id = $1 ORDER BY created_at DESC LIMIT $2 OFFSET $3
+1790079286.595431	-4146413891594693972	30180	3985.935	0.1321	453.008	769897	1343420	0	SELECT * FROM order_items WHERE order_id = ANY($1)
+1790079286.595431	-7009363020422212105	126800	3885.898	0.0306	170.645	253600	432715	0	SELECT * FROM order_items WHERE order_id = $1
+1790079286.595431	-5780513277186191163	271	3303.783	12.1911	928.589	1261	10027	0	select extract($1 from now()), coalesce(wait_event_type,$2), coalesce(wait_event,$3), state, count(*) from pg_stat_activity where datname=$4 and pid<>pg_backend
+1790079286.595431	1388937252391146140	30180	1800.891	0.0597	92.875	30180	149954	0	SELECT COUNT(*) AS total_orders FROM orders WHERE customer_id = $1
+1790079286.595431	-691373169188082563	23	183.362	7.9722	36.499	361	92	0	select extract($1 from now()), queryid, calls, round(total_exec_time::numeric,$2), round(mean_exec_time::numeric,$3), round(max_exec_time::numeric,$4), rows, sh
+1790079286.595431	-2993849726497852505	1	0.749	0.7494	0.749	1	0	0	select pg_stat_statements_reset()
+1790079346.635227	5421744889861029128	4082	724354.608	177.4509	2714.039	4082	108985114	0	SELECT CAST(created_at AT TIME ZONE $3 AS DATE) AS revenue_day, COALESCE(SUM(final_amount), $4) AS revenue, COUNT(*) AS order_count FROM orders WHERE created_at
+1790079346.635227	3462493352196723169	4082	678889.473	166.3130	2318.562	40820	109114035	0	SELECT customer_id, COALESCE(SUM(final_amount), $4) AS total_spent, COUNT(*) AS order_count FROM orders WHERE created_at >= $1 AND created_at < $2 GROUP BY cust
+1790079346.635227	-6024556532519263774	4082	534690.803	130.9875	1136.681	12246	109446290	0	SELECT status, COUNT(*) AS total_orders FROM orders WHERE created_at >= $1 AND created_at < $2 GROUP BY status
+1790079346.635227	6462161585568798792	4082	472248.941	115.6906	922.084	4082	109044545	0	SELECT COALESCE(SUM(final_amount), $3) AS total_revenue FROM orders WHERE created_at >= $1 AND created_at < $2
+1790079346.635227	5885830086575078948	4082	214855.291	52.6348	553.076	4082	25552458	0	SELECT COUNT(*) AS total_orders FROM orders WHERE created_at >= $1 AND created_at < $2
+1790079346.635227	7630948949814674387	130864	66365.782	0.5071	1117.842	130864	1468777	0	INSERT INTO order_items ( id, order_id, product_id, product_name, quantity, unit_price, subtotal ) VALUES ( $1, $2, $3, $4, $5, $6, $7 )
+1790079346.635227	-2022223577996632247	65432	45457.757	0.6947	544.249	65432	617429	0	INSERT INTO orders ( id, customer_id, status, total_amount, discount_amount, final_amount, shipping_zip_code, shipping_street, shipping_number, shipping_complem
+1790079346.635227	7979947803336394051	89924	37016.130	0.4116	770.003	89924	1008626	0	INSERT INTO order_status_history ( id, order_id, previous_status, new_status, changed_at ) VALUES ( $1, $2, $3, $4, $5 )
+1790079346.635227	-3284646482341371876	24492	11741.250	0.4794	512.266	24492	380080	0	UPDATE orders SET status = $1, updated_at = $2 WHERE id = $3
+1790079346.635227	-3605915762478912579	128609	4819.181	0.0375	202.392	128609	406621	0	SELECT * FROM orders WHERE id = $1
+1790079346.635227	-186806509949655109	30615	4376.489	0.1430	125.920	393572	409041	0	SELECT * FROM orders WHERE customer_id = $1 ORDER BY created_at DESC LIMIT $2 OFFSET $3
+1790079346.635227	-4146413891594693972	30615	4041.914	0.1320	453.008	787166	1377702	0	SELECT * FROM order_items WHERE order_id = ANY($1)
+1790079346.635227	-7009363020422212105	128609	3935.899	0.0306	170.645	257219	439977	0	SELECT * FROM order_items WHERE order_id = $1
+1790079346.635227	-5780513277186191163	283	3343.548	11.8147	928.589	1311	10471	0	select extract($1 from now()), coalesce(wait_event_type,$2), coalesce(wait_event,$3), state, count(*) from pg_stat_activity where datname=$4 and pid<>pg_backend
+1790079346.635227	1388937252391146140	30615	1816.911	0.0593	92.875	30615	152098	0	SELECT COUNT(*) AS total_orders FROM orders WHERE customer_id = $1
+1790079346.635227	-691373169188082563	24	188.492	7.8538	36.499	378	96	0	select extract($1 from now()), queryid, calls, round(total_exec_time::numeric,$2), round(mean_exec_time::numeric,$3), round(max_exec_time::numeric,$4), rows, sh
+1790079346.635227	-2993849726497852505	1	0.749	0.7494	0.749	1	0	0	select pg_stat_statements_reset()
+1790079406.825417	5421744889861029128	4140	740277.164	178.8109	2714.039	4140	112237721	0	SELECT CAST(created_at AT TIME ZONE $3 AS DATE) AS revenue_day, COALESCE(SUM(final_amount), $4) AS revenue, COUNT(*) AS order_count FROM orders WHERE created_at
+1790079406.825417	3462493352196723169	4140	693813.285	167.5877	2318.562	41400	112366642	0	SELECT customer_id, COALESCE(SUM(final_amount), $4) AS total_spent, COUNT(*) AS order_count FROM orders WHERE created_at >= $1 AND created_at < $2 GROUP BY cust
+1790079406.825417	-6024556532519263774	4140	547368.598	132.2146	1136.681	12420	112698896	0	SELECT status, COUNT(*) AS total_orders FROM orders WHERE created_at >= $1 AND created_at < $2 GROUP BY status
+1790079406.825417	6462161585568798792	4140	483300.895	116.7393	922.084	4140	112297151	0	SELECT COALESCE(SUM(final_amount), $3) AS total_revenue FROM orders WHERE created_at >= $1 AND created_at < $2
+1790079406.825417	5885830086575078948	4140	218768.925	52.8427	553.076	4140	25934385	0	SELECT COUNT(*) AS total_orders FROM orders WHERE created_at >= $1 AND created_at < $2
+1790079406.825417	7630948949814674387	132720	66577.608	0.5016	1117.842	132720	1493012	0	INSERT INTO order_items ( id, order_id, product_id, product_name, quantity, unit_price, subtotal ) VALUES ( $1, $2, $3, $4, $5, $6, $7 )
+1790079406.825417	-2022223577996632247	66360	45630.843	0.6876	544.249	66360	626902	0	INSERT INTO orders ( id, customer_id, status, total_amount, discount_amount, final_amount, shipping_zip_code, shipping_street, shipping_number, shipping_complem
+1790079406.825417	7979947803336394051	91200	37188.890	0.4078	770.003	91200	1025699	0	INSERT INTO order_status_history ( id, order_id, previous_status, new_status, changed_at ) VALUES ( $1, $2, $3, $4, $5 )
+1790079406.825417	-3284646482341371876	24840	11786.939	0.4745	512.266	24840	386104	0	UPDATE orders SET status = $1, updated_at = $2 WHERE id = $3
+1790079406.825417	-3605915762478912579	130425	4873.514	0.0374	202.392	130425	413885	0	SELECT * FROM orders WHERE id = $1
+1790079406.825417	-186806509949655109	31050	4428.810	0.1426	125.920	402272	417940	0	SELECT * FROM orders WHERE customer_id = $1 ORDER BY created_at DESC LIMIT $2 OFFSET $3
+1790079406.825417	-4146413891594693972	31050	4099.208	0.1320	453.008	804566	1412247	0	SELECT * FROM order_items WHERE order_id = ANY($1)
+1790079406.825417	-7009363020422212105	130425	3974.060	0.0305	170.645	260850	447263	0	SELECT * FROM order_items WHERE order_id = $1
+1790079406.825417	-5780513277186191163	294	3385.566	11.5155	928.589	1357	10878	0	select extract($1 from now()), coalesce(wait_event_type,$2), coalesce(wait_event,$3), state, count(*) from pg_stat_activity where datname=$4 and pid<>pg_backend
+1790079406.825417	1388937252391146140	31050	1833.239	0.0590	92.875	31050	154349	0	SELECT COUNT(*) AS total_orders FROM orders WHERE customer_id = $1
+1790079406.825417	-691373169188082563	25	194.211	7.7684	36.499	395	100	0	select extract($1 from now()), queryid, calls, round(total_exec_time::numeric,$2), round(mean_exec_time::numeric,$3), round(max_exec_time::numeric,$4), rows, sh
+1790079406.825417	-2993849726497852505	1	0.749	0.7494	0.749	1	0	0	select pg_stat_statements_reset()
+1790079466.859255	5421744889861029128	4174	749250.647	179.5042	2714.039	4174	114157251	0	SELECT CAST(created_at AT TIME ZONE $3 AS DATE) AS revenue_day, COALESCE(SUM(final_amount), $4) AS revenue, COUNT(*) AS order_count FROM orders WHERE created_at
+1790079466.859255	3462493352196723169	4174	702010.364	168.1865	2318.562	41740	114286172	0	SELECT customer_id, COALESCE(SUM(final_amount), $4) AS total_spent, COUNT(*) AS order_count FROM orders WHERE created_at >= $1 AND created_at < $2 GROUP BY cust
+1790079466.859255	-6024556532519263774	4174	554074.421	132.7442	1136.681	12522	114618426	0	SELECT status, COUNT(*) AS total_orders FROM orders WHERE created_at >= $1 AND created_at < $2 GROUP BY status
+1790079466.859255	6462161585568798792	4174	489481.609	117.2692	922.084	4174	114216681	0	SELECT COALESCE(SUM(final_amount), $3) AS total_revenue FROM orders WHERE created_at >= $1 AND created_at < $2
+1790079466.859255	5885830086575078948	4174	220960.715	52.9374	553.076	4174	26180012	0	SELECT COUNT(*) AS total_orders FROM orders WHERE created_at >= $1 AND created_at < $2
+1790079466.859255	7630948949814674387	133848	66694.614	0.4983	1117.842	133848	1507774	0	INSERT INTO order_items ( id, order_id, product_id, product_name, quantity, unit_price, subtotal ) VALUES ( $1, $2, $3, $4, $5, $6, $7 )
+1790079466.859255	-2022223577996632247	66924	45720.665	0.6832	544.249	66924	632602	0	INSERT INTO orders ( id, customer_id, status, total_amount, discount_amount, final_amount, shipping_zip_code, shipping_street, shipping_number, shipping_complem
+1790079466.859255	7979947803336394051	91968	37301.399	0.4056	770.003	91968	1035962	0	INSERT INTO order_status_history ( id, order_id, previous_status, new_status, changed_at ) VALUES ( $1, $2, $3, $4, $5 )
+1790079466.859255	-3284646482341371876	25044	11816.602	0.4718	512.266	25044	389615	0	UPDATE orders SET status = $1, updated_at = $2 WHERE id = $3
+1790079466.859255	-3605915762478912579	131532	4905.752	0.0373	202.392	131532	418313	0	SELECT * FROM orders WHERE id = $1
+1790079466.859255	-186806509949655109	31313	4458.309	0.1424	125.920	407532	423413	0	SELECT * FROM orders WHERE customer_id = $1 ORDER BY created_at DESC LIMIT $2 OFFSET $3
+1790079466.859255	-4146413891594693972	31313	4134.718	0.1320	453.008	815087	1433204	0	SELECT * FROM order_items WHERE order_id = ANY($1)
+1790079466.859255	-7009363020422212105	131532	3996.655	0.0304	170.645	263064	451704	0	SELECT * FROM order_items WHERE order_id = $1
+1790079466.859255	-5780513277186191163	306	3400.090	11.1114	928.589	1405	11322	0	select extract($1 from now()), coalesce(wait_event_type,$2), coalesce(wait_event,$3), state, count(*) from pg_stat_activity where datname=$4 and pid<>pg_backend
+1790079466.859255	1388937252391146140	31313	1842.779	0.0589	92.875	31313	155798	0	SELECT COUNT(*) AS total_orders FROM orders WHERE customer_id = $1
+1790079466.859255	-691373169188082563	26	199.967	7.6910	36.499	412	104	0	select extract($1 from now()), queryid, calls, round(total_exec_time::numeric,$2), round(mean_exec_time::numeric,$3), round(max_exec_time::numeric,$4), rows, sh
+1790079466.859255	-2993849726497852505	1	0.749	0.7494	0.749	1	0	0	select pg_stat_statements_reset()
