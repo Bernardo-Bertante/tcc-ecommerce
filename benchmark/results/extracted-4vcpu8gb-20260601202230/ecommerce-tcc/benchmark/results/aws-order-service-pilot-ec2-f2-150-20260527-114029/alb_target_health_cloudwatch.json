@@ -1,0 +1,1167 @@
+[
+  {
+    "target_group": "order-service-qjvm-tg",
+    "port": 8081,
+    "metric": "HealthyHostCount",
+    "datapoints": [
+      {
+        "Timestamp": "2026-05-27T08:47:00-03:00",
+        "Average": 1.0,
+        "Sum": 2.0,
+        "Minimum": 1.0,
+        "Maximum": 1.0,
+        "Unit": "Count"
+      },
+      {
+        "Timestamp": "2026-05-27T08:48:00-03:00",
+        "Average": 1.0,
+        "Sum": 2.0,
+        "Minimum": 1.0,
+        "Maximum": 1.0,
+        "Unit": "Count"
+      },
+      {
+        "Timestamp": "2026-05-27T08:49:00-03:00",
+        "Average": 1.0,
+        "Sum": 2.0,
+        "Minimum": 1.0,
+        "Maximum": 1.0,
+        "Unit": "Count"
+      },
+      {
+        "Timestamp": "2026-05-27T08:50:00-03:00",
+        "Average": 1.0,
+        "Sum": 2.0,
+        "Minimum": 1.0,
+        "Maximum": 1.0,
+        "Unit": "Count"
+      },
+      {
+        "Timestamp": "2026-05-27T08:51:00-03:00",
+        "Average": 1.0,
+        "Sum": 2.0,
+        "Minimum": 1.0,
+        "Maximum": 1.0,
+        "Unit": "Count"
+      },
+      {
+        "Timestamp": "2026-05-27T08:52:00-03:00",
+        "Average": 1.0,
+        "Sum": 2.0,
+        "Minimum": 1.0,
+        "Maximum": 1.0,
+        "Unit": "Count"
+      },
+      {
+        "Timestamp": "2026-05-27T08:53:00-03:00",
+        "Average": 1.0,
+        "Sum": 2.0,
+        "Minimum": 1.0,
+        "Maximum": 1.0,
+        "Unit": "Count"
+      },
+      {
+        "Timestamp": "2026-05-27T08:54:00-03:00",
+        "Average": 1.0,
+        "Sum": 2.0,
+        "Minimum": 1.0,
+        "Maximum": 1.0,
+        "Unit": "Count"
+      },
+      {
+        "Timestamp": "2026-05-27T08:55:00-03:00",
+        "Average": 1.0,
+        "Sum": 2.0,
+        "Minimum": 1.0,
+        "Maximum": 1.0,
+        "Unit": "Count"
+      },
+      {
+        "Timestamp": "2026-05-27T08:56:00-03:00",
+        "Average": 1.0,
+        "Sum": 2.0,
+        "Minimum": 1.0,
+        "Maximum": 1.0,
+        "Unit": "Count"
+      },
+      {
+        "Timestamp": "2026-05-27T08:57:00-03:00",
+        "Average": 1.0,
+        "Sum": 2.0,
+        "Minimum": 1.0,
+        "Maximum": 1.0,
+        "Unit": "Count"
+      },
+      {
+        "Timestamp": "2026-05-27T08:58:00-03:00",
+        "Average": 1.0,
+        "Sum": 2.0,
+        "Minimum": 1.0,
+        "Maximum": 1.0,
+        "Unit": "Count"
+      },
+      {
+        "Timestamp": "2026-05-27T08:59:00-03:00",
+        "Average": 1.0,
+        "Sum": 2.0,
+        "Minimum": 1.0,
+        "Maximum": 1.0,
+        "Unit": "Count"
+      },
+      {
+        "Timestamp": "2026-05-27T09:00:00-03:00",
+        "Average": 1.0,
+        "Sum": 2.0,
+        "Minimum": 1.0,
+        "Maximum": 1.0,
+        "Unit": "Count"
+      },
+      {
+        "Timestamp": "2026-05-27T09:01:00-03:00",
+        "Average": 1.0,
+        "Sum": 2.0,
+        "Minimum": 1.0,
+        "Maximum": 1.0,
+        "Unit": "Count"
+      },
+      {
+        "Timestamp": "2026-05-27T09:02:00-03:00",
+        "Average": 1.0,
+        "Sum": 2.0,
+        "Minimum": 1.0,
+        "Maximum": 1.0,
+        "Unit": "Count"
+      },
+      {
+        "Timestamp": "2026-05-27T09:03:00-03:00",
+        "Average": 1.0,
+        "Sum": 2.0,
+        "Minimum": 1.0,
+        "Maximum": 1.0,
+        "Unit": "Count"
+      },
+      {
+        "Timestamp": "2026-05-27T09:04:00-03:00",
+        "Average": 1.0,
+        "Sum": 2.0,
+        "Minimum": 1.0,
+        "Maximum": 1.0,
+        "Unit": "Count"
+      },
+      {
+        "Timestamp": "2026-05-27T09:05:00-03:00",
+        "Average": 1.0,
+        "Sum": 2.0,
+        "Minimum": 1.0,
+        "Maximum": 1.0,
+        "Unit": "Count"
+      },
+      {
+        "Timestamp": "2026-05-27T09:06:00-03:00",
+        "Average": 1.0,
+        "Sum": 2.0,
+        "Minimum": 1.0,
+        "Maximum": 1.0,
+        "Unit": "Count"
+      },
+      {
+        "Timestamp": "2026-05-27T09:07:00-03:00",
+        "Average": 1.0,
+        "Sum": 2.0,
+        "Minimum": 1.0,
+        "Maximum": 1.0,
+        "Unit": "Count"
+      },
+      {
+        "Timestamp": "2026-05-27T09:08:00-03:00",
+        "Average": 1.0,
+        "Sum": 2.0,
+        "Minimum": 1.0,
+        "Maximum": 1.0,
+        "Unit": "Count"
+      },
+      {
+        "Timestamp": "2026-05-27T09:09:00-03:00",
+        "Average": 1.0,
+        "Sum": 2.0,
+        "Minimum": 1.0,
+        "Maximum": 1.0,
+        "Unit": "Count"
+      }
+    ]
+  },
+  {
+    "target_group": "order-service-qjvm-tg",
+    "port": 8081,
+    "metric": "UnHealthyHostCount",
+    "datapoints": [
+      {
+        "Timestamp": "2026-05-27T08:47:00-03:00",
+        "Average": 0.0,
+        "Sum": 0.0,
+        "Minimum": 0.0,
+        "Maximum": 0.0,
+        "Unit": "Count"
+      },
+      {
+        "Timestamp": "2026-05-27T08:48:00-03:00",
+        "Average": 0.0,
+        "Sum": 0.0,
+        "Minimum": 0.0,
+        "Maximum": 0.0,
+        "Unit": "Count"
+      },
+      {
+        "Timestamp": "2026-05-27T08:49:00-03:00",
+        "Average": 0.0,
+        "Sum": 0.0,
+        "Minimum": 0.0,
+        "Maximum": 0.0,
+        "Unit": "Count"
+      },
+      {
+        "Timestamp": "2026-05-27T08:50:00-03:00",
+        "Average": 0.0,
+        "Sum": 0.0,
+        "Minimum": 0.0,
+        "Maximum": 0.0,
+        "Unit": "Count"
+      },
+      {
+        "Timestamp": "2026-05-27T08:51:00-03:00",
+        "Average": 0.0,
+        "Sum": 0.0,
+        "Minimum": 0.0,
+        "Maximum": 0.0,
+        "Unit": "Count"
+      },
+      {
+        "Timestamp": "2026-05-27T08:52:00-03:00",
+        "Average": 0.0,
+        "Sum": 0.0,
+        "Minimum": 0.0,
+        "Maximum": 0.0,
+        "Unit": "Count"
+      },
+      {
+        "Timestamp": "2026-05-27T08:53:00-03:00",
+        "Average": 0.0,
+        "Sum": 0.0,
+        "Minimum": 0.0,
+        "Maximum": 0.0,
+        "Unit": "Count"
+      },
+      {
+        "Timestamp": "2026-05-27T08:54:00-03:00",
+        "Average": 0.0,
+        "Sum": 0.0,
+        "Minimum": 0.0,
+        "Maximum": 0.0,
+        "Unit": "Count"
+      },
+      {
+        "Timestamp": "2026-05-27T08:55:00-03:00",
+        "Average": 0.0,
+        "Sum": 0.0,
+        "Minimum": 0.0,
+        "Maximum": 0.0,
+        "Unit": "Count"
+      },
+      {
+        "Timestamp": "2026-05-27T08:56:00-03:00",
+        "Average": 0.0,
+        "Sum": 0.0,
+        "Minimum": 0.0,
+        "Maximum": 0.0,
+        "Unit": "Count"
+      },
+      {
+        "Timestamp": "2026-05-27T08:57:00-03:00",
+        "Average": 0.0,
+        "Sum": 0.0,
+        "Minimum": 0.0,
+        "Maximum": 0.0,
+        "Unit": "Count"
+      },
+      {
+        "Timestamp": "2026-05-27T08:58:00-03:00",
+        "Average": 0.0,
+        "Sum": 0.0,
+        "Minimum": 0.0,
+        "Maximum": 0.0,
+        "Unit": "Count"
+      },
+      {
+        "Timestamp": "2026-05-27T08:59:00-03:00",
+        "Average": 0.0,
+        "Sum": 0.0,
+        "Minimum": 0.0,
+        "Maximum": 0.0,
+        "Unit": "Count"
+      },
+      {
+        "Timestamp": "2026-05-27T09:00:00-03:00",
+        "Average": 0.0,
+        "Sum": 0.0,
+        "Minimum": 0.0,
+        "Maximum": 0.0,
+        "Unit": "Count"
+      },
+      {
+        "Timestamp": "2026-05-27T09:01:00-03:00",
+        "Average": 0.0,
+        "Sum": 0.0,
+        "Minimum": 0.0,
+        "Maximum": 0.0,
+        "Unit": "Count"
+      },
+      {
+        "Timestamp": "2026-05-27T09:02:00-03:00",
+        "Average": 0.0,
+        "Sum": 0.0,
+        "Minimum": 0.0,
+        "Maximum": 0.0,
+        "Unit": "Count"
+      },
+      {
+        "Timestamp": "2026-05-27T09:03:00-03:00",
+        "Average": 0.0,
+        "Sum": 0.0,
+        "Minimum": 0.0,
+        "Maximum": 0.0,
+        "Unit": "Count"
+      },
+      {
+        "Timestamp": "2026-05-27T09:04:00-03:00",
+        "Average": 0.0,
+        "Sum": 0.0,
+        "Minimum": 0.0,
+        "Maximum": 0.0,
+        "Unit": "Count"
+      },
+      {
+        "Timestamp": "2026-05-27T09:05:00-03:00",
+        "Average": 0.0,
+        "Sum": 0.0,
+        "Minimum": 0.0,
+        "Maximum": 0.0,
+        "Unit": "Count"
+      },
+      {
+        "Timestamp": "2026-05-27T09:06:00-03:00",
+        "Average": 0.0,
+        "Sum": 0.0,
+        "Minimum": 0.0,
+        "Maximum": 0.0,
+        "Unit": "Count"
+      },
+      {
+        "Timestamp": "2026-05-27T09:07:00-03:00",
+        "Average": 0.0,
+        "Sum": 0.0,
+        "Minimum": 0.0,
+        "Maximum": 0.0,
+        "Unit": "Count"
+      },
+      {
+        "Timestamp": "2026-05-27T09:08:00-03:00",
+        "Average": 0.0,
+        "Sum": 0.0,
+        "Minimum": 0.0,
+        "Maximum": 0.0,
+        "Unit": "Count"
+      },
+      {
+        "Timestamp": "2026-05-27T09:09:00-03:00",
+        "Average": 0.0,
+        "Sum": 0.0,
+        "Minimum": 0.0,
+        "Maximum": 0.0,
+        "Unit": "Count"
+      }
+    ]
+  },
+  {
+    "target_group": "order-service-qjvm-tg",
+    "port": 8081,
+    "metric": "TargetConnectionErrorCount",
+    "datapoints": []
+  },
+  {
+    "target_group": "order-service-qnative-tg",
+    "port": 8081,
+    "metric": "HealthyHostCount",
+    "datapoints": [
+      {
+        "Timestamp": "2026-05-27T08:47:00-03:00",
+        "Average": 1.0,
+        "Sum": 2.0,
+        "Minimum": 1.0,
+        "Maximum": 1.0,
+        "Unit": "Count"
+      },
+      {
+        "Timestamp": "2026-05-27T08:48:00-03:00",
+        "Average": 1.0,
+        "Sum": 2.0,
+        "Minimum": 1.0,
+        "Maximum": 1.0,
+        "Unit": "Count"
+      },
+      {
+        "Timestamp": "2026-05-27T08:49:00-03:00",
+        "Average": 1.0,
+        "Sum": 2.0,
+        "Minimum": 1.0,
+        "Maximum": 1.0,
+        "Unit": "Count"
+      },
+      {
+        "Timestamp": "2026-05-27T08:50:00-03:00",
+        "Average": 1.0,
+        "Sum": 2.0,
+        "Minimum": 1.0,
+        "Maximum": 1.0,
+        "Unit": "Count"
+      },
+      {
+        "Timestamp": "2026-05-27T08:51:00-03:00",
+        "Average": 1.0,
+        "Sum": 2.0,
+        "Minimum": 1.0,
+        "Maximum": 1.0,
+        "Unit": "Count"
+      },
+      {
+        "Timestamp": "2026-05-27T08:52:00-03:00",
+        "Average": 1.0,
+        "Sum": 2.0,
+        "Minimum": 1.0,
+        "Maximum": 1.0,
+        "Unit": "Count"
+      },
+      {
+        "Timestamp": "2026-05-27T08:53:00-03:00",
+        "Average": 1.0,
+        "Sum": 2.0,
+        "Minimum": 1.0,
+        "Maximum": 1.0,
+        "Unit": "Count"
+      },
+      {
+        "Timestamp": "2026-05-27T08:54:00-03:00",
+        "Average": 1.0,
+        "Sum": 2.0,
+        "Minimum": 1.0,
+        "Maximum": 1.0,
+        "Unit": "Count"
+      },
+      {
+        "Timestamp": "2026-05-27T08:55:00-03:00",
+        "Average": 1.0,
+        "Sum": 2.0,
+        "Minimum": 1.0,
+        "Maximum": 1.0,
+        "Unit": "Count"
+      },
+      {
+        "Timestamp": "2026-05-27T08:56:00-03:00",
+        "Average": 1.0,
+        "Sum": 2.0,
+        "Minimum": 1.0,
+        "Maximum": 1.0,
+        "Unit": "Count"
+      },
+      {
+        "Timestamp": "2026-05-27T08:57:00-03:00",
+        "Average": 1.0,
+        "Sum": 2.0,
+        "Minimum": 1.0,
+        "Maximum": 1.0,
+        "Unit": "Count"
+      },
+      {
+        "Timestamp": "2026-05-27T08:58:00-03:00",
+        "Average": 1.0,
+        "Sum": 2.0,
+        "Minimum": 1.0,
+        "Maximum": 1.0,
+        "Unit": "Count"
+      },
+      {
+        "Timestamp": "2026-05-27T08:59:00-03:00",
+        "Average": 1.0,
+        "Sum": 2.0,
+        "Minimum": 1.0,
+        "Maximum": 1.0,
+        "Unit": "Count"
+      },
+      {
+        "Timestamp": "2026-05-27T09:00:00-03:00",
+        "Average": 1.0,
+        "Sum": 2.0,
+        "Minimum": 1.0,
+        "Maximum": 1.0,
+        "Unit": "Count"
+      },
+      {
+        "Timestamp": "2026-05-27T09:01:00-03:00",
+        "Average": 1.0,
+        "Sum": 2.0,
+        "Minimum": 1.0,
+        "Maximum": 1.0,
+        "Unit": "Count"
+      },
+      {
+        "Timestamp": "2026-05-27T09:02:00-03:00",
+        "Average": 1.0,
+        "Sum": 2.0,
+        "Minimum": 1.0,
+        "Maximum": 1.0,
+        "Unit": "Count"
+      },
+      {
+        "Timestamp": "2026-05-27T09:03:00-03:00",
+        "Average": 1.0,
+        "Sum": 2.0,
+        "Minimum": 1.0,
+        "Maximum": 1.0,
+        "Unit": "Count"
+      },
+      {
+        "Timestamp": "2026-05-27T09:04:00-03:00",
+        "Average": 1.0,
+        "Sum": 2.0,
+        "Minimum": 1.0,
+        "Maximum": 1.0,
+        "Unit": "Count"
+      },
+      {
+        "Timestamp": "2026-05-27T09:05:00-03:00",
+        "Average": 1.0,
+        "Sum": 2.0,
+        "Minimum": 1.0,
+        "Maximum": 1.0,
+        "Unit": "Count"
+      },
+      {
+        "Timestamp": "2026-05-27T09:06:00-03:00",
+        "Average": 1.0,
+        "Sum": 2.0,
+        "Minimum": 1.0,
+        "Maximum": 1.0,
+        "Unit": "Count"
+      },
+      {
+        "Timestamp": "2026-05-27T09:07:00-03:00",
+        "Average": 1.0,
+        "Sum": 2.0,
+        "Minimum": 1.0,
+        "Maximum": 1.0,
+        "Unit": "Count"
+      },
+      {
+        "Timestamp": "2026-05-27T09:08:00-03:00",
+        "Average": 1.0,
+        "Sum": 2.0,
+        "Minimum": 1.0,
+        "Maximum": 1.0,
+        "Unit": "Count"
+      },
+      {
+        "Timestamp": "2026-05-27T09:09:00-03:00",
+        "Average": 1.0,
+        "Sum": 2.0,
+        "Minimum": 1.0,
+        "Maximum": 1.0,
+        "Unit": "Count"
+      }
+    ]
+  },
+  {
+    "target_group": "order-service-qnative-tg",
+    "port": 8081,
+    "metric": "UnHealthyHostCount",
+    "datapoints": [
+      {
+        "Timestamp": "2026-05-27T08:47:00-03:00",
+        "Average": 0.0,
+        "Sum": 0.0,
+        "Minimum": 0.0,
+        "Maximum": 0.0,
+        "Unit": "Count"
+      },
+      {
+        "Timestamp": "2026-05-27T08:48:00-03:00",
+        "Average": 0.0,
+        "Sum": 0.0,
+        "Minimum": 0.0,
+        "Maximum": 0.0,
+        "Unit": "Count"
+      },
+      {
+        "Timestamp": "2026-05-27T08:49:00-03:00",
+        "Average": 0.0,
+        "Sum": 0.0,
+        "Minimum": 0.0,
+        "Maximum": 0.0,
+        "Unit": "Count"
+      },
+      {
+        "Timestamp": "2026-05-27T08:50:00-03:00",
+        "Average": 0.0,
+        "Sum": 0.0,
+        "Minimum": 0.0,
+        "Maximum": 0.0,
+        "Unit": "Count"
+      },
+      {
+        "Timestamp": "2026-05-27T08:51:00-03:00",
+        "Average": 0.0,
+        "Sum": 0.0,
+        "Minimum": 0.0,
+        "Maximum": 0.0,
+        "Unit": "Count"
+      },
+      {
+        "Timestamp": "2026-05-27T08:52:00-03:00",
+        "Average": 0.0,
+        "Sum": 0.0,
+        "Minimum": 0.0,
+        "Maximum": 0.0,
+        "Unit": "Count"
+      },
+      {
+        "Timestamp": "2026-05-27T08:53:00-03:00",
+        "Average": 0.0,
+        "Sum": 0.0,
+        "Minimum": 0.0,
+        "Maximum": 0.0,
+        "Unit": "Count"
+      },
+      {
+        "Timestamp": "2026-05-27T08:54:00-03:00",
+        "Average": 0.0,
+        "Sum": 0.0,
+        "Minimum": 0.0,
+        "Maximum": 0.0,
+        "Unit": "Count"
+      },
+      {
+        "Timestamp": "2026-05-27T08:55:00-03:00",
+        "Average": 0.0,
+        "Sum": 0.0,
+        "Minimum": 0.0,
+        "Maximum": 0.0,
+        "Unit": "Count"
+      },
+      {
+        "Timestamp": "2026-05-27T08:56:00-03:00",
+        "Average": 0.0,
+        "Sum": 0.0,
+        "Minimum": 0.0,
+        "Maximum": 0.0,
+        "Unit": "Count"
+      },
+      {
+        "Timestamp": "2026-05-27T08:57:00-03:00",
+        "Average": 0.0,
+        "Sum": 0.0,
+        "Minimum": 0.0,
+        "Maximum": 0.0,
+        "Unit": "Count"
+      },
+      {
+        "Timestamp": "2026-05-27T08:58:00-03:00",
+        "Average": 0.0,
+        "Sum": 0.0,
+        "Minimum": 0.0,
+        "Maximum": 0.0,
+        "Unit": "Count"
+      },
+      {
+        "Timestamp": "2026-05-27T08:59:00-03:00",
+        "Average": 0.0,
+        "Sum": 0.0,
+        "Minimum": 0.0,
+        "Maximum": 0.0,
+        "Unit": "Count"
+      },
+      {
+        "Timestamp": "2026-05-27T09:00:00-03:00",
+        "Average": 0.0,
+        "Sum": 0.0,
+        "Minimum": 0.0,
+        "Maximum": 0.0,
+        "Unit": "Count"
+      },
+      {
+        "Timestamp": "2026-05-27T09:01:00-03:00",
+        "Average": 0.0,
+        "Sum": 0.0,
+        "Minimum": 0.0,
+        "Maximum": 0.0,
+        "Unit": "Count"
+      },
+      {
+        "Timestamp": "2026-05-27T09:02:00-03:00",
+        "Average": 0.0,
+        "Sum": 0.0,
+        "Minimum": 0.0,
+        "Maximum": 0.0,
+        "Unit": "Count"
+      },
+      {
+        "Timestamp": "2026-05-27T09:03:00-03:00",
+        "Average": 0.0,
+        "Sum": 0.0,
+        "Minimum": 0.0,
+        "Maximum": 0.0,
+        "Unit": "Count"
+      },
+      {
+        "Timestamp": "2026-05-27T09:04:00-03:00",
+        "Average": 0.0,
+        "Sum": 0.0,
+        "Minimum": 0.0,
+        "Maximum": 0.0,
+        "Unit": "Count"
+      },
+      {
+        "Timestamp": "2026-05-27T09:05:00-03:00",
+        "Average": 0.0,
+        "Sum": 0.0,
+        "Minimum": 0.0,
+        "Maximum": 0.0,
+        "Unit": "Count"
+      },
+      {
+        "Timestamp": "2026-05-27T09:06:00-03:00",
+        "Average": 0.0,
+        "Sum": 0.0,
+        "Minimum": 0.0,
+        "Maximum": 0.0,
+        "Unit": "Count"
+      },
+      {
+        "Timestamp": "2026-05-27T09:07:00-03:00",
+        "Average": 0.0,
+        "Sum": 0.0,
+        "Minimum": 0.0,
+        "Maximum": 0.0,
+        "Unit": "Count"
+      },
+      {
+        "Timestamp": "2026-05-27T09:08:00-03:00",
+        "Average": 0.0,
+        "Sum": 0.0,
+        "Minimum": 0.0,
+        "Maximum": 0.0,
+        "Unit": "Count"
+      },
+      {
+        "Timestamp": "2026-05-27T09:09:00-03:00",
+        "Average": 0.0,
+        "Sum": 0.0,
+        "Minimum": 0.0,
+        "Maximum": 0.0,
+        "Unit": "Count"
+      }
+    ]
+  },
+  {
+    "target_group": "order-service-qnative-tg",
+    "port": 8081,
+    "metric": "TargetConnectionErrorCount",
+    "datapoints": []
+  },
+  {
+    "target_group": "order-service-spring-tg",
+    "port": 8081,
+    "metric": "HealthyHostCount",
+    "datapoints": [
+      {
+        "Timestamp": "2026-05-27T08:47:00-03:00",
+        "Average": 1.0,
+        "Sum": 2.0,
+        "Minimum": 1.0,
+        "Maximum": 1.0,
+        "Unit": "Count"
+      },
+      {
+        "Timestamp": "2026-05-27T08:48:00-03:00",
+        "Average": 1.0,
+        "Sum": 2.0,
+        "Minimum": 1.0,
+        "Maximum": 1.0,
+        "Unit": "Count"
+      },
+      {
+        "Timestamp": "2026-05-27T08:49:00-03:00",
+        "Average": 1.0,
+        "Sum": 2.0,
+        "Minimum": 1.0,
+        "Maximum": 1.0,
+        "Unit": "Count"
+      },
+      {
+        "Timestamp": "2026-05-27T08:50:00-03:00",
+        "Average": 1.0,
+        "Sum": 2.0,
+        "Minimum": 1.0,
+        "Maximum": 1.0,
+        "Unit": "Count"
+      },
+      {
+        "Timestamp": "2026-05-27T08:51:00-03:00",
+        "Average": 1.0,
+        "Sum": 2.0,
+        "Minimum": 1.0,
+        "Maximum": 1.0,
+        "Unit": "Count"
+      },
+      {
+        "Timestamp": "2026-05-27T08:52:00-03:00",
+        "Average": 1.0,
+        "Sum": 2.0,
+        "Minimum": 1.0,
+        "Maximum": 1.0,
+        "Unit": "Count"
+      },
+      {
+        "Timestamp": "2026-05-27T08:53:00-03:00",
+        "Average": 1.0,
+        "Sum": 2.0,
+        "Minimum": 1.0,
+        "Maximum": 1.0,
+        "Unit": "Count"
+      },
+      {
+        "Timestamp": "2026-05-27T08:54:00-03:00",
+        "Average": 1.0,
+        "Sum": 2.0,
+        "Minimum": 1.0,
+        "Maximum": 1.0,
+        "Unit": "Count"
+      },
+      {
+        "Timestamp": "2026-05-27T08:55:00-03:00",
+        "Average": 1.0,
+        "Sum": 2.0,
+        "Minimum": 1.0,
+        "Maximum": 1.0,
+        "Unit": "Count"
+      },
+      {
+        "Timestamp": "2026-05-27T08:56:00-03:00",
+        "Average": 1.0,
+        "Sum": 2.0,
+        "Minimum": 1.0,
+        "Maximum": 1.0,
+        "Unit": "Count"
+      },
+      {
+        "Timestamp": "2026-05-27T08:57:00-03:00",
+        "Average": 1.0,
+        "Sum": 2.0,
+        "Minimum": 1.0,
+        "Maximum": 1.0,
+        "Unit": "Count"
+      },
+      {
+        "Timestamp": "2026-05-27T08:58:00-03:00",
+        "Average": 1.0,
+        "Sum": 2.0,
+        "Minimum": 1.0,
+        "Maximum": 1.0,
+        "Unit": "Count"
+      },
+      {
+        "Timestamp": "2026-05-27T08:59:00-03:00",
+        "Average": 1.0,
+        "Sum": 2.0,
+        "Minimum": 1.0,
+        "Maximum": 1.0,
+        "Unit": "Count"
+      },
+      {
+        "Timestamp": "2026-05-27T09:00:00-03:00",
+        "Average": 1.0,
+        "Sum": 2.0,
+        "Minimum": 1.0,
+        "Maximum": 1.0,
+        "Unit": "Count"
+      },
+      {
+        "Timestamp": "2026-05-27T09:01:00-03:00",
+        "Average": 1.0,
+        "Sum": 2.0,
+        "Minimum": 1.0,
+        "Maximum": 1.0,
+        "Unit": "Count"
+      },
+      {
+        "Timestamp": "2026-05-27T09:02:00-03:00",
+        "Average": 1.0,
+        "Sum": 2.0,
+        "Minimum": 1.0,
+        "Maximum": 1.0,
+        "Unit": "Count"
+      },
+      {
+        "Timestamp": "2026-05-27T09:03:00-03:00",
+        "Average": 1.0,
+        "Sum": 2.0,
+        "Minimum": 1.0,
+        "Maximum": 1.0,
+        "Unit": "Count"
+      },
+      {
+        "Timestamp": "2026-05-27T09:04:00-03:00",
+        "Average": 1.0,
+        "Sum": 2.0,
+        "Minimum": 1.0,
+        "Maximum": 1.0,
+        "Unit": "Count"
+      },
+      {
+        "Timestamp": "2026-05-27T09:05:00-03:00",
+        "Average": 1.0,
+        "Sum": 2.0,
+        "Minimum": 1.0,
+        "Maximum": 1.0,
+        "Unit": "Count"
+      },
+      {
+        "Timestamp": "2026-05-27T09:06:00-03:00",
+        "Average": 1.0,
+        "Sum": 2.0,
+        "Minimum": 1.0,
+        "Maximum": 1.0,
+        "Unit": "Count"
+      },
+      {
+        "Timestamp": "2026-05-27T09:07:00-03:00",
+        "Average": 1.0,
+        "Sum": 2.0,
+        "Minimum": 1.0,
+        "Maximum": 1.0,
+        "Unit": "Count"
+      },
+      {
+        "Timestamp": "2026-05-27T09:08:00-03:00",
+        "Average": 1.0,
+        "Sum": 2.0,
+        "Minimum": 1.0,
+        "Maximum": 1.0,
+        "Unit": "Count"
+      }
+    ]
+  },
+  {
+    "target_group": "order-service-spring-tg",
+    "port": 8081,
+    "metric": "UnHealthyHostCount",
+    "datapoints": [
+      {
+        "Timestamp": "2026-05-27T08:47:00-03:00",
+        "Average": 0.0,
+        "Sum": 0.0,
+        "Minimum": 0.0,
+        "Maximum": 0.0,
+        "Unit": "Count"
+      },
+      {
+        "Timestamp": "2026-05-27T08:48:00-03:00",
+        "Average": 0.0,
+        "Sum": 0.0,
+        "Minimum": 0.0,
+        "Maximum": 0.0,
+        "Unit": "Count"
+      },
+      {
+        "Timestamp": "2026-05-27T08:49:00-03:00",
+        "Average": 0.0,
+        "Sum": 0.0,
+        "Minimum": 0.0,
+        "Maximum": 0.0,
+        "Unit": "Count"
+      },
+      {
+        "Timestamp": "2026-05-27T08:50:00-03:00",
+        "Average": 0.0,
+        "Sum": 0.0,
+        "Minimum": 0.0,
+        "Maximum": 0.0,
+        "Unit": "Count"
+      },
+      {
+        "Timestamp": "2026-05-27T08:51:00-03:00",
+        "Average": 0.0,
+        "Sum": 0.0,
+        "Minimum": 0.0,
+        "Maximum": 0.0,
+        "Unit": "Count"
+      },
+      {
+        "Timestamp": "2026-05-27T08:52:00-03:00",
+        "Average": 0.0,
+        "Sum": 0.0,
+        "Minimum": 0.0,
+        "Maximum": 0.0,
+        "Unit": "Count"
+      },
+      {
+        "Timestamp": "2026-05-27T08:53:00-03:00",
+        "Average": 0.0,
+        "Sum": 0.0,
+        "Minimum": 0.0,
+        "Maximum": 0.0,
+        "Unit": "Count"
+      },
+      {
+        "Timestamp": "2026-05-27T08:54:00-03:00",
+        "Average": 0.0,
+        "Sum": 0.0,
+        "Minimum": 0.0,
+        "Maximum": 0.0,
+        "Unit": "Count"
+      },
+      {
+        "Timestamp": "2026-05-27T08:55:00-03:00",
+        "Average": 0.0,
+        "Sum": 0.0,
+        "Minimum": 0.0,
+        "Maximum": 0.0,
+        "Unit": "Count"
+      },
+      {
+        "Timestamp": "2026-05-27T08:56:00-03:00",
+        "Average": 0.0,
+        "Sum": 0.0,
+        "Minimum": 0.0,
+        "Maximum": 0.0,
+        "Unit": "Count"
+      },
+      {
+        "Timestamp": "2026-05-27T08:57:00-03:00",
+        "Average": 0.0,
+        "Sum": 0.0,
+        "Minimum": 0.0,
+        "Maximum": 0.0,
+        "Unit": "Count"
+      },
+      {
+        "Timestamp": "2026-05-27T08:58:00-03:00",
+        "Average": 0.0,
+        "Sum": 0.0,
+        "Minimum": 0.0,
+        "Maximum": 0.0,
+        "Unit": "Count"
+      },
+      {
+        "Timestamp": "2026-05-27T08:59:00-03:00",
+        "Average": 0.0,
+        "Sum": 0.0,
+        "Minimum": 0.0,
+        "Maximum": 0.0,
+        "Unit": "Count"
+      },
+      {
+        "Timestamp": "2026-05-27T09:00:00-03:00",
+        "Average": 0.0,
+        "Sum": 0.0,
+        "Minimum": 0.0,
+        "Maximum": 0.0,
+        "Unit": "Count"
+      },
+      {
+        "Timestamp": "2026-05-27T09:01:00-03:00",
+        "Average": 0.0,
+        "Sum": 0.0,
+        "Minimum": 0.0,
+        "Maximum": 0.0,
+        "Unit": "Count"
+      },
+      {
+        "Timestamp": "2026-05-27T09:02:00-03:00",
+        "Average": 0.0,
+        "Sum": 0.0,
+        "Minimum": 0.0,
+        "Maximum": 0.0,
+        "Unit": "Count"
+      },
+      {
+        "Timestamp": "2026-05-27T09:03:00-03:00",
+        "Average": 0.0,
+        "Sum": 0.0,
+        "Minimum": 0.0,
+        "Maximum": 0.0,
+        "Unit": "Count"
+      },
+      {
+        "Timestamp": "2026-05-27T09:04:00-03:00",
+        "Average": 0.0,
+        "Sum": 0.0,
+        "Minimum": 0.0,
+        "Maximum": 0.0,
+        "Unit": "Count"
+      },
+      {
+        "Timestamp": "2026-05-27T09:05:00-03:00",
+        "Average": 0.0,
+        "Sum": 0.0,
+        "Minimum": 0.0,
+        "Maximum": 0.0,
+        "Unit": "Count"
+      },
+      {
+        "Timestamp": "2026-05-27T09:06:00-03:00",
+        "Average": 0.0,
+        "Sum": 0.0,
+        "Minimum": 0.0,
+        "Maximum": 0.0,
+        "Unit": "Count"
+      },
+      {
+        "Timestamp": "2026-05-27T09:07:00-03:00",
+        "Average": 0.0,
+        "Sum": 0.0,
+        "Minimum": 0.0,
+        "Maximum": 0.0,
+        "Unit": "Count"
+      },
+      {
+        "Timestamp": "2026-05-27T09:08:00-03:00",
+        "Average": 0.0,
+        "Sum": 0.0,
+        "Minimum": 0.0,
+        "Maximum": 0.0,
+        "Unit": "Count"
+      }
+    ]
+  },
+  {
+    "target_group": "order-service-spring-tg",
+    "port": 8081,
+    "metric": "TargetConnectionErrorCount",
+    "datapoints": [
+      {
+        "Timestamp": "2026-05-27T09:08:00-03:00",
+        "Average": 1.0,
+        "Sum": 1474.0,
+        "Minimum": 1.0,
+        "Maximum": 1.0,
+        "Unit": "Count"
+      },
+      {
+        "Timestamp": "2026-05-27T09:09:00-03:00",
+        "Average": 1.0,
+        "Sum": 3914.0,
+        "Minimum": 1.0,
+        "Maximum": 1.0,
+        "Unit": "Count"
+      }
+    ]
+  }
+]

@@ -1,0 +1,71 @@
+{
+    "Label": "CPUUtilization",
+    "Datapoints": [
+        {
+            "Timestamp": "2026-06-04T20:42:00-03:00",
+            "Average": 3.8548639557731375,
+            "Maximum": 3.8548639557731375,
+            "Unit": "Percent"
+        },
+        {
+            "Timestamp": "2026-06-04T20:46:00-03:00",
+            "Average": 59.574999999999996,
+            "Maximum": 59.574999999999996,
+            "Unit": "Percent"
+        },
+        {
+            "Timestamp": "2026-06-04T20:41:00-03:00",
+            "Average": 4.066666666666666,
+            "Maximum": 4.066666666666666,
+            "Unit": "Percent"
+        },
+        {
+            "Timestamp": "2026-06-04T20:50:00-03:00",
+            "Average": 5.008333333333334,
+            "Maximum": 5.008333333333334,
+            "Unit": "Percent"
+        },
+        {
+            "Timestamp": "2026-06-04T20:45:00-03:00",
+            "Average": 40.50833333333334,
+            "Maximum": 40.50833333333334,
+            "Unit": "Percent"
+        },
+        {
+            "Timestamp": "2026-06-04T20:49:00-03:00",
+            "Average": 88.85833333333332,
+            "Maximum": 88.85833333333332,
+            "Unit": "Percent"
+        },
+        {
+            "Timestamp": "2026-06-04T20:40:00-03:00",
+            "Average": 4.416666666666666,
+            "Maximum": 4.416666666666666,
+            "Unit": "Percent"
+        },
+        {
+            "Timestamp": "2026-06-04T20:44:00-03:00",
+            "Average": 9.266512224796253,
+            "Maximum": 9.266512224796253,
+            "Unit": "Percent"
+        },
+        {
+            "Timestamp": "2026-06-04T20:48:00-03:00",
+            "Average": 96.23661295165648,
+            "Maximum": 96.23661295165648,
+            "Unit": "Percent"
+        },
+        {
+            "Timestamp": "2026-06-04T20:43:00-03:00",
+            "Average": 6.25,
+            "Maximum": 6.25,
+            "Unit": "Percent"
+        },
+        {
+            "Timestamp": "2026-06-04T20:47:00-03:00",
+            "Average": 79.25965432757212,
+            "Maximum": 79.25965432757212,
+            "Unit": "Percent"
+        }
+    ]
+}

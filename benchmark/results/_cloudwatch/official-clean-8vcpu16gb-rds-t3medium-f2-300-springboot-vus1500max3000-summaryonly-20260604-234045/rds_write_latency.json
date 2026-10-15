@@ -1,0 +1,71 @@
+{
+    "Label": "WriteLatency",
+    "Datapoints": [
+        {
+            "Timestamp": "2026-06-04T20:45:00-03:00",
+            "Average": 0.000956301232529339,
+            "Maximum": 0.000956301232529339,
+            "Unit": "Seconds"
+        },
+        {
+            "Timestamp": "2026-06-04T20:41:00-03:00",
+            "Average": 0.0,
+            "Maximum": 0.0,
+            "Unit": "Seconds"
+        },
+        {
+            "Timestamp": "2026-06-04T20:50:00-03:00",
+            "Average": 0.0009923815833057304,
+            "Maximum": 0.0009923815833057304,
+            "Unit": "Seconds"
+        },
+        {
+            "Timestamp": "2026-06-04T20:44:00-03:00",
+            "Average": 0.0,
+            "Maximum": 0.0,
+            "Unit": "Seconds"
+        },
+        {
+            "Timestamp": "2026-06-04T20:49:00-03:00",
+            "Average": 0.0006110353378797272,
+            "Maximum": 0.0006110353378797272,
+            "Unit": "Seconds"
+        },
+        {
+            "Timestamp": "2026-06-04T20:40:00-03:00",
+            "Average": 0.003058181818181818,
+            "Maximum": 0.003058181818181818,
+            "Unit": "Seconds"
+        },
+        {
+            "Timestamp": "2026-06-04T20:43:00-03:00",
+            "Average": 0.0,
+            "Maximum": 0.0,
+            "Unit": "Seconds"
+        },
+        {
+            "Timestamp": "2026-06-04T20:48:00-03:00",
+            "Average": 0.0008447385117375147,
+            "Maximum": 0.0008447385117375147,
+            "Unit": "Seconds"
+        },
+        {
+            "Timestamp": "2026-06-04T20:42:00-03:00",
+            "Average": 0.0,
+            "Maximum": 0.0,
+            "Unit": "Seconds"
+        },
+        {
+            "Timestamp": "2026-06-04T20:46:00-03:00",
+            "Average": 0.0009550807268076943,
+            "Maximum": 0.0009550807268076943,
+            "Unit": "Seconds"
+        },
+        {
+            "Timestamp": "2026-06-04T20:47:00-03:00",
+            "Average": 0.0008392147698060295,
+            "Maximum": 0.0008392147698060295,
+            "Unit": "Seconds"
+        }
+    ]
+}

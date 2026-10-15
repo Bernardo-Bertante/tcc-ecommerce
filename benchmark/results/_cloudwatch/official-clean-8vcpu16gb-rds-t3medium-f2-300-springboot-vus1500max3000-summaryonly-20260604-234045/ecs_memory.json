@@ -1,0 +1,71 @@
+{
+    "Label": "MemoryUtilization",
+    "Datapoints": [
+        {
+            "Timestamp": "2026-06-04T20:42:00-03:00",
+            "Average": 2.825927734375,
+            "Maximum": 2.825927734375,
+            "Unit": "Percent"
+        },
+        {
+            "Timestamp": "2026-06-04T20:46:00-03:00",
+            "Average": 3.2379150390625,
+            "Maximum": 3.2623291015625,
+            "Unit": "Percent"
+        },
+        {
+            "Timestamp": "2026-06-04T20:41:00-03:00",
+            "Average": 2.825927734375,
+            "Maximum": 2.825927734375,
+            "Unit": "Percent"
+        },
+        {
+            "Timestamp": "2026-06-04T20:50:00-03:00",
+            "Average": 14.396158854166666,
+            "Maximum": 14.398193359375,
+            "Unit": "Percent"
+        },
+        {
+            "Timestamp": "2026-06-04T20:45:00-03:00",
+            "Average": 3.2419840494791665,
+            "Maximum": 3.2684326171875,
+            "Unit": "Percent"
+        },
+        {
+            "Timestamp": "2026-06-04T20:49:00-03:00",
+            "Average": 11.536661783854166,
+            "Maximum": 13.4521484375,
+            "Unit": "Percent"
+        },
+        {
+            "Timestamp": "2026-06-04T20:40:00-03:00",
+            "Average": 2.825927734375,
+            "Maximum": 2.825927734375,
+            "Unit": "Percent"
+        },
+        {
+            "Timestamp": "2026-06-04T20:44:00-03:00",
+            "Average": 2.825927734375,
+            "Maximum": 2.825927734375,
+            "Unit": "Percent"
+        },
+        {
+            "Timestamp": "2026-06-04T20:48:00-03:00",
+            "Average": 5.469767252604167,
+            "Maximum": 7.5042724609375,
+            "Unit": "Percent"
+        },
+        {
+            "Timestamp": "2026-06-04T20:43:00-03:00",
+            "Average": 2.825927734375,
+            "Maximum": 2.825927734375,
+            "Unit": "Percent"
+        },
+        {
+            "Timestamp": "2026-06-04T20:47:00-03:00",
+            "Average": 3.4016927083333335,
+            "Maximum": 3.460693359375,
+            "Unit": "Percent"
+        }
+    ]
+}

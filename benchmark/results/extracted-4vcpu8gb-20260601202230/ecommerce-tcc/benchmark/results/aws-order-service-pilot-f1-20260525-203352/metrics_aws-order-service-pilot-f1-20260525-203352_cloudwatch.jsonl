@@ -1,0 +1,1454 @@
+{"run_id":"aws-order-service-pilot-f1-20260525-203352","version":"springboot","namespace":"AWS/ECS","metric":"CPUUtilization","data":{
+    "Label": "CPUUtilization",
+    "Datapoints": [
+        {
+            "Timestamp": "2026-05-25T20:32:00-03:00",
+            "Average": 0.6429081906874975,
+            "Maximum": 0.9011080265045166,
+            "Unit": "Percent"
+        },
+        {
+            "Timestamp": "2026-05-25T20:41:00-03:00",
+            "Average": 0.4454790751139323,
+            "Maximum": 0.640188992023468,
+            "Unit": "Percent"
+        },
+        {
+            "Timestamp": "2026-05-25T20:50:00-03:00",
+            "Average": 36.45102882385254,
+            "Maximum": 43.01097106933594,
+            "Unit": "Percent"
+        },
+        {
+            "Timestamp": "2026-05-25T20:49:00-03:00",
+            "Average": 81.19212977091472,
+            "Maximum": 96.81888580322266,
+            "Unit": "Percent"
+        },
+        {
+            "Timestamp": "2026-05-25T20:40:00-03:00",
+            "Average": 0.4677263746658961,
+            "Maximum": 0.6310917735099792,
+            "Unit": "Percent"
+        },
+        {
+            "Timestamp": "2026-05-25T20:48:00-03:00",
+            "Average": 12.26292367776235,
+            "Maximum": 35.41865539550781,
+            "Unit": "Percent"
+        },
+        {
+            "Timestamp": "2026-05-25T20:52:00-03:00",
+            "Average": 24.515392303466797,
+            "Maximum": 28.695220947265625,
+            "Unit": "Percent"
+        },
+        {
+            "Timestamp": "2026-05-25T20:43:00-03:00",
+            "Average": 0.42307182649771374,
+            "Maximum": 0.5964265465736389,
+            "Unit": "Percent"
+        },
+        {
+            "Timestamp": "2026-05-25T20:34:00-03:00",
+            "Average": 1.1876272757848103,
+            "Maximum": 2.495852470397949,
+            "Unit": "Percent"
+        },
+        {
+            "Timestamp": "2026-05-25T20:42:00-03:00",
+            "Average": 0.41645213464895886,
+            "Maximum": 0.5642178654670715,
+            "Unit": "Percent"
+        },
+        {
+            "Timestamp": "2026-05-25T20:51:00-03:00",
+            "Average": 29.04480234781901,
+            "Maximum": 35.903690338134766,
+            "Unit": "Percent"
+        },
+        {
+            "Timestamp": "2026-05-25T20:33:00-03:00",
+            "Average": 0.5162457923094431,
+            "Maximum": 0.6962006092071533,
+            "Unit": "Percent"
+        },
+        {
+            "Timestamp": "2026-05-25T20:54:00-03:00",
+            "Average": 0.6121743470430374,
+            "Maximum": 1.3176162242889404,
+            "Unit": "Percent"
+        },
+        {
+            "Timestamp": "2026-05-25T20:36:00-03:00",
+            "Average": 0.5110369523366293,
+            "Maximum": 0.7061538100242615,
+            "Unit": "Percent"
+        },
+        {
+            "Timestamp": "2026-05-25T20:45:00-03:00",
+            "Average": 0.46330015858014423,
+            "Maximum": 0.66766756772995,
+            "Unit": "Percent"
+        },
+        {
+            "Timestamp": "2026-05-25T20:44:00-03:00",
+            "Average": 0.4144887874523799,
+            "Maximum": 0.5945940017700195,
+            "Unit": "Percent"
+        },
+        {
+            "Timestamp": "2026-05-25T20:53:00-03:00",
+            "Average": 18.468979517618816,
+            "Maximum": 21.99569320678711,
+            "Unit": "Percent"
+        },
+        {
+            "Timestamp": "2026-05-25T20:35:00-03:00",
+            "Average": 0.8452455103397369,
+            "Maximum": 1.724199056625366,
+            "Unit": "Percent"
+        },
+        {
+            "Timestamp": "2026-05-25T20:39:00-03:00",
+            "Average": 0.6563711365063986,
+            "Maximum": 1.0878199338912964,
+            "Unit": "Percent"
+        },
+        {
+            "Timestamp": "2026-05-25T20:47:00-03:00",
+            "Average": 0.5063853313525518,
+            "Maximum": 0.6647778749465942,
+            "Unit": "Percent"
+        },
+        {
+            "Timestamp": "2026-05-25T20:38:00-03:00",
+            "Average": 0.7437844673792521,
+            "Maximum": 1.2683255672454834,
+            "Unit": "Percent"
+        },
+        {
+            "Timestamp": "2026-05-25T20:37:00-03:00",
+            "Average": 0.5085296183824539,
+            "Maximum": 0.6689642071723938,
+            "Unit": "Percent"
+        },
+        {
+            "Timestamp": "2026-05-25T20:46:00-03:00",
+            "Average": 0.6520498593648275,
+            "Maximum": 1.1834362745285034,
+            "Unit": "Percent"
+        }
+    ]
+}}
+{"run_id":"aws-order-service-pilot-f1-20260525-203352","version":"springboot","namespace":"AWS/ECS","metric":"MemoryUtilization","data":{
+    "Label": "MemoryUtilization",
+    "Datapoints": [
+        {
+            "Timestamp": "2026-05-25T20:32:00-03:00",
+            "Average": 34.944661458333336,
+            "Maximum": 34.9609375,
+            "Unit": "Percent"
+        },
+        {
+            "Timestamp": "2026-05-25T20:41:00-03:00",
+            "Average": 35.15625,
+            "Maximum": 35.15625,
+            "Unit": "Percent"
+        },
+        {
+            "Timestamp": "2026-05-25T20:50:00-03:00",
+            "Average": 36.686197916666664,
+            "Maximum": 36.81640625,
+            "Unit": "Percent"
+        },
+        {
+            "Timestamp": "2026-05-25T20:49:00-03:00",
+            "Average": 36.263020833333336,
+            "Maximum": 36.328125,
+            "Unit": "Percent"
+        },
+        {
+            "Timestamp": "2026-05-25T20:40:00-03:00",
+            "Average": 35.15625,
+            "Maximum": 35.15625,
+            "Unit": "Percent"
+        },
+        {
+            "Timestamp": "2026-05-25T20:48:00-03:00",
+            "Average": 35.481770833333336,
+            "Maximum": 35.9375,
+            "Unit": "Percent"
+        },
+        {
+            "Timestamp": "2026-05-25T20:52:00-03:00",
+            "Average": 37.044270833333336,
+            "Maximum": 37.20703125,
+            "Unit": "Percent"
+        },
+        {
+            "Timestamp": "2026-05-25T20:43:00-03:00",
+            "Average": 35.15625,
+            "Maximum": 35.15625,
+            "Unit": "Percent"
+        },
+        {
+            "Timestamp": "2026-05-25T20:34:00-03:00",
+            "Average": 34.993489583333336,
+            "Maximum": 35.009765625,
+            "Unit": "Percent"
+        },
+        {
+            "Timestamp": "2026-05-25T20:42:00-03:00",
+            "Average": 35.15625,
+            "Maximum": 35.15625,
+            "Unit": "Percent"
+        },
+        {
+            "Timestamp": "2026-05-25T20:51:00-03:00",
+            "Average": 36.897786458333336,
+            "Maximum": 36.962890625,
+            "Unit": "Percent"
+        },
+        {
+            "Timestamp": "2026-05-25T20:33:00-03:00",
+            "Average": 34.9609375,
+            "Maximum": 34.9609375,
+            "Unit": "Percent"
+        },
+        {
+            "Timestamp": "2026-05-25T20:54:00-03:00",
+            "Average": 37.01171875,
+            "Maximum": 37.01171875,
+            "Unit": "Percent"
+        },
+        {
+            "Timestamp": "2026-05-25T20:36:00-03:00",
+            "Average": 35.05859375,
+            "Maximum": 35.05859375,
+            "Unit": "Percent"
+        },
+        {
+            "Timestamp": "2026-05-25T20:45:00-03:00",
+            "Average": 35.25390625,
+            "Maximum": 35.25390625,
+            "Unit": "Percent"
+        },
+        {
+            "Timestamp": "2026-05-25T20:44:00-03:00",
+            "Average": 35.188802083333336,
+            "Maximum": 35.25390625,
+            "Unit": "Percent"
+        },
+        {
+            "Timestamp": "2026-05-25T20:53:00-03:00",
+            "Average": 36.995442708333336,
+            "Maximum": 37.01171875,
+            "Unit": "Percent"
+        },
+        {
+            "Timestamp": "2026-05-25T20:35:00-03:00",
+            "Average": 35.042317708333336,
+            "Maximum": 35.05859375,
+            "Unit": "Percent"
+        },
+        {
+            "Timestamp": "2026-05-25T20:39:00-03:00",
+            "Average": 35.15625,
+            "Maximum": 35.15625,
+            "Unit": "Percent"
+        },
+        {
+            "Timestamp": "2026-05-25T20:47:00-03:00",
+            "Average": 35.25390625,
+            "Maximum": 35.25390625,
+            "Unit": "Percent"
+        },
+        {
+            "Timestamp": "2026-05-25T20:38:00-03:00",
+            "Average": 35.107421875,
+            "Maximum": 35.15625,
+            "Unit": "Percent"
+        },
+        {
+            "Timestamp": "2026-05-25T20:37:00-03:00",
+            "Average": 35.05859375,
+            "Maximum": 35.05859375,
+            "Unit": "Percent"
+        },
+        {
+            "Timestamp": "2026-05-25T20:46:00-03:00",
+            "Average": 35.25390625,
+            "Maximum": 35.25390625,
+            "Unit": "Percent"
+        }
+    ]
+}}
+{"run_id":"aws-order-service-pilot-f1-20260525-203352","version":"springboot","namespace":"AWS/ApplicationELB","metric":"TargetResponseTime","data":{
+    "Label": "TargetResponseTime",
+    "Datapoints": []
+}}
+{"run_id":"aws-order-service-pilot-f1-20260525-203352","version":"springboot","namespace":"AWS/ApplicationELB","metric":"HTTPCode_Target_5XX_Count","data":{
+    "Label": "HTTPCode_Target_5XX_Count",
+    "Datapoints": []
+}}
+{"run_id":"aws-order-service-pilot-f1-20260525-203352","version":"quarkus-jvm","namespace":"AWS/ECS","metric":"CPUUtilization","data":{
+    "Label": "CPUUtilization",
+    "Datapoints": [
+        {
+            "Timestamp": "2026-05-25T20:32:00-03:00",
+            "Average": 0.8075112601121267,
+            "Maximum": 1.4460028409957886,
+            "Unit": "Percent"
+        },
+        {
+            "Timestamp": "2026-05-25T20:41:00-03:00",
+            "Average": 0.4653520882129669,
+            "Maximum": 0.5722454786300659,
+            "Unit": "Percent"
+        },
+        {
+            "Timestamp": "2026-05-25T20:50:00-03:00",
+            "Average": 0.37698158621788025,
+            "Maximum": 0.5107541680335999,
+            "Unit": "Percent"
+        },
+        {
+            "Timestamp": "2026-05-25T20:49:00-03:00",
+            "Average": 0.3151646951834361,
+            "Maximum": 0.3627260625362396,
+            "Unit": "Percent"
+        },
+        {
+            "Timestamp": "2026-05-25T20:40:00-03:00",
+            "Average": 0.38358039657274884,
+            "Maximum": 0.4356454014778137,
+            "Unit": "Percent"
+        },
+        {
+            "Timestamp": "2026-05-25T20:48:00-03:00",
+            "Average": 0.423388550678889,
+            "Maximum": 0.6170020699501038,
+            "Unit": "Percent"
+        },
+        {
+            "Timestamp": "2026-05-25T20:52:00-03:00",
+            "Average": 0.6798643271128336,
+            "Maximum": 1.3392645120620728,
+            "Unit": "Percent"
+        },
+        {
+            "Timestamp": "2026-05-25T20:43:00-03:00",
+            "Average": 24.48573112487793,
+            "Maximum": 34.41761779785156,
+            "Unit": "Percent"
+        },
+        {
+            "Timestamp": "2026-05-25T20:34:00-03:00",
+            "Average": 0.5129761298497518,
+            "Maximum": 0.6442945599555969,
+            "Unit": "Percent"
+        },
+        {
+            "Timestamp": "2026-05-25T20:42:00-03:00",
+            "Average": 17.72885373234749,
+            "Maximum": 44.51709747314453,
+            "Unit": "Percent"
+        },
+        {
+            "Timestamp": "2026-05-25T20:51:00-03:00",
+            "Average": 0.3192953070004781,
+            "Maximum": 0.35256677865982056,
+            "Unit": "Percent"
+        },
+        {
+            "Timestamp": "2026-05-25T20:33:00-03:00",
+            "Average": 0.5142167707284292,
+            "Maximum": 0.5574889779090881,
+            "Unit": "Percent"
+        },
+        {
+            "Timestamp": "2026-05-25T20:54:00-03:00",
+            "Average": 0.3584793110688527,
+            "Maximum": 0.48700347542762756,
+            "Unit": "Percent"
+        },
+        {
+            "Timestamp": "2026-05-25T20:36:00-03:00",
+            "Average": 0.5097134908040365,
+            "Maximum": 0.634396493434906,
+            "Unit": "Percent"
+        },
+        {
+            "Timestamp": "2026-05-25T20:45:00-03:00",
+            "Average": 12.147691408793131,
+            "Maximum": 15.62167739868164,
+            "Unit": "Percent"
+        },
+        {
+            "Timestamp": "2026-05-25T20:44:00-03:00",
+            "Average": 17.099939346313477,
+            "Maximum": 27.347957611083984,
+            "Unit": "Percent"
+        },
+        {
+            "Timestamp": "2026-05-25T20:53:00-03:00",
+            "Average": 0.30004440744717914,
+            "Maximum": 0.3265441656112671,
+            "Unit": "Percent"
+        },
+        {
+            "Timestamp": "2026-05-25T20:35:00-03:00",
+            "Average": 0.5205591122309366,
+            "Maximum": 0.793086051940918,
+            "Unit": "Percent"
+        },
+        {
+            "Timestamp": "2026-05-25T20:39:00-03:00",
+            "Average": 0.504539688428243,
+            "Maximum": 0.6851479411125183,
+            "Unit": "Percent"
+        },
+        {
+            "Timestamp": "2026-05-25T20:47:00-03:00",
+            "Average": 6.287834882736206,
+            "Maximum": 8.169464111328125,
+            "Unit": "Percent"
+        },
+        {
+            "Timestamp": "2026-05-25T20:38:00-03:00",
+            "Average": 0.5503677129745483,
+            "Maximum": 0.6909564733505249,
+            "Unit": "Percent"
+        },
+        {
+            "Timestamp": "2026-05-25T20:37:00-03:00",
+            "Average": 0.44227831562360126,
+            "Maximum": 0.48888644576072693,
+            "Unit": "Percent"
+        },
+        {
+            "Timestamp": "2026-05-25T20:46:00-03:00",
+            "Average": 8.86709197362264,
+            "Maximum": 10.63282585144043,
+            "Unit": "Percent"
+        }
+    ]
+}}
+{"run_id":"aws-order-service-pilot-f1-20260525-203352","version":"quarkus-jvm","namespace":"AWS/ECS","metric":"MemoryUtilization","data":{
+    "Label": "MemoryUtilization",
+    "Datapoints": [
+        {
+            "Timestamp": "2026-05-25T20:32:00-03:00",
+            "Average": 23.2421875,
+            "Maximum": 23.2421875,
+            "Unit": "Percent"
+        },
+        {
+            "Timestamp": "2026-05-25T20:41:00-03:00",
+            "Average": 23.4375,
+            "Maximum": 23.4375,
+            "Unit": "Percent"
+        },
+        {
+            "Timestamp": "2026-05-25T20:50:00-03:00",
+            "Average": 34.08203125,
+            "Maximum": 34.08203125,
+            "Unit": "Percent"
+        },
+        {
+            "Timestamp": "2026-05-25T20:49:00-03:00",
+            "Average": 34.08203125,
+            "Maximum": 34.08203125,
+            "Unit": "Percent"
+        },
+        {
+            "Timestamp": "2026-05-25T20:40:00-03:00",
+            "Average": 23.4375,
+            "Maximum": 23.4375,
+            "Unit": "Percent"
+        },
+        {
+            "Timestamp": "2026-05-25T20:48:00-03:00",
+            "Average": 34.08203125,
+            "Maximum": 34.08203125,
+            "Unit": "Percent"
+        },
+        {
+            "Timestamp": "2026-05-25T20:52:00-03:00",
+            "Average": 34.08203125,
+            "Maximum": 34.08203125,
+            "Unit": "Percent"
+        },
+        {
+            "Timestamp": "2026-05-25T20:43:00-03:00",
+            "Average": 32.080078125,
+            "Maximum": 32.51953125,
+            "Unit": "Percent"
+        },
+        {
+            "Timestamp": "2026-05-25T20:34:00-03:00",
+            "Average": 23.33984375,
+            "Maximum": 23.33984375,
+            "Unit": "Percent"
+        },
+        {
+            "Timestamp": "2026-05-25T20:42:00-03:00",
+            "Average": 24.462890625,
+            "Maximum": 26.07421875,
+            "Unit": "Percent"
+        },
+        {
+            "Timestamp": "2026-05-25T20:51:00-03:00",
+            "Average": 34.08203125,
+            "Maximum": 34.08203125,
+            "Unit": "Percent"
+        },
+        {
+            "Timestamp": "2026-05-25T20:33:00-03:00",
+            "Average": 23.291015625,
+            "Maximum": 23.33984375,
+            "Unit": "Percent"
+        },
+        {
+            "Timestamp": "2026-05-25T20:54:00-03:00",
+            "Average": 34.08203125,
+            "Maximum": 34.08203125,
+            "Unit": "Percent"
+        },
+        {
+            "Timestamp": "2026-05-25T20:36:00-03:00",
+            "Average": 23.33984375,
+            "Maximum": 23.33984375,
+            "Unit": "Percent"
+        },
+        {
+            "Timestamp": "2026-05-25T20:45:00-03:00",
+            "Average": 33.626302083333336,
+            "Maximum": 33.69140625,
+            "Unit": "Percent"
+        },
+        {
+            "Timestamp": "2026-05-25T20:44:00-03:00",
+            "Average": 33.430989583333336,
+            "Maximum": 33.59375,
+            "Unit": "Percent"
+        },
+        {
+            "Timestamp": "2026-05-25T20:53:00-03:00",
+            "Average": 34.08203125,
+            "Maximum": 34.08203125,
+            "Unit": "Percent"
+        },
+        {
+            "Timestamp": "2026-05-25T20:35:00-03:00",
+            "Average": 23.33984375,
+            "Maximum": 23.33984375,
+            "Unit": "Percent"
+        },
+        {
+            "Timestamp": "2026-05-25T20:39:00-03:00",
+            "Average": 23.4375,
+            "Maximum": 23.4375,
+            "Unit": "Percent"
+        },
+        {
+            "Timestamp": "2026-05-25T20:47:00-03:00",
+            "Average": 34.065755208333336,
+            "Maximum": 34.08203125,
+            "Unit": "Percent"
+        },
+        {
+            "Timestamp": "2026-05-25T20:38:00-03:00",
+            "Average": 23.372395833333332,
+            "Maximum": 23.4375,
+            "Unit": "Percent"
+        },
+        {
+            "Timestamp": "2026-05-25T20:37:00-03:00",
+            "Average": 23.33984375,
+            "Maximum": 23.33984375,
+            "Unit": "Percent"
+        },
+        {
+            "Timestamp": "2026-05-25T20:46:00-03:00",
+            "Average": 33.984375,
+            "Maximum": 33.984375,
+            "Unit": "Percent"
+        }
+    ]
+}}
+{"run_id":"aws-order-service-pilot-f1-20260525-203352","version":"quarkus-jvm","namespace":"AWS/ApplicationELB","metric":"TargetResponseTime","data":{
+    "Label": "TargetResponseTime",
+    "Datapoints": []
+}}
+{"run_id":"aws-order-service-pilot-f1-20260525-203352","version":"quarkus-jvm","namespace":"AWS/ApplicationELB","metric":"HTTPCode_Target_5XX_Count","data":{
+    "Label": "HTTPCode_Target_5XX_Count",
+    "Datapoints": []
+}}
+{"run_id":"aws-order-service-pilot-f1-20260525-203352","version":"quarkus-native","namespace":"AWS/ECS","metric":"CPUUtilization","data":{
+    "Label": "CPUUtilization",
+    "Datapoints": [
+        {
+            "Timestamp": "2026-05-25T20:32:00-03:00",
+            "Average": 0.043103075586259365,
+            "Maximum": 0.0636310949921608,
+            "Unit": "Percent"
+        },
+        {
+            "Timestamp": "2026-05-25T20:41:00-03:00",
+            "Average": 0.04931859423716863,
+            "Maximum": 0.0774899423122406,
+            "Unit": "Percent"
+        },
+        {
+            "Timestamp": "2026-05-25T20:50:00-03:00",
+            "Average": 0.03992577843988935,
+            "Maximum": 0.05925988778471946,
+            "Unit": "Percent"
+        },
+        {
+            "Timestamp": "2026-05-25T20:49:00-03:00",
+            "Average": 0.03944931443159779,
+            "Maximum": 0.058254245668649667,
+            "Unit": "Percent"
+        },
+        {
+            "Timestamp": "2026-05-25T20:40:00-03:00",
+            "Average": 6.37039581934611,
+            "Maximum": 7.380983829498292,
+            "Unit": "Percent"
+        },
+        {
+            "Timestamp": "2026-05-25T20:48:00-03:00",
+            "Average": 0.04551293902720014,
+            "Maximum": 0.06571353226900101,
+            "Unit": "Percent"
+        },
+        {
+            "Timestamp": "2026-05-25T20:52:00-03:00",
+            "Average": 0.04167209441463152,
+            "Maximum": 0.06241723150014878,
+            "Unit": "Percent"
+        },
+        {
+            "Timestamp": "2026-05-25T20:43:00-03:00",
+            "Average": 0.04050630936399102,
+            "Maximum": 0.05945277959108353,
+            "Unit": "Percent"
+        },
+        {
+            "Timestamp": "2026-05-25T20:34:00-03:00",
+            "Average": 0.04501265628884236,
+            "Maximum": 0.06641288846731186,
+            "Unit": "Percent"
+        },
+        {
+            "Timestamp": "2026-05-25T20:42:00-03:00",
+            "Average": 0.03892707141737143,
+            "Maximum": 0.05749109387397767,
+            "Unit": "Percent"
+        },
+        {
+            "Timestamp": "2026-05-25T20:51:00-03:00",
+            "Average": 0.04173639121775826,
+            "Maximum": 0.05968445539474487,
+            "Unit": "Percent"
+        },
+        {
+            "Timestamp": "2026-05-25T20:33:00-03:00",
+            "Average": 0.044027934626986585,
+            "Maximum": 0.06498038023710251,
+            "Unit": "Percent"
+        },
+        {
+            "Timestamp": "2026-05-25T20:54:00-03:00",
+            "Average": 0.04102299207200607,
+            "Maximum": 0.0582805871963501,
+            "Unit": "Percent"
+        },
+        {
+            "Timestamp": "2026-05-25T20:36:00-03:00",
+            "Average": 9.174724102020264,
+            "Maximum": 12.065420150756836,
+            "Unit": "Percent"
+        },
+        {
+            "Timestamp": "2026-05-25T20:45:00-03:00",
+            "Average": 0.043595599786688886,
+            "Maximum": 0.06424986571073532,
+            "Unit": "Percent"
+        },
+        {
+            "Timestamp": "2026-05-25T20:44:00-03:00",
+            "Average": 0.040977245196700096,
+            "Maximum": 0.057639453560113914,
+            "Unit": "Percent"
+        },
+        {
+            "Timestamp": "2026-05-25T20:53:00-03:00",
+            "Average": 0.03911799114818374,
+            "Maximum": 0.05714779719710351,
+            "Unit": "Percent"
+        },
+        {
+            "Timestamp": "2026-05-25T20:35:00-03:00",
+            "Average": 0.5472750614086787,
+            "Maximum": 1.523301124572754,
+            "Unit": "Percent"
+        },
+        {
+            "Timestamp": "2026-05-25T20:39:00-03:00",
+            "Average": 7.341299692789714,
+            "Maximum": 7.888006687164307,
+            "Unit": "Percent"
+        },
+        {
+            "Timestamp": "2026-05-25T20:47:00-03:00",
+            "Average": 0.03963525639846921,
+            "Maximum": 0.05962225422263145,
+            "Unit": "Percent"
+        },
+        {
+            "Timestamp": "2026-05-25T20:38:00-03:00",
+            "Average": 7.90155013402303,
+            "Maximum": 8.187996864318848,
+            "Unit": "Percent"
+        },
+        {
+            "Timestamp": "2026-05-25T20:37:00-03:00",
+            "Average": 7.896642367045085,
+            "Maximum": 8.273876190185547,
+            "Unit": "Percent"
+        },
+        {
+            "Timestamp": "2026-05-25T20:46:00-03:00",
+            "Average": 0.04109026615818342,
+            "Maximum": 0.06379086524248123,
+            "Unit": "Percent"
+        }
+    ]
+}}
+{"run_id":"aws-order-service-pilot-f1-20260525-203352","version":"quarkus-native","namespace":"AWS/ECS","metric":"MemoryUtilization","data":{
+    "Label": "MemoryUtilization",
+    "Datapoints": [
+        {
+            "Timestamp": "2026-05-25T20:32:00-03:00",
+            "Average": 2.9622395833333335,
+            "Maximum": 3.02734375,
+            "Unit": "Percent"
+        },
+        {
+            "Timestamp": "2026-05-25T20:41:00-03:00",
+            "Average": 4.4921875,
+            "Maximum": 4.4921875,
+            "Unit": "Percent"
+        },
+        {
+            "Timestamp": "2026-05-25T20:50:00-03:00",
+            "Average": 4.4921875,
+            "Maximum": 4.4921875,
+            "Unit": "Percent"
+        },
+        {
+            "Timestamp": "2026-05-25T20:49:00-03:00",
+            "Average": 4.4921875,
+            "Maximum": 4.4921875,
+            "Unit": "Percent"
+        },
+        {
+            "Timestamp": "2026-05-25T20:40:00-03:00",
+            "Average": 4.638671875,
+            "Maximum": 4.736328125,
+            "Unit": "Percent"
+        },
+        {
+            "Timestamp": "2026-05-25T20:48:00-03:00",
+            "Average": 4.4921875,
+            "Maximum": 4.4921875,
+            "Unit": "Percent"
+        },
+        {
+            "Timestamp": "2026-05-25T20:52:00-03:00",
+            "Average": 4.4921875,
+            "Maximum": 4.4921875,
+            "Unit": "Percent"
+        },
+        {
+            "Timestamp": "2026-05-25T20:43:00-03:00",
+            "Average": 4.4921875,
+            "Maximum": 4.4921875,
+            "Unit": "Percent"
+        },
+        {
+            "Timestamp": "2026-05-25T20:34:00-03:00",
+            "Average": 3.125,
+            "Maximum": 3.125,
+            "Unit": "Percent"
+        },
+        {
+            "Timestamp": "2026-05-25T20:42:00-03:00",
+            "Average": 4.4921875,
+            "Maximum": 4.4921875,
+            "Unit": "Percent"
+        },
+        {
+            "Timestamp": "2026-05-25T20:51:00-03:00",
+            "Average": 4.4921875,
+            "Maximum": 4.4921875,
+            "Unit": "Percent"
+        },
+        {
+            "Timestamp": "2026-05-25T20:33:00-03:00",
+            "Average": 3.0598958333333335,
+            "Maximum": 3.125,
+            "Unit": "Percent"
+        },
+        {
+            "Timestamp": "2026-05-25T20:54:00-03:00",
+            "Average": 4.4921875,
+            "Maximum": 4.4921875,
+            "Unit": "Percent"
+        },
+        {
+            "Timestamp": "2026-05-25T20:36:00-03:00",
+            "Average": 5.712890625,
+            "Maximum": 5.908203125,
+            "Unit": "Percent"
+        },
+        {
+            "Timestamp": "2026-05-25T20:45:00-03:00",
+            "Average": 4.4921875,
+            "Maximum": 4.4921875,
+            "Unit": "Percent"
+        },
+        {
+            "Timestamp": "2026-05-25T20:44:00-03:00",
+            "Average": 4.4921875,
+            "Maximum": 4.4921875,
+            "Unit": "Percent"
+        },
+        {
+            "Timestamp": "2026-05-25T20:53:00-03:00",
+            "Average": 4.4921875,
+            "Maximum": 4.4921875,
+            "Unit": "Percent"
+        },
+        {
+            "Timestamp": "2026-05-25T20:35:00-03:00",
+            "Average": 3.4342447916666665,
+            "Maximum": 3.90625,
+            "Unit": "Percent"
+        },
+        {
+            "Timestamp": "2026-05-25T20:39:00-03:00",
+            "Average": 4.899088541666667,
+            "Maximum": 4.98046875,
+            "Unit": "Percent"
+        },
+        {
+            "Timestamp": "2026-05-25T20:47:00-03:00",
+            "Average": 4.4921875,
+            "Maximum": 4.4921875,
+            "Unit": "Percent"
+        },
+        {
+            "Timestamp": "2026-05-25T20:38:00-03:00",
+            "Average": 5.110677083333333,
+            "Maximum": 5.17578125,
+            "Unit": "Percent"
+        },
+        {
+            "Timestamp": "2026-05-25T20:37:00-03:00",
+            "Average": 5.712890625,
+            "Maximum": 5.810546875,
+            "Unit": "Percent"
+        },
+        {
+            "Timestamp": "2026-05-25T20:46:00-03:00",
+            "Average": 4.4921875,
+            "Maximum": 4.4921875,
+            "Unit": "Percent"
+        }
+    ]
+}}
+{"run_id":"aws-order-service-pilot-f1-20260525-203352","version":"quarkus-native","namespace":"AWS/ApplicationELB","metric":"TargetResponseTime","data":{
+    "Label": "TargetResponseTime",
+    "Datapoints": []
+}}
+{"run_id":"aws-order-service-pilot-f1-20260525-203352","version":"quarkus-native","namespace":"AWS/ApplicationELB","metric":"HTTPCode_Target_5XX_Count","data":{
+    "Label": "HTTPCode_Target_5XX_Count",
+    "Datapoints": []
+}}
+{"run_id":"aws-order-service-pilot-f1-20260525-203352","namespace":"AWS/RDS","metric":"CPUUtilization","data":{
+    "Label": "CPUUtilization",
+    "Datapoints": [
+        {
+            "Timestamp": "2026-05-25T20:32:00-03:00",
+            "Average": 3.9832669455509078,
+            "Maximum": 3.9832669455509078,
+            "Unit": "Percent"
+        },
+        {
+            "Timestamp": "2026-05-25T20:41:00-03:00",
+            "Average": 4.133333333333334,
+            "Maximum": 4.133333333333334,
+            "Unit": "Percent"
+        },
+        {
+            "Timestamp": "2026-05-25T20:50:00-03:00",
+            "Average": 7.601618570262934,
+            "Maximum": 7.601618570262934,
+            "Unit": "Percent"
+        },
+        {
+            "Timestamp": "2026-05-25T20:49:00-03:00",
+            "Average": 6.947803893439204,
+            "Maximum": 6.947803893439204,
+            "Unit": "Percent"
+        },
+        {
+            "Timestamp": "2026-05-25T20:40:00-03:00",
+            "Average": 6.622516556291391,
+            "Maximum": 6.622516556291391,
+            "Unit": "Percent"
+        },
+        {
+            "Timestamp": "2026-05-25T20:48:00-03:00",
+            "Average": 8.858841356801491,
+            "Maximum": 8.858841356801491,
+            "Unit": "Percent"
+        },
+        {
+            "Timestamp": "2026-05-25T20:52:00-03:00",
+            "Average": 7.174999999999999,
+            "Maximum": 7.174999999999999,
+            "Unit": "Percent"
+        },
+        {
+            "Timestamp": "2026-05-25T20:43:00-03:00",
+            "Average": 6.108333333333333,
+            "Maximum": 6.108333333333333,
+            "Unit": "Percent"
+        },
+        {
+            "Timestamp": "2026-05-25T20:34:00-03:00",
+            "Average": 3.7301005794977686,
+            "Maximum": 3.7301005794977686,
+            "Unit": "Percent"
+        },
+        {
+            "Timestamp": "2026-05-25T20:42:00-03:00",
+            "Average": 4.416666666666666,
+            "Maximum": 4.416666666666666,
+            "Unit": "Percent"
+        },
+        {
+            "Timestamp": "2026-05-25T20:51:00-03:00",
+            "Average": 7.014529501059268,
+            "Maximum": 7.014529501059268,
+            "Unit": "Percent"
+        },
+        {
+            "Timestamp": "2026-05-25T20:33:00-03:00",
+            "Average": 4.620748327689459,
+            "Maximum": 4.620748327689459,
+            "Unit": "Percent"
+        },
+        {
+            "Timestamp": "2026-05-25T20:54:00-03:00",
+            "Average": 5.2,
+            "Maximum": 5.2,
+            "Unit": "Percent"
+        },
+        {
+            "Timestamp": "2026-05-25T20:36:00-03:00",
+            "Average": 5.703390394991008,
+            "Maximum": 5.703390394991008,
+            "Unit": "Percent"
+        },
+        {
+            "Timestamp": "2026-05-25T20:45:00-03:00",
+            "Average": 9.075467927795911,
+            "Maximum": 9.075467927795911,
+            "Unit": "Percent"
+        },
+        {
+            "Timestamp": "2026-05-25T20:44:00-03:00",
+            "Average": 6.2,
+            "Maximum": 6.2,
+            "Unit": "Percent"
+        },
+        {
+            "Timestamp": "2026-05-25T20:53:00-03:00",
+            "Average": 7.884833144608006,
+            "Maximum": 7.884833144608006,
+            "Unit": "Percent"
+        },
+        {
+            "Timestamp": "2026-05-25T20:35:00-03:00",
+            "Average": 4.437178888369921,
+            "Maximum": 4.437178888369921,
+            "Unit": "Percent"
+        },
+        {
+            "Timestamp": "2026-05-25T20:39:00-03:00",
+            "Average": 6.508224862918951,
+            "Maximum": 6.508224862918951,
+            "Unit": "Percent"
+        },
+        {
+            "Timestamp": "2026-05-25T20:47:00-03:00",
+            "Average": 6.055247881497298,
+            "Maximum": 6.055247881497298,
+            "Unit": "Percent"
+        },
+        {
+            "Timestamp": "2026-05-25T20:38:00-03:00",
+            "Average": 6.502697662026244,
+            "Maximum": 6.502697662026244,
+            "Unit": "Percent"
+        },
+        {
+            "Timestamp": "2026-05-25T20:37:00-03:00",
+            "Average": 5.780009341429239,
+            "Maximum": 5.780009341429239,
+            "Unit": "Percent"
+        },
+        {
+            "Timestamp": "2026-05-25T20:46:00-03:00",
+            "Average": 7.066666666666667,
+            "Maximum": 7.066666666666667,
+            "Unit": "Percent"
+        }
+    ]
+}}
+{"run_id":"aws-order-service-pilot-f1-20260525-203352","namespace":"AWS/RDS","metric":"DatabaseConnections","data":{
+    "Label": "DatabaseConnections",
+    "Datapoints": [
+        {
+            "Timestamp": "2026-05-25T20:48:00-03:00",
+            "Average": 47.0,
+            "Maximum": 47.0,
+            "Unit": "Count"
+        },
+        {
+            "Timestamp": "2026-05-25T20:40:00-03:00",
+            "Average": 29.0,
+            "Maximum": 29.0,
+            "Unit": "Count"
+        },
+        {
+            "Timestamp": "2026-05-25T20:38:00-03:00",
+            "Average": 29.0,
+            "Maximum": 29.0,
+            "Unit": "Count"
+        },
+        {
+            "Timestamp": "2026-05-25T20:47:00-03:00",
+            "Average": 47.0,
+            "Maximum": 47.0,
+            "Unit": "Count"
+        },
+        {
+            "Timestamp": "2026-05-25T20:39:00-03:00",
+            "Average": 29.0,
+            "Maximum": 29.0,
+            "Unit": "Count"
+        },
+        {
+            "Timestamp": "2026-05-25T20:46:00-03:00",
+            "Average": 47.0,
+            "Maximum": 47.0,
+            "Unit": "Count"
+        },
+        {
+            "Timestamp": "2026-05-25T20:37:00-03:00",
+            "Average": 28.0,
+            "Maximum": 28.0,
+            "Unit": "Count"
+        },
+        {
+            "Timestamp": "2026-05-25T20:36:00-03:00",
+            "Average": 28.0,
+            "Maximum": 28.0,
+            "Unit": "Count"
+        },
+        {
+            "Timestamp": "2026-05-25T20:45:00-03:00",
+            "Average": 47.0,
+            "Maximum": 47.0,
+            "Unit": "Count"
+        },
+        {
+            "Timestamp": "2026-05-25T20:54:00-03:00",
+            "Average": 62.0,
+            "Maximum": 62.0,
+            "Unit": "Count"
+        },
+        {
+            "Timestamp": "2026-05-25T20:35:00-03:00",
+            "Average": 26.0,
+            "Maximum": 26.0,
+            "Unit": "Count"
+        },
+        {
+            "Timestamp": "2026-05-25T20:44:00-03:00",
+            "Average": 47.0,
+            "Maximum": 47.0,
+            "Unit": "Count"
+        },
+        {
+            "Timestamp": "2026-05-25T20:53:00-03:00",
+            "Average": 62.0,
+            "Maximum": 62.0,
+            "Unit": "Count"
+        },
+        {
+            "Timestamp": "2026-05-25T20:34:00-03:00",
+            "Average": 11.0,
+            "Maximum": 11.0,
+            "Unit": "Count"
+        },
+        {
+            "Timestamp": "2026-05-25T20:43:00-03:00",
+            "Average": 47.0,
+            "Maximum": 47.0,
+            "Unit": "Count"
+        },
+        {
+            "Timestamp": "2026-05-25T20:52:00-03:00",
+            "Average": 62.0,
+            "Maximum": 62.0,
+            "Unit": "Count"
+        },
+        {
+            "Timestamp": "2026-05-25T20:51:00-03:00",
+            "Average": 62.0,
+            "Maximum": 62.0,
+            "Unit": "Count"
+        },
+        {
+            "Timestamp": "2026-05-25T20:33:00-03:00",
+            "Average": 11.0,
+            "Maximum": 11.0,
+            "Unit": "Count"
+        },
+        {
+            "Timestamp": "2026-05-25T20:42:00-03:00",
+            "Average": 47.0,
+            "Maximum": 47.0,
+            "Unit": "Count"
+        },
+        {
+            "Timestamp": "2026-05-25T20:49:00-03:00",
+            "Average": 62.0,
+            "Maximum": 62.0,
+            "Unit": "Count"
+        },
+        {
+            "Timestamp": "2026-05-25T20:41:00-03:00",
+            "Average": 29.0,
+            "Maximum": 29.0,
+            "Unit": "Count"
+        },
+        {
+            "Timestamp": "2026-05-25T20:50:00-03:00",
+            "Average": 62.0,
+            "Maximum": 62.0,
+            "Unit": "Count"
+        },
+        {
+            "Timestamp": "2026-05-25T20:32:00-03:00",
+            "Average": 11.0,
+            "Maximum": 11.0,
+            "Unit": "Count"
+        }
+    ]
+}}
+{"run_id":"aws-order-service-pilot-f1-20260525-203352","namespace":"AWS/RDS","metric":"ReadLatency","data":{
+    "Label": "ReadLatency",
+    "Datapoints": [
+        {
+            "Timestamp": "2026-05-25T20:53:00-03:00",
+            "Average": 0.0014067796610169492,
+            "Maximum": 0.0014067796610169492,
+            "Unit": "Seconds"
+        },
+        {
+            "Timestamp": "2026-05-25T20:44:00-03:00",
+            "Average": 0.0009729729729729729,
+            "Maximum": 0.0009729729729729729,
+            "Unit": "Seconds"
+        },
+        {
+            "Timestamp": "2026-05-25T20:36:00-03:00",
+            "Average": 0.0,
+            "Maximum": 0.0,
+            "Unit": "Seconds"
+        },
+        {
+            "Timestamp": "2026-05-25T20:45:00-03:00",
+            "Average": 0.0008807339449541285,
+            "Maximum": 0.0008807339449541285,
+            "Unit": "Seconds"
+        },
+        {
+            "Timestamp": "2026-05-25T20:43:00-03:00",
+            "Average": 0.0005,
+            "Maximum": 0.0005,
+            "Unit": "Seconds"
+        },
+        {
+            "Timestamp": "2026-05-25T20:52:00-03:00",
+            "Average": 0.0014328358208955225,
+            "Maximum": 0.0014328358208955225,
+            "Unit": "Seconds"
+        },
+        {
+            "Timestamp": "2026-05-25T20:34:00-03:00",
+            "Average": 0.0,
+            "Maximum": 0.0,
+            "Unit": "Seconds"
+        },
+        {
+            "Timestamp": "2026-05-25T20:35:00-03:00",
+            "Average": 0.00036363636363636367,
+            "Maximum": 0.00036363636363636367,
+            "Unit": "Seconds"
+        },
+        {
+            "Timestamp": "2026-05-25T20:42:00-03:00",
+            "Average": 0.001037037037037037,
+            "Maximum": 0.001037037037037037,
+            "Unit": "Seconds"
+        },
+        {
+            "Timestamp": "2026-05-25T20:51:00-03:00",
+            "Average": 0.0,
+            "Maximum": 0.0,
+            "Unit": "Seconds"
+        },
+        {
+            "Timestamp": "2026-05-25T20:33:00-03:00",
+            "Average": 0.004,
+            "Maximum": 0.004,
+            "Unit": "Seconds"
+        },
+        {
+            "Timestamp": "2026-05-25T20:32:00-03:00",
+            "Average": 0.0,
+            "Maximum": 0.0,
+            "Unit": "Seconds"
+        },
+        {
+            "Timestamp": "2026-05-25T20:41:00-03:00",
+            "Average": 0.0,
+            "Maximum": 0.0,
+            "Unit": "Seconds"
+        },
+        {
+            "Timestamp": "2026-05-25T20:50:00-03:00",
+            "Average": 0.0005283018867924528,
+            "Maximum": 0.0005283018867924528,
+            "Unit": "Seconds"
+        },
+        {
+            "Timestamp": "2026-05-25T20:40:00-03:00",
+            "Average": 0.0003333333333333333,
+            "Maximum": 0.0003333333333333333,
+            "Unit": "Seconds"
+        },
+        {
+            "Timestamp": "2026-05-25T20:49:00-03:00",
+            "Average": 0.0005048543689320388,
+            "Maximum": 0.0005048543689320388,
+            "Unit": "Seconds"
+        },
+        {
+            "Timestamp": "2026-05-25T20:48:00-03:00",
+            "Average": 0.0,
+            "Maximum": 0.0,
+            "Unit": "Seconds"
+        },
+        {
+            "Timestamp": "2026-05-25T20:39:00-03:00",
+            "Average": 0.0008235294117647059,
+            "Maximum": 0.0008235294117647059,
+            "Unit": "Seconds"
+        },
+        {
+            "Timestamp": "2026-05-25T20:47:00-03:00",
+            "Average": 0.0,
+            "Maximum": 0.0,
+            "Unit": "Seconds"
+        },
+        {
+            "Timestamp": "2026-05-25T20:38:00-03:00",
+            "Average": 0.0,
+            "Maximum": 0.0,
+            "Unit": "Seconds"
+        },
+        {
+            "Timestamp": "2026-05-25T20:54:00-03:00",
+            "Average": 0.0004463519313304721,
+            "Maximum": 0.0004463519313304721,
+            "Unit": "Seconds"
+        },
+        {
+            "Timestamp": "2026-05-25T20:37:00-03:00",
+            "Average": 0.004,
+            "Maximum": 0.004,
+            "Unit": "Seconds"
+        },
+        {
+            "Timestamp": "2026-05-25T20:46:00-03:00",
+            "Average": 0.0,
+            "Maximum": 0.0,
+            "Unit": "Seconds"
+        }
+    ]
+}}
+{"run_id":"aws-order-service-pilot-f1-20260525-203352","namespace":"AWS/RDS","metric":"WriteLatency","data":{
+    "Label": "WriteLatency",
+    "Datapoints": [
+        {
+            "Timestamp": "2026-05-25T20:53:00-03:00",
+            "Average": 0.0009429206819866568,
+            "Maximum": 0.0009429206819866568,
+            "Unit": "Seconds"
+        },
+        {
+            "Timestamp": "2026-05-25T20:44:00-03:00",
+            "Average": 0.0016892928145413235,
+            "Maximum": 0.0016892928145413235,
+            "Unit": "Seconds"
+        },
+        {
+            "Timestamp": "2026-05-25T20:36:00-03:00",
+            "Average": 0.0005662959794696322,
+            "Maximum": 0.0005662959794696322,
+            "Unit": "Seconds"
+        },
+        {
+            "Timestamp": "2026-05-25T20:45:00-03:00",
+            "Average": 0.0007376259307928164,
+            "Maximum": 0.0007376259307928164,
+            "Unit": "Seconds"
+        },
+        {
+            "Timestamp": "2026-05-25T20:43:00-03:00",
+            "Average": 0.0009655813953488372,
+            "Maximum": 0.0009655813953488372,
+            "Unit": "Seconds"
+        },
+        {
+            "Timestamp": "2026-05-25T20:52:00-03:00",
+            "Average": 0.000953020134228188,
+            "Maximum": 0.000953020134228188,
+            "Unit": "Seconds"
+        },
+        {
+            "Timestamp": "2026-05-25T20:34:00-03:00",
+            "Average": 0.006003508771929825,
+            "Maximum": 0.006003508771929825,
+            "Unit": "Seconds"
+        },
+        {
+            "Timestamp": "2026-05-25T20:35:00-03:00",
+            "Average": 0.0004846625766871166,
+            "Maximum": 0.0004846625766871166,
+            "Unit": "Seconds"
+        },
+        {
+            "Timestamp": "2026-05-25T20:42:00-03:00",
+            "Average": 0.0007734806629834253,
+            "Maximum": 0.0007734806629834253,
+            "Unit": "Seconds"
+        },
+        {
+            "Timestamp": "2026-05-25T20:51:00-03:00",
+            "Average": 0.000853410740203193,
+            "Maximum": 0.000853410740203193,
+            "Unit": "Seconds"
+        },
+        {
+            "Timestamp": "2026-05-25T20:33:00-03:00",
+            "Average": 0.0008,
+            "Maximum": 0.0008,
+            "Unit": "Seconds"
+        },
+        {
+            "Timestamp": "2026-05-25T20:32:00-03:00",
+            "Average": 0.0005333333333333334,
+            "Maximum": 0.0005333333333333334,
+            "Unit": "Seconds"
+        },
+        {
+            "Timestamp": "2026-05-25T20:41:00-03:00",
+            "Average": 0.00012903225806451613,
+            "Maximum": 0.00012903225806451613,
+            "Unit": "Seconds"
+        },
+        {
+            "Timestamp": "2026-05-25T20:50:00-03:00",
+            "Average": 0.0008046226074395089,
+            "Maximum": 0.0008046226074395089,
+            "Unit": "Seconds"
+        },
+        {
+            "Timestamp": "2026-05-25T20:40:00-03:00",
+            "Average": 0.000540478905359179,
+            "Maximum": 0.000540478905359179,
+            "Unit": "Seconds"
+        },
+        {
+            "Timestamp": "2026-05-25T20:49:00-03:00",
+            "Average": 0.0021549569564009996,
+            "Maximum": 0.0021549569564009996,
+            "Unit": "Seconds"
+        },
+        {
+            "Timestamp": "2026-05-25T20:48:00-03:00",
+            "Average": 0.0004784313725490196,
+            "Maximum": 0.0004784313725490196,
+            "Unit": "Seconds"
+        },
+        {
+            "Timestamp": "2026-05-25T20:39:00-03:00",
+            "Average": 0.003011332312404288,
+            "Maximum": 0.003011332312404288,
+            "Unit": "Seconds"
+        },
+        {
+            "Timestamp": "2026-05-25T20:47:00-03:00",
+            "Average": 0.0009921259842519685,
+            "Maximum": 0.0009921259842519685,
+            "Unit": "Seconds"
+        },
+        {
+            "Timestamp": "2026-05-25T20:38:00-03:00",
+            "Average": 0.0008723404255319149,
+            "Maximum": 0.0008723404255319149,
+            "Unit": "Seconds"
+        },
+        {
+            "Timestamp": "2026-05-25T20:54:00-03:00",
+            "Average": 0.0019156976744186048,
+            "Maximum": 0.0019156976744186048,
+            "Unit": "Seconds"
+        },
+        {
+            "Timestamp": "2026-05-25T20:37:00-03:00",
+            "Average": 0.0007530811729706757,
+            "Maximum": 0.0007530811729706757,
+            "Unit": "Seconds"
+        },
+        {
+            "Timestamp": "2026-05-25T20:46:00-03:00",
+            "Average": 0.0009312359550561798,
+            "Maximum": 0.0009312359550561798,
+            "Unit": "Seconds"
+        }
+    ]
+}}

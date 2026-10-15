@@ -1,0 +1,35 @@
+{
+    "Label": "WriteLatency",
+    "Datapoints": [
+        {
+            "Timestamp": "2026-06-11T20:24:00-03:00",
+            "Average": 0.0004,
+            "Maximum": 0.0004,
+            "Unit": "Seconds"
+        },
+        {
+            "Timestamp": "2026-06-11T20:28:00-03:00",
+            "Average": 0.013210759027266027,
+            "Maximum": 0.013210759027266027,
+            "Unit": "Seconds"
+        },
+        {
+            "Timestamp": "2026-06-11T20:27:00-03:00",
+            "Average": 0.0009002064693737096,
+            "Maximum": 0.0009002064693737096,
+            "Unit": "Seconds"
+        },
+        {
+            "Timestamp": "2026-06-11T20:25:00-03:00",
+            "Average": 0.008611764705882352,
+            "Maximum": 0.008611764705882352,
+            "Unit": "Seconds"
+        },
+        {
+            "Timestamp": "2026-06-11T20:26:00-03:00",
+            "Average": 0.0006659205372132065,
+            "Maximum": 0.0006659205372132065,
+            "Unit": "Seconds"
+        }
+    ]
+}

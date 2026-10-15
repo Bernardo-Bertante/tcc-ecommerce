@@ -1,0 +1,41 @@
+{
+    "Label": "DatabaseConnections",
+    "Datapoints": [
+        {
+            "Timestamp": "2026-06-11T20:42:00-03:00",
+            "Average": 31.0,
+            "Maximum": 31.0,
+            "Unit": "Count"
+        },
+        {
+            "Timestamp": "2026-06-11T20:40:00-03:00",
+            "Average": 31.0,
+            "Maximum": 31.0,
+            "Unit": "Count"
+        },
+        {
+            "Timestamp": "2026-06-11T20:41:00-03:00",
+            "Average": 31.0,
+            "Maximum": 31.0,
+            "Unit": "Count"
+        },
+        {
+            "Timestamp": "2026-06-11T20:45:00-03:00",
+            "Average": 31.0,
+            "Maximum": 31.0,
+            "Unit": "Count"
+        },
+        {
+            "Timestamp": "2026-06-11T20:44:00-03:00",
+            "Average": 31.0,
+            "Maximum": 31.0,
+            "Unit": "Count"
+        },
+        {
+            "Timestamp": "2026-06-11T20:43:00-03:00",
+            "Average": 31.0,
+            "Maximum": 31.0,
+            "Unit": "Count"
+        }
+    ]
+}

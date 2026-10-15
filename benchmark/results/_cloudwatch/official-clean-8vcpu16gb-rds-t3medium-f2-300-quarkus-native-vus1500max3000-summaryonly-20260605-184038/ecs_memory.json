@@ -1,0 +1,77 @@
+{
+    "Label": "MemoryUtilization",
+    "Datapoints": [
+        {
+            "Timestamp": "2026-06-05T15:47:00-03:00",
+            "Average": 0.16988118489583334,
+            "Maximum": 0.1708984375,
+            "Unit": "Percent"
+        },
+        {
+            "Timestamp": "2026-06-05T15:46:00-03:00",
+            "Average": 0.28076171875,
+            "Maximum": 0.372314453125,
+            "Unit": "Percent"
+        },
+        {
+            "Timestamp": "2026-06-05T15:49:00-03:00",
+            "Average": 0.19124348958333334,
+            "Maximum": 0.20751953125,
+            "Unit": "Percent"
+        },
+        {
+            "Timestamp": "2026-06-05T15:40:00-03:00",
+            "Average": 0.22989908854166666,
+            "Maximum": 0.23193359375,
+            "Unit": "Percent"
+        },
+        {
+            "Timestamp": "2026-06-05T15:48:00-03:00",
+            "Average": 0.18208821614583334,
+            "Maximum": 0.2044677734375,
+            "Unit": "Percent"
+        },
+        {
+            "Timestamp": "2026-06-05T15:43:00-03:00",
+            "Average": 0.24617513020833334,
+            "Maximum": 0.250244140625,
+            "Unit": "Percent"
+        },
+        {
+            "Timestamp": "2026-06-05T15:51:00-03:00",
+            "Average": 0.360107421875,
+            "Maximum": 0.3631591796875,
+            "Unit": "Percent"
+        },
+        {
+            "Timestamp": "2026-06-05T15:42:00-03:00",
+            "Average": 0.24210611979166666,
+            "Maximum": 0.244140625,
+            "Unit": "Percent"
+        },
+        {
+            "Timestamp": "2026-06-05T15:50:00-03:00",
+            "Average": 0.2756754557291667,
+            "Maximum": 0.3265380859375,
+            "Unit": "Percent"
+        },
+        {
+            "Timestamp": "2026-06-05T15:41:00-03:00",
+            "Average": 0.23295084635416666,
+            "Maximum": 0.2349853515625,
+            "Unit": "Percent"
+        },
+        {
+            "Timestamp": "2026-06-05T15:45:00-03:00",
+            "Average": 0.2827962239583333,
+            "Maximum": 0.3387451171875,
+            "Unit": "Percent"
+        },
+        {
+            "Timestamp": "2026-06-05T15:44:00-03:00",
+            "Average": 0.250244140625,
+            "Maximum": 0.250244140625,
+            "Unit": "Percent"
+        }
+    ]
+}

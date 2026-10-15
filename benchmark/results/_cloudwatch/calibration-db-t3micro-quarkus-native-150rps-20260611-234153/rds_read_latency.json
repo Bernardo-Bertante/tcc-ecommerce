@@ -1,0 +1,41 @@
+{
+    "Label": "ReadLatency",
+    "Datapoints": [
+        {
+            "Timestamp": "2026-06-11T20:42:00-03:00",
+            "Average": 0.0,
+            "Maximum": 0.0,
+            "Unit": "Seconds"
+        },
+        {
+            "Timestamp": "2026-06-11T20:45:00-03:00",
+            "Average": 0.0013333333333333333,
+            "Maximum": 0.0013333333333333333,
+            "Unit": "Seconds"
+        },
+        {
+            "Timestamp": "2026-06-11T20:41:00-03:00",
+            "Average": 0.0008,
+            "Maximum": 0.0008,
+            "Unit": "Seconds"
+        },
+        {
+            "Timestamp": "2026-06-11T20:44:00-03:00",
+            "Average": 0.0004,
+            "Maximum": 0.0004,
+            "Unit": "Seconds"
+        },
+        {
+            "Timestamp": "2026-06-11T20:40:00-03:00",
+            "Average": 0.0,
+            "Maximum": 0.0,
+            "Unit": "Seconds"
+        },
+        {
+            "Timestamp": "2026-06-11T20:43:00-03:00",
+            "Average": 0.0006153846153846154,
+            "Maximum": 0.0006153846153846154,
+            "Unit": "Seconds"
+        }
+    ]
+}

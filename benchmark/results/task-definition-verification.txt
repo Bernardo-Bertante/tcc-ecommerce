@@ -1,0 +1,4 @@
+TASK_DEFINITION_ARN:arn:aws:ecs:us-east-1:169872703824:task-definition/order-service-springboot:14
+TD_CPU:4096
+TD_MEM:8192
+JAVA_OPTS_APPEND:-Xms512m -Xmx6144m -XX:MaxMetaspaceSize=256m

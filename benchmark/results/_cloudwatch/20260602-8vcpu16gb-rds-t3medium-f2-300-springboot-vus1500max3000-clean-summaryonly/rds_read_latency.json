@@ -1,0 +1,65 @@
+{
+    "Label": "ReadLatency",
+    "Datapoints": [
+        {
+            "Timestamp": "2026-06-02T21:00:00-03:00",
+            "Average": 0.0002666666666666667,
+            "Maximum": 0.0002666666666666667,
+            "Unit": "Seconds"
+        },
+        {
+            "Timestamp": "2026-06-02T21:05:00-03:00",
+            "Average": 0.0004,
+            "Maximum": 0.0004,
+            "Unit": "Seconds"
+        },
+        {
+            "Timestamp": "2026-06-02T20:56:00-03:00",
+            "Average": 0.0,
+            "Maximum": 0.0,
+            "Unit": "Seconds"
+        },
+        {
+            "Timestamp": "2026-06-02T20:59:00-03:00",
+            "Average": 0.00011174603174603174,
+            "Maximum": 0.00011174603174603174,
+            "Unit": "Seconds"
+        },
+        {
+            "Timestamp": "2026-06-02T21:03:00-03:00",
+            "Average": 0.002,
+            "Maximum": 0.002,
+            "Unit": "Seconds"
+        },
+        {
+            "Timestamp": "2026-06-02T21:04:00-03:00",
+            "Average": 0.0,
+            "Maximum": 0.0,
+            "Unit": "Seconds"
+        },
+        {
+            "Timestamp": "2026-06-02T21:02:00-03:00",
+            "Average": 0.0,
+            "Maximum": 0.0,
+            "Unit": "Seconds"
+        },
+        {
+            "Timestamp": "2026-06-02T20:58:00-03:00",
+            "Average": 0.000273972602739726,
+            "Maximum": 0.000273972602739726,
+            "Unit": "Seconds"
+        },
+        {
+            "Timestamp": "2026-06-02T21:01:00-03:00",
+            "Average": 0.0,
+            "Maximum": 0.0,
+            "Unit": "Seconds"
+        },
+        {
+            "Timestamp": "2026-06-02T20:57:00-03:00",
+            "Average": 0.0,
+            "Maximum": 0.0,
+            "Unit": "Seconds"
+        }
+    ]
+}
