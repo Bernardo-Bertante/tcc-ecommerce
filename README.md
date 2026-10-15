@@ -320,3 +320,37 @@ Para encerrar e remover o volume local do DynamoDB:
 ```bash
 docker compose -f infrastructure/docker-compose.processor.yml down -v
 ```
+
+## Reprodutibilidade
+
+Os CSVs citados no texto ficam em `analysis/` e são gerados pelos scripts abaixo, a partir
+dos dados versionados em `analysis/fargate/` e `analysis/lambda/`. Requisitos:
+`pip install pandas numpy scipy boto3` (boto3 só para os scripts que consultam a AWS;
+`analysis/requirements.txt` hoje lista apenas boto3).
+
+| CSV | Script que gera | Cenário | Entradas | Reprodutível só com o repositório? |
+|---|---|---|---|---|
+| `analysis/fase5/fase5_estatistica_descritiva_novo.csv` | `analysis/fase5_analise_estatistica.py` (grava como `fase5_estatistica_descritiva.csv`; o `_novo` é cópia byte a byte) | F1, F2, F3, F2-S (Fargate), L1, L2, L3 (Lambda) | `analysis/fargate/fase3/`, `fase3b/`, `analysis/lambda/fase4/`, `analysis/lambda/l1/l1_init_durations.json` | Não: L2/L3 r1–r3 usam os `*-raw.json` (ver `DADOS_GRANDES.md`) |
+| `analysis/fase5/fase5_testes_significancia.csv` | `analysis/fase5_analise_estatistica.py` | Comparações par a par, todos os cenários, com correção de Holm | idem | Não (idem) |
+| `analysis/fase5/fase5_teste_global.csv` | `analysis/fase5_analise_estatistica.py` | Teste global das três versões, por cenário | idem | Não (idem) |
+| `analysis/fase5/fase5_f1_corrigido_estatistica.csv` | `analysis/fase5_f1_corrigido.py` | F1 re-executado a 48 iter/s | `analysis/fargate/fase3-f1-rerun/` | Sim |
+| `analysis/fase5/fase5_f1_corrigido_significancia.csv` | `analysis/fase5_f1_corrigido.py` | F1 re-executado | idem | Sim |
+| `analysis/fase5/fase5_f1_corrigido_teste_global.csv` | `analysis/fase5_f1_corrigido.py` | F1 re-executado | idem | Sim |
+| `analysis/fase5/fase5_f2s_recursos.csv` | `analysis/fase5_recursos_f2s.py` | F2-S: CPU e memória do contêiner no hold | CloudWatch (métricas ECS, period=300) + CloudTrail RunTask, `analysis/fase5/runtasks_july.json` | Não: consulta a conta AWS; métricas de 5 min têm retenção de 63 dias |
+| `analysis/fase5/fase5_l1_memoria_novo.csv` | `analysis/fase5_analise_estatistica.py` (grava como `fase5_l1_memoria.csv`; o `_novo` é cópia byte a byte) | L1: memória máxima por invocação | CloudWatch Logs, linhas `REPORT` de `/aws/lambda/order-processor-*` | Não: consulta a conta AWS |
+| `analysis/lambda/l1/l1_duration_postinit.csv` | `analysis/lambda/l1/l1_duration_postinit.py` | L1: duração pós-init | CloudWatch Logs (janelas de 02–03/07/2026) | Não: consulta a conta AWS |
+| `analysis/exploratorio_build/build_runs.csv` | `analysis/exploratorio_build/run_series.sh` → `run_one.py` (resumos: `analyze.py`) | Exploratório: tempo e memória de build das três versões | Builds locais (Gradle + `native-image`) | Sim, re-executando os builds (o resultado depende da máquina) |
+
+Ordem sugerida:
+
+```bash
+python analysis/fase5_analise_estatistica.py   # precisa dos *-raw.json de L2/L3 e de credenciais AWS para L1
+python analysis/fase5_f1_corrigido.py
+python analysis/fase5_recursos_f2s.py          # credenciais AWS
+python analysis/lambda/l1/l1_duration_postinit.py  # credenciais AWS
+bash   analysis/exploratorio_build/run_series.sh measured && python analysis/exploratorio_build/analyze.py
+```
+
+Os scripts de carga do k6 estão em `benchmark/scenarios/` e `benchmark/lib/`; a execução no
+Fargate e no Lambda está em `benchmark/run/`; a infraestrutura (CloudFormation, task definition
+e configuração das funções Lambda) está em `infrastructure/aws/`.
