@@ -1,0 +1,2 @@
+cenario,n_por_grupo,nivel,anova_f,anova_p,kruskal_h,kruskal_p,shapiro_ok,levene_ok,metodo_indicado
+f1,5/5/5,rodada,60.248089803534114,5.519088272091981e-07,10.5,0.0052475183991813855,True,True,ANOVA

@@ -1,0 +1,4 @@
+cenario,comparacao,mannwhitney_u,mannwhitney_p,significativo_mw,ttest_t,ttest_p,significativo_t,cohens_d,cliffs_delta,media_a,media_b,mannwhitney_p_holm,ttest_p_holm,significativo_mw_holm,significativo_t_holm
+f1,springboot vs quarkus-jvm,97597775831.5,0.0,True,95.37210405126604,0.0,True,0.2261505511513408,0.5426824795342582,12.630979518002883,6.83394601662225,0.0,0.0,True,True
+f1,springboot vs quarkus-native,93321109159.0,0.0,True,84.05294179481913,0.0,True,0.19931103426946012,0.47506247297201387,12.630979518002883,7.6793910066538675,0.0,0.0,True,True
+f1,quarkus-jvm vs quarkus-native,46855600478.0,0.0,True,-19.9000021699858,4.304418910831458e-88,True,-0.04718543349469924,-0.25945867625384567,6.83394601662225,7.6793910066538675,0.0,4.304418910831458e-88,True,True

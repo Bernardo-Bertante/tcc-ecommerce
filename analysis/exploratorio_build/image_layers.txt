@@ -1,0 +1,55 @@
+## exp-build/os-sb:r1  size=608829656
+0B	ENTRYPOINT ["/opt/jboss/container/java/run/run-java.sh"]
+0B	ENV JAVA_APP_JAR=/deployments/app.jar
+0B	USER 185
+0B	EXPOSE [8081/tcp]
+33.4MB	COPY --chown=185 build/libs/order-service-springboot-0.0.1-SNAPSHOT.jar /deployments/app.jar # buildkit
+0B	ARG JAR_FILE=build/libs/order-service-springboot-0.0.1-SNAPSHOT.jar
+0B	ENV LANGUAGE=en_US:en
+294MB	/bin/sh -c #(nop) USER 185
+## exp-build/os-qj:r1  size=630841832
+0B	ENTRYPOINT ["/opt/jboss/container/java/run/run-java.sh"]
+0B	ENV JAVA_APP_JAR=/deployments/quarkus-run.jar
+0B	ENV JAVA_OPTS_APPEND=-Dquarkus.http.host=0.0.0.0
+0B	USER 185
+0B	EXPOSE [8081/tcp]
+1.26MB	COPY --chown=185 build/quarkus-app/quarkus/ /deployments/quarkus/ # buildkit
+73.7kB	COPY --chown=185 build/quarkus-app/app/ /deployments/app/ # buildkit
+4.1kB	COPY --chown=185 build/quarkus-app/*.jar /deployments/ # buildkit
+## exp-build/os-qn:r1  size=278455015
+0B	ENTRYPOINT ["./application" "-Dquarkus.http.host=0.0.0.0"]
+0B	USER 1001
+0B	EXPOSE [8081/tcp]
+94.2MB	COPY --chown=1001:root --chmod=0755 build/*-runner /work/application # buildkit
+0B	RUN /bin/sh -c chown 1001 /work  && chmod "g+rwX" /work  && chown 1001:root /work # buildkit
+0B	WORKDIR /work/
+111MB	/bin/sh -c #(nop) LABEL "architecture"="x86_64" "vcs-type"="git" "vcs-ref"="6079561048478278f348def31f7f9ebeb191ac1c" "org.opencontainers.image.revision"=
+0B	/bin/sh -c #(nop) COPY file:692d8e4624dc42339649e2ed15402cbcd0b4bc9354cf8f44fe3fa0d9490bc900 in /root/buildinfo/labels.json      
+## order-service-springboot:20260616-160138  size=606195081
+0B	ENTRYPOINT ["/opt/jboss/container/java/run/run-java.sh"]
+0B	ENV JAVA_APP_JAR=/deployments/app.jar
+0B	USER 185
+0B	EXPOSE [8081/tcp]
+33.4MB	COPY --chown=185 build/libs/order-service-springboot-0.0.1-SNAPSHOT.jar /deployments/app.jar # buildkit
+0B	ARG JAR_FILE=build/libs/order-service-springboot-0.0.1-SNAPSHOT.jar
+0B	ENV LANGUAGE=en_US:en
+293MB	/bin/sh -c #(nop) USER 185
+## 776648109551.dkr.ecr.us-east-1.amazonaws.com/order-service-quarkus-jvm:20260616-160138  size=628207134
+0B	ENTRYPOINT ["/opt/jboss/container/java/run/run-java.sh"]
+0B	ENV JAVA_APP_JAR=/deployments/quarkus-run.jar
+0B	ENV JAVA_OPTS_APPEND=-Dquarkus.http.host=0.0.0.0
+0B	USER 185
+0B	EXPOSE [8081/tcp]
+1.26MB	COPY --chown=185 build/quarkus-app/quarkus/ /deployments/quarkus/ # buildkit
+73.7kB	COPY --chown=185 build/quarkus-app/app/ /deployments/app/ # buildkit
+4.1kB	COPY --chown=185 build/quarkus-app/*.jar /deployments/ # buildkit
+## 776648109551.dkr.ecr.us-east-1.amazonaws.com/order-service-quarkus-native:20260616-160138  size=278484511
+0B	ENTRYPOINT ["./application" "-Dquarkus.http.host=0.0.0.0"]
+0B	USER 1001
+0B	EXPOSE [8081/tcp]
+94.2MB	COPY --chown=1001:root --chmod=0755 build/*-runner /work/application # buildkit
+0B	RUN /bin/sh -c chown 1001 /work  && chmod "g+rwX" /work  && chown 1001:root /work # buildkit
+0B	WORKDIR /work/
+111MB	/bin/sh -c #(nop) LABEL "architecture"="x86_64" "vcs-type"="git" "vcs-ref"="6079561048478278f348def31f7f9ebeb191ac1c" "org.opencontainers.image.revision"=
+0B	/bin/sh -c #(nop) COPY file:692d8e4624dc42339649e2ed15402cbcd0b4bc9354cf8f44fe3fa0d9490bc900 in /root/buildinfo/labels.json      
+44.2MB	COPY --chown=185 build/quarkus-app/lib/ /dep…

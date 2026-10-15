@@ -1,0 +1,100 @@
+{
+  "scenario": "f3_black_friday_controlled",
+  "runtime": "quarkus-jvm",
+  "round": 4,
+  "rates_iter_per_s": {
+    "baseline": 48,
+    "peak": 240,
+    "recovery": 48
+  },
+  "phase_durations_k6": {
+    "baseline": "5m",
+    "ramp_up": "2m",
+    "peak": "10m",
+    "recovery_ramp": "2m",
+    "recovery": "5m",
+    "ramp_down": "1m"
+  },
+  "phases": [
+    {
+      "name": "baseline",
+      "offset_s": 0,
+      "duration_s": 300,
+      "target_iter_per_s": 48,
+      "transition": "step",
+      "start_utc": "2026-09-02T19:04:28Z",
+      "end_utc": "2026-09-02T19:09:28Z"
+    },
+    {
+      "name": "ramp_up",
+      "offset_s": 300,
+      "duration_s": 120,
+      "target_iter_per_s": 240,
+      "transition": "linear",
+      "start_utc": "2026-09-02T19:09:28Z",
+      "end_utc": "2026-09-02T19:11:28Z"
+    },
+    {
+      "name": "peak",
+      "offset_s": 420,
+      "duration_s": 600,
+      "target_iter_per_s": 240,
+      "transition": "step",
+      "start_utc": "2026-09-02T19:11:28Z",
+      "end_utc": "2026-09-02T19:21:28Z"
+    },
+    {
+      "name": "recovery_ramp",
+      "offset_s": 1020,
+      "duration_s": 120,
+      "target_iter_per_s": 48,
+      "transition": "linear",
+      "start_utc": "2026-09-02T19:21:28Z",
+      "end_utc": "2026-09-02T19:23:28Z"
+    },
+    {
+      "name": "recovery",
+      "offset_s": 1140,
+      "duration_s": 300,
+      "target_iter_per_s": 48,
+      "transition": "step",
+      "start_utc": "2026-09-02T19:23:28Z",
+      "end_utc": "2026-09-02T19:28:28Z"
+    },
+    {
+      "name": "ramp_down",
+      "offset_s": 1440,
+      "duration_s": 60,
+      "target_iter_per_s": 0,
+      "transition": "linear",
+      "start_utc": "2026-09-02T19:28:28Z",
+      "end_utc": "2026-09-02T19:29:28Z"
+    }
+  ],
+  "theoretical_iterations": 208800,
+  "total_duration_s": 1500,
+  "k6_invoke_utc": "2026-09-02T19:02:06Z",
+  "k6_return_utc": "2026-09-02T19:28:31Z",
+  "load_start_utc": "2026-09-02T19:04:28.731979362Z",
+  "load_end_utc": "2026-09-02T19:29:27.258454289Z",
+  "k6_version": "k6 v0.45.0 (2023-06-19T08:41:01+0000/v0.45.0-0-gc3b4587b, go1.20.5, linux/amd64)",
+  "k6_exit_code": "0",
+  "runner_ip": "100.25.216.168",
+  "task_definition": "order-service-quarkus-jvm:10",
+  "image_digest": "sha256:abec3583cd78ae5ed079dac8c8cd507ccafbbd19863f9f2df541599c7eae889b",
+  "aws_account": "776648109551",
+  "aws_region": "us-east-1",
+  "rds_instance": "order-service-postgres",
+  "pre_allocated_vus": 1500,
+  "max_vus": 3000,
+  "script": {
+    "path": "benchmark/scenarios/f3_black_friday_controlled.js",
+    "git_commit": "f9e6c2be65c7a9fdb756edaa0180fa321da61019",
+    "git_blob_sha": "0ff21406dbd3b041f9e53771633ef453b783b6af",
+    "git_dirty": true
+  },
+  "runner_script": {
+    "path": "benchmark/run/f3_rerun.sh",
+    "git_blob_sha": "c4a7fb40932091d8305aa8e348bf4523c2bf328e"
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "springboot": {
+    "n_valid": 11,
+    "duration_mean_ms": 2766.71,
+    "duration_std_ms": 134.25,
+    "duration_median_ms": 2773.66,
+    "duration_min_ms": 2568.95,
+    "duration_max_ms": 3058.69,
+    "init_duration_mean_ms": 3727.04,
+    "init_plus_duration_ms": 6493.75
+  },
+  "quarkus-jvm": {
+    "n_valid": 10,
+    "duration_mean_ms": 5600.44,
+    "duration_std_ms": 173.71,
+    "duration_median_ms": 5620.43,
+    "duration_min_ms": 5315.05,
+    "duration_max_ms": 5842.54,
+    "init_duration_mean_ms": 1385.9,
+    "init_plus_duration_ms": 6986.34
+  },
+  "quarkus-native": {
+    "n_valid": 11,
+    "duration_mean_ms": 345.8,
+    "duration_std_ms": 17.53,
+    "duration_median_ms": 350.54,
+    "duration_min_ms": 308.58,
+    "duration_max_ms": 369.34,
+    "init_duration_mean_ms": 305.04,
+    "init_plus_duration_ms": 650.84
+  }
+}

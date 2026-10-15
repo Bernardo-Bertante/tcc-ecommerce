@@ -1,0 +1,77 @@
+Exploratório — estatística descritiva (execuções válidas medidas; n por versão abaixo)
+
+Order Service · Spring Boot (n=5, reps r1 r2 r3 r4 r5)
+  total  mediana 9.0s  [7.4–10.5]  média 9.2±1.2s  CV 13.4%
+  gradle mediana 5.2s   imagem mediana 3.8s
+  CPU host (user+sys) 24s · CPU contêineres 0s · CPU sistema em excesso 27s · CPU média 18% de 16 threads
+  memória sistema acima da base: mediana 667 MB, máx 736 MB; RSS árvore de processos máx 711 MB; maior pico de contêiner máx 0 MB; swap máx 1056 MB
+  artefato 33.4 MB · imagem 608.8 MB
+
+Order Service · Quarkus JVM (n=5, reps r1 r2 r3 r4 r5)
+  total  mediana 29.9s  [28.4–38.0]  média 31.4±3.8s  CV 12.1%
+  gradle mediana 25.2s   imagem mediana 7.0s
+  CPU host (user+sys) 104s · CPU contêineres 1s · CPU sistema em excesso 108s · CPU média 24% de 16 threads
+  memória sistema acima da base: mediana 2143 MB, máx 2270 MB; RSS árvore de processos máx 2220 MB; maior pico de contêiner máx 156 MB; swap máx 1056 MB
+  artefato 45.1 MB · imagem 630.8 MB
+
+Order Service · Quarkus Native (n=5, reps r1 r2 r3 r4 r5)
+  total  mediana 159.9s  [151.4–162.8]  média 158.5±4.3s  CV 2.7%
+  gradle mediana 143.2s   imagem mediana 14.9s
+  CPU host (user+sys) 110s · CPU contêineres 1430s · CPU sistema em excesso 1563s · CPU média 63% de 16 threads
+  memória sistema acima da base: mediana 6201 MB, máx 6452 MB; RSS árvore de processos máx 2197 MB; maior pico de contêiner máx 5196 MB; swap máx 1061 MB
+  native-image: 110.0s (mediana), Peak RSS 4.96 GB, CPU load 12.77
+  artefato 94.2 MB · imagem 278.4 MB
+
+Order Processor · Spring Boot (n=5, reps r1 r2 r3 r4 r5)
+  total  mediana 6.9s  [6.9–7.0]  média 6.9±0.1s  CV 1.0%
+  gradle mediana 6.9s
+  CPU host (user+sys) 32s · CPU contêineres 0s · CPU sistema em excesso 31s · CPU média 26% de 16 threads
+  memória sistema acima da base: mediana 798 MB, máx 845 MB; RSS árvore de processos máx 877 MB; maior pico de contêiner máx 0 MB; swap máx 1061 MB
+  artefato 29.3 MB
+
+Order Processor · Quarkus JVM (n=5, reps r1 r2 r3 r4 r5)
+  total  mediana 16.8s  [16.3–21.5]  média 18.3±2.5s  CV 13.4%
+  gradle mediana 16.8s
+  CPU host (user+sys) 63s · CPU contêineres 6s · CPU sistema em excesso 68s · CPU média 26% de 16 threads
+  memória sistema acima da base: mediana 1928 MB, máx 1957 MB; RSS árvore de processos máx 1754 MB; maior pico de contêiner máx 354 MB; swap máx 1057 MB
+  artefato 30.7 MB
+
+Order Processor · Quarkus Native (n=5, reps r1 r2 r3 r4 r5)
+  total  mediana 80.8s  [80.1–83.8]  média 81.2±1.6s  CV 1.9%
+  gradle mediana 80.8s
+  CPU host (user+sys) 67s · CPU contêineres 742s · CPU sistema em excesso 815s · CPU média 65% de 16 threads
+  memória sistema acima da base: mediana 4047 MB, máx 4129 MB; RSS árvore de processos máx 1781 MB; maior pico de contêiner máx 3178 MB; swap máx 1061 MB
+  native-image: 58.3s (mediana), Peak RSS 2.84 GB, CPU load 12.43
+  artefato 21.2 MB
+
+Razões pela mediana
+  camada 1 total_wall_median                os-qn/os-qj   5.35  (159.9 / 29.9)
+  camada 1 total_wall_median                os-qn/os-sb   17.80  (159.9 / 9.0)
+  camada 1 total_wall_median                os-qj/os-sb   3.33  (29.9 / 9.0)
+  camada 1 gradle_wall_median               os-qn/os-qj   5.68  (143.2 / 25.2)
+  camada 1 gradle_wall_median               os-qn/os-sb   27.59  (143.2 / 5.2)
+  camada 1 gradle_wall_median               os-qj/os-sb   4.86  (25.2 / 5.2)
+  camada 1 cpu_sys_excess_median            os-qn/os-qj   14.44  (1562.6 / 108.2)
+  camada 1 cpu_sys_excess_median            os-qn/os-sb   58.52  (1562.6 / 26.7)
+  camada 1 cpu_sys_excess_median            os-qj/os-sb   4.05  (108.2 / 26.7)
+  camada 1 cpu_host_user_sys_median         os-qn/os-qj   1.06  (110.5 / 103.9)
+  camada 1 cpu_host_user_sys_median         os-qn/os-sb   4.55  (110.5 / 24.3)
+  camada 1 cpu_host_user_sys_median         os-qj/os-sb   4.28  (103.9 / 24.3)
+  camada 1 mem_peak_above_base_mb_median    os-qn/os-qj   2.89  (6201.0 / 2143.0)
+  camada 1 mem_peak_above_base_mb_median    os-qn/os-sb   9.30  (6201.0 / 667.0)
+  camada 1 mem_peak_above_base_mb_median    os-qj/os-sb   3.21  (2143.0 / 667.0)
+  camada 2 total_wall_median                op-qn/op-qj   4.82  (80.8 / 16.8)
+  camada 2 total_wall_median                op-qn/op-sb   11.66  (80.8 / 6.9)
+  camada 2 total_wall_median                op-qj/op-sb   2.42  (16.8 / 6.9)
+  camada 2 gradle_wall_median               op-qn/op-qj   4.82  (80.8 / 16.8)
+  camada 2 gradle_wall_median               op-qn/op-sb   11.66  (80.8 / 6.9)
+  camada 2 gradle_wall_median               op-qj/op-sb   2.42  (16.8 / 6.9)
+  camada 2 cpu_sys_excess_median            op-qn/op-qj   12.02  (815.1 / 67.8)
+  camada 2 cpu_sys_excess_median            op-qn/op-sb   26.55  (815.1 / 30.7)
+  camada 2 cpu_sys_excess_median            op-qj/op-sb   2.21  (67.8 / 30.7)
+  camada 2 cpu_host_user_sys_median         op-qn/op-qj   1.06  (67.3 / 63.2)
+  camada 2 cpu_host_user_sys_median         op-qn/op-sb   2.13  (67.3 / 31.6)
+  camada 2 cpu_host_user_sys_median         op-qj/op-sb   2.00  (63.2 / 31.6)
+  camada 2 mem_peak_above_base_mb_median    op-qn/op-qj   2.10  (4047.0 / 1928.0)
+  camada 2 mem_peak_above_base_mb_median    op-qn/op-sb   5.07  (4047.0 / 798.0)
+  camada 2 mem_peak_above_base_mb_median    op-qj/op-sb   2.42  (1928.0 / 798.0)

@@ -1,0 +1,88 @@
+version,item,n,median_s,min_s,max_s
+os-sb,summary:Total Build Time,5,4.988,4.793,5.097
+os-sb,summary:Startup,5,1.672,1.663,1.747
+os-sb,summary:Task Execution,5,1.198,1.121,1.378
+os-sb,summary:Configuring Projects,5,0.875,0.867,0.9
+os-sb,task:compileJava,5,0.864,0.83,0.987
+os-sb,task:bootJar,5,0.277,0.243,0.34
+os-sb,summary:Loading Projects,5,0.188,0.175,0.221
+os-sb,summary:Settings and buildSrc,5,0.173,0.167,0.178
+os-sb,summary:Artifact Transforms,5,0.0,0.0,0.0
+os-qj,summary:Total Build Time,5,24.997,21.196,28.414
+os-qj,summary:Task Execution,5,20.706,16.706,24.064
+os-qj,task:test,5,15.203,10.91,17.459
+os-qj,task:quarkusAppPartsBuild,5,2.346,2.178,2.366
+os-qj,summary:Startup,5,1.83,1.8,1.873
+os-qj,summary:Configuring Projects,5,1.051,1.042,1.129
+os-qj,task:compileJava,5,0.941,0.901,0.978
+os-qj,task:quarkusGenerateCode,5,0.774,0.734,0.895
+os-qj,task:compileTestJava,5,0.479,0.413,0.541
+os-qj,task:quarkusGenerateCodeTests,5,0.313,0.273,0.372
+os-qj,summary:Settings and buildSrc,5,0.308,0.3,0.326
+os-qj,task:quarkusGenerateAppModel,5,0.291,0.254,0.355
+os-qj,task:quarkusBuild,5,0.265,0.027,1.12
+os-qj,task:quarkusGenerateTestAppModel,5,0.099,0.095,0.112
+os-qj,summary:Loading Projects,5,0.083,0.082,0.094
+os-qj,task:clean,5,0.075,0.04,0.08
+os-qj,summary:Artifact Transforms,5,0.0,0.0,0.0
+os-qn,summary:Total Build Time,5,142.94,138.66,148.27
+os-qn,summary:Task Execution,5,138.55,134.18,143.89
+os-qn,task:quarkusAppPartsBuild,5,120.5,119.16,125.97
+os-qn,task:test,5,13.059,11.182,15.413
+os-qn,summary:Startup,5,1.842,1.782,1.856
+os-qn,summary:Configuring Projects,5,1.09,1.031,1.151
+os-qn,task:compileJava,5,0.921,0.911,0.995
+os-qn,task:quarkusGenerateCode,5,0.783,0.735,0.808
+os-qn,task:quarkusBuild,5,0.716,0.627,0.788
+os-qn,task:compileTestJava,5,0.449,0.396,0.476
+os-qn,task:quarkusGenerateCodeTests,5,0.312,0.281,0.389
+os-qn,summary:Settings and buildSrc,5,0.304,0.295,0.353
+os-qn,task:quarkusGenerateAppModel,5,0.256,0.237,0.302
+os-qn,task:quarkusGenerateTestAppModel,5,0.11,0.093,0.117
+os-qn,summary:Loading Projects,5,0.087,0.083,0.1
+os-qn,task:quarkusBuildAppModel,5,0.061,0.034,0.074
+os-qn,summary:Artifact Transforms,5,0.0,0.0,0.0
+op-sb,summary:Total Build Time,5,6.717,6.675,6.837
+op-sb,summary:Task Execution,5,2.614,2.533,2.664
+op-sb,summary:Startup,5,1.727,1.67,1.814
+op-sb,summary:Configuring Projects,5,0.89,0.843,0.897
+op-sb,task:compileJava,5,0.718,0.628,0.763
+op-sb,task:lambdaZip,5,0.713,0.711,0.727
+op-sb,task:test,5,0.7,0.692,0.739
+op-sb,task:compileTestJava,5,0.39,0.372,0.451
+op-sb,summary:Loading Projects,5,0.183,0.18,0.2
+op-sb,summary:Settings and buildSrc,5,0.175,0.161,0.2
+op-sb,summary:Artifact Transforms,5,0.0,0.0,0.0
+op-qj,summary:Total Build Time,5,16.526,16.052,21.3
+op-qj,summary:Task Execution,5,12.294,11.989,17.078
+op-qj,task:test,5,7.683,7.492,12.627
+op-qj,task:quarkusAppPartsBuild,5,1.865,1.816,1.881
+op-qj,summary:Startup,5,1.855,1.768,1.867
+op-qj,summary:Configuring Projects,5,1.058,0.991,1.1
+op-qj,task:quarkusGenerateCode,5,0.673,0.651,0.683
+op-qj,task:compileJava,5,0.626,0.573,0.654
+op-qj,task:compileTestJava,5,0.505,0.503,0.529
+op-qj,summary:Settings and buildSrc,5,0.356,0.333,0.377
+op-qj,task:quarkusGenerateCodeTests,5,0.28,0.259,0.312
+op-qj,task:quarkusBuild,5,0.182,0.181,0.219
+op-qj,task:quarkusGenerateAppModel,5,0.153,0.134,0.167
+op-qj,summary:Loading Projects,5,0.088,0.081,0.09
+op-qj,task:quarkusGenerateTestAppModel,5,0.076,0.076,0.113
+op-qj,task:clean,5,0.063,0.053,0.066
+op-qj,summary:Artifact Transforms,5,0.0,0.0,0.0
+op-qn,summary:Total Build Time,5,80.59,79.86,83.61
+op-qn,summary:Task Execution,5,76.52,75.68,79.5
+op-qn,task:quarkusAppPartsBuild,5,66.29,65.61,69.67
+op-qn,task:test,5,6.684,6.406,7.554
+op-qn,summary:Startup,5,1.833,1.801,1.887
+op-qn,summary:Configuring Projects,5,1.023,0.991,1.1
+op-qn,task:quarkusGenerateCode,5,0.665,0.653,0.731
+op-qn,task:compileJava,5,0.585,0.569,0.652
+op-qn,task:compileTestJava,5,0.523,0.516,0.568
+op-qn,task:quarkusBuild,5,0.504,0.483,0.857
+op-qn,summary:Settings and buildSrc,5,0.324,0.302,0.35
+op-qn,task:quarkusGenerateCodeTests,5,0.265,0.234,0.313
+op-qn,task:quarkusGenerateAppModel,5,0.148,0.134,0.177
+op-qn,summary:Loading Projects,5,0.085,0.081,0.09
+op-qn,task:quarkusGenerateTestAppModel,5,0.079,0.072,0.097
+op-qn,summary:Artifact Transforms,5,0.0,0.0,0.0

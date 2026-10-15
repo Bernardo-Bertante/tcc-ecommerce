@@ -1,0 +1,53 @@
+{
+  "scenario": "f1_low_load",
+  "runtime": "springboot",
+  "round": 2,
+  "f1_rate_iter_per_s": 48,
+  "start_rate_iter_per_s": 1,
+  "phases": [
+    {
+      "name": "ramp_up",
+      "target_iter_per_s": 48,
+      "duration_s": 120,
+      "transition": "linear"
+    },
+    {
+      "name": "hold",
+      "target_iter_per_s": 48,
+      "duration_s": 1200,
+      "transition": "step"
+    },
+    {
+      "name": "ramp_down",
+      "target_iter_per_s": 0,
+      "duration_s": 120,
+      "transition": "linear"
+    }
+  ],
+  "phase_durations_k6": {
+    "ramp_up": "2m",
+    "hold": "20m",
+    "ramp_down": "2m"
+  },
+  "theoretical_iterations": 63420,
+  "start_utc": "2026-08-31T10:19:55Z",
+  "end_utc": "2026-08-31T10:44:10Z",
+  "k6_version": "k6 v0.45.0 (2023-06-19T08:41:01+0000/v0.45.0-0-gc3b4587b, go1.20.5, linux/amd64)",
+  "k6_exit_code": "0",
+  "runner_ip": "54.147.212.56",
+  "task_definition": "order-service-springboot:12",
+  "image_digest": "sha256:276548dd7956b91122dbb641d50030c0d81d59a3e1bef54357ba965b77f77c68",
+  "aws_account": "776648109551",
+  "aws_region": "us-east-1",
+  "rds_instance": "order-service-postgres",
+  "script": {
+    "path": "benchmark/scenarios/f1_low_load.js",
+    "git_commit": "ed54be10e44e5014279e48ee7858d8303b7138cf",
+    "git_blob_sha": "85bbe0ae860d9e810f5874a0e36e6826743596be",
+    "git_dirty": false
+  },
+  "runner_script": {
+    "path": "benchmark/run/f1_rerun.sh",
+    "git_blob_sha": "9b07a92ae12c46ab92f4108d24351ba5d0096467"
+  }
+}

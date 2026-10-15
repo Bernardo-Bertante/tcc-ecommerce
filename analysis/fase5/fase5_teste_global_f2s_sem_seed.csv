@@ -1,0 +1,2 @@
+cenario,n_por_grupo,nivel,anova_f,anova_p,kruskal_h,kruskal_p,shapiro_ok,levene_ok,metodo_indicado
+f2s,5/5/5,rodada,10.217491049804137,0.002564516518469766,10.220000000000006,0.006036082923599548,False,True,Kruskal-Wallis
