@@ -1,0 +1,22 @@
+medida,versao,n,media,dp,ic95_inf,ic95_sup,min,max,mediana
+"L1 inicializacao (Init Duration, l1_init_durations.json)",springboot,11,3727.0391,262.62922,3550.6024,3903.4758,3105.53,4153.73,3768.91
+"L1 inicializacao (Init Duration, l1_init_durations.json)",quarkus-jvm,10,1385.9,48.972668,1350.8671,1420.9329,1315,1470,1382.5
+"L1 inicializacao (Init Duration, l1_init_durations.json)",quarkus-native,11,304.85182,9.282869,298.6155,311.08813,289.41,318.99,305.09
+"L1 inicializacao (Init Duration, l1_duration_postinit.csv)",springboot,11,3727.0391,262.62922,3550.6024,3903.4758,3105.53,4153.73,3768.91
+"L1 inicializacao (Init Duration, l1_duration_postinit.csv)",quarkus-jvm,10,1385.989,48.938607,1350.9804,1420.9976,1314.86,1470.09,1382.63
+"L1 inicializacao (Init Duration, l1_duration_postinit.csv)",quarkus-native,11,304.85182,9.282869,298.6155,311.08813,289.41,318.99,305.09
+L1 primeira execucao (Duration),springboot,11,2766.7118,134.25058,2676.5211,2856.9026,2568.95,3058.69,2773.66
+L1 primeira execucao (Duration),quarkus-jvm,10,5600.441,173.71052,5476.176,5724.706,5315.05,5842.54,5620.43
+L1 primeira execucao (Duration),quarkus-native,11,345.80364,17.529534,334.02714,357.58014,308.58,369.34,350.54
+L1 inicializacao + primeira execucao,springboot,11,6493.7509,355.86667,6254.6764,6732.8254,5879.19,7212.42,6509.19
+L1 inicializacao + primeira execucao,quarkus-jvm,10,6986.43,203.98959,6840.5046,7132.3554,6637.52,7254.28,6999.725
+L1 inicializacao + primeira execucao,quarkus-native,11,650.65545,24.796241,633.99711,667.3138,600.32,688.33,647.48
+L1 Billed Duration (campo do CloudWatch),springboot,11,6494.4545,355.79049,6255.4312,6733.4778,5880,7213,6510
+L1 Billed Duration (campo do CloudWatch),quarkus-jvm,10,6987.1,204.02366,6841.1503,7133.0497,6638,7255,7000.5
+L1 Billed Duration (campo do CloudWatch),quarkus-native,11,651.18182,24.782325,634.53283,667.83081,601,689,648
+L1 memoria maxima (MB),springboot,11,223.45455,0.68755165,222.99264,223.91645,223,225,223
+L1 memoria maxima (MB),quarkus-jvm,10,184.8,0.42163702,184.49838,185.10162,184,185,185
+L1 memoria maxima (MB),quarkus-native,11,68,0,68,68,68,68,68
+H1b inicializacao do conteiner (s),springboot,9,13.537333,0.81342409,12.91208,14.162586,12.114,14.682,13.515
+H1b inicializacao do conteiner (s),quarkus-jvm,9,8.275,1.2194203,7.3376706,9.2123294,6.901,10.285,7.68
+H1b inicializacao do conteiner (s),quarkus-native,9,0.16933333,0.014645819,0.15807556,0.18059111,0.146,0.194,0.17

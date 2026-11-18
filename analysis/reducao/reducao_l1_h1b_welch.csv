@@ -1,0 +1,22 @@
+medida,versao_a,versao_b,a,b,razao_a_b,dif_a_menos_b,dif_ic95_inf,dif_ic95_sup,t,gl,p,faixas_disjuntas
+"L1 inicializacao (Init Duration, l1_init_durations.json)",springboot,quarkus-jvm,3727.0391,1385.9,2.6892554,2341.1391,2163.0706,2519.2076,29.015487,10.762105,1.4463518e-11,sim
+"L1 inicializacao (Init Duration, l1_init_durations.json)",springboot,quarkus-native,3727.0391,304.85182,12.22574,3422.1873,3245.7,3598.6745,43.190272,10.024987,1.0071438e-12,sim
+"L1 inicializacao (Init Duration, l1_init_durations.json)",quarkus-jvm,quarkus-native,1385.9,304.85182,4.5461431,1081.0482,1045.7779,1116.3185,68.692899,9.5883403,3.0875392e-14,sim
+"L1 inicializacao (Init Duration, l1_duration_postinit.csv)",springboot,quarkus-jvm,3727.0391,1385.989,2.6890827,2341.0501,2162.984,2519.1162,29.015127,10.761051,1.4491923e-11,sim
+"L1 inicializacao (Init Duration, l1_duration_postinit.csv)",springboot,quarkus-native,3727.0391,304.85182,12.22574,3422.1873,3245.7,3598.6745,43.190272,10.024987,1.0071438e-12,sim
+"L1 inicializacao (Init Duration, l1_duration_postinit.csv)",quarkus-jvm,quarkus-native,1385.989,304.85182,4.5464351,1081.1372,1045.8911,1116.3833,68.744854,9.5891593,3.0586297e-14,sim
+L1 primeira execucao (Duration),springboot,quarkus-jvm,2766.7118,5600.441,0.49401678,-2833.7292,-2977.7352,-2689.7232,-41.528997,16.933835,1.761962e-18,sim
+L1 primeira execucao (Duration),springboot,quarkus-native,2766.7118,345.80364,8.0008176,2420.9082,2330.3566,2511.4598,59.304477,10.340888,1.9432758e-14,sim
+L1 primeira execucao (Duration),quarkus-jvm,quarkus-native,5600.441,345.80364,16.195437,5254.6374,5130.1437,5379.131,95.217248,9.1667001,4.7758136e-15,sim
+L1 inicializacao + primeira execucao,springboot,quarkus-jvm,6493.7509,6986.43,0.92948057,-492.67909,-757.83514,-227.52305,-3.9352669,16.185734,0.0011594491,nao
+L1 inicializacao + primeira execucao,springboot,quarkus-native,6493.7509,650.65545,9.9803219,5843.0955,5603.7533,6082.4376,54.325069,10.097099,8.5803018e-14,sim
+L1 inicializacao + primeira execucao,quarkus-jvm,quarkus-native,6986.43,650.65545,10.737526,6335.7745,6189.4564,6482.0927,97.565048,9.2419115,3.043831e-15,sim
+L1 Billed Duration (campo do CloudWatch),springboot,quarkus-jvm,6494.4545,6987.1,0.92949214,-492.64545,-757.76707,-227.52384,-3.9354424,16.189157,0.0011585993,nao
+L1 Billed Duration (campo do CloudWatch),springboot,quarkus-native,6494.4545,651.18182,9.9733352,5843.2727,5603.982,6082.5634,54.338441,10.097032,8.5604513e-14,sim
+L1 Billed Duration (campo do CloudWatch),quarkus-jvm,quarkus-native,6987.1,651.18182,10.729876,6335.9182,6189.5762,6482.2601,97.551905,9.2415593,3.0508646e-15,sim
+L1 memoria maxima (MB),springboot,quarkus-jvm,223.45455,184.8,1.2091696,38.654545,38.134024,39.175067,156.82553,16.791935,5.025523e-28,sim
+L1 memoria maxima (MB),springboot,quarkus-native,223.45455,68,3.2860963,155.45455,154.99264,155.91645,749.88461,10,4.3764382e-25,sim
+L1 memoria maxima (MB),quarkus-jvm,quarkus-native,184.8,68,2.7176471,116.8,116.49838,117.10162,876,9,1.6761506e-23,sim
+H1b inicializacao do conteiner (s),springboot,quarkus-jvm,13.537333,8.275,1.6359315,5.2623333,4.2139689,6.3106977,10.77004,13.942815,3.8499995e-08,sim
+H1b inicializacao do conteiner (s),springboot,quarkus-native,13.537333,0.16933333,79.944882,13.368,12.742716,13.993284,49.294706,8.005187,3.1349184e-11,sim
+H1b inicializacao do conteiner (s),quarkus-jvm,quarkus-native,8.275,0.16933333,48.86811,8.1056667,7.1683167,9.0430166,19.940005,8.002308,4.1565357e-08,sim

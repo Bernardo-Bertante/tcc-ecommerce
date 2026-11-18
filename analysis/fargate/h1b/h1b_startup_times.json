@@ -4,16 +4,16 @@
                         13.393, 12.114, 14.023, 12.515],
     "n": 9,
     "mean_s": 13.537,
-    "std_s": 0.826,
-    "note": "ciclo 2 descartado (duplicata de log CloudWatch)"
+    "std_s": 0.813,
+    "note": "10 ciclos coletados; o 10º (último) foi excluído nas três versões e os 9 valores acima são os ciclos 1 a 9, na ordem. A causa da exclusão não foi reconstituída; não houve duplicata de log. Os 10 ciclos estão em h1b_final_reconciliado.csv. std_s é o desvio padrão amostral (n-1)."
   },
   "quarkus-jvm": {
     "startup_seconds": [9.794, 7.588, 6.901, 7.680, 9.248,
                         7.231, 8.362, 10.285, 7.386],
     "n": 9,
     "mean_s": 8.275,
-    "std_s": 1.110,
-    "note": "ciclo 2 descartado (duplicata de log CloudWatch)"
+    "std_s": 1.219,
+    "note": "10 ciclos coletados; o 10º (último) foi excluído nas três versões e os 9 valores acima são os ciclos 1 a 9, na ordem. A causa da exclusão não foi reconstituída; não houve duplicata de log. Os 10 ciclos estão em h1b_final_reconciliado.csv. std_s é o desvio padrão amostral (n-1)."
   },
   "quarkus-native": {
     "startup_seconds": [0.146, 0.175, 0.169, 0.194, 0.165,
@@ -21,6 +21,6 @@
     "n": 9,
     "mean_s": 0.169,
     "std_s": 0.015,
-    "note": "ciclo 2 descartado (duplicata de log CloudWatch)"
+    "note": "10 ciclos coletados; o 10º (último) foi excluído nas três versões e os 9 valores acima são os ciclos 1 a 9, na ordem. A causa da exclusão não foi reconstituída; não houve duplicata de log. Os 10 ciclos estão em h1b_final_reconciliado.csv. std_s é o desvio padrão amostral (n-1)."
   }
 }
